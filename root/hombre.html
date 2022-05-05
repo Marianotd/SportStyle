@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="media/img/Logo.ico">
+    <title>Hombre</title>
+</head>
+
+<body id="Inicio">
+    <header>
+        <picture class="header__img"> <!-- Logo -->
+            <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
+            <img src="media/img/Logo.ico" alt="logo"> 
+        </picture>
+        <nav class="header__nav"> <!-- Menú de navegación -->
+            <ul class="header__ul"> 
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="hombre.html#Inicio">Hombre</a>
+                    <ul>
+                        <li><a href="">Indumentaria</a></li>
+                        <li><a href="">Calzado</a></li>
+                        <li><a href="">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li><a href="mujer.html">Mujer</a>
+                    <ul>
+                        <li><a href="">Indumentaria</a></li>
+                        <li><a href="">Calzado</a></li>
+                        <li><a href="">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li><a href="ninos.html">Niños</a>
+                    <ul>
+                        <li><a href="">Bebes</a></li>
+                        <li><a href="">Niños</a></li>
+                        <li><a href="">Jovenes</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main--catalogo size">
+        <article class="main__destacados--hombre"> <!-- Sección destacados -->
+            <div class="destacados__texto--hombre">
+                <p>Tu viaje comienza ahora</p>
+                <h2>Al rihla</h2>
+            </div>
+            <picture>
+                <source srcset="media/hombre/MainPequeña.jpg" media="(max-width: 768px)">
+                <img src="media/hombre/Main.jpg" alt="Destacados">
+            </picture> 
+        </article>
+
+        <article class="main__grilla"> <!-- Sección grilla de productos -->
+            <div  class="grilla__filtrosaplicados"> <!-- Indicador de filtros aplicados -->  
+                <button>← Atras </button>
+                <p>Hombre · Calzado · Accesorios</p>   
+            </div>
+            <form class="grilla__form" action="hombre.html"> <!-- Menú de filtros-->
+                <div class="grilla__filtros">
+                    <div>
+                        <p>Ordenar por</p>
+                        <label for="mayorprecio">Mayor precio</label>
+                        <input type="radio" name="orden" id="mayorprecio" value="mayorprecio">
+                        <label for="menorprecio">Menor precio</label>
+                        <input type="radio" name="orden" id="menorprecio" value="menorprecio">
+                        <label for="masvendidos">Más vendidos</label>
+                        <input type="radio" name="orden" id="masvendidos" value="masvendidos">
+                        <label for="novedades">Novedades</label>
+                        <input type="radio" name="orden" id="novedades" value="novedades">
+                    </div>
+
+                    <div>
+                        <p>Tipo de producto</p>
+                        <label for="remeras">Remeras</label>
+                        <input type="radio" name="tipoproducto" id="remeras" value="remeras">
+                        <label for="camisetas">Camisetas</label>
+                        <input type="radio" name="tipoproducto" id="camisetas" value="camisetas">
+                        <label for="zapatillas">Zapatillas</label>
+                        <input type="radio" name="tipoproducto" id="zapatillas" value="zapatillas">
+                        <label for="buzos">Buzos</label>
+                        <input type="radio" name="tipoproducto" id="buzos" value="buzos">
+                        <label for="shorts">Shorts</label>
+                        <input type="radio" name="tipoproducto" id="shorts" value="shorts">
+                        <label for="pantalones">Pantalones</label>
+                        <input type="radio" name="tipoproducto" id="pantalones" value="pantalones">
+                        <label for="conjuntos">Conjuntos</label>
+                        <input type="radio" name="tipoproducto" id="conjuntos" value="conjuntos">
+                    </div>
+
+                    <div>
+                        <p>Precio</p>
+                        <label for="minimo">Desde: </label>
+                        <input type="number" id="minimo" value="minimo" min="1000" max="29999" placeholder="Desde $1000">
+                        <label for="maximo">Hasta: </label>
+                        <input type="number" id="maximo" value="maximo" min="1001" max="30000" placeholder="Hasta $30000">    
+                    </div>
+
+                    <div>
+                        <p>Marca</p>
+                        <select name="marca">
+                            <option value="" disabled selected>Selecione una marca</option>
+                            <option value="adidas">Adidas</option>
+                            <option value="nike">Nike</option>
+                            <option value="asics">Asics</option>
+                            <option value="puma">Puma</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" value="Aplicar filtros">
+                </div>
+            </form>
+            <div class="grilla__productos"> <!-- Productos -->
+                <div class="productos__contenedor">
+                    <div class="contendor__txt">
+                        <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10</p>
+                        <p>$ 17.499</p>
+                    </div>
+                    <div class="contendor__img">
+                        <img src="media/hombre/productos/CamisetaMessi.png" alt="Camiseta Messi">
+                    </div>
+                    <input type="button" value="Añadir al carrito">
+                </div>
+
+                <div class="productos__contenedor">
+                    <div class="contendor__txt">
+                        <p>ZAPATILLAS GALAXY 5</p>
+                        <p>$ 11.499</p>
+                    </div>
+                    <div class="contendor__img">
+                        <img src="media/hombre/productos/ZapatillasGalaxy5.png" alt="ZapatillasGalaxy5">
+                    </div>
+                    <input type="button" value="Añadir al carrito">
+                </div>
+
+                <div class="productos__contenedor">
+                    <div class="contendor__txt">
+                        <p>Buzo Nike Dri-Fit Sport Clash</p>
+                        <p>$12.699</p>
+                    </div>
+                    <div class="contendor__img">
+                        <img src="media/hombre/productos/NikeDriFitSport.png" alt="BuzoNikeDriFit">
+                    </div>
+                    <input type="button" value="Añadir al carrito">
+                </div>
+
+                <div class="productos__contenedor">
+                    <div class="contendor__txt">
+                        <p>Pantalón Nike Dri-FIT Strike 21</p>
+                        <p>$12.499</p>
+                    </div>
+                    <div class="contendor__img">
+                        <img src="media/hombre/productos/PantalonNikeDriFitStrike21.png" alt="PantalonNikeDriFitStrike21">
+                    </div>
+                    <input type="button" value="Añadir al carrito">
+                </div>
+
+                <div class="productos__contenedor">
+                    <div class="contendor__txt">
+                        <p>ZAPATILLAS GEL-EQUATION 11</p>
+                        <p>$17.490</p>
+                    </div>
+                    <div class="contendor__img">
+                        <img src="media/hombre/productos/ZapatillasGelEquation11.png" alt="ZapatillasGel-Equation11">
+                    </div>
+                    <input type="button" value="Añadir al carrito">
+                </div>
+
+                <div class="productos__contenedor">
+                    <div class="contendor__txt">
+                        <p>REMERA SIN MANGAS BACK</p>
+                        <p>$4.800</p>
+                    </div>
+                    <div class="contendor__img">
+                        <img src="media/hombre/productos/RemeraSinMangaBack.png" alt="RemeraSinMangaBack">
+                    </div>
+                    <input type="button" value="Añadir al carrito">
+                </div>
+
+                <div class="productos__contenedor">
+                    <div class="contendor__txt">
+                        <p>Remera Ufc Fan Gear Text Reebok</p>
+                        <p>$ 5.439</p>
+                    </div>
+                    <div class="contendor__img">
+                        <img src="media/hombre/productos/RemeraRebookUFCGearText.png" alt="RemeraRebookUFCGearText">
+                    </div>
+                    <input type="button" value="Añadir al carrito">
+                </div>
+                
+                <div class="productos__contenedor">
+                    <div class="contendor__txt">
+                        <p>Zapatillas Energen Lite Reebok</p>
+                        <p>$ 11.499</p>
+                    </div>
+                    <div class="contendor__img">
+                        <img src="media/hombre/productos/ZapatillasRebookEnergenLite.png" alt="ZapatillasRebookEnergenLite">
+                    </div>
+                    <input type="button" value="Añadir al carrito">
+                </div>
+            </div>
+            <p class="grilla__pagina"><1, 2 , 3, 4, ... 99></p> <!-- Indicado de página en grilla productos-->
+        </article>
+
+        <article class="main__newsletter"> <!-- Suscripción a Newsletter -->
+            <p>Unite al club y conseguí un 15% de descuento en tu próxima compra</p>
+            <form action="hombre.html">
+                <input type="email" placeholder="Ingrese su email">
+                <input type="submit" value="Suscribirse">
+            </form>
+        </article>
+
+        <div class="main__iconowhatsapp--catalogo"> <!-- Chat whatsapp -->
+            <img src="media/img/Whatsapp.png" alt="Whatsapp">
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <a href="https://www.facebook.com/" target="_blank"><img src="media/img/Facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="media/img/Instagram.png" alt="Instagram"></a>
+            <a href="https://www.twitter.com/" target="_blank"><img src="media/img/Twitter.png" alt="Twitter"></a>
+        </div>
+        <p>@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
+    </footer>
+</body>
+
+</html>

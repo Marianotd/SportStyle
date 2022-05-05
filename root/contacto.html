@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="media/img/Logo.ico">
+    <title>Contacto</title>
+</head>
+
+<body id="Inicio">
+    <header>
+        <picture class="header__img"> <!-- Logo -->
+            <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
+            <img src="media/img/Logo.ico" alt="logo"> 
+        </picture>
+        <nav class="header__nav"> <!-- Menú de navegación -->
+            <ul class="header__ul"> 
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="hombre.html">Hombre</a>
+                    <ul>
+                        <li><a href="">Indumentaria</a></li>
+                        <li><a href="">Calzado</a></li>
+                        <li><a href="">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li><a href="mujer.html">Mujer</a>
+                    <ul>
+                        <li><a href="">Indumentaria</a></li>
+                        <li><a href="">Calzado</a></li>
+                        <li><a href="">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li><a href="ninos.html">Niños</a>
+                    <ul>
+                        <li><a href="">Bebes</a></li>
+                        <li><a href="">Niños</a></li>
+                        <li><a href="">Jovenes</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html#Inicio">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main--contacto">
+        <aside class="main__aside"> <!-- Imagen lateral -->
+            <div class="aside__texto">
+                <h2>HACETE MIEMBRO DE SPORTSTYLE</h2>
+                <p>Creá tu perfil de miembro de SportStyle y obtené acceso anticipado a los mejores productos, inspiración y
+                    comunidad SportStyle.</p> 
+            </div>
+            <img src="media/contacto/Contacto.jpg" alt="Contacto">
+        </aside>
+
+        <section class="main__register">
+            <form class="register__form" action="contacto.html" method="GET"> <!-- Formulario de contacto -->
+                <h2>Hazte SportStyle member</h2>
+                <input type="email" name="email" placeholder="Dirección de correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="text" name="surname" placeholder="Apellidos" required>
+                <input type="text" name="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Fecha de nacimiento" required>
+                <select name="pais" id="pais" required>
+                    <option value="pais" disabled selected>País</option>
+                    <option value="ar">Argentina</option>
+                    <option value="br">Brasil</option>
+                    <option value="cl">Chile</option>
+                    <option value="pr">Perú</option>
+                    <option value="bl">Bolivia</option>
+                    <option value="ur">Uruguay</option>
+                    <option value="pg">Paraguay</option>
+                </select>
+                <div>
+                    <label for="masc">Masculino</label>
+                    <input type="radio" name="sexo" id="masc" required>
+
+                    <label for="fem">Femenino</label>
+                    <input type="radio" name="sexo" id="fem" required>
+                </div>
+
+                <div class="form__novmail">
+                    <input type="checkbox" name="novmail" id="novmail">
+                    <label for="novmail">Registrate para recibir correos electrónicos de SportStyle con actualizaciones de productos, ofertas y beneficios como miembro.</label>    
+                </div>
+                <div class="form__termycond">
+                    <span>Cuando creás una cuenta, confirmás que estás de acuerdo con la <a href="#">Política de privacidad</a> y los <a href="#">Términos de uso</a> de SportStyle.</span>   
+                </div>
+                <input type="submit" value="Únete a nosotros">
+                <span> ¿Ya eres miembro? <a href="#">Iniciar sesión.</a></span>
+            </form>
+        </section>
+    
+        <section class="main__contact">
+            <form class="contact__form" action="contacto.html" method="GET">
+                <h2>Contactanos</h2>
+                <input type="email" name="email" placeholder="Dirección de correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="text" name="surname" placeholder="Apellidos" required>
+                <input type="tel" name="tel" placeholder="Teléfono" required>
+                <textarea name="consulta" id="consulta" rows="10" placeholder="Dejanos tu consulta" maxlength="500" required></textarea>
+                <input type="submit" value="Enviar">
+            </form>   
+        </section>
+        
+        <div class="main__iconowhatsapp--niños"> <!-- Chat whatsapp -->
+            <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img src="media/img/Whatsapp.png" alt="Whatsapp"></a>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <a href="https://www.facebook.com/" target="_blank"><img src="media/img/Facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="media/img/Instagram.png" alt="Instagram"></a>
+            <a href="https://www.twitter.com/" target="_blank"><img src="media/img/Twitter.png" alt="Twitter"></a>
+        </div>
+        <p>@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
+    </footer>
+</body>
+
+</html>
