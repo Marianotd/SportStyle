@@ -124,11 +124,14 @@ header {
 @media all and (min-width: 1200px){
     header {
         background: #fff;
+        border-bottom: 1px solid #ccc;
+        align-items: flex-end;
     }
 
     .header__img {
         padding-left: 20px;
         cursor: pointer;
+        height: 80%;
     }
 
     .header__img img {
