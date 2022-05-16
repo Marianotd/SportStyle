@@ -10,34 +10,64 @@
     <title>SportStyle</title>
 </head>
 <body id="Inicio">
-
-    <header class="d-flex flex-column justify-content-around align-items-center">
-        <picture> <!-- Logo Header -->
+    <header class="d-flex flex-column flex-md-row justify-content-around align-items-center">
+        <picture class="col-xl-3"> <!-- Logo Header -->
             <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
             <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
         </picture>
 
-        <nav class="navbar navbar-dark mb-1">
+        <nav class="navbar navbar-dark mb-1 d-md-none"> <!-- NAV MOBILE -->
             <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
+                </button>
             </div>
         </nav>
 
-        <div class="collapse w-100 text-center text-uppercase" id="navbarToggleExternalContent">
+        <div class="collapse col-12 text-center text-uppercase" id="navbarToggleExternalContent">
             <div class="bg-light">
                 <div class="list-group">
+                    <form class="d-flex p-2" role="search">
+                        <input class="form-control me-2 fw-light" type="search" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-outline-primary btn-sm" type="submit">Ir</button>
+                    </form>
                     <a href="hombre.html" class="list-group-item list-group-item-action">Hombre</a>
                     <a href="mujer.html" class="list-group-item list-group-item-action">Mujer</a>
                     <a href="ninos.html" class="list-group-item list-group-item-action">Niños</a>
                     <a href="contacto.html" class="list-group-item list-group-item-action">Contacto</a>
-                  </div>
+                </div>
             </div>
-          </div>
+        </div>
+
+        <div class="d-none d-md-inline-block col-xl-8"> <!-- NAV MEDIUM-LARGE -->
+            <div class="container d-flex flex-column">
+                <form class="d-flex justify-content-end align-content-center pt-2 pb-2 gap-2" role="search">
+                    <input class="search-nav col-6" type="search" placeholder="Buscar..." aria-label="Buscar">
+                    <button class="btn btn-primary btn-sm disabled" type="submit">Ir</button>
+                </form>
+
+                <ul class="nav nav-tabs d-flex justify-content-center flex-nowrap mb-2">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#main">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="hombre.html">Hombre</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="mujer.html">Mujer</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="ninos.html">Niños</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                      </li>
+                </ul>
+            </div>  
+        </div>
     </header>
 
-    <section> <!-- Cuerpo --> 
+    <section id="main"> <!-- Cuerpo --> 
         <article class="oferta bg-warning p-1 text-center sticky-top"> <!-- Oferta del momento -->
                 <a href="contacto.html" class="text-uppercase text-decoration-none text-black">10% Off en tu próxima compra registrandote con tu correo para recibir novedades</a>
         </article>
@@ -52,60 +82,104 @@
             </a>
         </article>
 
-        <article> <!-- Sección novedades -->
+        <article class="novedades"> <!-- Sección novedades -->
             <h2 class="text-center fs-1 mt-4">Novedades</h2>
-            <div class="p-4 text-uppercase">
+            <div id="carousel" class="carousel slide d-xl-none mb-4" data-bs-ride="carousel"> <!-- Carousel productos -->
                 <div class="carousel-inner">
-                    <div class="contenedor__producto item active mb-4 col-12 col-md-5 col-xl-3 container rounded p-2 d-flex flex-column align-content-center justify-content-around">
-                        <div class="text-center">
-                            <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10</p>
-                            <p>$ 17.499</p>
+                    <div class="carousel-item active">
+                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-around">
+                            <div class="text-center">
+                                <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10</p>
+                                <p>$ 17.499</p>
+                            </div>
+                            <img src="media/img/productos/CamisetaMessi.png" class="d-block w-100" alt="CamisetaMessi">
+                            <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
                         </div>
-                        <img class="mx-auto d-bloc w-100" src="media/img/productos/CamisetaMessi.png" alt="Camiseta Messi">
-                        <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
                     </div>
+
+                    <div class="carousel-item">
+                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-around">
+                            <div class="text-center">
+                                <p>BOTINES PREDATOR EDGE.3 PASTO SINTÉTICO</p>
+                                <p>$ 16.999</p>
+                            </div>
+                            <img src="media/img/productos/BotinesPredator.png" class="d-block w-100" alt="BotinesPredator">
+                            <a href="#" class="producto__btn btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                       </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-around">
+                            <div class="text-center">
+                                <p>ZAPATILLAS SUPERSTAR</p>
+                                <p>$ 20.999</p>
+                            </div>
+                            <img src="media/img/productos/ZapatillasSuperstar.png" class="d-block w-100" alt="ZapatillasSuperstar">
+                            <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-around">
+                            <div class="text-center">
+                                <p>ZAPATILLAS FORUM LOW</p>
+                                <p>$ 23.999</p>
+                            </div>
+                            <img src="media/img/productos/ZapatillasForumLow.png" class="d-block w-100" alt="ZapatillasForumLow">
+                            <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                        </div>
+                    </div>   
+                </div>
+
+                <button class="carousel-control-prev d-xl-none" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next d-xl-none" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-- Productos grande -->
+            <div class="d-none d-xl-flex flex-row flex-wrap align-items-center justify-content-evenly">
+                <div id="contproducto" class="border rounded p-1 d-flex flex-column align-items-center justify-content-around">
+                    <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10 <br>$ 17.499</p>
+                    <img src="media/img/productos/CamisetaMessi.png" class="d-block w-100" alt="CamisetaMessi">
+                    <a href="#" class="btn btn-primary btn-sm mx-auto disabled" role="button" aria-disabled="true">Añadir</a>
+                </div>
     
-                    <div class="contenedor__producto item mb-4 col-12 col-md-5 col-xl-3 container rounded p-3 d-flex flex-column align-content-center justify-content-around">
-                        <div class="text-center">
-                            <p>BOTINES PREDATOR EDGE.3 PASTO SINTÉTICO</p>
-                            <p>$ 16.999</p>
-                        </div>
-                        <img class="mx-auto d-bloc w-100" src="media/img/productos/BotinesPredator.png" alt="Botines Predator">
-                        <a href="#" class="producto__btn btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
-                    </div>
+                <div id="contproducto" class="border rounded p-1 d-flex flex-column align-items-center justify-content-around">
+                    <p>BOTINES PREDATOR EDGE.3 PASTO SINTÉTICO <br>$ 16.999</p>
+                    <img src="media/img/productos/BotinesPredator.png" class="d-block w-100" alt="BotinesPredator">
+                    <a href="#" class="btn btn-primary btn-sm mx-auto disabled" role="button" aria-disabled="true">Añadir</a>
+                </div>
     
-                    <div class="contenedor__producto item mb-4 col-12 col-md-5 col-xl-3 container rounded p-3 d-flex flex-column align-content-center justify-content-around">
-                        <div class="text-center">
-                            <p>ZAPATILLAS SUPERSTAR</p>
-                            <p>$ 20.999</p>
-                        </div>
-                        <img class="mx-auto d-bloc w-100" src="media/img/productos/ZapatillasSuperstar.png" alt="Zapatillas Superstar">
-                        <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
-                    </div>
+                <div id="contproducto" class="border rounded p-1 d-flex flex-column align-items-center justify-content-around">
+                    <p>ZAPATILLAS SUPERSTAR <br>$ 20.999</p>
+                    <img src="media/img/productos/ZapatillasSuperstar.png" class="d-block w-100" alt="ZapatillasSuperstar">
+                    <a href="#" class="btn btn-primary btn-sm mx-auto disabled" role="button" aria-disabled="true">Añadir</a>
+                </div>
     
-                    <div class="contenedor__producto item mb-4 col-12 col-md-5 col-xl-3 container rounded p-3 d-flex flex-column align-content-center justify-content-around">
-                        <div class="text-center">
-                            <p>ZAPATILLAS FORUM LOW</p>
-                            <p>$ 23.999</p>
-                        </div>
-                        <img class="mx-auto d-bloc w-100" src="media/img/productos/ZapatillasForumLow.png" alt="Zapatillas Forum Low">
-                        <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
-                    </div>
+                <div id="contproducto" class="border rounded p-1 d-flex flex-column align-items-center justify-content-around">
+                    <p>ZAPATILLAS FORUM LOW <br>$ 23.999</p>
+                    <img src="media/img/productos/ZapatillasForumLow.png" class="d-block w-100" alt="ZapatillasForumLow">
+                    <a href="#" class="btn btn-primary btn-sm mx-auto disabled" role="button" aria-disabled="true">Añadir</a>
                 </div>
             </div>
         </article>
 
         <article> <!-- Sección marcas -->
             <h2 class="text-center fs-1">Nuestas marcas</h2>
-            <div class="d-flex flex-row flex-wrap justify-content-evenly align-content-center gap-4 p-4">
-                <img class="w-100 rounded img-thumbnail" src="media/img/marcas/Adidas.jpg" alt="Adidas">
-                <img class="w-100 rounded img-thumbnail" src="media/img/marcas/Nike.jpg" alt="Nike">
-                <img class="w-100 rounded img-thumbnail" src="media/img/marcas/NewBalance.jpg" alt="New Balance">
+            <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center gap-4 p-4">
+                <img class="img col-12 col-md-7 col-xl-3 rounded img-thumbnail" src="media/img/marcas/Adidas.jpg" alt="Adidas">
+                <img class="img col-12 col-md-7 col-xl-3 rounded img-thumbnail" src="media/img/marcas/Nike.jpg" alt="Nike">
+                <img class="img col-12 col-md-7 col-xl-3 rounded img-thumbnail" src="media/img/marcas/NewBalance.jpg" alt="New Balance">
             </div>
         </article>
 
-        <div class="position-fixed"> <!-- Chat whatsapp -->
-            <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img src="media/img/Whatsapp.png" alt="Whatsapp"></a>
+        <div class="iconowhatsapp d-inline-block position-fixed"> <!-- Chat whatsapp -->
+            <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img class="w-100" src="media/img/Whatsapp.png" alt="Whatsapp"></a>
         </div>
 
     </section>
