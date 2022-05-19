@@ -9,17 +9,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>SportStyle</title>
 </head>
-<body id="Inicio">
+<body>
     <header class="d-flex flex-column flex-md-row justify-content-around align-items-center">
         <picture class="col-xl-3"> <!-- Logo Header -->
             <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
             <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
         </picture>
 
-        <nav class="navbar navbar-dark mb-1 d-md-none"> <!-- NAV MOBILE -->
+        <nav class="navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
         </nav>
@@ -39,46 +39,50 @@
             </div>
         </div>
 
-        <div class="d-none d-md-inline-block col-xl-8"> <!-- NAV MEDIUM-LARGE -->
-            <div class="container d-flex flex-column">
+        <div class="d-none d-md-inline-block col-xl-8"> <!-- Nav viewport xl -->
+            <div class="d-flex flex-column justify-content-around gap-5">
                 <form class="d-flex justify-content-end align-content-center pt-2 pb-2 gap-2" role="search">
-                    <input class="search-nav col-6" type="search" placeholder="Buscar..." aria-label="Buscar">
+                    <input class="search-nav col-9 col-xl-6" type="search" placeholder="Buscar..." aria-label="Buscar">
                     <button class="btn btn-primary btn-sm disabled" type="submit">Ir</button>
                 </form>
 
-                <ul class="nav nav-tabs d-flex justify-content-center flex-nowrap mb-2">
+                <ul class="nav nav-tabs d-flex justify-content-evenly flex-nowrap mb-2">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#main">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="#main">Inicio</a>
                     </li>
+
                     <li class="nav-item">
-                      <a class="nav-link" href="hombre.html">Hombre</a>
+                        <a class="nav-link" href="hombre.html">Hombre</a>
                     </li>
+
                     <li class="nav-item">
-                      <a class="nav-link" href="mujer.html">Mujer</a>
+                        <a class="nav-link" href="mujer.html">Mujer</a>
                     </li>
+
                     <li class="nav-item">
-                      <a class="nav-link" href="ninos.html">Niños</a>
+                        <a class="nav-link" href="ninos.html">Niños</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="contacto.html">Contacto</a>
-                      </li>
+                    </li>
                 </ul>
             </div>  
         </div>
     </header>
 
     <section id="main"> <!-- Cuerpo --> 
-        <article class="oferta bg-warning p-1 text-center sticky-top"> <!-- Oferta del momento -->
-                <a href="contacto.html" class="text-uppercase text-decoration-none text-black">10% Off en tu próxima compra registrandote con tu correo para recibir novedades</a>
+        <article id="oferta" class="bg-warning p-1 text-center sticky-top"> <!-- Sección oferta del momento -->
+            <a href="contacto.html" class="text-uppercase text-decoration-none text-black">10% Off en tu próxima compra registrandote con tu correo para recibir novedades</a>
         </article>
 
         <article> <!-- Sección destacados -->
-            <a class="destacados d-block" href="hombre.html">
-                <div class="destacados__texto card-title p-4">
-                    <h2 class="fs-1">Al rihla</h2>
+            <a class="position-relative d-block text-center" href="hombre.html">
+                <div class="destacados__texto col-8 col-md-6 position-absolute text-white card-title p-4">
+                    <h2>Al rihla</h2>
                     <p>Tu viaje comienza ahora. Nueva pelota oficial de la Copa Mundial de la FIFA Qatar 2022™.</p>
                 </div>
-                <img class="destacados__img img-fluid card-img" src="media/img/Novedades.jpg" alt="novedades" width="100%">
+                <img class="img-fluid card-img" src="media/img/Novedades.jpg" alt="novedades" width="100%">
             </a>
         </article>
 
@@ -87,7 +91,7 @@
             <div id="carousel" class="carousel slide d-xl-none mb-4" data-bs-ride="carousel"> <!-- Carousel productos -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-around">
+                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-content-around">
                             <div class="text-center">
                                 <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10</p>
                                 <p>$ 17.499</p>
@@ -98,7 +102,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-around">
+                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-content-around">
                             <div class="text-center">
                                 <p>BOTINES PREDATOR EDGE.3 PASTO SINTÉTICO</p>
                                 <p>$ 16.999</p>
@@ -109,7 +113,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-around">
+                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-content-around">
                             <div class="text-center">
                                 <p>ZAPATILLAS SUPERSTAR</p>
                                 <p>$ 20.999</p>
@@ -120,7 +124,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-around">
+                        <div class="col-10 col-md-6 mx-auto border rounded p-3 d-flex flex-column align-items-center justify-content-around">
                             <div class="text-center">
                                 <p>ZAPATILLAS FORUM LOW</p>
                                 <p>$ 23.999</p>
@@ -131,37 +135,41 @@
                     </div>   
                 </div>
 
+                <!-- Controles carousel -->
+
                 <button class="carousel-control-prev d-xl-none" type="button" data-bs-target="#carousel" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
+
                 <button class="carousel-control-next d-xl-none" type="button" data-bs-target="#carousel" data-bs-slide="next">
                   <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
             </div>
 
-            <!-- Productos grande -->
-            <div class="d-none d-xl-flex flex-row flex-wrap align-items-center justify-content-evenly">
-                <div id="contproducto" class="border rounded p-1 d-flex flex-column align-items-center justify-content-around">
+            <!-- Productos viewport xl -->
+
+            <div id="contproductos" class="d-none d-xl-flex flex-row flex-wrap align-items-center justify-content-evenly">
+                <div id="producto" class="mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
                     <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10 <br>$ 17.499</p>
                     <img src="media/img/productos/CamisetaMessi.png" class="d-block w-100" alt="CamisetaMessi">
                     <a href="#" class="btn btn-primary btn-sm mx-auto disabled" role="button" aria-disabled="true">Añadir</a>
                 </div>
     
-                <div id="contproducto" class="border rounded p-1 d-flex flex-column align-items-center justify-content-around">
+                <div id="producto" class="col-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
                     <p>BOTINES PREDATOR EDGE.3 PASTO SINTÉTICO <br>$ 16.999</p>
                     <img src="media/img/productos/BotinesPredator.png" class="d-block w-100" alt="BotinesPredator">
                     <a href="#" class="btn btn-primary btn-sm mx-auto disabled" role="button" aria-disabled="true">Añadir</a>
                 </div>
     
-                <div id="contproducto" class="border rounded p-1 d-flex flex-column align-items-center justify-content-around">
+                <div id="producto" class="col-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
                     <p>ZAPATILLAS SUPERSTAR <br>$ 20.999</p>
                     <img src="media/img/productos/ZapatillasSuperstar.png" class="d-block w-100" alt="ZapatillasSuperstar">
                     <a href="#" class="btn btn-primary btn-sm mx-auto disabled" role="button" aria-disabled="true">Añadir</a>
                 </div>
     
-                <div id="contproducto" class="border rounded p-1 d-flex flex-column align-items-center justify-content-around">
+                <div id="producto" class="col-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
                     <p>ZAPATILLAS FORUM LOW <br>$ 23.999</p>
                     <img src="media/img/productos/ZapatillasForumLow.png" class="d-block w-100" alt="ZapatillasForumLow">
                     <a href="#" class="btn btn-primary btn-sm mx-auto disabled" role="button" aria-disabled="true">Añadir</a>
@@ -172,9 +180,9 @@
         <article> <!-- Sección marcas -->
             <h2 class="text-center fs-1">Nuestas marcas</h2>
             <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center gap-4 p-4">
-                <img class="img col-12 col-md-7 col-xl-3 rounded img-thumbnail" src="media/img/marcas/Adidas.jpg" alt="Adidas">
-                <img class="img col-12 col-md-7 col-xl-3 rounded img-thumbnail" src="media/img/marcas/Nike.jpg" alt="Nike">
-                <img class="img col-12 col-md-7 col-xl-3 rounded img-thumbnail" src="media/img/marcas/NewBalance.jpg" alt="New Balance">
+                <img id="marcas" class="img col-12 col-md-7 col-xl-3 rounded img-thumbnail" src="media/img/marcas/Adidas.jpg" alt="Adidas">
+                <img id="marcas" class="img col-12 col-md-7 col-xl-3 rounded img-thumbnail" src="media/img/marcas/Nike.jpg" alt="Nike">
+                <img id="marcas" class="img col-12 col-md-7 col-xl-3 rounded img-thumbnail" src="media/img/marcas/NewBalance.jpg" alt="New Balance">
             </div>
         </article>
 

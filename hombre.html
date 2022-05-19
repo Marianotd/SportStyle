@@ -7,229 +7,279 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="media/img/Logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Hombre</title>
 </head>
 
 <body id="Inicio">
-    <header>
-        <picture class="header__img"> <!-- Logo -->
+    <header class="d-flex flex-column flex-md-row justify-content-around align-items-center">
+        <picture class="col-xl-3"> <!-- Logo Header -->
             <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
-            <img src="media/img/Logo.ico" alt="logo"> 
+            <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
         </picture>
-        <nav class="header__nav"> <!-- Menú de navegación -->
-            <ul class="header__ul"> 
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="hombre.html#Inicio">Hombre</a>
-                    <ul>
-                        <li><a href="">Indumentaria</a></li>
-                        <li><a href="">Calzado</a></li>
-                        <li><a href="">Accesorios</a></li>
-                    </ul>
-                </li>
-                <li><a href="mujer.html">Mujer</a>
-                    <ul>
-                        <li><a href="">Indumentaria</a></li>
-                        <li><a href="">Calzado</a></li>
-                        <li><a href="">Accesorios</a></li>
-                    </ul>
-                </li>
-                <li><a href="ninos.html">Niños</a>
-                    <ul>
-                        <li><a href="">Bebes</a></li>
-                        <li><a href="">Niños</a></li>
-                        <li><a href="">Jovenes</a></li>
-                    </ul>
-                </li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
+
+        <nav class="navbar navbar-dark mb-1 d-md-none"> <!-- NAV MOBILE -->
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
         </nav>
+
+        <div class="collapse col-12 text-center text-uppercase" id="navbarToggleExternalContent">
+            <div class="bg-light">
+                <div class="list-group">
+                    <form class="d-flex p-2" role="search">
+                        <input class="form-control me-2 fw-light" type="search" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-outline-primary btn-sm" type="submit">Ir</button>
+                    </form>
+                    <a href="index.html" class="list-group-item list-group-item-action">Inicio</a>
+                    <a href="mujer.html" class="list-group-item list-group-item-action">Mujer</a>
+                    <a href="ninos.html" class="list-group-item list-group-item-action">Niños</a>
+                    <a href="contacto.html" class="list-group-item list-group-item-action">Contacto</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-none d-md-inline-block col-xl-8"> <!-- NAV MEDIUM-LARGE -->
+            <div class="d-flex flex-column justify-content-around gap-5">
+                <form class="d-flex justify-content-end align-content-center pt-2 pb-2 gap-2" role="search">
+                    <input class="search-nav col-9 col-xl-6" type="search" placeholder="Buscar..." aria-label="Buscar">
+                    <button class="btn btn-primary btn-sm disabled" type="submit">Ir</button>
+                </form>
+
+                <ul class="nav nav-tabs d-flex justify-content-evenly flex-nowrap mb-2">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#main">Hombre</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="mujer.html">Mujer</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="ninos.html">Niños</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                      </li>
+                </ul>
+            </div>  
+        </div>
     </header>
 
-    <section class="main--catalogo size">
-        <article class="main__destacados"> <!-- Sección destacados -->
-            <div class="destacados__texto">
+    <section id="main">
+        <article class="position-relative d-block text-center"> <!-- Sección destacados -->
+            <div class="destacados__texto position-absolute text-white card-title p-4">
                 <p>Tu viaje comienza ahora</p>
                 <h2>Al rihla</h2>
             </div>
             <picture>
                 <source srcset="media/hombre/MainPequeña.jpg" media="(max-width: 768px)">
-                <img src="media/hombre/Main.jpg" alt="Destacados">
+                <img class="img-fluid card-img" src="media/hombre/Main.jpg" alt="Destacados">
             </picture> 
         </article>
 
-        <article class="main__grilla"> <!-- Sección grilla de productos -->
-            <div  class="grilla__filtrosaplicados"> <!-- Indicador de filtros aplicados -->  
-                <button>← Atras </button>
-                <p>Hombre · Calzado · Accesorios</p>   
+        <article> <!-- Sección grilla de productos -->
+            <div class="d-flex align-items-center justify-content-around">
+                <a id="btnfilters" class="w-50 bg-black text-white text-center text-decoration-none p-1 p-md-2 p-xl-3" data-bs-toggle="collapse" href="#collapsefilters" role="button" aria-expanded="false" aria-controls="collapsefilters">Filtrar</a>
+                <a id="btnfilters" class="w-50 bg-black text-white text-center text-decoration-none p-1 p-md-2 p-xl-3" data-bs-toggle="collapse" href="#collapseorder" role="button" aria-expanded="false" aria-controls="collapseorder">Ordenar</a>
             </div>
-            <form class="grilla__form" action="hombre.html"> <!-- Menú de filtros-->
-                <div class="grilla__filtros">
-                    <div>
-                        <p>Ordenar por</p>
-                        <label for="mayorprecio">Mayor precio</label>
-                        <input type="radio" name="orden" id="mayorprecio" value="mayorprecio">
-                        <label for="menorprecio">Menor precio</label>
-                        <input type="radio" name="orden" id="menorprecio" value="menorprecio">
-                        <label for="masvendidos">Más vendidos</label>
-                        <input type="radio" name="orden" id="masvendidos" value="masvendidos">
-                        <label for="novedades">Novedades</label>
-                        <input type="radio" name="orden" id="novedades" value="novedades">
-                    </div>
 
-                    <div>
-                        <p>Tipo de producto</p>
-                        <label for="remeras">Remeras</label>
-                        <input type="radio" name="tipoproducto" id="remeras" value="remeras">
-                        <label for="camisetas">Camisetas</label>
-                        <input type="radio" name="tipoproducto" id="camisetas" value="camisetas">
-                        <label for="zapatillas">Zapatillas</label>
-                        <input type="radio" name="tipoproducto" id="zapatillas" value="zapatillas">
-                        <label for="buzos">Buzos</label>
-                        <input type="radio" name="tipoproducto" id="buzos" value="buzos">
-                        <label for="shorts">Shorts</label>
-                        <input type="radio" name="tipoproducto" id="shorts" value="shorts">
-                        <label for="pantalones">Pantalones</label>
-                        <input type="radio" name="tipoproducto" id="pantalones" value="pantalones">
-                        <label for="conjuntos">Conjuntos</label>
-                        <input type="radio" name="tipoproducto" id="conjuntos" value="conjuntos">
-                    </div>
+            <div class="collapse" id="collapsefilters">
+                <form class="bg-dark text-white p-4" action="hombre.html"> <!-- Filtros-->
+                    <div class="d-flex flex-column align-items-center justify-content-evenly">
+                        <div id="filtros" class="col-10 mb-4">
+                            <p class="border-bottom border-secondary border-2 text-center">Tipo de producto</p>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="remeras">Remeras</label>
+                                <input type="radio" name="tipoproducto" id="remeras" value="remeras">
+                            </div>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="camisetas">Camisetas</label>
+                                <input type="radio" name="tipoproducto" id="camisetas" value="camisetas">
+                            </div>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="zapatillas">Zapatillas</label>
+                                <input type="radio" name="tipoproducto" id="zapatillas" value="zapatillas">
+                            </div>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="buzos">Buzos</label>
+                                <input type="radio" name="tipoproducto" id="buzos" value="buzos">
+                            </div>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="shorts">Shorts</label>
+                                <input type="radio" name="tipoproducto" id="shorts" value="shorts">
+                            </div>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="pantalones">Pantalones</label>
+                                <input type="radio" name="tipoproducto" id="pantalones" value="pantalones">
+                            </div>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="conjuntos">Conjuntos</label>
+                                <input type="radio" name="tipoproducto" id="conjuntos" value="conjuntos">
+                            </div>
+                        </div>
+    
+                        <div id="filtros" class="col-10 mb-4">
+                            <p class="border-bottom border-secondary border-2 text-center">Precio</p>
+                            <label class="col-2 mb-2" for="minimo">Desde: </label>
+                            <input class="col-9" type="number" id="minimo" value="minimo" min="1000" max="29999" placeholder="Desde $1000">
+                            <label class="col-2" for="maximo">Hasta: </label>
+                            <input class="col-9" type="number" id="maximo" value="maximo" min="1001" max="30000" placeholder="Hasta $30000">    
+                        </div>
+    
+                        <div id="filtros" class="col-10 mb-4">
+                            <p class="border-bottom border-secondary border-2 text-center">Marca</p>
+                            <select class="col-12" name="marca">
+                                <option value="" disabled selected>Selecione una marca</option>
+                                <option value="adidas">Adidas</option>
+                                <option value="nike">Nike</option>
+                                <option value="asics">Asics</option>
+                                <option value="puma">Puma</option>
+                            </select>
+                        </div>
 
-                    <div>
-                        <p>Precio</p>
-                        <label for="minimo">Desde: </label>
-                        <input type="number" id="minimo" value="minimo" min="1000" max="29999" placeholder="Desde $1000">
-                        <label for="maximo">Hasta: </label>
-                        <input type="number" id="maximo" value="maximo" min="1001" max="30000" placeholder="Hasta $30000">    
+                        <input class="btn btn-outline-light" type="submit" value="Aplicar filtros">
                     </div>
+                </form>
+            </div>
 
-                    <div>
-                        <p>Marca</p>
-                        <select name="marca">
-                            <option value="" disabled selected>Selecione una marca</option>
-                            <option value="adidas">Adidas</option>
-                            <option value="nike">Nike</option>
-                            <option value="asics">Asics</option>
-                            <option value="puma">Puma</option>
-                        </select>
-                    </div>
+            <div class="collapse" id="collapseorder">
+                <form class="bg-dark text-white p-4" action="hombre.html"> <!-- Filtro ordenar por -->
+                    <div class="d-flex flex-column align-items-center justify-content-evenly">
+                        <div id="order" class="col-10 mb-4">
+                            <p class="border-bottom border-secondary border-2 text-center">Ordenar por</p>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="mayorprecio">Mayor precio</label>
+                                <input type="radio" name="orden" id="mayorprecio" value="mayorprecio">
+                            </div>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="menorprecio">Menor precio</label>
+                                <input type="radio" name="orden" id="menorprecio" value="menorprecio">
+                            </div>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="masvendidos">Más vendidos</label>
+                                <input type="radio" name="orden" id="masvendidos" value="masvendidos">
+                            </div>
+                            <div class="border-bottom border-1 border-secondary pb-1">
+                                <label class="col-11" for="novedades">Novedades</label>
+                                <input type="radio" name="orden" id="novedades" value="novedades">
+                            </div>
+                        </div>
 
-                    <input type="submit" value="Aplicar filtros">
-                </div>
-            </form>
-            <div class="grilla__productos"> <!-- Productos -->
-                <div class="productos__contenedor">
-                    <div class="contendor__txt">
-                        <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10</p>
-                        <p>$ 17.499</p>
+                        <input class="btn btn-outline-light" type="submit" value="Aplicar filtros">
                     </div>
-                    <div class="contendor__img">
-                        <img src="media/hombre/productos/CamisetaMessi.png" alt="Camiseta Messi">
-                    </div>
-                    <input type="button" value="Añadir al carrito">
-                </div>
+                </form>
+            </div>
 
-                <div class="productos__contenedor">
-                    <div class="contendor__txt">
-                        <p>ZAPATILLAS GALAXY 5</p>
-                        <p>$ 11.499</p>
-                    </div>
-                    <div class="contendor__img">
-                        <img src="media/hombre/productos/ZapatillasGalaxy5.png" alt="ZapatillasGalaxy5">
-                    </div>
-                    <input type="button" value="Añadir al carrito">
-                </div>
+            <!-- Indicador de filtros aplicados --> 
+            <div id="filtrosaplicados" class="d-flex flex-row flex-nowrap align-items-center justify-content-start mt-2 mb-4 gap-3">  
+                <button>Atras |</button>
+                <button>Hombre /</button>
+                <button>Novedades /</button>   
+                <button>Camisetas /</button>   
+                <button>Adidas /</button>      
+            </div>
 
-                <div class="productos__contenedor">
-                    <div class="contendor__txt">
-                        <p>Buzo Nike Dri-Fit Sport Clash</p>
-                        <p>$12.699</p>
-                    </div>
-                    <div class="contendor__img">
-                        <img src="media/hombre/productos/NikeDriFitSport.png" alt="BuzoNikeDriFit">
-                    </div>
-                    <input type="button" value="Añadir al carrito">
-                </div>
-
-                <div class="productos__contenedor">
-                    <div class="contendor__txt">
-                        <p>Pantalón Nike Dri-FIT Strike 21</p>
-                        <p>$12.499</p>
-                    </div>
-                    <div class="contendor__img">
-                        <img src="media/hombre/productos/PantalonNikeDriFitStrike21.png" alt="PantalonNikeDriFitStrike21">
-                    </div>
-                    <input type="button" value="Añadir al carrito">
-                </div>
-
-                <div class="productos__contenedor">
-                    <div class="contendor__txt">
-                        <p>ZAPATILLAS GEL-EQUATION 11</p>
-                        <p>$17.490</p>
-                    </div>
-                    <div class="contendor__img">
-                        <img src="media/hombre/productos/ZapatillasGelEquation11.png" alt="ZapatillasGel-Equation11">
-                    </div>
-                    <input type="button" value="Añadir al carrito">
+            <!-- Productos -->
+            <div id="contproductos" class="d-flex flex-row flex-wrap justify-content-evenly p-4 gap-4"> 
+                <div class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                    <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10 <br> $ 17.499</p>
+                    <img class="img-fluid" src="media/hombre/productos/CamisetaMessi.png" alt="Camiseta Messi">
+                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
-                <div class="productos__contenedor">
-                    <div class="contendor__txt">
-                        <p>REMERA SIN MANGAS BACK</p>
-                        <p>$4.800</p>
-                    </div>
-                    <div class="contendor__img">
-                        <img src="media/hombre/productos/RemeraSinMangaBack.png" alt="RemeraSinMangaBack">
-                    </div>
-                    <input type="button" value="Añadir al carrito">
+                <div class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                    <p>ZAPATILLAS GALAXY 5 <br> $ 11.499</p>
+                    <img class="img-fluid"  src="media/hombre/productos/ZapatillasGalaxy5.png" alt="ZapatillasGalaxy5">
+                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
-                <div class="productos__contenedor">
-                    <div class="contendor__txt">
-                        <p>Remera Ufc Fan Gear Text Reebok</p>
-                        <p>$ 5.439</p>
+                <div class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                    <p>Buzo Nike Dri-Fit Sport Clash <br> $12.699</p>
+                    <img class="img-fluid"  src="media/hombre/productos/NikeDriFitSport.png" alt="BuzoNikeDriFit">
+                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                </div>
+
+                <div class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                    <p>Pantalón Nike Dri-FIT Strike 21 <br> $12.499</p>
+                    <img class="img-fluid"  src="media/hombre/productos/PantalonNikeDriFitStrike21.png" alt="PantalonNikeDriFitStrike21">
+                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                </div>
+
+                <div class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                    <p>ZAPATILLAS GEL-EQUATION 11 <br> $17.490</p>
+                    <img class="img-fluid"  src="media/hombre/productos/ZapatillasGelEquation11.png" alt="ZapatillasGel-Equation11">
+                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                </div>
+
+                <div class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                    <p>REMERA SIN MANGAS BACK <br> $4.800</p>
+                    <img class="img-fluid"  src="media/hombre/productos/RemeraSinMangaBack.png" alt="RemeraSinMangaBack">
+                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                </div>
+
+                <div class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                    <div class="text-center">
+                        <p>Remera Ufc Fan Gear Text Reebok <br> $ 5.439</p>
                     </div>
-                    <div class="contendor__img">
-                        <img src="media/hombre/productos/RemeraRebookUFCGearText.png" alt="RemeraRebookUFCGearText">
-                    </div>
-                    <input type="button" value="Añadir al carrito">
+                    <img class="img-fluid"  src="media/hombre/productos/RemeraRebookUFCGearText.png" alt="RemeraRebookUFCGearText">
+                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
                 </div>
                 
-                <div class="productos__contenedor">
-                    <div class="contendor__txt">
-                        <p>Zapatillas Energen Lite Reebok</p>
-                        <p>$ 11.499</p>
-                    </div>
-                    <div class="contendor__img">
-                        <img src="media/hombre/productos/ZapatillasRebookEnergenLite.png" alt="ZapatillasRebookEnergenLite">
-                    </div>
-                    <input type="button" value="Añadir al carrito">
+                <div class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                    <p>Zapatillas Energen Lite Reebok <br> $ 11.499</p>
+                    <img class="img-fluid"  src="media/hombre/productos/ZapatillasRebookEnergenLite.png" alt="ZapatillasRebookEnergenLite">
+                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
                 </div>
             </div>
-            <p class="grilla__pagina"><1, 2 , 3, 4, ... 99></p> <!-- Indicado de página en grilla productos-->
+
+            <nav aria-label="Page nav"> <!-- Indicador de página en grilla productos-->
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link text-black" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link text-black" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link text-black" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link text-black" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link text-black" href="#">...</a></li>
+                    <li class="page-item"><a class="page-link text-black" href="#">99</a></li>
+                    <li class="page-item">
+                        <a class="page-link text-black" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+                </nav>
         </article>
 
-        <article class="main__newsletter"> <!-- Suscripción a Newsletter -->
+        <article id="newsletter" class="bg-warning d-flex flex-column align-items-center justify-content-around p-1 text-center"> <!-- Suscripción a Newsletter -->
             <p>Unite al club y conseguí un 15% de descuento en tu próxima compra</p>
             <form action="hombre.html">
-                <input type="email" placeholder="Ingrese su email">
-                <input type="submit" value="Suscribirse">
+                <input class="col-12 px-2 py-1 text-center mb-1" type="email" placeholder="Ingrese su email">
+                <input class="btn btn-dark" type="submit" value="Suscribirse">
             </form>
         </article>
 
-        <div class="main__iconowhatsapp"> <!-- Chat whatsapp -->
-            <img src="media/img/Whatsapp.png" alt="Whatsapp">
+        <div class="iconowhatsapp d-inline-block position-fixed"> <!-- Chat whatsapp -->
+            <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img class="w-100" src="media/img/Whatsapp.png" alt="Whatsapp"></a>
         </div>
+
     </section>
 
-    <footer>
-        <div>
+    <footer class="d-flex flex-column align-items-center text-center gap-2">
+        <div class="w-75 d-flex justify-content-around mt-3">
             <a href="https://www.facebook.com/" target="_blank"><img src="media/img/Facebook.png" alt="Facebook"></a>
             <a href="https://www.instagram.com/" target="_blank"><img src="media/img/Instagram.png" alt="Instagram"></a>
             <a href="https://www.twitter.com/" target="_blank"><img src="media/img/Twitter.png" alt="Twitter"></a>
         </div>
         <p>@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
     </footer>
-    
-</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </html>

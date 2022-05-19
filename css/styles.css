@@ -9,7 +9,6 @@ font-family: 'Bowlby One SC', cursive; */
     padding: 0;
     font-family: 'Righteous', cursive;
     box-sizing: border-box;
-    font-size: 25px;
 }
 
 
@@ -21,7 +20,6 @@ header {
 
 .search-nav {
     border: 2px solid #ccc;
-    font-size: .55rem;
     padding: .2rem .6rem;
 }
 
@@ -38,38 +36,56 @@ li .nav-link {
     }
 }
 
+/* ICONO WHATSAPP */
+
+.iconowhatsapp {
+    width: 50px;
+    bottom: 100px;
+    right: 15px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #037394;;
+}
+
+footer div img {
+    width: 40px;
+}
+
 /* PAGINA INDEX */
 
 /* SECCION OFERTAS */
 
-.oferta a {
+#oferta a {
     font-size: .75rem;
+    cursor: pointer;
     transition-duration: .5s;
 }
 
-.oferta a:active {
+#oferta a:hover {
     font-size: .7rem;
 }
 
 /* SECCION DESTACADOS */
 
-.destacados {
-    position: relative;
-}
-
 .destacados__texto {
-    position: absolute;
-    color: #fff;
+    top: 15%
 }
 
 .destacados__texto h2 {
     font-family: 'Bowlby One SC', cursive;
+    font-size: 2.5rem;
 }
 
 @media all and (min-width: 768px){
-    .destacados__texto {
-        width: 75%;
-        top: 30%;
+    .destacados__texto h2 {
+        font-size: 3.5rem;
+    }
+
+    .destacados__texto p {
+        font-size: 1.5rem;
     }
 }
 
@@ -81,27 +97,26 @@ li .nav-link {
 
 /* SECCION NOVEDADES */
 
-#contproducto{
-    border: 3px solid #ccc;
-    transition-duration: .2s;
+#producto {
     width: 20%;
-    height: 450px;
+    cursor: pointer;
 }
 
-#contproducto:active {
+#contproductos div {
+    transition-duration: .2s;
+}
+
+#contproductos div:active {
     border: none;
     box-shadow: 0px 0px 10px #037394;
 }
 
-#contproducto p{
-    text-align: center;
-    font-size: .8rem;
+#contproductos div:hover {
+    transform: scale(1.05,1.05);
 }
 
-@media all and (min-width: 768px){
-    .producto__btn {
-        width: 75%;
-    }
+#contproducto p{
+    font-size: .8rem;
 }
 
 @media all and (min-width: 1200px){
@@ -122,21 +137,38 @@ li .nav-link {
     box-shadow: 0px 0px 25px #ccc;
 }
 
-/* ICONO WHATSAPP */
-
-.iconowhatsapp {
-    width: 80px;
-    bottom: 100px;
-    right: 15px;
+#marcas img {
+    transition-duration: .5s;
 }
 
-/* FOOTER */
-
-footer {
-    background: #037394;;
+#marcas:hover, #marcas:active {
+    transform: scale(1.05,1.05);
 }
 
-footer div img {
-    width: 55px;
+/* PAGINA HOMBRE */
+
+/* SECCION GRILLA DE PRODUCTOS */
+
+/* FILTROS */
+
+#btnfilters {
+    transition-duration: .5s;
 }
 
+#btnfilters:active {
+    opacity: .2;
+}
+
+/* FILTROS APLICADOS */
+
+#filtrosaplicados button {
+    font-size: .8rem;
+    border: none;
+    background: none;
+}
+
+/* NEWSLETTER */
+
+#newsletter p, input[type="email"] {
+    font-size: .9rem;
+}
