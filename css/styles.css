@@ -42,16 +42,22 @@ li .nav-link {
     width: 50px;
     bottom: 100px;
     right: 15px;
+    z-index: 2;
 }
 
 /* FOOTER */
 
-footer {
+#footer {
     background: #037394;;
 }
 
-footer div img {
-    width: 40px;
+#footer div img {
+    width: 30px;
+}
+
+#footer p {
+    font-size: .8rem;
+    margin: 0;
 }
 
 /* PAGINA INDEX */
@@ -137,11 +143,11 @@ footer div img {
     box-shadow: 0px 0px 25px #ccc;
 }
 
-#marcas img {
+#categoria img {
     transition-duration: .5s;
 }
 
-#marcas:hover, #marcas:active {
+#categoria:hover, #categoria:active {
     transform: scale(1.05,1.05);
 }
 
@@ -171,4 +177,20 @@ footer div img {
 
 #newsletter p, input[type="email"] {
     font-size: .9rem;
+}
+
+/* PAGINA CONTACTO */
+
+/* IMAGEN ASIDE */
+
+#contacttext {
+    top: 30%;
+}
+
+#contacttext h2 {
+    font-size: 3.5rem;
+}
+
+#contacttext p {
+    font-size: 1.4rem;
 }

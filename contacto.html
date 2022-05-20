@@ -7,63 +7,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="media/img/Logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Contacto</title>
 </head>
 
-<body id="Inicio">
-    <header>
-        <picture class="header__img"> <!-- Logo -->
+<body>
+    <header class="d-flex flex-column flex-md-row align-items-center justify-content-md-around">
+        <picture class="col-xl-3"> <!-- Logo Header -->
             <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
-            <img src="media/img/Logo.ico" alt="logo"> 
+            <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
         </picture>
-        <nav class="header__nav"> <!-- Menú de navegación -->
-            <ul class="header__ul"> 
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="hombre.html">Hombre</a>
-                    <ul>
-                        <li><a href="">Indumentaria</a></li>
-                        <li><a href="">Calzado</a></li>
-                        <li><a href="">Accesorios</a></li>
-                    </ul>
-                </li>
-                <li><a href="mujer.html">Mujer</a>
-                    <ul>
-                        <li><a href="">Indumentaria</a></li>
-                        <li><a href="">Calzado</a></li>
-                        <li><a href="">Accesorios</a></li>
-                    </ul>
-                </li>
-                <li><a href="ninos.html">Niños</a>
-                    <ul>
-                        <li><a href="">Bebes</a></li>
-                        <li><a href="">Niños</a></li>
-                        <li><a href="">Jovenes</a></li>
-                    </ul>
-                </li>
-                <li><a href="contacto.html#Inicio">Contacto</a></li>
-            </ul>
+
+        <nav class="navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
         </nav>
+
+        <div class="collapse col-12 text-center text-uppercase" id="navbarToggleExternalContent">
+            <div class="bg-light">
+                <div class="list-group">
+                    <form class="d-flex p-2" role="search">
+                        <input class="form-control me-2 fw-light" type="search" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-outline-primary btn-sm" type="submit">Ir</button>
+                    </form>
+                    <a href="index.html" class="list-group-item list-group-item-action">Inicio</a>
+                    <a href="hombre.html" class="list-group-item list-group-item-action">Hombre</a>
+                    <a href="mujer.html" class="list-group-item list-group-item-action">Mujer</a>
+                    <a href="ninos.html" class="list-group-item list-group-item-action">Niños</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-none d-md-inline-block col-xl-8"> <!-- Nav viewport xl -->
+            <div class="d-flex flex-column justify-content-around gap-5">
+                <form class="d-flex justify-content-end align-content-center pt-2 pb-2 gap-2" role="search">
+                    <input class="search-nav col-9 col-xl-6" type="search" placeholder="Buscar..." aria-label="Buscar">
+                    <button class="btn btn-primary btn-sm disabled" type="submit">Ir</button>
+                </form>
+
+                <ul class="nav nav-tabs d-flex justify-content-evenly flex-nowrap mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="hombre.html">Hombre</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="mujer.html">Mujer</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="ninos.html">Niños</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#main">Contacto</a>
+                    </li>
+                </ul>
+            </div>  
+        </div>
     </header>
 
-    <section class="main--contacto">
-        <aside class="main__aside"> <!-- Imagen lateral -->
-            <div class="aside__texto">
-                <h2>HACETE MIEMBRO DE SPORTSTYLE</h2>
-                <p>Creá tu perfil de miembro de SportStyle y obtené acceso anticipado a los mejores productos, inspiración y
-                    comunidad SportStyle.</p> 
+    <section id="main" class="d-flex flex-column flex-xl-row flex-wrap align-items-center justify-content-evenly">
+        <aside class="order-1 order-xl-0"> <!-- Imagen lateral -->
+            <div class="card bg-dark text-white position-relative">
+                <img class="card-img" src="media/contacto/Contacto.jpg" alt="Contacto">
+                <div id="contacttext" class="card-img-overlay position-absolute p-4 text-center">
+                    <h2 class="card-title">HACETE MIEMBRO DE SPORTSTYLE</h2>
+                    <p class="card-text">Creá tu perfil de miembro de SportStyle y obtené acceso anticipado a los mejores productos, inspiración y
+                        comunidad SportStyle.</p> 
+                </div>
             </div>
-            <img src="media/contacto/Contacto.jpg" alt="Contacto">
         </aside>
 
-        <section class="main__register">
-            <form class="register__form" action="contacto.html" method="GET"> <!-- Formulario de contacto -->
+        <section class="order-0 order-xl-1 col-xl-6"> <!-- Formulario de registro -->
+            <form class="p-2 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET"> 
                 <h2>Hazte SportStyle member</h2>
-                <input type="email" name="email" placeholder="Dirección de correo electrónico" required>
-                <input type="password" name="password" placeholder="Contraseña" required>
-                <input type="text" name="name" placeholder="Nombre" required>
-                <input type="text" name="surname" placeholder="Apellidos" required>
-                <input type="text" name="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Fecha de nacimiento" required>
-                <select name="pais" id="pais" required>
+                <input class="col-7 text-center fs-6" type="email" name="email" placeholder="Dirección de correo electrónico" required>
+                <input class="col-7 text-center" type="password" name="password" placeholder="Contraseña" required>
+                <input class="col-7 text-center" type="text" name="name" placeholder="Nombre" required>
+                <input class="col-7 text-center" type="text" name="surname" placeholder="Apellidos" required>
+                <input class="col-7 text-center" type="text" name="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Fecha de nacimiento" required>
+                <select class="col-7 text-center" name="pais" id="pais" required>
                     <option value="pais" disabled selected>País</option>
                     <option value="ar">Argentina</option>
                     <option value="br">Brasil</option>
@@ -73,7 +103,7 @@
                     <option value="ur">Uruguay</option>
                     <option value="pg">Paraguay</option>
                 </select>
-                <div>
+                <div class="d-flex flex-row align-items-center justify-content-evenly col-8">
                     <label for="masc">Masculino</label>
                     <input type="radio" name="sexo" id="masc" required>
 
@@ -81,45 +111,47 @@
                     <input type="radio" name="sexo" id="fem" required>
                 </div>
 
-                <div class="form__novmail">
+                <div class="d-flex flex-row align-items-center justify-content-around gap-4 col-10">
                     <input type="checkbox" name="novmail" id="novmail">
                     <label for="novmail">Registrate para recibir correos electrónicos de SportStyle con actualizaciones de productos, ofertas y beneficios como miembro.</label>    
                 </div>
-                <div class="form__termycond">
+                <div class="d-flex flex-row align-items-center justify-content-around gap-4 col-10 text-center">
                     <span>Cuando creás una cuenta, confirmás que estás de acuerdo con la <a href="#">Política de privacidad</a> y los <a href="#">Términos de uso</a> de SportStyle.</span>   
                 </div>
-                <input type="submit" value="Únete a nosotros">
+                <input class="btn btn-outline-primary" type="submit" value="Únete a nosotros">
                 <span> ¿Ya eres miembro? <a href="#">Iniciar sesión.</a></span>
             </form>
         </section>
     
-        <section class="main__contact">
-            <form class="contact__form" action="contacto.html" method="GET">
+        <section class="col-12 col-xl-8 order-2"> <!-- Formulario de contacto -->
+            <form class="p-2 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET">
                 <h2>Contactanos</h2>
-                <input type="email" name="email" placeholder="Dirección de correo electrónico" required>
-                <input type="password" name="password" placeholder="Contraseña" required>
-                <input type="text" name="name" placeholder="Nombre" required>
-                <input type="text" name="surname" placeholder="Apellidos" required>
-                <input type="tel" name="tel" placeholder="Teléfono" required>
-                <textarea name="consulta" id="consulta" rows="10" placeholder="Dejanos tu consulta" maxlength="500" required></textarea>
-                <input type="submit" value="Enviar">
+                <input class="col-7 text-center" type="email" name="email" placeholder="Dirección de correo electrónico" required>
+                <input class="col-7 text-center" type="password" name="password" placeholder="Contraseña" required>
+                <input class="col-7 text-center" type="text" name="name" placeholder="Nombre" required>
+                <input class="col-7 text-center" type="text" name="surname" placeholder="Apellidos" required>
+                <input class="col-7 text-center" type="tel" name="tel" placeholder="Teléfono" required>
+                <textarea class="col-7 text-center" name="consulta" id="consulta" rows="10" placeholder="Dejanos tu consulta" maxlength="500" required></textarea>
+                <input class="btn btn-outline-primary" type="submit" value="Enviar">
             </form>   
         </section>
         
-        <div class="main__iconowhatsapp"> <!-- Chat whatsapp -->
-            <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img src="media/img/Whatsapp.png" alt="Whatsapp"></a>
+        <div class="iconowhatsapp d-inline-block position-fixed"> <!-- Chat whatsapp -->
+            <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img class="w-100" src="media/img/Whatsapp.png" alt="Whatsapp"></a>
         </div>
+
     </section>
 
-    <footer>
-        <div>
+    <footer id="footer" class="d-flex flex-column flex-md-row align-items-center justify-content-around text-center gap-2 p-4">
+        <div class="order-md-1 col-8 col-md-5 col-xl-3 d-flex justify-content-evenly">
             <a href="https://www.facebook.com/" target="_blank"><img src="media/img/Facebook.png" alt="Facebook"></a>
             <a href="https://www.instagram.com/" target="_blank"><img src="media/img/Instagram.png" alt="Instagram"></a>
             <a href="https://www.twitter.com/" target="_blank"><img src="media/img/Twitter.png" alt="Twitter"></a>
         </div>
-        <p>@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
+        <p class="order-md-0">@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
     </footer>
-    
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
 </html>
