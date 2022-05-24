@@ -97,10 +97,8 @@ header .nav-item a {
           transform: scale(1.03, 1.03);
 }
 
-@media all and (min-width: 1200px) {
-  .producto p {
-    font-size: .8rem;
-  }
+.producto p {
+  font-size: .8rem;
 }
 
 .producto a {
@@ -185,5 +183,23 @@ footer p {
   footer p {
     font-size: .5rem;
   }
+}
+
+.form .tit-filtros {
+  border-bottom: 2px solid #ddd;
+  font-size: 1.2rem;
+}
+
+.form div {
+  border-bottom: 1.5px solid #eee;
+}
+
+.filtros-aplicados button {
+  background: none;
+  border: none;
+}
+
+.newsletter p {
+  font-size: .8rem;
 }
 /*# sourceMappingURL=styles.css.map */
