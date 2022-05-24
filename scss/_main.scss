@@ -1,0 +1,153 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+header {
+    background: $main_color;
+
+    @media all and (min-width: $large){
+        background: #fff;
+    }
+
+    .nav-item a {
+        color: #fff;
+
+        @media all and (min-width: $large){
+            color: #000;
+        }
+    }
+}
+
+.bg-warning {
+    a {
+        font-size: .6rem;
+
+        @media all and (min-width: $medium){
+            font-size: .75rem;
+        }
+    }
+}
+
+.text-destacado{
+    top: 40%;
+
+    @media all and (min-width: $medium){
+        left: 5%;
+    }
+
+    h2 {
+        font-family: 'Bowlby One', cursive;
+        font-size: 2rem;
+        letter-spacing: 3px;
+
+        @media all and (min-width: $large){
+            font-size: 4.5rem;
+        }
+    }
+    
+    p {
+        @media all and (min-width: $medium){
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.titulo-seccion {
+    font-size: 2.5rem;
+
+    @media all and (min-width: $large){
+        border-bottom: 2px solid #eee;
+    }
+}
+
+.producto {
+    border: 2px solid #eee;
+    border-radius: 5%;
+    height: 500px;
+    transition-duration: .2s;
+
+    &:hover {
+        border: none;
+        box-shadow: 0px 0px 5px $main_color;
+        transform: scale(1.03, 1.03);
+    }
+
+    p {
+        @media all and (min-width: $large){
+            font-size: .8rem;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        background: $gradient-btn;
+        border: none;
+        color: #fff;
+        transition-duration: .5s;
+
+        &:active {
+            background: #fff;
+            color: #000;
+            box-shadow: 0px 0px 15px $main_color;
+            transform: scale(1.05, 1.05);
+        }
+    }
+}
+
+.marcas-img {
+    border: .5px solid #eee;
+    border-radius: 5%;
+    box-shadow: 0px 0px 15px #ccc;
+    transition-duration: .5s;
+
+    &:active {
+        transform: scale(1.05, 1.05);
+    }
+
+    @media all and (min-width: $large){
+        box-shadow: none;
+
+        &:hover {
+            transform: scale(1.05, 1.05);
+            border: none;
+            box-shadow: 0px 0px 15px #ccc;
+        }
+    }
+}
+
+.iconowhatsapp {
+    width: 50px;
+    bottom: 100px;
+    right: 20px;
+}
+
+footer {
+    background: $main_color;
+
+    div a {
+        width: 35px;
+        transition-duration: .5s;
+
+        &:active {
+            transform: scale(1.2, 1.2);
+        }
+
+        @media all and (min-width: $large){
+            &:hover {
+                transform: scale(1.2, 1.2);
+            }
+        }
+    }
+
+    p {
+        font-size: .65rem;
+
+        @media all and (min-width: $medium) {
+            font-size: .5rem;
+        }
+    }
+}
