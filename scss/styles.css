@@ -13,6 +13,7 @@
   font-size: 16px;
 }
 
+/* HEADER */
 header {
   background: #037394;
 }
@@ -21,6 +22,10 @@ header {
   header {
     background: #fff;
   }
+}
+
+header .navbar-toggler-icon {
+  background-image: none;
 }
 
 header .nav-item a {
@@ -33,6 +38,12 @@ header .nav-item a {
   }
 }
 
+header .offcanvas {
+  width: 90%;
+  top: 3%;
+}
+
+/* INDEX - OFERTAS */
 .bg-warning a {
   font-size: .6rem;
 }
@@ -71,6 +82,7 @@ header .nav-item a {
   }
 }
 
+/* INDEX - NOVEDADES */
 .titulo-seccion {
   font-size: 2.5rem;
 }
@@ -81,6 +93,7 @@ header .nav-item a {
   }
 }
 
+/* CONTENEDOR PRODUCTO */
 .producto {
   border: 2px solid #eee;
   border-radius: 5%;
@@ -115,10 +128,11 @@ header .nav-item a {
   color: #000;
   -webkit-box-shadow: 0px 0px 15px #037394;
           box-shadow: 0px 0px 15px #037394;
-  -webkit-transform: scale(1.05, 1.05);
-          transform: scale(1.05, 1.05);
+  -webkit-transform: scale(1.02, 1.02);
+          transform: scale(1.02, 1.02);
 }
 
+/* INDEX - MARCAS */
 .marcas-img {
   border: .5px solid #eee;
   border-radius: 5%;
@@ -147,12 +161,15 @@ header .nav-item a {
   }
 }
 
+/* ICONO WHATSAPP */
 .iconowhatsapp {
   width: 50px;
   bottom: 100px;
   right: 20px;
+  z-index: 2;
 }
 
+/* FOOTER */
 footer {
   background: #037394;
 }
@@ -185,6 +202,7 @@ footer p {
   }
 }
 
+/* PRODUCTOS */
 .form .tit-filtros {
   border-bottom: 2px solid #ddd;
   font-size: 1.2rem;
@@ -199,6 +217,7 @@ footer p {
   border: none;
 }
 
+/* NEWSLETTER */
 .newsletter p {
   font-size: .8rem;
 }

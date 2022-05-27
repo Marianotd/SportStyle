@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="scss/styles.css">
     <link rel="icon" type="image/x-icon" href="media/img/Logo.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -13,250 +13,218 @@
 </head>
 
 <body>
-    <header class="d-flex flex-column flex-md-row justify-content-around align-items-center">
-        <picture class="col-xl-3">
-            <!-- Logo Header -->
+    <header class="d-flex flex-column flex-md-row align-items-center justify-content-md-around">
+        <picture class="col-xl-3"> <!-- Logo Header -->
             <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
-            <img class="img-fluid" src="media/img/Logo.ico" alt="logo">
+            <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
         </picture>
 
-        <nav class="navbar navbar-dark mb-1 d-md-none">
-            <!-- NAV MOBILE -->
+        <nav class="navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
         </nav>
 
         <div class="collapse col-12 text-center text-uppercase" id="navbarToggleExternalContent">
-            <div class="bg-light">
+            <div>
                 <div class="list-group">
-                    <form class="d-flex p-2" role="search">
-                        <input class="form-control me-2 fw-light" type="search" placeholder="Buscar..."
-                            aria-label="Buscar">
-                        <button class="btn btn-outline-primary btn-sm" type="submit">Ir</button>
+                    <form class="d-flex p-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Buscar">
+                        <button class="btn btn-dark btn-sm" type="submit">Ir</button>
                     </form>
-                    <a href="index.html" class="list-group-item list-group-item-action">Inicio</a>
-                    <a href="hombre.html" class="list-group-item list-group-item-action">Hombre</a>
-                    <a href="ninos.html" class="list-group-item list-group-item-action">Niños</a>
-                    <a href="contacto.html" class="list-group-item list-group-item-action">Contacto</a>
+                    <a href="index.html" class="list-group-item list-group-item-action fw-bold">Inicio</a>
+                    <a href="hombre.html" class="list-group-item list-group-item-action fw-bold">Hombre</a>
+                    <a href="ninos.html" class="list-group-item list-group-item-action fw-bold">Niños</a>
+                    <a href="contacto.html" class="list-group-item list-group-item-action fw-bold">Contacto</a>
                 </div>
             </div>
         </div>
 
-        <div class="d-none d-md-inline-block col-xl-8">
-            <!-- NAV MEDIUM-LARGE -->
+        <div class="d-none d-md-inline-block col-xl-8"> <!-- Nav viewport md / xl -->
             <div class="d-flex flex-column justify-content-around gap-5">
-                <form class="d-flex justify-content-end align-content-center pt-2 pb-2 gap-2" role="search">
-                    <input class="search-nav col-9 col-xl-6" type="search" placeholder="Buscar..." aria-label="Buscar">
-                    <button class="btn btn-primary btn-sm disabled" type="submit">Ir</button>
+                <form class="d-flex justify-content-end align-content-center gap-2" role="search">
+                    <input class="col-10 col-xl-6 px-3 py-1" type="search" placeholder="Buscar..." aria-label="Buscar">
+                    <button class="btn btn-dark btn-sm" type="submit">Ir</button>
                 </form>
 
-                <ul class="nav nav-tabs d-flex justify-content-evenly flex-nowrap mb-2">
+                <ul class="nav nav-tabs d-flex flex-row justify-content-evenly flex-nowrap">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link " href="hombre.html">Hombre</a>
+                        <a class="nav-link" href="hombre.html">Hombre</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link active" href="#main">Mujer</a>
+                        <a class="nav-link active fw-bold" href="#main">Mujer</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="ninos.html">Niños</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="contacto.html">Contacto</a>
                     </li>
                 </ul>
-            </div>
+            </div>  
         </div>
     </header>
 
     <section id="main">
-        <article class="position-relative d-block text-center">
-            <!-- Sección destacados -->
+        <article> <!-- Sección destacados -->
             <picture>
                 <source srcset="media/mujer/MainPequeña.jpg" media="(max-width: 1199px)">
-                <img class="img-fluid card-img" src="media/mujer/Main.jpg" alt="Destacados">
+                <img class="img-fluid" src="media/mujer/Main.jpg" alt="Destacados">
             </picture>
         </article>
 
-        <article>
-            <!-- Sección grilla de productos -->
-            <div class="d-flex align-items-center justify-content-around">
-                <a id="btnfilters" class="w-50 bg-info text-white text-center text-decoration-none p-1 p-md-2 p-xl-3"
-                    data-bs-toggle="collapse" href="#collapsemujfilters" role="button" aria-expanded="false"
-                    aria-controls="collapsemujfilters">Filtrar</a>
-                <a id="btnfilters" class="w-50 bg-info text-white text-center text-decoration-none p-1 p-md-2 p-xl-3"
-                    data-bs-toggle="collapse" href="#collapsemujorder" role="button" aria-expanded="false"
-                    aria-controls="collapsemujorder">Ordenar</a>
+        <article> <!-- Sección grilla de productos -->     
+            <div class="d-flex flex-row align-items-center justify-content-around">
+                <a id="btnfilters" class="col-6 bg-info text-white fw-bold text-center text-decoration-none p-2 p-xl-3" data-bs-toggle="collapse" href="#collapsefilters" role="button" aria-expanded="false" aria-controls="collapsefilters">Filtrar</a>
+                <a id="btnfilters" class="col-6 bg-info text-white fw-bold text-center text-decoration-none p-2 p-xl-3" data-bs-toggle="collapse" href="#collapseorder" role="button" aria-expanded="false" aria-controls="collapseorder">Ordenar</a>
             </div>
 
-            <div class="collapse" id="collapsemujfilters">
-                <form class="bg-dark text-white p-4" action="mujer.html">
-                    <!-- Filtros-->
-                    <div class="d-flex flex-column align-items-center justify-content-evenly">
-                        <div id="filtros" class="col-10 mb-4">
-                            <p class="border-bottom border-secondary border-2 text-center">Tipo de producto</p>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="remeras">Remeras</label>
-                                <input type="radio" name="tipoproducto" id="remeras" value="remeras">
-                            </div>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="camisetas">Camisetas</label>
-                                <input type="radio" name="tipoproducto" id="camisetas" value="camisetas">
-                            </div>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="zapatillas">Zapatillas</label>
-                                <input type="radio" name="tipoproducto" id="zapatillas" value="zapatillas">
-                            </div>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="buzos">Buzos</label>
-                                <input type="radio" name="tipoproducto" id="buzos" value="buzos">
-                            </div>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="shorts">Shorts</label>
-                                <input type="radio" name="tipoproducto" id="shorts" value="shorts">
-                            </div>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="pantalones">Pantalones</label>
-                                <input type="radio" name="tipoproducto" id="pantalones" value="pantalones">
-                            </div>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="conjuntos">Conjuntos</label>
-                                <input type="radio" name="tipoproducto" id="conjuntos" value="conjuntos">
-                            </div>
+            <div class="collapse col-xl-6 mx-auto" id="collapsefilters"> <!-- Filtros-->
+                <form class="form d-flex flex-column align-items-center justify-content-evenly gap-4 bg-light text-black p-3" action="hombre.html"> 
+                    <div id="filtros" class="col-8">
+                        <p class="tit-filtros text-center fw-bold">Tipo de producto</p>
+                        <div>
+                            <label class="col-11" for="remeras">Remeras</label>
+                            <input type="radio" name="tipoproducto" id="remeras" value="remeras">
                         </div>
-
-                        <div id="filtros" class="col-10 mb-4">
-                            <p class="border-bottom border-secondary border-2 text-center">Precio</p>
-                            <label class="col-2 mb-2" for="minimo">Desde: </label>
-                            <input class="col-9" type="number" id="minimo" value="minimo" min="1000" max="29999"
-                                placeholder="Desde $1000">
-                            <label class="col-2" for="maximo">Hasta: </label>
-                            <input class="col-9" type="number" id="maximo" value="maximo" min="1001" max="30000"
-                                placeholder="Hasta $30000">
+                        <div>
+                            <label class="col-11" for="camisetas">Camisetas</label>
+                            <input type="radio" name="tipoproducto" id="camisetas" value="camisetas">
                         </div>
-
-                        <div id="filtros" class="col-10 mb-4">
-                            <p class="border-bottom border-secondary border-2 text-center">Marca</p>
-                            <select class="col-12" name="marca">
-                                <option value="" disabled selected>Selecione una marca</option>
-                                <option value="adidas">Adidas</option>
-                                <option value="nike">Nike</option>
-                                <option value="asics">Asics</option>
-                                <option value="puma">Puma</option>
-                            </select>
+                        <div>
+                            <label class="col-11" for="zapatillas">Zapatillas</label>
+                            <input type="radio" name="tipoproducto" id="zapatillas" value="zapatillas">
                         </div>
-
-                        <input class="btn btn-outline-light" type="submit" value="Aplicar filtros">
+                        <div>
+                            <label class="col-11" for="buzos">Buzos</label>
+                            <input type="radio" name="tipoproducto" id="buzos" value="buzos">
+                        </div>
+                        <div>
+                            <label class="col-11" for="shorts">Shorts</label>
+                            <input type="radio" name="tipoproducto" id="shorts" value="shorts">
+                        </div>
+                        <div>
+                            <label class="col-11" for="pantalones">Pantalones</label>
+                            <input type="radio" name="tipoproducto" id="pantalones" value="pantalones">
+                        </div>
+                        <div>
+                            <label class="col-11" for="conjuntos">Conjuntos</label>
+                            <input type="radio" name="tipoproducto" id="conjuntos" value="conjuntos">
+                        </div>
                     </div>
+
+                    <div id="filtros" class="col-8">
+                        <p class="tit-filtros text-center fw-bold">Precio</p>
+                        <input class="col-8 d-block mx-auto mb-3 py-1 px-2" type="number" id="minimo" value="minimo" min="0" max="29999" placeholder="Desde ...">
+                        <input class="col-8 d-block mx-auto py-1 px-2" type="number" id="maximo" value="maximo" min="1001" max="30000" placeholder="Hasta ...">    
+                    </div>
+
+                    <div id="filtros" class="col-8">
+                        <p class="tit-filtros text-center fw-bold">Marca</p>
+                        <select class="col-10 text-center p-1 d-block mx-auto" name="marca">
+                            <option value="" disabled selected>Selecione una marca</option>
+                            <option value="adidas">Adidas</option>
+                            <option value="nike">Nike</option>
+                            <option value="asics">Asics</option>
+                            <option value="puma">Puma</option>
+                            <option value="rebook">Rebook</option>
+                        </select>
+                    </div>
+
+                    <input class="btn btn-dark" type="button" value="Filtrar">
                 </form>
             </div>
 
-            <div class="collapse" id="collapsemujorder">
-                <form class="bg-dark text-white p-4" action="mujer.html">
-                    <!-- Filtro ordenar por -->
-                    <div class="d-flex flex-column align-items-center justify-content-evenly">
-                        <div id="order" class="col-10 mb-4">
-                            <p class="border-bottom border-secondary border-2 text-center">Ordenar por</p>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="mayorprecio">Mayor precio</label>
-                                <input type="radio" name="orden" id="mayorprecio" value="mayorprecio">
-                            </div>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="menorprecio">Menor precio</label>
-                                <input type="radio" name="orden" id="menorprecio" value="menorprecio">
-                            </div>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="masvendidos">Más vendidos</label>
-                                <input type="radio" name="orden" id="masvendidos" value="masvendidos">
-                            </div>
-                            <div class="border-bottom border-1 border-secondary pb-1">
-                                <label class="col-11" for="novedades">Novedades</label>
-                                <input type="radio" name="orden" id="novedades" value="novedades">
-                            </div>
+            <div class="collapse col-xl-6 mx-auto" id="collapseorder">
+                <form class="form d-flex flex-column align-items-center justify-content-evenly gap-4 bg-light text-black p-3" action="hombre.html"> <!-- Filtro ordenar por -->
+                    <div id="order" class="col-10 mb-4">
+                        <p class="tit-filtros text-center fw-bold">Ordenar por</p>
+                        <div>
+                            <label class="col-11" for="mayorprecio">Mayor precio</label>
+                            <input type="radio" name="orden" id="mayorprecio" value="mayorprecio">
                         </div>
-
-                        <input class="btn btn-outline-light" type="submit" value="Aplicar filtros">
+                        <div>
+                            <label class="col-11" for="menorprecio">Menor precio</label>
+                            <input type="radio" name="orden" id="menorprecio" value="menorprecio">
+                        </div>
+                        <div>
+                            <label class="col-11" for="masvendidos">Más vendidos</label>
+                            <input type="radio" name="orden" id="masvendidos" value="masvendidos">
+                        </div>
+                        <div>
+                            <label class="col-11" for="novedades">Novedades</label>
+                            <input type="radio" name="orden" id="novedades" value="novedades">
+                        </div>
                     </div>
+
+                    <input class="btn btn-dark" type="button" value="Filtrar">
                 </form>
             </div>
 
-            <!-- Indicador de filtros aplicados -->
-            <div id="filtrosaplicados"
-                class="d-flex flex-row flex-nowrap align-items-center justify-content-start mt-2 mb-4 gap-3">
+            <!-- Indicador de filtros aplicados --> 
+            <div class="filtros-aplicados d-flex flex-row flex-nowrap align-items-center justify-content-start px-2 mt-3 gap-1">  
                 <button>Atras |</button>
-                <button>Hombre /</button>
-                <button>Novedades /</button>
-                <button>Camisetas /</button>
-                <button>Adidas /</button>
+                <button>Mujer /</button>  
+                <button>Buzos /</button>      
             </div>
 
             <!-- Productos -->
-            <div id="contproductos" class="d-flex flex-row flex-wrap justify-content-evenly p-4 gap-4">
-                <div
-                    class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+            <div id="contproductos" class="d-flex flex-row flex-wrap justify-content-evenly p-3 gap-2">
+                <div class="producto col-5 col-md-4 col-xl-2 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
                     <p>Remera Own The Run adidas <br> $ 7.859</p>
-                    <img class="img-fluid" src="media/mujer/productos/RemeraAdidasOwnTheRun.jpg"
-                        alt="RemeraAdidasOwnTheRun">
-                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                    <img class="img-fluid" src="media/mujer/productos/RemeraAdidasOwnTheRun.jpg"alt="RemeraAdidasOwnTheRun">
+                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
-                <div
-                    class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                <div class="producto col-5 col-md-4 col-xl-2 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
                     <p>Remera Ba Run21 Ss Tee W 1 adidas <br> $ 3.999</p>
-                    <img class="img-fluid" src="media/mujer/productos/RemeraBaRun21SsTeeW1Adidas.jpg"
-                        alt="RemeraBaRun21SsTeeW1Adidas">
-                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                    <img class="img-fluid" src="media/mujer/productos/RemeraBaRun21SsTeeW1Adidas.jpg" alt="RemeraBaRun21SsTeeW1Adidas">
+                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
-                <div
-                    class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                <div class="producto col-5 col-md-4 col-xl-2 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
                     <p>Zapatillas Gel Hypersonic 2 W Asics <br> $ 20.489</p>
-                    <img class="img-fluid" src="media/mujer/productos/ZapatillasGelHypersonic2WAsics.jpg"
-                        alt="ZapatillasGelHypersonic2WAsics">
-                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                    <img class="img-fluid" src="media/mujer/productos/ZapatillasGelHypersonic2WAsics.jpg" alt="ZapatillasGelHypersonic2WAsics">
+                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
-                <div
-                    class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                <div class="producto col-5 col-md-4 col-xl-2 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
                     <p>Remera En V Neck Ss Asics <br> $ 5.869</p>
                     <img class="img-fluid" src="media/mujer/productos/RemeraEnVNeckSsAsics.jpg" alt="RemeraEnVNeckSsAsics">
-                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
-                <div
-                    class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                <div class="producto col-5 col-md-4 col-xl-2 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
                     <p>Botella Sportstyle Puma <br> $ 4.199</p>
                     <img class="img-fluid" src="media/mujer/productos/BotellaSportStylePuma.jpg" alt="BotellaSportStylePuma">
-                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
-                <div
-                    class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                <div class="producto col-5 col-md-4 col-xl-2 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
                     <p>Zapatillas Smash Wns V2 L Adp Puma <br> $ 11.549</p>
-                    <img class="img-fluid" src="media/mujer/productos/ZapatillasSmashWnsV2LAdpPuma.jpg"
-                        alt="ZapatillasSmashWnsV2LAdpPuma">
-                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                    <img class="img-fluid" src="media/mujer/productos/ZapatillasSmashWnsV2LAdpPuma.jpg" alt="ZapatillasSmashWnsV2LAdpPuma">
+                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
-                <div
-                    class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                <div class="producto col-5 col-md-4 col-xl-2 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
                     <p>Remera Mujer Match Ii Fila <br> $ 2.689</p>
                     <img class="img-fluid" src="media/mujer/productos/RemeraMujerMatchLiFila.jpg" alt="RemeraMujerMatchLiFila">
-                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
-                <div
-                    class="col-5 col-md-5 col-xl-3 mx-auto text-center border rounded p-3 d-flex flex-column align-items-center justify-content-around gap-2">
+                <div class="producto col-5 col-md-4 col-xl-2 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
                     <p>Zapatillas Trend 2.0 W Fila <br> $ 9.489</p>
                     <img class="img-fluid" src="media/mujer/productos/ZapatillasTrend2.0WFila.jpg" alt="ZapatillasTrend2.0WFila">
-                    <a href="#" class="btn btn-primary disabled mx-auto" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
                 </div>
             </div>
 
@@ -281,10 +249,10 @@
                 </nav>
         </article>
 
-        <article id="newsletter" class="bg-warning d-flex flex-column align-items-center justify-content-around p-1 text-center"> <!-- Suscripción a Newsletter -->
-            <p>Unite al club y conseguí un 15% de descuento en tu próxima compra</p>
+        <article class="newsletter bg-warning d-flex flex-column align-items-center justify-content-around p-2 text-center"> <!-- Suscripción a Newsletter -->
+            <p class="fw-bold">Unite al club y conseguí un 15% de descuento en tu próxima compra</p>
             <form action="hombre.html">
-                <input class="col-12 px-2 py-1 text-center mb-1" type="email" placeholder="Ingrese su email">
+                <input class="col-12 text-center py-1 mb-3" type="email" placeholder="Ingrese su email">
                 <input class="btn btn-dark" type="submit" value="Suscribirse">
             </form>
         </article>
@@ -292,21 +260,18 @@
         <div class="iconowhatsapp d-inline-block position-fixed"> <!-- Chat whatsapp -->
             <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img class="w-100" src="media/img/Whatsapp.png" alt="Whatsapp"></a>
         </div>
-
     </section>
 
-    <footer id="footer" class="d-flex flex-column flex-md-row align-items-center justify-content-around text-center gap-2 p-4">
-        <div class="order-md-1 col-8 col-md-5 col-xl-3 d-flex justify-content-evenly">
-            <a href="https://www.facebook.com/" target="_blank"><img src="media/img/Facebook.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/" target="_blank"><img src="media/img/Instagram.png" alt="Instagram"></a>
-            <a href="https://www.twitter.com/" target="_blank"><img src="media/img/Twitter.png" alt="Twitter"></a>
+    <footer class="d-flex flex-column flex-md-row align-items-center justify-content-around text-center p-4 gap-3">
+        <div class="order-md-1 col-6 col-md-4 d-flex flex-row flex-nowrap align-items-center justify-content-evenly">
+            <a href="https://www.facebook.com/" target="_blank"><img class="w-100" src="media/img/Facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img class="w-100" src="media/img/Instagram.png" alt="Instagram"></a>
+            <a href="https://www.twitter.com/" target="_blank"><img class="w-100" src="media/img/Twitter.png" alt="Twitter"></a>
         </div>
-        <p class="order-md-0">@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
+        <p class="fw-bold m-0">@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 </html>
