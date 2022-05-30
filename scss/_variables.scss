@@ -51,8 +51,6 @@ $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,
 
 /* MIXIN - PRODUCTOS */
 
-
-
 @mixin productos ($bordercolor, $btn-color) {
     margin: auto;
     display: flex;
@@ -62,6 +60,7 @@ $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,
     justify-content: space-around;
     text-align: center;
     font-weight: 700;
+    margin: 1rem auto;
 
     border: 2px solid #eee;
     border-radius: 5%;
