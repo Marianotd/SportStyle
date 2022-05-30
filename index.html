@@ -10,14 +10,17 @@
     <title>SportStyle</title>
 </head>
 <body>
-    <header class="d-flex flex-column flex-md-row align-items-center justify-content-md-around">
+    <header class="d-flex flex-column flex-md-row align-items-center justify-content-md-around pt-1">
         <picture class="col-xl-3"> <!-- Logo Header -->
             <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
             <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
         </picture>
 
-        <nav class="navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
-            <div>
+        <nav class="d-flex flex-row col-12 align-items-center justify-content-around navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
+            <div class="col-10 d-flex justify-content-around">
+                <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <desc>Download more icon variants from https://tabler-icons.io/i/menu-2</desc>
@@ -27,6 +30,9 @@
                         <line x1="4" y1="18" x2="20" y2="18"></line>
                      </svg>
                 </button>
+                <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+                </a>
             </div>
         </nav>
 
@@ -50,8 +56,11 @@
                 <form class="d-flex justify-content-end align-content-center gap-2" role="search">
                     <input class="buscador col-10 col-xl-6 px-3 py-1" type="search" placeholder="Buscar..." aria-label="Buscar">
                     <button class="btn btn-dark btn-sm" type="submit">Ir</button>
-                    <a class="btn-carrito btn-lg text-black" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+                    <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+                    </a>
+                    <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
                     </a>
                 </form>
 
@@ -79,26 +88,23 @@
             </div>  
         </div>
 
-          <!-- Carrito viewport md-xl -->
-          <div class="offcanvas" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
+        <!-- Login viewport md-xl -->
+        <div class="offcanvas" tabindex="-1" id="login" aria-labelledby="loginlabel">
             <div class="offcanvas-header">
-                <h3 class="offcanvas-title" id="carritolabel">¡Producto añadido al carrito!</h3>
+                <h3 class="offcanvas-title" id="loginlabel">Iniciar Sesión</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="">
-                <div class="border-end border-2 border-secondary">
-                    <img src="media/img/productos/CamisetaMessi.png" class="w-100" alt="CamisetaMessi">
-                    <h4>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10 <br> $ 17.499</h4>
-                </div>
-                <div class="w-50">
-                    <h4>Tu carrito</h4>
-                </div>
-                <div>
-                    <h4>Combinalo con</h4>
-                    <div>
-                        <img src="" alt="Imagen">
-                    </div>
-                </div>
+            </div>
+        </div>
+
+        <!-- Carrito viewport md-xl -->
+        <div class="offcanvas" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="carritolabel">Carrito</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="">
             </div>
         </div>
     </header>
@@ -123,7 +129,7 @@
             <div id="carousel" class="carousel slide d-xl-none" data-bs-ride="carousel"> <!-- Productos viewport sm / md -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="producto col-8 col-md-6 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
+                        <div class="producto col-8 col-md-6">
                             <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10 <br> $ 17.499</p>
                             <img src="media/img/productos/CamisetaMessi.png" class="d-block w-100" alt="CamisetaMessi">
                             <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
@@ -131,7 +137,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <div class="producto col-8 col-md-6 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
+                        <div class="producto col-8 col-md-6">
                             <p>BOTINES PREDATOR EDGE.3 PASTO SINTÉTICO <br> $ 16.999</p>
                             <img src="media/img/productos/BotinesPredator.png" class="d-block w-100" alt="BotinesPredator">
                             <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
@@ -139,7 +145,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <div class="producto col-8 col-md-6 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
+                        <div class="producto col-8 col-md-6">
                             <p>ZAPATILLAS SUPERSTAR <br> $ 20.999</p>
                             <img src="media/img/productos/ZapatillasSuperstar.png" class="d-block w-100" alt="ZapatillasSuperstar">
                             <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
@@ -147,7 +153,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <div class="producto col-8 col-md-6 mx-auto p-2 d-flex flex-column align-items-center justify-content-around text-center fw-bold">
+                        <div class="producto col-8 col-md-6">
                             <p>ZAPATILLAS FORUM LOW <br> $ 23.999</p>
                             <img src="media/img/productos/ZapatillasForumLow.png" class="d-block w-100" alt="ZapatillasForumLow">
                             <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
@@ -197,10 +203,10 @@
 
         <article> <!-- Sección marcas -->
             <h2 class="titulo-seccion text-center p-2 fw-bold text-xl-start ps-xl-5">Nuestas marcas</h2>
-            <div class="d-flex flex-row flex-wrap justify-content-evenly align-items-center py-2 px-5 gap-5">
-                <img class="marcas-img img col-md-6 col-xl-3" src="media/img/marcas/Adidas.jpg" alt="Adidas">
-                <img class="marcas-img img col-md-6 col-xl-3" src="media/img/marcas/Nike.jpg" alt="Nike">
-                <img class="marcas-img img col-md-6 col-xl-3" src="media/img/marcas/NewBalance.jpg" alt="New Balance">
+            <div class="tr-img d-flex">
+                <img src="media/img/marcas/Adidas.jpg" alt="Adidas">
+                <img src="media/img/marcas/Nike.jpg" alt="Nike">
+                <img src="media/img/marcas/NewBalance.jpg" alt="New Balance">
             </div>
         </article>
 

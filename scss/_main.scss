@@ -31,11 +31,25 @@ header {
         }
     }
 
-    .offcanvas {
-        width: 90%;
-        top: 3%;
+    .icono {
+        color: #fff;
 
+        @media all and (min-width: $large){
+            color: #000;
+        }
+    }
+
+    .offcanvas {
+        width: 80%;
+        top: 2%;
         
+        @media all and (min-width: $medium) {
+            width: 65%;
+        }
+
+        @media all and (min-width: $large) {
+            width: 50%;
+        }
     }
 
     .buscador {
@@ -98,58 +112,13 @@ header {
 /* CONTENEDOR PRODUCTO */
 
 .producto {
-    border: 2px solid #eee;
-    border-radius: 5%;
-    height: 500px;
-    transition-duration: .2s;
-
-    &:hover {
-        border: none;
-        box-shadow: 0px 0px 5px $main_color;
-        transform: scale(1.03, 1.03);
-    }
-
-    p {
-        font-size: .8rem;
-    }
-
-    a {
-        text-decoration: none;
-        background: $gradient-btn;
-        border: none;
-        color: #fff;
-        transition-duration: .5s;
-
-        &:active {
-            background: #fff;
-            color: #000;
-            box-shadow: 0px 0px 15px $main_color;
-            transform: scale(1.02, 1.02);
-        }
-    }
+    @include productos ($main_color, $gradient-btn);
 }
 
 /* INDEX - MARCAS */
 
-.marcas-img {
-    border: .5px solid #eee;
-    border-radius: 5%;
-    box-shadow: 0px 0px 15px #ccc;
-    transition-duration: .5s;
-
-    &:active {
-        transform: scale(1.05, 1.05);
-    }
-
-    @media all and (min-width: $large){
-        box-shadow: none;
-
-        &:hover {
-            transform: scale(1.05, 1.05);
-            border: none;
-            box-shadow: 0px 0px 15px #ccc;
-        }
-    }
+.tr-img {
+    @extend %OrderTrioImage;
 }
 
 /* ICONO WHATSAPP */

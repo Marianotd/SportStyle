@@ -9,3 +9,87 @@ $large: 1200px;
 /* BUTTONS */
 
 $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,128,255,1) 100%);
+
+/* EXTEND - TRIO IMÁGENES */ 
+
+%OrderTrioImage {
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    gap: 1rem;
+
+    img {
+        border: .5px solid #eee;
+        border-radius: 5%;
+        box-shadow: 0px 0px 15px #ccc;
+        transition-duration: .5s;
+        width: 100%;
+        col-md-6 col-xl-3
+
+
+        &:active {
+            transform: scale(1.05, 1.05);
+        }
+        
+        @media all and (min-width: $medium){
+            width: 50%;
+        }
+
+        @media all and (min-width: $large){
+            box-shadow: none;
+            width: 25%;
+    
+            &:hover {
+                transform: scale(1.05, 1.05);
+                border: none;
+                box-shadow: 0px 0px 15px #ccc;
+            }
+        }
+    }
+}
+
+/* MIXIN - PRODUCTOS */
+
+
+
+@mixin productos ($bordercolor, $btn-color) {
+    margin: auto;
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    font-weight: 700;
+
+    border: 2px solid #eee;
+    border-radius: 5%;
+    height: 480px;
+    transition-duration: .2s;
+
+    &:hover {
+        border: none;
+        box-shadow: 0px 0px 5px $bordercolor;
+        transform: scale(1.03, 1.03);
+    }
+
+    p {
+        font-size: .8rem;
+    }
+
+    a {
+        text-decoration: none;
+        background: $btn-color;
+        border: none;
+        color: #fff;
+        transition-duration: .5s;
+
+        &:active {
+            background: #fff;
+            color: #000;
+            box-shadow: 0px 0px 15px $bordercolor;
+            transform: scale(1.02, 1.02);
+        }
+    }
+}

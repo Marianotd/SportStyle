@@ -7,23 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="scss/styles.css">
     <link rel="icon" type="image/x-icon" href="media/img/Logo.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Mujer</title>
 </head>
-
 <body>
-    <header class="d-flex flex-column flex-md-row align-items-center justify-content-md-around">
+    <header class="d-flex flex-column flex-md-row align-items-center justify-content-md-around pt-1">
         <picture class="col-xl-3"> <!-- Logo Header -->
             <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
             <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
         </picture>
 
-        <nav class="navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
-            <div class="container-fluid">
+        <nav class="d-flex flex-row col-12 align-items-center justify-content-around navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
+            <div class="col-10 d-flex justify-content-around">
+                <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <desc>Download more icon variants from https://tabler-icons.io/i/menu-2</desc>
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                     </svg>
                 </button>
+                <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+                </a>
             </div>
         </nav>
 
@@ -45,13 +55,19 @@
         <div class="d-none d-md-inline-block col-xl-8"> <!-- Nav viewport md / xl -->
             <div class="d-flex flex-column justify-content-around gap-5">
                 <form class="d-flex justify-content-end align-content-center gap-2" role="search">
-                    <input class="col-10 col-xl-6 px-3 py-1" type="search" placeholder="Buscar..." aria-label="Buscar">
+                    <input class="buscador col-10 col-xl-6 px-3 py-1" type="search" placeholder="Buscar..." aria-label="Buscar">
                     <button class="btn btn-dark btn-sm" type="submit">Ir</button>
+                    <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+                    </a>
+                    <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+                    </a>
                 </form>
 
                 <ul class="nav nav-tabs d-flex flex-row justify-content-evenly flex-nowrap">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                        <a class="nav-link" href="index.html">Inicio</a>
                     </li>
 
                     <li class="nav-item">
@@ -59,7 +75,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="#main">Mujer</a>
+                        <a class="nav-link active fw-bold" aria-current="page" href="#main">Mujer</a>
                     </li>
 
                     <li class="nav-item">
@@ -71,6 +87,26 @@
                     </li>
                 </ul>
             </div>  
+        </div>
+
+        <!-- Login viewport md-xl -->
+        <div class="offcanvas" tabindex="-1" id="login" aria-labelledby="loginlabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="loginlabel">Iniciar Sesión</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="">
+            </div>
+        </div>
+
+        <!-- Carrito viewport md-xl -->
+        <div class="offcanvas" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="carritolabel">Carrito</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="">
+            </div>
         </div>
     </header>
 
