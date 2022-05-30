@@ -32,6 +32,10 @@ header .nav-item a {
   color: #fff;
 }
 
+header .nav-item a:hover {
+  color: #037394;
+}
+
 @media all and (min-width: 1200px) {
   header .nav-item a {
     color: #000;
@@ -41,6 +45,17 @@ header .nav-item a {
 header .offcanvas {
   width: 90%;
   top: 3%;
+}
+
+header .buscador {
+  outline: none;
+  border: 2px solid #ccc;
+}
+
+header .buscador:focus {
+  -webkit-box-shadow: 0px 0px 7px #ccc;
+          box-shadow: 0px 0px 7px #ccc;
+  border: 1px solid #ccc;
 }
 
 /* INDEX - OFERTAS */
