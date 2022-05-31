@@ -49,6 +49,26 @@ $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,
     }
 }
 
+/* EXTEND - BOTON FORMULARIO */
+
+%Btn-Form {  
+        background: #fff;
+        border: 2px solid $main_color;
+        color: $main_color;
+
+        &:focus {
+            box-shadow: 0px 0px 10px $main_color;
+            background: $main_color;
+            color: #fff;
+        }
+
+        &:active {
+            box-shadow: 0px 0px 10px $main_color;
+            background: $main_color;
+            color: #fff;
+        }
+}
+
 /* MIXIN - PRODUCTOS */
 
 @mixin productos ($bordercolor, $btn-color) {
@@ -83,7 +103,7 @@ $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,
         border: none;
         color: #fff;
         transition-duration: .5s;
-
+        
         &:active {
             background: #fff;
             color: #000;
@@ -92,3 +112,12 @@ $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,
         }
     }
 }
+
+/* MAP - GROSOR FUENTE */
+
+$font-weight: (
+    Light: 300,
+    Regular: 400,
+    Medium: 500,
+    Bold: 700
+);

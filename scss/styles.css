@@ -2,7 +2,7 @@
 /* SCREEN SIZE */
 /* BUTTONS */
 /* EXTEND - TRIO IMÁGENES */
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap");
 .tr-img {
   -webkit-box-orient: horizontal;
@@ -54,7 +54,29 @@ col-md-6 col-xl-3 .tr-img img:active {
   }
 }
 
+/* EXTEND - BOTON FORMULARIO */
+.formcontact .form__btn {
+  background: #fff;
+  border: 2px solid #037394;
+  color: #037394;
+}
+
+.formcontact .form__btn:focus {
+  -webkit-box-shadow: 0px 0px 10px #037394;
+          box-shadow: 0px 0px 10px #037394;
+  background: #037394;
+  color: #fff;
+}
+
+.formcontact .form__btn:active {
+  -webkit-box-shadow: 0px 0px 10px #037394;
+          box-shadow: 0px 0px 10px #037394;
+  background: #037394;
+  color: #fff;
+}
+
 /* MIXIN - PRODUCTOS */
+/* MAP - GROSOR FUENTE */
 /* font-family: 'Ubuntu', sans-serif; */
 /* font-family: 'Bowlby One', cursive; */
 * {
@@ -73,24 +95,6 @@ header {
 @media all and (min-width: 1200px) {
   header {
     background: #fff;
-  }
-}
-
-header .navbar-toggler-icon {
-  background-image: none;
-}
-
-header .nav-item a {
-  color: #fff;
-}
-
-header .nav-item a:hover {
-  color: #037394;
-}
-
-@media all and (min-width: 1200px) {
-  header .nav-item a {
-    color: #000;
   }
 }
 
@@ -132,9 +136,33 @@ header .buscador:focus {
   border: 1px solid #ccc;
 }
 
+header .list-group-item {
+  font-weight: 500;
+}
+
+header .nav-item a {
+  color: #fff;
+  font-weight: 300;
+}
+
+header .nav-item a:hover {
+  color: #037394;
+}
+
+@media all and (min-width: 1200px) {
+  header .nav-item a {
+    color: #000;
+  }
+}
+
+header .nav-item a.active {
+  font-weight: 700;
+}
+
 /* INDEX - OFERTAS */
 .bg-warning a {
   font-size: .6rem;
+  font-weight: 700;
 }
 
 @media all and (min-width: 768px) {
@@ -171,9 +199,15 @@ header .buscador:focus {
   }
 }
 
+/* INDEX - DESTACADOS */
+.card-tittle, .card-text {
+  font-weight: 700;
+}
+
 /* INDEX - NOVEDADES */
 .titulo-seccion {
   font-size: 2.5rem;
+  font-weight: 700;
 }
 
 @media all and (min-width: 1200px) {
@@ -182,10 +216,15 @@ header .buscador:focus {
   }
 }
 
-/* PRODUCTOS */
+/* GRILLA PRODUCTOS */
+#btnfilters {
+  font-weight: 700;
+}
+
 .form .tit-filtros {
   border-bottom: 2px solid #ddd;
   font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .form div {
@@ -363,6 +402,10 @@ header .buscador:focus {
           transform: scale(1.02, 1.02);
 }
 
+.producto a {
+  font-weight: 400;
+}
+
 /* INDEX - MARCAS */
 /* ICONO WHATSAPP */
 .iconowhatsapp {
@@ -397,16 +440,105 @@ footer div a:active {
 
 footer p {
   font-size: .65rem;
+  font-weight: 700;
 }
 
 @media all and (min-width: 768px) {
   footer p {
-    font-size: .5rem;
+    font-size: .6rem;
   }
 }
 
 /* NEWSLETTER */
 .newsletter p {
   font-size: .8rem;
+  font-weight: 700;
+}
+
+/* CONTACTO - IMAGEN */
+.card div {
+  top: 35%;
+}
+
+.card div h2 {
+  font-family: 'Bowlby One', cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.card div p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* FORMULARIO REGISTRO */
+.formcontact h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.formcontact input, .formcontact select {
+  outline: none;
+  padding: .25rem 0;
+  text-align: center;
+}
+
+.formcontact input:hover, .formcontact select:hover {
+  border: 1.5px solid #037394;
+}
+
+.formcontact input:focus, .formcontact select:focus {
+  border: none;
+  -webkit-box-shadow: 0px 0px 2px #444;
+          box-shadow: 0px 0px 2px #444;
+}
+
+.formcontact input:active, .formcontact select:active {
+  border: none;
+  -webkit-box-shadow: 0px 0px 2px #444;
+          box-shadow: 0px 0px 2px #444;
+}
+
+.formcontact input::-webkit-input-placeholder, .formcontact select::-webkit-input-placeholder {
+  font-weight: 300;
+}
+
+.formcontact input:-ms-input-placeholder, .formcontact select:-ms-input-placeholder {
+  font-weight: 300;
+}
+
+.formcontact input::-ms-input-placeholder, .formcontact select::-ms-input-placeholder {
+  font-weight: 300;
+}
+
+.formcontact input::placeholder, .formcontact select::placeholder {
+  font-weight: 300;
+}
+
+.formcontact .registro__notificaciones {
+  font-weight: 300;
+  color: #000;
+}
+
+.formcontact .registro__notificaciones:hover {
+  color: #555;
+}
+
+.formcontact .registro__terminos a {
+  font-weight: 700;
+  color: #037394;
+}
+
+.formcontact .registro__link {
+  font-size: .85rem;
+}
+
+.formcontact .registro__link a {
+  color: #037394;
+  font-weight: 700;
+}
+
+.formcontact .form__btn {
+  font-weight: 500;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -14,22 +14,6 @@ header {
         background: #fff;
     }
 
-    .navbar-toggler-icon {
-        background-image: none;
-    }
-
-    .nav-item a {
-        color: #fff;
-
-        &:hover {
-            color: $main_color;
-        }
-
-        @media all and (min-width: $large){
-            color: #000;
-        }
-    }
-
     .icono {
         color: #fff;
 
@@ -60,6 +44,27 @@ header {
             border: 1px solid #ccc;
         }
     }
+
+    .list-group-item {
+        font-weight: map-get($font-weight, Medium);
+    }
+
+    .nav-item a {
+        color: #fff;
+        font-weight: map-get($font-weight, Light);
+
+        &:hover {
+            color: $main_color;
+        }
+
+        @media all and (min-width: $large){
+            color: #000;
+        }
+
+        &.active {
+            font-weight: map-get($font-weight, Bold);
+        }
+    }
 }
 
 /* INDEX - OFERTAS */
@@ -67,6 +72,7 @@ header {
 .bg-warning {
     a {
         font-size: .6rem;
+        font-weight: map-get($font-weight, Bold);
 
         @media all and (min-width: $medium){
             font-size: .75rem;
@@ -98,22 +104,34 @@ header {
     }
 }
 
+/* INDEX - DESTACADOS */
+
+.card-tittle, .card-text {
+    font-weight: map-get($font-weight, Bold);
+}
+
 /* INDEX - NOVEDADES */
 
 .titulo-seccion {
     font-size: 2.5rem;
+    font-weight: map-get($font-weight, Bold);
 
     @media all and (min-width: $large){
         border-bottom: 2px solid #eee;
     }
 }
 
-/* PRODUCTOS */
+/* GRILLA PRODUCTOS */
+
+#btnfilters {
+    font-weight: map-get($font-weight, Bold);
+}
 
 .form {
     .tit-filtros {
         border-bottom: 2px solid #ddd;
         font-size: 1.2rem;
+        font-weight: map-get($font-weight, Bold);
         }
 
     div {
@@ -139,6 +157,10 @@ header {
 
     &--niños {
         @include productos (#0ac700, radial-gradient(ellipse at center, rgba(10,199,0,1) 0%, rgba(8,128,26,1) 100%));
+    }
+
+    a {
+        font-weight: map-get($font-weight, Regular)
     }
 }
 
@@ -179,9 +201,10 @@ footer {
 
     p {
         font-size: .65rem;
+        font-weight: map-get($font-weight, Bold);
 
         @media all and (min-width: $medium) {
-            font-size: .5rem;
+            font-size: .6rem;
         }
     }
 }
@@ -191,5 +214,89 @@ footer {
 .newsletter {
     p {
         font-size: .8rem;
+        font-weight: map-get($font-weight, Bold);
     }
 }
+
+/* CONTACTO - IMAGEN */
+
+.card {
+    div{
+        top: 35%;
+
+        h2 {
+            font-family: 'Bowlby One', cursive;
+            font-size: 2.5rem;
+            font-weight: map-get($font-weight, Bold);
+        }
+        
+        p {
+            font-size: 1.2rem;
+            font-weight: map-get($font-weight, Medium);
+        }
+    }
+}
+
+/* FORMULARIO REGISTRO */
+
+.formcontact {
+    h2 {
+        font-size: 1.5rem;
+        font-weight: map-get($font-weight, Bold);
+    }
+
+    input, select {
+        outline: none;
+        padding: .25rem 0;
+        text-align: center;
+
+        &:hover {
+            border: 1.5px solid $main_color;
+        }
+
+        &:focus {
+            border: none;
+            box-shadow: 0px 0px 2px #444;
+        }
+
+        &:active {
+            border: none;
+            box-shadow: 0px 0px 2px #444;
+        }
+
+        &::placeholder {
+            font-weight: map-get($font-weight, Light);
+        }
+    }
+
+    .registro__notificaciones {
+        font-weight: map-get($font-weight, Light);
+        color: #000;
+
+        &:hover {
+            color: #555;
+        }
+    }
+
+    .registro__terminos {
+        a {
+            font-weight: map-get($font-weight, Bold);
+            color: $main_color;
+        }
+    }
+
+    .registro__link {
+        font-size: .85rem;
+
+        a {
+            color: $main_color;
+            font-weight: map-get($font-weight, Bold)
+        }
+    }
+
+    .form__btn {
+        @extend %Btn-Form;
+        font-weight: map-get($font-weight, Medium);
+    }
+}
+

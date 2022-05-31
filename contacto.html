@@ -114,24 +114,23 @@
     <section id="main" class="d-flex flex-column flex-xl-row flex-wrap align-items-center justify-content-evenly">
         <aside class="order-1 order-xl-0"> <!-- Imagen lateral -->
             <div class="card bg-dark text-white position-relative">
-                <img class="card-img" src="media/contacto/Contacto.jpg" alt="Contacto">
-                <div id="contacttext" class="card-img-overlay position-absolute p-4 text-center">
+                <img class="card-img img-fluid" src="media/contacto/Contacto.jpg" alt="Contacto">
+                <div class="card-img-overlay position-absolute p-4 text-center">
                     <h2 class="card-title">HACETE MIEMBRO DE SPORTSTYLE</h2>
-                    <p class="card-text">Creá tu perfil de miembro de SportStyle y obtené acceso anticipado a los mejores productos, inspiración y
-                        comunidad SportStyle.</p> 
+                    <p class="card-text">Creá tu perfil de miembro de SportStyle y obtené acceso anticipado a los mejores productos, inspiración y comunidad SportStyle.</p> 
                 </div>
             </div>
         </aside>
 
-        <section class="order-0 order-xl-1 col-xl-6"> <!-- Formulario de registro -->
-            <form class="p-2 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET"> 
+        <section class="order-0 order-xl-1 col-xl-6 p-0"> <!-- Formulario de registro -->
+            <form class="formcontact p-4 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET"> 
                 <h2>Hazte SportStyle member</h2>
-                <input class="col-7 text-center fs-6" type="email" name="email" placeholder="Dirección de correo electrónico" required>
-                <input class="col-7 text-center" type="password" name="password" placeholder="Contraseña" required>
-                <input class="col-7 text-center" type="text" name="name" placeholder="Nombre" required>
-                <input class="col-7 text-center" type="text" name="surname" placeholder="Apellidos" required>
-                <input class="col-7 text-center" type="text" name="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Fecha de nacimiento" required>
-                <select class="col-7 text-center" name="pais" id="pais" required>
+                <input class="col-8 col-md-6 col-xl-9" type="email" name="email" placeholder="Dirección de correo electrónico" required>
+                <input class="col-8 col-md-6 col-xl-9" type="password" name="password" placeholder="Contraseña" required>
+                <input class="col-8 col-md-6 col-xl-9" type="text" name="name" placeholder="Nombre" required>
+                <input class="col-8 col-md-6 col-xl-9" type="text" name="surname" placeholder="Apellidos" required>
+                <input class="col-8 col-md-6 col-xl-9" type="text" name="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Fecha de nacimiento" required>
+                <select class="col-8 col-md-6 col-xl-9" name="pais" id="pais" required>
                     <option value="pais" disabled selected>País</option>
                     <option value="ar">Argentina</option>
                     <option value="br">Brasil</option>
@@ -141,28 +140,31 @@
                     <option value="ur">Uruguay</option>
                     <option value="pg">Paraguay</option>
                 </select>
-                <div class="d-flex flex-row align-items-center justify-content-evenly col-8">
-                    <label for="masc">Masculino</label>
-                    <input type="radio" name="sexo" id="masc" required>
-
-                    <label for="fem">Femenino</label>
-                    <input type="radio" name="sexo" id="fem" required>
+                <div class="d-flex flex-row align-items-center justify-content-evenly col-7 gap-4">
+                    <div>
+                        <label for="masc">Masculino</label>
+                        <input type="radio" name="sexo" id="masc" required>
+                    </div>
+                    <div>
+                        <label for="fem">Femenino</label>
+                        <input type="radio" name="sexo" id="fem" required>
+                    </div>
                 </div>
 
-                <div class="d-flex flex-row align-items-center justify-content-around gap-4 col-10">
+                <div class="registro__notificaciones col-10 d-flex flex-row align-items-center justify-content-around gap-4">
                     <input type="checkbox" name="novmail" id="novmail">
                     <label for="novmail">Registrate para recibir correos electrónicos de SportStyle con actualizaciones de productos, ofertas y beneficios como miembro.</label>    
                 </div>
-                <div class="d-flex flex-row align-items-center justify-content-around gap-4 col-10 text-center">
+                <div class="registro__terminos d-flex flex-row align-items-center justify-content-around gap-4 text-center">
                     <span>Cuando creás una cuenta, confirmás que estás de acuerdo con la <a href="#">Política de privacidad</a> y los <a href="#">Términos de uso</a> de SportStyle.</span>   
                 </div>
-                <input class="btn btn-outline-primary" type="submit" value="Únete a nosotros">
-                <span> ¿Ya eres miembro? <a href="#">Iniciar sesión.</a></span>
+                <input class="form__btn py-1 px-3" type="submit" value="Únete a nosotros">
+                <span class="registro__link"> ¿Ya eres miembro? <a href="#">Iniciar sesión.</a></span>
             </form>
         </section>
     
-        <section class="col-12 col-xl-8 order-2"> <!-- Formulario de contacto -->
-            <form class="p-2 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET">
+        <section class="col-12 bg-light order-2"> <!-- Formulario de contacto -->
+            <form class="formcontact col-12 col-xl-8 mx-auto py-5 px-2 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET">
                 <h2>Contactanos</h2>
                 <input class="col-7 text-center" type="email" name="email" placeholder="Dirección de correo electrónico" required>
                 <input class="col-7 text-center" type="password" name="password" placeholder="Contraseña" required>
@@ -170,7 +172,7 @@
                 <input class="col-7 text-center" type="text" name="surname" placeholder="Apellidos" required>
                 <input class="col-7 text-center" type="tel" name="tel" placeholder="Teléfono" required>
                 <textarea class="col-7 text-center" name="consulta" id="consulta" rows="10" placeholder="Dejanos tu consulta" maxlength="500" required></textarea>
-                <input class="btn btn-outline-primary" type="submit" value="Enviar">
+                <input class="form__btn py-1 px-3" type="submit" value="Enviar">
             </form>   
         </section>
         
@@ -179,7 +181,7 @@
         </div>
     </section>
 
-    <footer class="d-flex flex-column flex-md-row align-items-center justify-content-around text-center p-4 gap-3 mt-2">
+    <footer class="d-flex flex-column flex-md-row align-items-center justify-content-around text-center p-4 gap-3">
         <div class="order-md-1 col-6 col-md-4 d-flex flex-row flex-nowrap align-items-center justify-content-evenly">
             <a href="https://www.facebook.com/" target="_blank"><img class="w-100" src="media/img/Facebook.png" alt="Facebook"></a>
             <a href="https://www.instagram.com/" target="_blank"><img class="w-100" src="media/img/Instagram.png" alt="Instagram"></a>

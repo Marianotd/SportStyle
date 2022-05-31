@@ -43,10 +43,10 @@
                         <input class="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Buscar">
                         <button class="btn btn-dark btn-sm" type="submit">Ir</button>
                     </form>
-                    <a href="index.html" class="list-group-item list-group-item-action fw-bold">Inicio</a>
-                    <a href="mujer.html" class="list-group-item list-group-item-action fw-bold">Mujer</a>
-                    <a href="ninos.html" class="list-group-item list-group-item-action fw-bold">Niños</a>
-                    <a href="contacto.html" class="list-group-item list-group-item-action fw-bold">Contacto</a>
+                    <a href="index.html" class="list-group-item list-group-item-action">Inicio</a>
+                    <a href="mujer.html" class="list-group-item list-group-item-action">Mujer</a>
+                    <a href="ninos.html" class="list-group-item list-group-item-action">Niños</a>
+                    <a href="contacto.html" class="list-group-item list-group-item-action">Contacto</a>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" aria-current="page" href="#main">Hombre</a>
+                        <a class="nav-link active" aria-current="page" href="#main">Hombre</a>
                     </li>
 
                     <li class="nav-item">
@@ -123,14 +123,14 @@
 
         <article> <!-- Sección grilla de productos -->
             <div class="d-flex flex-row align-items-center justify-content-around">
-                <a id="btnfilters" class="col-6 bg-black text-white fw-bold text-center text-decoration-none p-2 p-xl-3" data-bs-toggle="collapse" href="#collapsefilters" role="button" aria-expanded="false" aria-controls="collapsefilters">Filtrar</a>
-                <a id="btnfilters" class="col-6 bg-black text-white fw-bold text-center text-decoration-none p-2 p-xl-3" data-bs-toggle="collapse" href="#collapseorder" role="button" aria-expanded="false" aria-controls="collapseorder">Ordenar</a>
+                <a id="btnfilters" class="col-6 bg-black text-white text-center text-decoration-none p-2 p-xl-3" data-bs-toggle="collapse" href="#collapsefilters" role="button" aria-expanded="false" aria-controls="collapsefilters">Filtrar</a>
+                <a id="btnfilters" class="col-6 bg-black text-white text-center text-decoration-none p-2 p-xl-3" data-bs-toggle="collapse" href="#collapseorder" role="button" aria-expanded="false" aria-controls="collapseorder">Ordenar</a>
             </div>
 
             <div class="collapse col-xl-6 mx-auto" id="collapsefilters"> <!-- Filtros-->
                 <form class="form d-flex flex-column align-items-center justify-content-evenly gap-4 bg-light text-black p-3" action="hombre.html"> 
                     <div id="filtros" class="col-8">
-                        <p class="tit-filtros text-center fw-bold">Tipo de producto</p>
+                        <p class="tit-filtros text-center">Tipo de producto</p>
                         <div>
                             <label class="col-11" for="remeras">Remeras</label>
                             <input type="radio" name="tipoproducto" id="remeras" value="remeras">
@@ -162,13 +162,13 @@
                     </div>
 
                     <div id="filtros" class="col-8">
-                        <p class="tit-filtros text-center fw-bold">Precio</p>
+                        <p class="tit-filtros text-center">Precio</p>
                         <input class="col-8 d-block mx-auto mb-3 py-1 px-2" type="number" id="minimo" value="minimo" min="0" max="29999" placeholder="Desde ...">
                         <input class="col-8 d-block mx-auto py-1 px-2" type="number" id="maximo" value="maximo" min="1001" max="30000" placeholder="Hasta ...">    
                     </div>
 
                     <div id="filtros" class="col-8">
-                        <p class="tit-filtros text-center fw-bold">Marca</p>
+                        <p class="tit-filtros text-center">Marca</p>
                         <select class="col-10 text-center p-1 d-block mx-auto" name="marca">
                             <option value="" disabled selected>Selecione una marca</option>
                             <option value="adidas">Adidas</option>
@@ -186,7 +186,7 @@
             <div class="collapse col-xl-6 mx-auto" id="collapseorder">
                 <form class="form d-flex flex-column align-items-center justify-content-evenly gap-4 bg-light text-black p-3" action="hombre.html"> <!-- Filtro ordenar por -->
                     <div id="order" class="col-10 mb-4">
-                        <p class="tit-filtros text-center fw-bold">Ordenar por</p>
+                        <p class="tit-filtros text-center">Ordenar por</p>
                         <div>
                             <label class="col-11" for="mayorprecio">Mayor precio</label>
                             <input type="radio" name="orden" id="mayorprecio" value="mayorprecio">
@@ -223,37 +223,37 @@
                 <div class="producto col-5 col-md-4 col-xl-2">
                     <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10 <br> $ 17.499</p>
                     <img class="img-fluid" src="media/hombre/productos/CamisetaMessi.png" alt="Camiseta Messi">
-                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
                 <div class="producto col-5 col-md-4 col-xl-2">
                     <p>ZAPATILLAS GALAXY 5 <br> $ 11.499</p>
                     <img class="img-fluid"  src="media/hombre/productos/ZapatillasGalaxy5.png" alt="ZapatillasGalaxy5">
-                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
                 <div class="producto col-5 col-md-4 col-xl-2">
                     <p>Buzo Nike Dri-Fit Sport Clash <br> $12.699</p>
                     <img class="img-fluid"  src="media/hombre/productos/NikeDriFitSport.png" alt="BuzoNikeDriFit">
-                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
                 <div class="producto col-5 col-md-4 col-xl-2">
                     <p>Pantalón Nike Dri-FIT Strike 21 <br> $12.499</p>
                     <img class="img-fluid"  src="media/hombre/productos/PantalonNikeDriFitStrike21.png" alt="PantalonNikeDriFitStrike21">
-                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
                 <div class="producto col-5 col-md-4 col-xl-2">
                     <p>ZAPATILLAS GEL-EQUATION 11 <br> $17.490</p>
                     <img class="img-fluid"  src="media/hombre/productos/ZapatillasGelEquation11.png" alt="ZapatillasGel-Equation11">
-                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
                 <div class="producto col-5 col-md-4 col-xl-2">
                     <p>REMERA SIN MANGAS BACK <br> $4.800</p>
                     <img class="img-fluid"  src="media/hombre/productos/RemeraSinMangaBack.png" alt="RemeraSinMangaBack">
-                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
                 </div>
 
                 <div class="producto col-5 col-md-4 col-xl-2">
@@ -261,13 +261,13 @@
                         <p>Remera Ufc Fan Gear Text Reebok <br> $ 5.439</p>
                     </div>
                     <img class="img-fluid"  src="media/hombre/productos/RemeraRebookUFCGearText.png" alt="RemeraRebookUFCGearText">
-                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
                 </div>
                 
                 <div class="producto col-5 col-md-4 col-xl-2">
                     <p>Zapatillas Energen Lite Reebok <br> $ 11.499</p>
                     <img class="img-fluid"  src="media/hombre/productos/ZapatillasRebookEnergenLite.png" alt="ZapatillasRebookEnergenLite">
-                    <a href="#" class="py-1 px-4 rounded fw-normal" role="button" aria-disabled="true">Añadir</a>
+                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
                 </div>
             </div>
 
@@ -293,7 +293,7 @@
         </article>
 
         <article class="newsletter bg-warning d-flex flex-column align-items-center justify-content-around p-2 text-center"> <!-- Suscripción a Newsletter -->
-            <p class="fw-bold">Unite al club y conseguí un 15% de descuento en tu próxima compra</p>
+            <p>Unite al club y conseguí un 15% de descuento en tu próxima compra</p>
             <form action="hombre.html">
                 <input class="col-12 text-center py-1 mb-3" type="email" placeholder="Ingrese su email">
                 <input class="btn btn-dark" type="submit" value="Suscribirse">
@@ -311,7 +311,7 @@
             <a href="https://www.instagram.com/" target="_blank"><img class="w-100" src="media/img/Instagram.png" alt="Instagram"></a>
             <a href="https://www.twitter.com/" target="_blank"><img class="w-100" src="media/img/Twitter.png" alt="Twitter"></a>
         </div>
-        <p class="fw-bold m-0">@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
+        <p class="m-0">@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
