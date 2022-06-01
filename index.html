@@ -11,10 +11,12 @@
 </head>
 <body>
     <header class="d-flex flex-column flex-md-row align-items-center justify-content-md-around pt-1">
-        <picture class="col-xl-3"> <!-- Logo Header -->
-            <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
-            <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
-        </picture>
+        <a href="index.html">
+            <picture class="col-xl-3"> <!-- Logo Header -->
+                <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
+                <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
+            </picture>
+        </a>
 
         <nav class="d-flex flex-row col-12 align-items-center justify-content-around navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
             <div class="col-10 d-flex justify-content-around">
@@ -98,15 +100,6 @@
             </div>
         </div>
 
-        <!-- Carrito viewport md-xl -->
-        <div class="offcanvas" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
-            <div class="offcanvas-header">
-                <h3 class="offcanvas-title" id="carritolabel">Carrito</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="">
-            </div>
-        </div>
     </header>
 
     <section id="main">
@@ -132,7 +125,7 @@
                         <div class="producto col-8 col-md-6">
                             <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10 <br> $ 17.499</p>
                             <img class="img-fluid" src="media/img/productos/CamisetaMessi.png" alt="CamisetaMessi">
-                            <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                            <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                         </div>
                     </div>
 
@@ -140,7 +133,7 @@
                         <div class="producto col-8 col-md-6">
                             <p>BOTINES PREDATOR EDGE.3 PASTO SINTÉTICO <br> $ 16.999</p>
                             <img class="img-fluid" src="media/img/productos/BotinesPredator.png" alt="BotinesPredator">
-                            <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                            <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                        </div>
                     </div>
 
@@ -148,7 +141,7 @@
                         <div class="producto col-8 col-md-6">
                             <p>ZAPATILLAS SUPERSTAR <br> $ 20.999</p>
                             <img class="img-fluid" src="media/img/productos/ZapatillasSuperstar.png" alt="ZapatillasSuperstar">
-                            <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                            <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                         </div>
                     </div>
 
@@ -156,7 +149,7 @@
                         <div class="producto col-8 col-md-6">
                             <p>ZAPATILLAS FORUM LOW <br> $ 23.999</p>
                             <img class="img-fluid" src="media/img/productos/ZapatillasForumLow.png" alt="ZapatillasForumLow">
-                            <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                            <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                         </div>
                     </div>   
                 </div>
@@ -178,25 +171,35 @@
                 <div class="producto">
                     <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10 <br>$ 17.499</p>
                     <img src="media/img/productos/CamisetaMessi.png" class="d-block w-100" alt="CamisetaMessi">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
     
                 <div class="producto">
                     <p>BOTINES PREDATOR EDGE.3 PASTO SINTÉTICO <br>$ 16.999</p>
                     <img src="media/img/productos/BotinesPredator.png" class="d-block w-100" alt="BotinesPredator">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
     
                 <div class="producto">
                     <p>ZAPATILLAS SUPERSTAR <br>$ 20.999</p>
                     <img src="media/img/productos/ZapatillasSuperstar.png" class="d-block w-100" alt="ZapatillasSuperstar">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
     
                 <div class="producto">
                     <p>ZAPATILLAS FORUM LOW <br>$ 23.999</p>
                     <img src="media/img/productos/ZapatillasForumLow.png" class="d-block w-100" alt="ZapatillasForumLow">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                </div>
+            </div>
+
+                    <!-- Carrito viewport md-xl -->
+            <div class="offcanvas" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
+                <div class="offcanvas-header">
+                    <h3 class="offcanvas-title" id="carritolabel">Carrito</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="">
                 </div>
             </div>
         </article>

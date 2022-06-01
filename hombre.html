@@ -11,10 +11,12 @@
 </head>
 <body>
     <header class="d-flex flex-column flex-md-row align-items-center justify-content-md-around pt-1">
-        <picture class="col-xl-3"> <!-- Logo Header -->
-            <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
-            <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
-        </picture>
+        <a href="index.html">
+            <picture class="col-xl-3"> <!-- Logo Header -->
+                <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
+                <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
+            </picture>
+        </a>
 
         <nav class="d-flex flex-row col-12 align-items-center justify-content-around navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
             <div class="col-10 d-flex justify-content-around">
@@ -122,7 +124,7 @@
         </article>
 
         <article> <!-- Sección grilla de productos -->
-            <div class="d-flex flex-row align-items-center justify-content-around">
+            <div class="d-xl-none d-flex flex-row align-items-center justify-content-around"> <!-- Botones filtrar y ordenar viewport sm-md -->
                 <a id="btnfilters" class="col-6 bg-black text-white text-center text-decoration-none p-2 p-xl-3" data-bs-toggle="collapse" href="#collapsefilters" role="button" aria-expanded="false" aria-controls="collapsefilters">Filtrar</a>
                 <a id="btnfilters" class="col-6 bg-black text-white text-center text-decoration-none p-2 p-xl-3" data-bs-toggle="collapse" href="#collapseorder" role="button" aria-expanded="false" aria-controls="collapseorder">Ordenar</a>
             </div>
@@ -216,6 +218,23 @@
                 <button>Novedades /</button>   
                 <button>Camisetas /</button>   
                 <button>Adidas /</button>      
+            </div>
+
+            <div class="d-none d-xl-flex"> <!-- Botones filtrar y ordenar viewport xl -->
+                <a id="btnfilters" class="" data-bs-toggle="collapse" href="#collapsefilters" role="button" aria-expanded="false" aria-controls="collapsefilters">Filtrar</a>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-horizontal" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <desc>Download more icon variants from https://tabler-icons.io/i/adjustments-horizontal</desc>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="14" cy="6" r="2"></circle>
+                    <line x1="4" y1="6" x2="12" y2="6"></line>
+                    <line x1="16" y1="6" x2="20" y2="6"></line>
+                    <circle cx="8" cy="12" r="2"></circle>
+                    <line x1="4" y1="12" x2="6" y2="12"></line>
+                    <line x1="10" y1="12" x2="20" y2="12"></line>
+                    <circle cx="17" cy="18" r="2"></circle>
+                    <line x1="4" y1="18" x2="15" y2="18"></line>
+                    <line x1="19" y1="18" x2="20" y2="18"></line>
+                 </svg>
             </div>
 
             <!-- Productos -->
