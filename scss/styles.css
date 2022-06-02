@@ -127,13 +127,13 @@ header .offcanvas {
 
 header .buscador {
   outline: none;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 header .buscador:focus {
   -webkit-box-shadow: 0px 0px 7px #ccc;
           box-shadow: 0px 0px 7px #ccc;
-  border: 1px solid #ccc;
+  border: .5px solid #ccc;
 }
 
 header .list-group-item {
@@ -152,6 +152,7 @@ header .nav-item a:hover {
 @media all and (min-width: 1200px) {
   header .nav-item a {
     color: #000;
+    font-size: 1.1rem;
   }
 }
 
@@ -229,11 +230,6 @@ header .nav-item a.active {
 
 .form div {
   border-bottom: 1.5px solid #eee;
-}
-
-.filtros-aplicados button {
-  background: none;
-  border: none;
 }
 
 /* CONTENEDOR PRODUCTO */

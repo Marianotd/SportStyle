@@ -11,35 +11,19 @@
     <title>Mujer</title>
 </head>
 <body>
-    <header class="d-flex flex-column flex-md-row align-items-center justify-content-md-around pt-1">
-        <a href="index.html">
-            <picture class="col-xl-3"> <!-- Logo Header -->
-                <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
-                <img class="img-fluid" src="media/img/Logo.ico" alt="logo"> 
-            </picture>
+    <header class="d-flex flex-row align-items-center justify-content-md-around">
+        <!-- Navbar viewport sm -->
+        <a class="d-md-none mx-auto" data-bs-toggle="offcanvas" href="#offcanvasmenu" role="button" aria-controls="offcanvasmenu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2 text-white" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <desc>Download more icon variants from https://tabler-icons.io/i/menu-2</desc>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
         </a>
 
-        <nav class="d-flex flex-row col-12 align-items-center justify-content-around navbar navbar-dark mb-1 d-md-none"> <!-- Nav viewport sm -->
-            <div class="col-10 d-flex justify-content-around">
-                <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <desc>Download more icon variants from https://tabler-icons.io/i/menu-2</desc>
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <line x1="4" y1="6" x2="20" y2="6"></line>
-                        <line x1="4" y1="12" x2="20" y2="12"></line>
-                        <line x1="4" y1="18" x2="20" y2="18"></line>
-                     </svg>
-                </button>
-                <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
-                </a>
-            </div>
-        </nav>
-
-        <div class="collapse col-12 text-center text-uppercase" id="navbarToggleExternalContent">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasmenu" aria-labelledby="offcanvasmenulabel"> 
             <div>
                 <div class="list-group">
                     <form class="d-flex p-3" role="search">
@@ -54,57 +38,79 @@
             </div>
         </div>
 
-        <div class="d-none d-md-inline-block col-xl-8"> <!-- Nav viewport md / xl -->
-            <div class="d-flex flex-column justify-content-around gap-5">
-                <form class="d-flex justify-content-end align-content-center gap-2" role="search">
-                    <input class="buscador col-10 col-xl-6 px-3 py-1" type="search" placeholder="Buscar..." aria-label="Buscar">
-                    <button class="btn btn-dark btn-sm" type="submit">Ir</button>
-                    <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-                    </a>
-                    <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+        <a class="col-6 col-md-2 col-xl-2" href="index.html"> <!-- Logo Header -->
+            <picture class="col-xl-3"> 
+                <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
+                <img class="col-3 col-md-8 col-xl-12 mx-auto d-block" src="media/img/Logo.ico" alt="logo"> 
+            </picture>
+        </a>
+
+        <div class="col-3 d-flex flex-row flex-nowrap d-md-none"> <!-- Iconos login/carrito viewport sm -->
+            <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+            </a>
+    
+            <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+            </a>
+        </div>
+
+        <div class="d-none d-md-flex flex-row align-items-center justify-content-around col-10 col-xl-9"> <!-- Nav viewport md / xl -->
+            <ul class="col-8 col-xl-6 nav d-flex flex-row justify-content-evenly gap-2">
+                <li class="nav-item">
+                    <a class="text-decoration-none px-2" aria-current="page" href="index.html">Inicio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="text-decoration-none px-2" href="hombre.html">Hombre</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="text-decoration-none px-2 active" href="#main">Mujer</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="text-decoration-none px-2" href="ninos.html">Niños</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="text-decoration-none px-2" href="contacto.html">Contacto</a>
+                </li>
+            </ul>
+
+            <a class="icono p-1 d-xl-none"  data-bs-toggle="offcanvas" href="#offcanvasbuscador" role="button" aria-controls="offcanvasbuscador">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+            </a>
+
+            <div class="d-none d-xl-inline-block">
+                <form class="d-flex p-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Buscar">
+                    <a class="icono p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
                     </a>
                 </form>
+            </div>
 
-                <ul class="nav nav-tabs d-flex flex-row justify-content-evenly flex-nowrap">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
-                    </li>
+            <a class="icono p-1" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+            </a>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="hombre.html">Hombre</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#main">Mujer</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="ninos.html">Niños</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
-                </ul>
-            </div>  
+            <a class="icono p-1" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+            </a>
+            
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasbuscador" aria-labelledby="offcanvasbuscadorlabel">
+                <form class="d-flex p-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Buscar">
+                    <button class="btn btn-dark btn-sm" type="submit">Ir</button>
+                </form>
+            </div>
         </div>
 
         <!-- Login viewport md-xl -->
         <div class="offcanvas" tabindex="-1" id="login" aria-labelledby="loginlabel">
             <div class="offcanvas-header">
                 <h3 class="offcanvas-title" id="loginlabel">Iniciar Sesión</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="">
-            </div>
-        </div>
-
-        <!-- Carrito viewport md-xl -->
-        <div class="offcanvas" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
-            <div class="offcanvas-header">
-                <h3 class="offcanvas-title" id="carritolabel">Carrito</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="">
@@ -209,60 +215,62 @@
             </div>
 
             <!-- Indicador de filtros aplicados --> 
-            <div class="filtros-aplicados d-flex flex-row flex-nowrap align-items-center justify-content-start px-2 mt-3 gap-1">  
-                <button>Atras |</button>
-                <button>Mujer /</button>  
-                <button>Buzos /</button>      
-            </div>
+            <nav class="filtros-aplicados pt-2 px-2" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Atras</a></li>
+                    <li class="breadcrumb-item"><a href="#">Mujer</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Novedades</li>
+                </ol>
+            </nav>
 
             <!-- Productos -->
             <div class="d-flex flex-row flex-wrap justify-content-evenly p-3 gap-2">
                 <div class="producto producto--mujer col-5 col-md-4 col-xl-2">
                     <p>Remera Own The Run adidas <br> $ 7.859</p>
                     <img class="img-fluid" src="media/mujer/productos/RemeraAdidasOwnTheRun.jpg"alt="RemeraAdidasOwnTheRun">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
 
                 <div class="producto producto--mujer col-5 col-md-4 col-xl-2">
                     <p>Remera Ba Run21 Ss Tee W 1 adidas <br> $ 3.999</p>
                     <img class="img-fluid" src="media/mujer/productos/RemeraBaRun21SsTeeW1Adidas.jpg" alt="RemeraBaRun21SsTeeW1Adidas">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
 
                 <div class="producto producto--mujer col-5 col-md-4 col-xl-2">
                     <p>Zapatillas Gel Hypersonic 2 W Asics <br> $ 20.489</p>
                     <img class="img-fluid" src="media/mujer/productos/ZapatillasGelHypersonic2WAsics.jpg" alt="ZapatillasGelHypersonic2WAsics">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
 
                 <div class="producto producto--mujer col-5 col-md-4 col-xl-2">
                     <p>Remera En V Neck Ss Asics <br> $ 5.869</p>
                     <img class="img-fluid" src="media/mujer/productos/RemeraEnVNeckSsAsics.jpg" alt="RemeraEnVNeckSsAsics">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
 
                 <div class="producto producto--mujer col-5 col-md-4 col-xl-2">
                     <p>Botella Sportstyle Puma <br> $ 4.199</p>
                     <img class="img-fluid" src="media/mujer/productos/BotellaSportStylePuma.jpg" alt="BotellaSportStylePuma">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
 
                 <div class="producto producto--mujer col-5 col-md-4 col-xl-2">
                     <p>Zapatillas Smash Wns V2 L Adp Puma <br> $ 11.549</p>
                     <img class="img-fluid" src="media/mujer/productos/ZapatillasSmashWnsV2LAdpPuma.jpg" alt="ZapatillasSmashWnsV2LAdpPuma">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
 
                 <div class="producto producto--mujer col-5 col-md-4 col-xl-2">
                     <p>Remera Mujer Match Ii Fila <br> $ 2.689</p>
                     <img class="img-fluid" src="media/mujer/productos/RemeraMujerMatchLiFila.jpg" alt="RemeraMujerMatchLiFila">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
 
                 <div class="producto producto--mujer col-5 col-md-4 col-xl-2">
                     <p>Zapatillas Trend 2.0 W Fila <br> $ 9.489</p>
                     <img class="img-fluid" src="media/mujer/productos/ZapatillasTrend2.0WFila.jpg" alt="ZapatillasTrend2.0WFila">
-                    <a href="#" class="py-1 px-4 rounded" role="button" aria-disabled="true">Añadir</a>
+                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
                 </div>
             </div>
 
@@ -284,11 +292,21 @@
                         </a>
                     </li>
                 </ul>
-                </nav>
+            </nav>
+
+            <!-- Carrito viewport md-xl -->
+            <div class="offcanvas" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
+                <div class="offcanvas-header">
+                    <h3 class="offcanvas-title" id="carritolabel">Carrito</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="">
+                </div>
+            </div>
         </article>
 
         <article class="newsletter bg-warning d-flex flex-column align-items-center justify-content-around p-2 text-center"> <!-- Suscripción a Newsletter -->
-            <p class=">Unite al club y conseguí un 15% de descuento en tu próxima compra</p>
+            <p>Unite al club y conseguí un 15% de descuento en tu próxima compra</p>
             <form action="hombre.html">
                 <input class="col-12 text-center py-1 mb-3" type="email" placeholder="Ingrese su email">
                 <input class="btn btn-dark" type="submit" value="Suscribirse">
