@@ -109,8 +109,8 @@ header .icono {
 }
 
 header .offcanvas {
-  width: 80%;
-  top: 2%;
+  width: 90%;
+  top: 0;
 }
 
 @media all and (min-width: 768px) {
@@ -160,16 +160,19 @@ header .nav-item a.active {
   font-weight: 700;
 }
 
-/* INDEX - OFERTAS */
-.bg-warning a {
-  font-size: .6rem;
+header .registro__link {
+  font-size: .9rem;
+}
+
+header .registro__link a {
+  color: #037394;
   font-weight: 700;
 }
 
-@media all and (min-width: 768px) {
-  .bg-warning a {
-    font-size: .75rem;
-  }
+/* INDEX - OFERTAS */
+.bg-warning a {
+  font-size: .9rem;
+  font-weight: 700;
 }
 
 .text-destacado {
@@ -267,7 +270,7 @@ header .nav-item a.active {
 }
 
 .producto p {
-  font-size: .8rem;
+  font-size: .9rem;
 }
 
 .producto a {
@@ -326,7 +329,7 @@ header .nav-item a.active {
 }
 
 .producto--mujer p {
-  font-size: .8rem;
+  font-size: .9rem;
 }
 
 .producto--mujer a {
@@ -385,7 +388,7 @@ header .nav-item a.active {
 }
 
 .producto--niños p {
-  font-size: .8rem;
+  font-size: .9rem;
 }
 
 .producto--niños a {
@@ -412,6 +415,54 @@ header .nav-item a.active {
 
 .producto a {
   font-weight: 400;
+}
+
+/* CARRITO PRODUCTOS */
+#carrito {
+  width: 75%;
+  height: 90%;
+  top: 2.5%;
+  left: 12.5%;
+}
+
+@media all and (min-width: 768px) {
+  #carrito {
+    width: 50%;
+    left: 25%;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  #carrito {
+    width: 40%;
+    left: 30%;
+  }
+}
+
+#carrito h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#carrito p {
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+#carrito p span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+#carrito a, #carrito button {
+  font-weight: 500;
+  font-size: 1.1rem;
+  border: 1.5px solid black;
+}
+
+#carrito a:active, #carrito button:active {
+  -webkit-transform: scale(1.01, 1.01);
+          transform: scale(1.01, 1.01);
 }
 
 /* INDEX - MARCAS */
@@ -447,19 +498,13 @@ footer div a:active {
 }
 
 footer p {
-  font-size: .65rem;
+  font-size: .9rem;
   font-weight: 700;
-}
-
-@media all and (min-width: 768px) {
-  footer p {
-    font-size: .6rem;
-  }
 }
 
 /* NEWSLETTER */
 .newsletter p {
-  font-size: .8rem;
+  font-size: .9rem;
   font-weight: 700;
 }
 
