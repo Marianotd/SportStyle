@@ -285,22 +285,21 @@ footer {
         font-weight: map-get($font-weight, Bold);
     }
 
-    input, select {
+    input, select, textarea {
         outline: none;
+        border: 1px solid #ccc;
         padding: .25rem 0;
         text-align: center;
 
         &:hover {
-            border: 1.5px solid $main_color;
+            border: 1px solid $main_color;
         }
 
         &:focus {
-            border: none;
             box-shadow: 0px 0px 2px #444;
         }
 
         &:active {
-            border: none;
             box-shadow: 0px 0px 2px #444;
         }
 

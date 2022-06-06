@@ -530,41 +530,40 @@ footer p {
   font-weight: 700;
 }
 
-.formcontact input, .formcontact select {
+.formcontact input, .formcontact select, .formcontact textarea {
   outline: none;
+  border: 1px solid #ccc;
   padding: .25rem 0;
   text-align: center;
 }
 
-.formcontact input:hover, .formcontact select:hover {
-  border: 1.5px solid #037394;
+.formcontact input:hover, .formcontact select:hover, .formcontact textarea:hover {
+  border: 1px solid #037394;
 }
 
-.formcontact input:focus, .formcontact select:focus {
-  border: none;
+.formcontact input:focus, .formcontact select:focus, .formcontact textarea:focus {
   -webkit-box-shadow: 0px 0px 2px #444;
           box-shadow: 0px 0px 2px #444;
 }
 
-.formcontact input:active, .formcontact select:active {
-  border: none;
+.formcontact input:active, .formcontact select:active, .formcontact textarea:active {
   -webkit-box-shadow: 0px 0px 2px #444;
           box-shadow: 0px 0px 2px #444;
 }
 
-.formcontact input::-webkit-input-placeholder, .formcontact select::-webkit-input-placeholder {
+.formcontact input::-webkit-input-placeholder, .formcontact select::-webkit-input-placeholder, .formcontact textarea::-webkit-input-placeholder {
   font-weight: 300;
 }
 
-.formcontact input:-ms-input-placeholder, .formcontact select:-ms-input-placeholder {
+.formcontact input:-ms-input-placeholder, .formcontact select:-ms-input-placeholder, .formcontact textarea:-ms-input-placeholder {
   font-weight: 300;
 }
 
-.formcontact input::-ms-input-placeholder, .formcontact select::-ms-input-placeholder {
+.formcontact input::-ms-input-placeholder, .formcontact select::-ms-input-placeholder, .formcontact textarea::-ms-input-placeholder {
   font-weight: 300;
 }
 
-.formcontact input::placeholder, .formcontact select::placeholder {
+.formcontact input::placeholder, .formcontact select::placeholder, .formcontact textarea::placeholder {
   font-weight: 300;
 }
 
