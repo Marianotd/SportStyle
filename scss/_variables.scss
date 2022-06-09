@@ -10,45 +10,6 @@ $large: 1200px;
 
 $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,128,255,1) 100%);
 
-/* EXTEND - TRIO IMÁGENES */ 
-
-%OrderTrioImage {
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1rem 2.5rem;
-    gap: 1rem;
-
-    img {
-        border: .5px solid #eee;
-        border-radius: 5%;
-        box-shadow: 0px 0px 5px #ccc;
-        transition-duration: .5s;
-        width: 100%;
-        col-md-6 col-xl-3
-
-
-        &:active {
-            transform: scale(1.03, 1.03);
-        }
-        
-        @media all and (min-width: $medium){
-            width: 50%;
-        }
-
-        @media all and (min-width: $large){
-            box-shadow: none;
-            width: 25%;
-    
-            &:hover {
-                transform: scale(1.03, 1.03);
-                border: none;
-                box-shadow: 0px 0px 5px #ccc;
-            }
-        }
-    }
-}
-
 /* EXTEND - BOTON FORMULARIO */
 
 %Btn-Form {  

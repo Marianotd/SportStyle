@@ -129,99 +129,151 @@
                       <label class="form-check-label" for="Recordarcontraseña">Recordar contraseña</label>
                     </div>
                     <button type="submit" class="btn btn-dark mx-auto d-block mb-3">Iniciar sesión</button>
-                    <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="#">Registrate</a></span>
+                    <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="contacto.html">Registrate</a></span>
                   </form>
             </div>
         </div>
     </header>
 
     <section id="main">
-        <article> <!-- Menú de Edades -->
-            <h2 class="titulo-seccion text-center p-2 text-xl-start ps-xl-5">Secciones</h2>
+        <article>
+            <picture class="col-xl-3"> <!-- Imagen portada -->
+                <source srcset="media/niños/Fondoniños.jpg" media="(min-width: 1200px)">
+                <img class="img-fluid" src="media/niños/Fondoniños-sm.jpg" alt="logo"> 
+            </picture>
+            <h2 class="col-10 col-md-7 mt-3 mt-xl-5 mx-auto text-center p-2">ROPA, ZAPATILLAS Y CALZADO PARA NIÑOS</h2>
+            <p class="col-11 col-md-9 col-xl-8 mx-auto text-center px-3 mb-5">¿Demasiado jóvenes para expresarse a través del deporte y el estilo? Nunca. Dejalos que jueguen con toda su energía con las zapatillas de adidas. Prendas deportivas diseñadas para moverse con libertad. Para los primeros pasos de los más pequeños. Crecen muy rápido y en adidas tenemos todo lo que necesitan en ropa y zapatillas, desde su primer día de escuela hasta su día a día como adolescentes.</p>
 
-            <!-- Carousel imagenes -->
-            <div id="carouselniños" class="carousel slide carousel-dark carousel-fade col-9 mx-auto d-xl-none" data-bs-ride="true">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselniños" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselniños" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselniños" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <!-- Sub categorias -->
+            <div class="cat-niños d-flex flex-column flex-md-row flex-wrap align-items-center justify-content-evenly gap-5 mb-5">
+                <div class="col-8 col-md-5 col-xl-2 d-flex flex-column text-center gap-2">
+                    <h2>ROPA PARA NIÑA</h2>
+                    <a href="#">Remeras</a>
+                    <a href="#">Shorts</a>
+                    <a href="#">Buzos</a>
+                    <a href="#">Conjuntos</a>
+                    <a href="#"><span>Toda la ropa de niña</span></a>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <a href="#">
-                            <img src="media/niños/Bebes.jpg" class="d-block w-100" alt="Bebes">
-                            <div class="carousel-caption d-none d-md-block w-75 mx-auto bg-light text-black">
-                                <h5>Indumentaria Bebes</h5>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="carousel-item">
-                        <a href="#">
-                            <img src="media/niños/Niños.jpg" class="d-block w-100" alt="Niños">
-                            <div class="carousel-caption d-none d-md-block w-75 mx-auto bg-light text-black">
-                                <h5>Indumentaria Niños</h5>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="carousel-item">
-                        <a href="#">
-                            <img src="media/niños/Jovenes.jpg" class="d-block w-100" alt="Jovenes">
-                            <div class="carousel-caption d-none d-md-block w-75 mx-auto bg-light text-black">
-                                <h5>Indumentaria Jovenes</h5>
-                            </div>
-                        </a>
-                    </div>
+                <div class="col-8 col-md-5 col-xl-2 d-flex flex-column text-center gap-2">
+                    <h2>ROPA PARA NIÑO</h2>
+                    <a href="#">Remeras</a>
+                    <a href="#">Shorts</a>
+                    <a href="#">Buzos</a>
+                    <a href="#">Conjuntos</a>
+                    <a href="#"><span>Toda la ropa de niño</span></a>
                 </div>
-
-                <!-- Controles carousel -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselniños" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselniños" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            
-            <div class="d-none d-lg-flex tr-img"> <!-- Secciones viewport xl -->
-                <img src="media/niños/Bebes.jpg" alt="Bebes">
-                <img src="media/niños/Niños.jpg" alt="Niños">
-                <img src="media/niños/Jovenes.jpg" alt="Jovenes">
+                <div class="col-8 col-md-5 col-xl-2 d-flex flex-column text-center gap-2">
+                    <h2>CALZADO PARA NIÑA</h2>
+                    <a href="#">Remeras</a>
+                    <a href="#">Shorts</a>
+                    <a href="#">Buzos</a>
+                    <a href="#">Conjuntos</a>
+                    <a href="#"><span>Todas las zapatillas de niña</span></a>
+                </div>
+                <div class="col-8 col-md-5 col-xl-2 d-flex flex-column text-center gap-2">
+                    <h2>CALZADO PARA NIÑO</h2>
+                    <a href="#">Remeras</a>
+                    <a href="#">Shorts</a>
+                    <a href="#">Buzos</a>
+                    <a href="#">Conjuntos</a>
+                    <a href="#"><span>Todas las zapatillas de niño</span></a>
+                </div> 
             </div>
         </article>
 
         <article> <!-- Productos recomendados -->
             <h2 class="titulo-seccion text-center p-2 text-xl-start ps-xl-5">Recomendados para vos</h2>
-            <div id="carouselprodniños" class="carousel slide d-xl-none" data-bs-ride="carousel">
+            <div id="carouselprodniños" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="producto producto--niños col-8 col-md-6">
-                            <p>Zapatillas Lugano 6.0 Vlc Baby Fila <br> $ 6.289</p>
-                            <img class="img-fluid" src="media/niños/ZapatillasLugano6.0VlcBabyFila.jpg" alt="ZapatillasLugano6.0VlcBabyFila">
-                            <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                        <div class="d-flex flex-row">
+                            <div class="producto producto--niños col-8 col-md-6 col-xl-3">
+                                <p>Zapatillas Lugano 6.0 Vlc Baby Fila <br> $ 6.289</p>
+                                <img class="img-fluid" src="media/niños/Productos/ZapatillasLugano6.0VlcBabyFila.jpg" alt="ZapatillasLugano6.0VlcBabyFila">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
+
+                            <div class="producto producto--niños d-none d-xl-flex col-3">
+                                <p>Zapatillas Elastica New Flame 21 Atomik <br> $ 6.639</p>
+                                <img class="img-fluid" src="media/niños/Productos/ZaptillasElasticaNewFlame21Atomik.jpg" alt="ZaptillasElasticaNewFlame21Atomik">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
+
+                            <div class="producto producto--niños d-none d-xl-flex col-3">
+                                <p>Pelota Campo Lider XXI Penalty <br> $ 4.599</p>
+                                <img class="img-fluid" src="media/niños/Productos/PelotaCampoLiderXXIPenalty.jpg" alt="PelotaCampoLiderXXIPenalty">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="carousel-item">
-                        <div class="producto producto--niños col-8 col-md-6">
-                            <p>Zapatillas Elastica New Flame 21 Atomik <br> $ 6.639</p>
-                            <img class="img-fluid" src="media/niños/ZaptillasElasticaNewFlame21Atomik.jpg" alt="ZaptillasElasticaNewFlame21Atomik">
-                            <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                        <div class="d-flex flex-row">
+                            <div class="producto producto--niños col-8 col-md-6 col-xl-3">
+                                <p>Cuello Necktube Camo Salomon <br> $ 1.469</p>
+                                <img class="img-fluid" src="media/niños/Productos/CuelloNecktubeCamoSalomon.jpg" alt="CuelloNecktubeCamoSalomon">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
+
+                            <div class="producto producto--niños d-none d-xl-flex col-3">
+                                <p>Zapatillas Elastica Triumph Atomik <br> $ 6.489</p>
+                                <img class="img-fluid" src="media/niños/Productos/ZapatillasElasticaTriumphAtomik.jpg" alt="ZapatillasElasticaTriumphAtomik">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
+
+                            <div class="producto producto--niños d-none d-xl-flex col-3">
+                                <p>Pelota Padel X 3 Ball Wilson <br> $ 2.599</p>
+                                <img class="img-fluid" src="media/niños/Productos/PelotaPadelX3BallWilson.jpg" alt="PelotaPadelX3BallWilson">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            <div class="producto producto--niños col-8 col-md-6 col-xl-3">
+                                <p>Buzo BUZO COLEGIAL K 22 Kamp <br> $ 2.999</p>
+                                <img class="img-fluid" src="media/niños/Productos/BuzoBUZOCOLEGIALK22Kamp.jpg" alt="BuzoBUZOCOLEGIALK22Kamp">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
+
+                            <div class="producto producto--niños d-none d-xl-flex col-3">
+                                <p>Sandalias Sublim Mickey Footy <br> $ 4.299</p>
+                                <img class="img-fluid" src="media/niños/Productos/SandaliasSublimMickeyFooty.jpg" alt="SandaliasSublimMickeyFooty">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
+
+                            <div class="producto producto--niños d-none d-xl-flex col-3">
+                                <p>Medias Quarter 3p Puma <br> $ 2.199</p>
+                                <img class="img-fluid" src="media/niños/Productos/MediasQuarter3pPuma.jpg" alt="MediasQuarter3pPuma">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="carousel-item">
-                        <div class="producto producto--niños col-8 col-md-6">
-                            <p>Pelota Campo Lider XXI Penalty <br> $ 4.599</p>
-                            <img class="img-fluid" src="media/niños/PelotaCampoLiderXXIPenalty.jpg" alt="PelotaCampoLiderXXIPenalty">
-                            <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                        <div class="d-flex flex-row">
+                            <div class="producto producto--niños col-8 col-md-6 col-xl-3">
+                                <p>Antiparra Jet Speedo <br> $ 1.799</p>
+                                <img class="img-fluid" src="media/niños/Productos/AntiparraJetSpeedo.jpg" alt="AntiparraJetSpeedo">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
+
+                            <div class="producto producto--niños d-none d-xl-flex col-3">
+                                <p>Guantes Fit Drb Force DRB <br> $ 3.399</p>
+                                <img class="img-fluid" src="media/niños/Productos/GuantesFitDrbForceDRB.jpg" alt="GuantesFitDrbForceDRB">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
+
+                            <div class="producto producto--niños d-none d-xl-flex col-3">
+                                <p>Bolso Tote Promo Benito Topper <br> $ 1.999</p>
+                                <img class="img-fluid" src="media/niños/Productos/BolsoTotePromoBenitoTopper.jpg" alt="BolsoTotePromoBenitoTopper">
+                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
+                            </div>
                         </div>
                     </div>
                 </div>   
-
+                
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselprodniños" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon bg-black" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -230,27 +282,6 @@
                     <span class="carousel-control-next-icon bg-black" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
-            </div>
-
-            <!-- Productos viewport xl -->
-            <div class="d-none d-xl-flex flex-row flex-wrap align-items-center justify-content-evenly m-4">
-                <div class="producto producto--niños col-3">
-                    <p>Zapatillas Lugano 6.0 Vlc Baby Fila <br> $ 6.289</p>
-                    <img class="img-fluid" src="media/niños/ZapatillasLugano6.0VlcBabyFila.jpg" alt="ZapatillasLugano6.0VlcBabyFila">
-                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                </div>
-    
-                <div class="producto producto--niños col-3">
-                    <p>Zapatillas Elastica New Flame 21 Atomik <br> $ 6.639</p>
-                    <img class="img-fluid" src="media/niños/ZaptillasElasticaNewFlame21Atomik.jpg" alt="ZaptillasElasticaNewFlame21Atomik">
-                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                </div>
-    
-                <div class="producto producto--niños col-3">
-                    <p>Pelota Campo Lider XXI Penalty <br> $ 4.599</p>
-                    <img class="img-fluid" src="media/niños/PelotaCampoLiderXXIPenalty.jpg" alt="PelotaCampoLiderXXIPenalty">
-                    <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                </div>
             </div>
 
             <!-- Carrito añadir producto -->
