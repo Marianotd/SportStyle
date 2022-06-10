@@ -328,6 +328,41 @@ header {
     }
 }
 
+/* CARRITO */
+
+.tucarrito {
+    h2 {
+        font-weight: map-get($font-weight, Bold);
+    }
+
+    p {
+        font-weight: map-get($font-weight, Light);
+        color: #444;
+
+        span {
+            font-weight: map-get($font-weight, Bold);
+            color: #000;
+        }
+    }
+
+    .offcuotas {
+        background-color: #f5f5e5;
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: map-get($font-weight, Bold);
+        }
+
+        p {
+            font-size: .9rem;
+        }
+    }
+
+    .productocarrito {
+        border-top: 1px solid #000;
+    }
+}
+
 /* ICONO WHATSAPP */
 
 .iconowhatsapp {
