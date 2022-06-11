@@ -359,7 +359,49 @@ header {
     }
 
     .productocarrito {
-        border-top: 1px solid #000;
+        border-top: 1px solid #000; 
+
+        @media all and (min-width: $medium){
+            border: 1px solid #000;
+        }
+
+        h5 {
+            font-size: .9rem;
+
+            @media all and (min-width: $medium){
+                font-size: 1.3rem;
+            }
+        }
+
+        select {
+            width: 20%;
+
+            @media all and (min-width: $medium){
+                width: 15%;
+            }
+        }
+    }
+}
+
+.resumenpedido {
+    h2, h5 {
+        font-size: 1.5rem;
+        font-weight: map-get($font-weight, Bold);
+    }
+
+    p {
+        color: #222;
+        font-size: .85rem;
+        font-weight: map-get($font-weight, Light);
+    }
+
+    .total {
+        color: #000;
+        font-weight: map-get($font-weight, Bold);
+    }
+
+    a {
+        font-weight: map-get($font-weight, Bold);
     }
 }
 

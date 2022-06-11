@@ -129,8 +129,8 @@
     </header>
 
     <section>
-        <article>
-            <div class="tucarrito d-flex flex-column p-3">
+        <article class="d-xl-flex flex-row flex-nowrap p-xl-5">
+            <div class="tucarrito d-flex flex-column p-3 col-xl-8">
                 <h2 class="titulo-seccion text-xl-start ps-xl-5">TU CARRITO</h2>
                 <p class="col-4">TOTAL (1 producto) <span>$ 28.999</span></p>
                 <p class="order-1 mb-5">Los artículos en tu carrito no están reservados. Terminá el proceso de compra ahora para hacerte con ellos.</p>
@@ -140,18 +140,18 @@
                     <p>Podés pagar con tus tarjetas Visa, MasterCard o American Express, al hacerlo, podrás pagar hasta en 6 cuotas sin interés.</p>
                 </div>
     
-                <div class="productocarrito order-2 py-5 d-flex">
-                    <div class="col-5">
+                <div class="productocarrito order-2 pt-5 p-md-0 d-flex flex-row">
+                    <div class="col-5 col-md-4">
                         <img class="img-fluid" src="media/carrito/ZAPATILLASFORUMMID.png" alt="ZAPATILLASFORUMMID">
                     </div>
 
-                    <div class="d-flex flex-row flex-wrap p-2">
-                        <h5>ZAPATILLAS FORUM MID</h5>
-                        <button type="button" class="btn-close" aria-label="Close"></button>
-                        <p>$ 28.999</p>
-                        <p>TAMAÑO: 43 (UK 10)</p>
-                        <span>Cantidad: </span>
-                        <select name="cantidad" id="cantidad">
+                    <div class="d-flex flex-row flex-wrap p-2 justify-content-start align-content-around">
+                        <h5 class="col-10 col-md-11">ZAPATILLAS FORUM MID</h5>
+                        <div class="btn-close col-2"></div>
+                        <p class="col-12 m-0">$ 28.999</p>
+                        <p class="col-12 m-0">TAMAÑO: 43 (UK 10)</p>
+                        <span class="col-4 d-md-none">Cantidad: </span>
+                        <select class="px-2 py-md-2" name="cantidad" id="cantidad">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -160,31 +160,26 @@
                         </select>
                     </div>
                 </div>
-                
-                <input class="order-3 d-md-none" type="text">
             </div>
 
-            <div>
+            <div class="resumenpedido d-flex flex-column justify-content-evenly p-4 col-xl-4">
                 <h2>RESUMEN DEL PEDIDO</h2>
-                <p>1 PRODUCTO <span>$ 28.999</span></p>
-                <p>ENTREGA <span>GRATIS</span></p>
-                <p>TOTAL <span>$ 28.999</span></p>
-                <span>(IVA incluido  $ 5.032,88)</span>
+                <div class="d-flex flex-row flex-wrap align-content-center justify-content-around">
+                    <p class="col-10 my-2">1 PRODUCTO</p>
+                    <p class="col-2 my-2">$ 28.999</p>
+                    <p class="col-10 my-2">ENTREGA</p>
+                    <p class="col-2 my-2">GRATIS</p>
+                    <p class="total col-10 my-0">TOTAL</p> 
+                    <p class="total col-2 my-0">$ 28.999</p>
+                    <p class="col-12 m-0">(IVA incluido  $ 5.032,88)</p>
+                </div>
+                <a class="text-decoration-none text-white bg-black py-2 px-4 my-4 col-8 col-md-6 col-xl-10 align-self-center" href="carrito.html" role="button" aria-controls="carrito">Ir a pagar</a>
+
+                <div class="mt-3">
+                    <h5>OPCIONES DE PAGO</h5>
+                    <img class="img-fluid col-md-6 col-xl-12" src="media/carrito/mediosdepago.png" alt="VISA - MASTECARD - AMERICAN EXPRESS - PAGOFÁCIL - RAPIPAGO">
+                </div>
             </div>
-
-            <a href=""></a>
-        </article>
-
-        <article>
-            <h2>NUESTRAS RECOMENDACIONES</h2>
-
-            <div>
-
-            </div>
-
-            <a href="">ENVÍO GRATIS A PARTIR DE $14.999</a>
-            <a href="">CAMBIOS GRATIS</a>
-            <a href="">¡COMPRÁ AHORA Y PAGÁ EN CUOTAS!</a>
         </article>
     </section>
 
