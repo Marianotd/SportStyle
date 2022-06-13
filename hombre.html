@@ -118,19 +118,35 @@
                 <form>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email</label>
-                      <input type="email" class="form-control" aria-describedby="emailHelp">
+                      <input type="email" class="form-control" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control">
+                      <input type="password" class="form-control" required>
                     </div>
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="Recordarcontraseña">
                       <label class="form-check-label" for="Recordarcontraseña">Recordar contraseña</label>
                     </div>
-                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar sesión</button>
                     <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="contacto.html">Registrate</a></span>
                   </form>
+            </div>
+        </div>
+
+        <!-- Modal login -->
+        <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Inicio de sesión exitoso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -205,7 +221,7 @@
                         </select>
                     </div>
 
-                    <input class="btn btn-dark" type="button" value="Filtrar">
+                    <input class="btn btn-dark" type="button" value="Filtrar" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">
                 </form>
             </div>
 
@@ -231,15 +247,15 @@
                         </div>
                     </div>
 
-                    <input class="btn btn-dark" type="button" value="Filtrar">
+                    <input class="btn btn-dark" type="button" value="Ordenar" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">
                 </form>
             </div>
 
             <!-- Indicador de filtros aplicados --> 
             <nav class="filtros-aplicados pt-2 px-2" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a class="text-decoration-none text-black" href="#">Atras</a></li>
-                    <li class="breadcrumb-item"><a class="text-decoration-none text-black" href="#">Hombre</a></li>
+                    <li class="breadcrumb-item"><a class="text-decoration-none text-black" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado"">Atras</a></li>
+                    <li class="breadcrumb-item"><a class="text-decoration-none text-black" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado"">Hombre</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Novedades</li>
                 </ol>
             </nav>
@@ -312,23 +328,23 @@
             <nav aria-label="Page nav"> <!-- Indicador de página en grilla productos-->
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
-                        <a class="page-link text-black" href="#" aria-label="Previous">
+                        <a class="page-link text-black" href="#" aria-label="Previous" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link text-black" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link text-black" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link text-black" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link text-black" href="#">...</a></li>
-                    <li class="page-item"><a class="page-link text-black" href="#">99</a></li>
+                    <li class="page-item"><a class="page-link text-black" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">1</a></li>
+                    <li class="page-item"><a class="page-link text-black" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">2</a></li>
+                    <li class="page-item"><a class="page-link text-black" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">3</a></li>
+                    <li class="page-item"><a class="page-link text-black" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">...</a></li>
+                    <li class="page-item"><a class="page-link text-black" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">99</a></li>
                     <li class="page-item">
-                        <a class="page-link text-black" href="#" aria-label="Next">
+                        <a class="page-link text-black" href="#" aria-label="Next" data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
                 </ul>
-                </nav>
-
+            </nav>
+  
             <!-- Carrito añadir producto -->
             <div class="offcanvas m-auto" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
                 <div class="offcanvas-header">
@@ -349,8 +365,6 @@
             </div>
         </article>
         
-
-
         <!-- Suscripción a Newsletter -->
         <article class="newsletter bg-warning d-flex flex-column align-items-center justify-content-around p-2 text-center"> 
             <p>Unite al club y conseguí un 15% de descuento en tu próxima compra</p>
@@ -381,6 +395,25 @@
 
         <div class="iconowhatsapp d-inline-block position-fixed"> <!-- Chat whatsapp -->
             <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img class="w-100" src="media/img/Whatsapp.png" alt="Whatsapp"></a>
+        </div>
+
+        <!-- Modal operación de botones en curso -->
+        <div class="modal fade" id="modalsitionoencontrado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Ups, algo ha salido mal. Intentalo nuevamente más tarde.</p>
+                    </div> 
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

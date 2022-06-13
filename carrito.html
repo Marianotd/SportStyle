@@ -111,19 +111,35 @@
                 <form>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email</label>
-                      <input type="email" class="form-control" aria-describedby="emailHelp">
+                      <input type="email" class="form-control" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control">
+                      <input type="password" class="form-control" required>
                     </div>
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="Recordarcontraseña">
                       <label class="form-check-label" for="Recordarcontraseña">Recordar contraseña</label>
                     </div>
-                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar sesión</button>
                     <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="contacto.html">Registrate</a></span>
                   </form>
+            </div>
+        </div>
+
+        <!-- Modal login -->
+        <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Inicio de sesión exitoso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -173,19 +189,35 @@
                     <p class="total col-2 my-0">$ 28.999</p>
                     <p class="col-12 m-0">(IVA incluido  $ 5.032,88)</p>
                 </div>
-                <a class="text-decoration-none text-white bg-black py-2 px-4 my-4 col-8 col-md-6 col-xl-10 align-self-center" href="carrito.html" role="button" aria-controls="carrito">Ir a pagar</a>
-
+                <a class="text-decoration-none text-white bg-black py-2 px-4 my-4 col-8 col-md-6 col-xl-10 align-self-center" type="button" data-bs-toggle="modal" data-bs-target="#modalpago">Ir a pagar</a>
                 <div class="mt-3">
                     <h5>OPCIONES DE PAGO</h5>
                     <img class="img-fluid col-md-6 col-xl-12" src="media/carrito/mediosdepago.png" alt="VISA - MASTECARD - AMERICAN EXPRESS - PAGOFÁCIL - RAPIPAGO">
                 </div>
             </div>
         </article>
-    </section>
 
-    <section>
         <div class="iconowhatsapp d-inline-block position-fixed"> <!-- Chat whatsapp -->
             <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img class="w-100" src="media/img/Whatsapp.png" alt="Whatsapp"></a>
+        </div>
+
+        <!-- Modal ir a pagar -->
+        <div class="modal fade" id="modalpago" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Ups, algo ha salido mal. Intentalo nuevamente más tarde.</p>
+                    </div> 
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

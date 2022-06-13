@@ -118,19 +118,35 @@
                 <form>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email</label>
-                      <input type="email" class="form-control" aria-describedby="emailHelp">
+                      <input type="email" class="form-control" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control">
+                      <input type="password" class="form-control" required>
                     </div>
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="Recordarcontraseña">
                       <label class="form-check-label" for="Recordarcontraseña">Recordar contraseña</label>
                     </div>
-                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar sesión</button>
                     <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="contacto.html">Registrate</a></span>
                   </form>
+            </div>
+        </div>
+
+        <!-- Modal login -->
+        <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Inicio de sesión exitoso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -148,35 +164,35 @@
             <div class="cat-niños d-flex flex-column flex-md-row flex-wrap align-items-center justify-content-evenly gap-5 mb-5">
                 <div class="col-8 col-md-5 col-xl-2 d-flex flex-column text-center gap-2">
                     <h2>ROPA PARA NIÑA</h2>
-                    <a href="#">Remeras</a>
-                    <a href="#">Shorts</a>
-                    <a href="#">Buzos</a>
-                    <a href="#">Conjuntos</a>
-                    <a href="#"><span>Toda la ropa de niña</span></a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Remeras</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Shorts</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Buzos</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Conjuntos</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado"><span>Toda la ropa de niña</span></a>
                 </div>
                 <div class="col-8 col-md-5 col-xl-2 d-flex flex-column text-center gap-2">
                     <h2>ROPA PARA NIÑO</h2>
-                    <a href="#">Remeras</a>
-                    <a href="#">Shorts</a>
-                    <a href="#">Buzos</a>
-                    <a href="#">Conjuntos</a>
-                    <a href="#"><span>Toda la ropa de niño</span></a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Remeras</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Shorts</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Buzos</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Conjuntos</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado"><span>Toda la ropa de niño</span></a>
                 </div>
                 <div class="col-8 col-md-5 col-xl-2 d-flex flex-column text-center gap-2">
                     <h2>CALZADO PARA NIÑA</h2>
-                    <a href="#">Remeras</a>
-                    <a href="#">Shorts</a>
-                    <a href="#">Buzos</a>
-                    <a href="#">Conjuntos</a>
-                    <a href="#"><span>Todas las zapatillas de niña</span></a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Remeras</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Shorts</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Buzos</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Conjuntos</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado"><span>Todas las zapatillas de niña</span></a>
                 </div>
                 <div class="col-8 col-md-5 col-xl-2 d-flex flex-column text-center gap-2">
                     <h2>CALZADO PARA NIÑO</h2>
-                    <a href="#">Remeras</a>
-                    <a href="#">Shorts</a>
-                    <a href="#">Buzos</a>
-                    <a href="#">Conjuntos</a>
-                    <a href="#"><span>Todas las zapatillas de niño</span></a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Remeras</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Shorts</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Buzos</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado">Conjuntos</a>
+                    <a data-bs-toggle="modal" data-bs-target="#modalsitionoencontrado"><span>Todas las zapatillas de niño</span></a>
                 </div> 
             </div>
         </article>
@@ -306,6 +322,25 @@
 
         <div class="iconowhatsapp d-inline-block position-fixed"> <!-- Chat whatsapp -->
             <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img class="w-100" src="media/img/Whatsapp.png" alt="Whatsapp"></a>
+        </div>
+
+        <!-- Modal operación de botones en curso -->
+        <div class="modal fade" id="modalsitionoencontrado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Ups, algo ha salido mal. Intentalo nuevamente más tarde.</p>
+                    </div> 
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

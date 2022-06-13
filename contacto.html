@@ -120,19 +120,35 @@
                 <form>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email</label>
-                      <input type="email" class="form-control" aria-describedby="emailHelp">
+                      <input type="email" class="form-control" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control">
+                      <input type="password" class="form-control" required>
                     </div>
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="Recordarcontraseña">
                       <label class="form-check-label" for="Recordarcontraseña">Recordar contraseña</label>
                     </div>
-                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar sesión</button>
                     <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="contacto.html">Registrate</a></span>
                   </form>
+            </div>
+        </div>
+
+        <!-- Modal login -->
+        <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Inicio de sesión exitoso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -184,7 +200,8 @@
                 <div class="registro__terminos d-flex flex-row align-items-center justify-content-around gap-4 text-center">
                     <span>Cuando creás una cuenta, confirmás que estás de acuerdo con la <a href="#">Política de privacidad</a> y los <a href="#">Términos de uso</a> de SportStyle.</span>   
                 </div>
-                <input class="form__btn py-1 px-3" type="submit" value="Únete a nosotros">
+
+                <button class="form__btn py-1 px-3" type="button" data-bs-toggle="modal" data-bs-target="#modalregistro">Únete a nosotros</button>
                 <span class="registro__link"> ¿Ya eres miembro? <a  data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">Iniciar sesión.</a></span>
             </form>
         </section>
@@ -198,12 +215,52 @@
                 <input class="col-7 text-center" type="text" name="surname" placeholder="Apellidos" required>
                 <input class="col-7 text-center" type="tel" name="tel" placeholder="Teléfono" required>
                 <textarea class="col-7 text-center" name="consulta" id="consulta" rows="10" placeholder="Dejanos tu consulta" maxlength="500" required></textarea>
-                <input class="form__btn py-1 px-3" type="submit" value="Enviar">
+                <button class="form__btn py-1 px-3" type="button" data-bs-toggle="modal" data-bs-target="#modalcontacto">Enviar</button>
             </form>   
         </section>
         
         <div class="iconowhatsapp d-inline-block position-fixed"> <!-- Chat whatsapp -->
             <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img class="w-100" src="media/img/Whatsapp.png" alt="Whatsapp"></a>
+        </div>
+
+        <!-- Modal registro -->
+        <div class="modal fade" id="modalregistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Registro exitoso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Revisa tu casilla de correo. Recibirás un email para confirmar tu cuenta.</p>
+                    </div> 
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal contacto -->
+        <div class="modal fade" id="modalcontacto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Gracias por comunicarte con SportStyle</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Te estaremos respondiendo a la brevedad.</p>
+                    </div> 
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
