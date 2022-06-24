@@ -14,9 +14,66 @@ header {
         background: #fff;
     }
 
-    #offcanvasmenu {
-        width: 100%;
-        height: 70%;
+    #collapsenav {
+        background-color: #fff;
+
+        @media all and (min-width: $medium){
+            background-color: $main_color;
+        }
+        
+        input {
+            outline: none;
+            border: .8px solid #ddd;
+            border-radius: 35px;
+            transition-duration: .2s;
+
+            &:focus {
+                box-shadow: 0px 0px 10px #ccc;
+            }
+
+            &:active {
+                box-shadow: 0px 0px 10px #ccc;
+            }
+        }
+
+        button {
+            border: none;
+            background-color: #fff;
+            border-radius: 35px;
+            transition-duration: .2s;
+
+            &:focus {
+                color: #ccc;
+            }
+
+            &:active {
+                color: #ccc;
+            }
+
+            @media all and (min-width: $medium){
+                background-color: $main_color;
+                color: #fff;
+            }
+        }
+
+        .linkpage {
+            color: #000;
+            font-size: 1.1rem;
+            font-weight: map-get($font-weight, Medium);
+            border-bottom: .1px solid #eee;
+
+            @media all and (min-width: $medium){
+                color: #fff;
+                border: none;
+                font-weight: map-get($font-weight, Light);
+                font-size: 1rem;
+                order: -1;
+
+                &.active {
+                    font-weight: map-get($font-weight, Bold);
+                }
+            }
+        }
     }
 
     .icono {
@@ -37,16 +94,6 @@ header {
 
         @media all and (min-width: $large) {
             width: 50%;
-        }
-    }
-
-    .buscador {
-        outline: none;
-        border: 1px solid #ccc;
-
-        &:focus {
-            box-shadow: 0px 0px 7px #ccc;
-            border: .5px solid #ccc;
         }
     }
 
@@ -81,34 +128,6 @@ header {
         }
     }
 }
-
-/* ESPACIO DE PRUEBA */
-
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-  }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .collapsible:hover {
-    background-color: #ccc;
-  }
-  
-  /* Style the collapsible content. Note: hidden by default */
-  .content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
-  }
 
 /* INDEX - OFERTAS */
 
