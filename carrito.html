@@ -10,9 +10,9 @@
     <title>Carrito</title>
 </head>
 <body>
-    <header class="d-flex flex-row align-items-center justify-content-md-around">
-        <!-- Navbar viewport sm -->
-        <a class="d-md-none mx-auto" data-bs-toggle="offcanvas" href="#offcanvasmenu" role="button" aria-controls="offcanvasmenu">
+    <header class="d-flex flex-row flex-wrap align-items-center justify-content-md-around">
+        <!-- Navbar -->
+        <a class="d-md-none mx-auto" data-bs-toggle="collapse" href="#collapsenav" role="button" aria-expanded="false" aria-controls="collapsenav">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2 text-white" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <desc>Download more icon variants from https://tabler-icons.io/i/menu-2</desc>
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -22,106 +22,87 @@
             </svg>
         </a>
 
-        <div class="offcanvas" tabindex="-1" id="offcanvasmenu" aria-labelledby="offcanvasmenulabel"> 
-            <div class="list-group">
-                <div class="offcanvas-header py-0 border-bottom border-2">
-                    <img class="img-fluid col-4 mx-auto" src="media/img/LogoCompleto.png" alt="logo"> 
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <form class="d-flex p-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Buscar">
-                    <button class="btn btn-dark d-flex align-items-center" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search m-auto" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></button>
+        <div class="order-5 order-md-1 collapse col-12 col-md-10 col-xl-9 d-md-inline-block" id="collapsenav">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-evenly justify-content-md-around">
+                <form class="col-12 col-xl-4 d-flex d-md-none d-xl-flex flex-row justify-content-around p-2" role="search">
+                    <input class="col-10 px-3 py-1" type="search" placeholder="Buscar ..." aria-label="Buscar">
+                    <button class="col-1 col-md-12 col-xl-1 d-flex align-items-center" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search m-auto" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></button>
                 </form>
-                <a href="index.html" class="list-group-item list-group-item-action">Inicio</a>
-                <a href="hombre.html" class="list-group-item list-group-item-action">Hombre</a>
-                <a href="mujer.html" class="list-group-item list-group-item-action">Mujer</a>
-                <a href="ninos.html" class="list-group-item list-group-item-action">Niños</a>
-                <a href="contacto.html" class="list-group-item list-group-item-action">Contacto</a>
-            </div>
-        </div>
 
-        <a class="col-6 col-md-2 col-xl-2" href="index.html"> <!-- Logo Header -->
-            <picture class="col-xl-3"> 
-                <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
-                <img class="col-3 col-md-8 col-xl-12 mx-auto d-block" src="media/img/Logo.ico" alt="logo"> 
-            </picture>
-        </a>
-
-        <div class="col-3 d-flex flex-row flex-nowrap d-md-none"> <!-- Iconos login/carrito viewport sm -->
-            <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-            </a>
-        </div>
-
-        <div class="d-none d-md-flex flex-row align-items-center justify-content-around col-10 col-xl-9"> <!-- Nav viewport md / xl -->
-            <ul class="col-8 col-xl-6 nav d-flex flex-row justify-content-evenly gap-2">
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2" aria-current="page" href="index.html">Inicio</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2" href="hombre.html">Hombre</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2" href="mujer.html">Mujer</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2" href="ninos.html">Niños</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2" href="contacto.html">Contacto</a>
-                </li>
-            </ul>
-
-            <a class="icono p-1 d-xl-none"  data-bs-toggle="offcanvas" href="#offcanvasbuscador" role="button" aria-controls="offcanvasbuscador">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
-            </a>
-
-            <div class="d-none d-xl-inline-block">
-                <form class="d-flex p-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Buscar">
-                    <a class="icono p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
-                    </a>
-                </form>
-            </div>
-
-            <a class="icono p-1" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-            </a>
+                <a href="index.html" class="linkpage col-12 col-md-1 text-center text-decoration-none py-1">Inicio</a>
+                <a href="hombre.html" class="linkpage col-12 col-md-1 text-center text-decoration-none py-1">Hombre</a>
+                <a href="mujer.html" class="linkpage col-12 col-md-1 text-center text-decoration-none py-1">Mujer</a>
+                <a href="ninos.html" class="linkpage col-12 col-md-1 text-center text-decoration-none py-1">Niños</a>
+                <a href="contacto.html" class="linkpage col-12 col-md-1 text-center text-decoration-none py-1">Contacto</a>
             
+                <a class="d-none d-md-inline-block icono p-1 d-xl-none"  data-bs-toggle="offcanvas" href="#offcanvasbuscador" role="button" aria-controls="offcanvasbuscador">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+                </a>
+
+                <a class="d-none d-md-inline-block icono p-1" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+                </a>
+
+                <a class="d-none d-md-inline-block icono btn-lg" href="carrito.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+                </a>
+            </div>
+            
+            <!-- Offcanvas buscador -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasbuscador" aria-labelledby="offcanvasbuscadorlabel">
-                <form class="d-flex p-3" role="search">
+                <div class="col-12 pt-3 px-3 d-flex align-items-center justify-content-end">
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <form class="d-flex flex-row align-items-center justify-content-around p-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Buscar">
                     <button class="btn btn-dark btn-sm" type="submit">Ir</button>
                 </form>
             </div>
         </div>
 
-        <!-- Login viewport md-xl -->
+        <!-- Logo Header -->
+        <a class="order-md-0 col-6 col-md-2 col-xl-2" href="index.html"> 
+            <picture class="col-xl-3"> 
+                <source srcset="media/img/LogoCompleto.png" media="(min-width: 1200px)">
+                <img class="col-3 col-md-8 col-xl-12 mx-auto d-block" src="media/img/Logo.ico" alt="logo"> 
+            </picture>
+        </a>
+
+        <!-- Iconos login/carrito viewport sm -->
+        <div class="order-md-2 d-flex flex-row flex-nowrap d-md-none"> 
+            <a class="icono btn-lg" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+            </a>
+    
+            <a class="icono btn-lg" href="carrito.html" role="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+            </a>
+        </div>
+
+        <!-- Login viewport -->
         <div class="offcanvas" tabindex="-1" id="login" aria-labelledby="loginlabel">
             <div class="offcanvas-header">
                 <h3 class="offcanvas-title mx-auto" id="loginlabel">Iniciar Sesión</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <form>
+                <form class="p-2">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email</label>
-                      <input type="email" class="form-control" aria-describedby="emailHelp" required>
+                      <input class="col-11 col-md-12 py-1 px-3" type="email" aria-describedby="emailHelp" required>
                     </div>
+
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" required>
+                      <input class="col-11 col-md-12 py-1 px-3" type="password" required>
                     </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="Recordarcontraseña">
-                      <label class="form-check-label" for="Recordarcontraseña">Recordar contraseña</label>
+
+                    <div class="mb-4 d-flex flex-row align-items-center justify-content-start">
+                        <input class="m-auto col-1" type="checkbox" id="Recordarcontraseña" required>
+                        <label class="col-10" for="Recordarcontraseña">Recordar contraseña</label>
                     </div>
-                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar sesión</button>
+
+                    <button type="submit" class="btnIniciarSesion mx-auto d-block py-1 px-2 mb-3" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar sesión</button>
                     <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="contacto.html">Registrate</a></span>
                   </form>
             </div>

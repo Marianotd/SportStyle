@@ -22,11 +22,11 @@
             </svg>
         </a>
 
-        <div class="order-5 order-md-1 collapse col-12 col-md-10 d-md-inline-block" id="collapsenav">
+        <div class="order-5 order-md-1 collapse col-12 col-md-10 col-xl-9 d-md-inline-block" id="collapsenav">
             <div class="d-flex flex-column flex-md-row align-items-center justify-content-evenly justify-content-md-around">
-                <form class="col-12 d-md-none d-flex flex-row justify-content-around p-2" role="search">
-                    <input class="col-10 px-3 py-1 d-md-none" type="search" placeholder="Buscar ..." aria-label="Buscar">
-                    <button class="col-1 col-md-12 d-flex align-items-center" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search m-auto" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></button>
+                <form class="col-12 col-xl-4 d-flex d-md-none d-xl-flex flex-row justify-content-around p-2" role="search">
+                    <input class="col-10 px-3 py-1" type="search" placeholder="Buscar ..." aria-label="Buscar">
+                    <button class="col-1 col-md-12 col-xl-1 d-flex align-items-center" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search m-auto" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></button>
                 </form>
 
                 <a href="index.html" class="linkpage col-12 col-md-1 text-center text-decoration-none py-1 d-none d-md-inline-block active">Inicio</a>
@@ -48,8 +48,12 @@
                 </a>
             </div>
             
+            <!-- Offcanvas buscador -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasbuscador" aria-labelledby="offcanvasbuscadorlabel">
-                <form class="d-flex p-3" role="search">
+                <div class="col-12 pt-3 px-3 d-flex align-items-center justify-content-end">
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <form class="d-flex flex-row align-items-center justify-content-around p-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Buscar">
                     <button class="btn btn-dark btn-sm" type="submit">Ir</button>
                 </form>
@@ -75,65 +79,30 @@
             </a>
         </div>
 
-        <!-- Nav viewport md / xl -->
-        <div class="d-none flex-row align-items-center justify-content-around col-10 col-xl-9"> 
-            <ul class="col-8 col-xl-6 nav d-flex flex-row justify-content-evenly gap-2">
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2 active" aria-current="page" href="#main">Inicio</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2" href="hombre.html">Hombre</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2" href="mujer.html">Mujer</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2" href="ninos.html">Niños</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="text-decoration-none px-2" href="contacto.html">Contacto</a>
-                </li>
-            </ul>
-
-            <a class="icono p-1 d-xl-none"  data-bs-toggle="offcanvas" href="#offcanvasbuscador" role="button" aria-controls="offcanvasbuscador">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
-            </a>
-
-            <div class="d-none d-xl-inline-block">
-                <form class="d-flex p-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar ..." aria-label="Buscar">
-                    <a class="icono p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
-                    </a>
-                </form>
-            </div>
-        </div>
-
-        <!-- Login viewport md-xl -->
+        <!-- Login viewport -->
         <div class="offcanvas" tabindex="-1" id="login" aria-labelledby="loginlabel">
             <div class="offcanvas-header">
                 <h3 class="offcanvas-title mx-auto" id="loginlabel">Iniciar Sesión</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <form>
+                <form class="p-2">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email</label>
-                      <input type="email" class="form-control" aria-describedby="emailHelp" required>
+                      <input class="col-11 col-md-12 py-1 px-3" type="email" aria-describedby="emailHelp" required>
                     </div>
+
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" required>
+                      <input class="col-11 col-md-12 py-1 px-3" type="password" required>
                     </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="Recordarcontraseña" required>
-                      <label class="form-check-label" for="Recordarcontraseña">Recordar contraseña</label>
+
+                    <div class="mb-4 d-flex flex-row align-items-center justify-content-start">
+                        <input class="m-auto col-1" type="checkbox" id="Recordarcontraseña" required>
+                        <label class="col-10" for="Recordarcontraseña">Recordar contraseña</label>
                     </div>
-                    <button type="submit" class="btn btn-dark mx-auto d-block mb-3" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar sesión</button>
+
+                    <button type="submit" class="btnIniciarSesion mx-auto d-block py-1 px-2 mb-3" data-bs-toggle="modal" data-bs-target="#login-modal">Iniciar sesión</button>
                     <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="contacto.html">Registrate</a></span>
                   </form>
             </div>
