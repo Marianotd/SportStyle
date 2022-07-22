@@ -410,6 +410,14 @@ header {
     }
 }
 
+#registerSuccessful {
+    p {
+        @media all and (min-width: $large){
+            font-size: 1.4rem;
+        }
+    }
+}
+
 /* CARRITO */
 
 .tucarrito {
