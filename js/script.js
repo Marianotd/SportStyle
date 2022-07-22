@@ -28,7 +28,6 @@ registerForm.addEventListener("submit", (event) => {
 
     const user = new User(email, password, name, surname, birthday, country, gender)
     users.push(user)
-    console.log(users)
 
     registerSection.innerHTML = `
         <div id="registerSuccessful" class="col-8 col-md-9 col-xl-10 m-auto d-flex flex-column justify-content-around my-5">
