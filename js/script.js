@@ -37,4 +37,13 @@ registerForm.addEventListener("submit", (e) => {
     registerForm.reset()
 
     console.log(users)
+
+    registerSection.innerHTML = `
+        <div class="col-10 col-md-8 col-xl-9 m-auto d-flex flex-column justify-content-around my-5">
+            <h2 class="titulo-seccion text-center my-5 pb-3">¡Gracias por registrarte en SportStyle!</h2>
+            <h3 class="text-center mb-xl-4">${user.name} se ha enviado un correo a tu casilla: ${user.email}</h3>
+            <p class="text-center">Una vez realices la confirmación podrás acceder con tu email y contraseña para disfrutar de todos nuestros beneficios</p>
+        </div>
+
+    `   
 })
