@@ -138,7 +138,7 @@
             </div>
         </aside>
 
-        <section id="registerSection" class="order-0 order-xl-1 col-xl-6 p-0"> <!-- Formulario de registro -->
+        <section class="order-0 order-xl-1 col-xl-6 p-0"> <!-- Formulario de registro -->
             <form id="registerForm" class="formcontact p-4 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET"> 
                 <h2>Hazte SportStyle member</h2>
                 <input id="registerEmail" class="col-8 col-md-6 col-xl-9" type="email" name="email" placeholder="Dirección de correo electrónico" required>
@@ -175,10 +175,13 @@
                     <span>Cuando creás una cuenta, confirmás que estás de acuerdo con la <a href="#">Política de privacidad</a> y los <a href="#">Términos de uso</a> de SportStyle.</span>   
                 </div>
 
-                <button class="form__btn py-1 px-3" type="submit">Únete a nosotros</button>
+                <button class="form__btn abrirModalRegistro py-1 px-3" type="submit">Únete a nosotros</button>
                 <span class="registro__link"> ¿Ya eres miembro? <a  data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">Iniciar sesión.</a></span>
             </form>
+
         </section>
+
+        <section class="modalRegistro"></section>
     
         <section class="col-12 bg-light order-2"> <!-- Formulario de contacto -->
             <form class="formcontact col-12 col-xl-8 mx-auto py-5 px-2 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET">
