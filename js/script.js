@@ -1,9 +1,8 @@
 // REGISTRAR EN VARIABLES ELEMENTOS DEL DOM
 const registerForm = document.getElementById("registerForm")
 const abrirModalRegistro = document.getElementById("abrirModalRegistro")
-const modalRegistro = document.querySelector(".modalRegistro")
-const cerrarModalRegistro = document.querySelector(".cerrarModalRegistro")
-
+const openModal = document.querySelector(".form__btn")
+const modal = document.querySelector(".modalRegistro")
 
 // CLASE USUARIO
 class User {
@@ -43,24 +42,33 @@ registerForm.addEventListener("submit", (e) => {
 
     registerForm.reset()
 
-    modalRegistro.innerHTML = `
-        <div class="modalContenedor">
-            <h2 class="modalTitulo">HOLA</h2>
-            <div>
-                <p class="modalTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore iure dolor veniam expedita fugit earum sed, voluptatum repellendus ab numquam beatae quibusdam consequuntur ut aperiam a quo totam eligendi deleniti? Corporis, ipsa vero odit, officia ullam delectus, fugiat quam eligendi accusantium quos assumenda tenetur tempora eveniet est necessitatibus dolorum similique aspernatur vel nisi distinctio possimus voluptatem autem. Nisi, debitis accusantium placeat cupiditate aut perferendis perspiciatis natus soluta similique itaque explicabo ullam quod totam. Sequi voluptas, voluptatibus dolorum odit itaque consectetur illum architecto incidunt cum iste placeat ducimus enim libero exercitationem dicta. Impedit corporis velit iste voluptates soluta fugiat possimus mollitia?</p>
+    modal.innerHTML += `
+        <div class="modalContenedor d-flex flex-column justify-content-around align-items-center mx-auto">
+            <div class="modalHeader">
+                <h2 class="text-center">Gracias por registrarte en <span>SportStyle</span></h2>
             </div>
-            <button class="cerrarModalRegistro" type="button">Cerrar Modal</button>
+            <div class="modalBody col-12 text-center">
+                <h3>${user.name} te hemos enviado a ${user.email} un correo para la verificación de tu cuenta</h3>
+            </div>
+            <button class="botonModal">Cerrar</button>
         </div>
+    
+    `
+    
+    const closeModal = document.querySelector(".botonModal")
+    modal.classList.add("modalRegistro--show")
 
-    `   
-
-    modalRegistro.classList.add("modalRegistro--show")
-
-    cerrarModalRegistro.addEventListener("click", ( e) => {
+    closeModal.addEventListener("click", (e) => {
         e.preventDefault()
-        modalRegistro.classList.remove("modalRegistro--show")
+        modal.classList.remove("modalRegistro--show")
+        document.body.classList.remove("body--modal")
     })
+
+    document.body.classList.add("body--modal")
 })
+
+
+
 
 
 
