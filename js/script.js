@@ -1,8 +1,7 @@
 // REGISTRAR EN VARIABLES ELEMENTOS DEL DOM
 const registerForm = document.getElementById("registerForm")
-const abrirModalRegistro = document.getElementById("abrirModalRegistro")
-const openModal = document.querySelector(".form__btn")
-const modal = document.querySelector(".modalRegistro")
+const contactForm = document.getElementById("contactForm")
+const modal = document.querySelector(".modalForm")
 
 // CLASE USUARIO
 class User {
@@ -18,9 +17,21 @@ class User {
     }
 }
 
+// CLASE CONTACTO
+class Contacto {
+    constructor(email, name, surname, tel, mesage) {
+        this.email = email
+        this.name = name
+        this.surname = surname
+        this.tel = tel
+        this.mesage = mesage
+    }
+}
+
 // ARRAYS
 const users = []
 let usersData = []
+const contacto = []
 
 // REVISAR LOCAL STORAGE
 if(localStorage.getItem("usersData")){
@@ -52,15 +63,50 @@ registerForm.addEventListener("submit", (e) => {
             </div>
             <button class="botonModal">Cerrar</button>
         </div>
-    
     `
     
     const closeModal = document.querySelector(".botonModal")
-    modal.classList.add("modalRegistro--show")
+
+    modal.classList.add("modalForm--show")
 
     closeModal.addEventListener("click", (e) => {
         e.preventDefault()
-        modal.classList.remove("modalRegistro--show")
+        modal.classList.remove("modalForm--show")
+        document.body.classList.remove("body--modal")
+    })
+
+    document.body.classList.add("body--modal")
+})
+
+// EVENTO FORMULARIO CONTACTO
+contactForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    let datForm = new FormData(e.target)
+    const mensajeContacto = new Contacto(datForm.get("email"), datForm.get("name"), datForm.get("surname"), datForm.get("tel"), datForm.get("consulta"))
+    contacto.push(mensajeContacto)
+
+    contactForm.reset()
+
+    modal.innerHTML += `
+        <div class="modalContenedor d-flex flex-column justify-content-around align-items-center mx-auto">
+            <div class="modalHeader">
+                <h2 class="text-center">Gracias por contactarte con <span>SportStyle</span></h2>
+            </div>
+            <div class="modalBody col-12 text-center">
+                <h3>${mensajeContacto.name} nos estaremos poniendo en contacto al correo ${mensajeContacto.email} o vía telefónica al ${mensajeContacto.tel} por tu mensaje.</h3>
+            </div>
+            <button class="botonModal">Cerrar</button>
+        </div>
+    `
+    
+    const closeModal = document.querySelector(".botonModal")
+
+    modal.classList.add("modalForm--show")
+
+    closeModal.addEventListener("click", (e) => {
+        e.preventDefault()
+        modal.classList.remove("modalForm--show")
         document.body.classList.remove("body--modal")
     })
 

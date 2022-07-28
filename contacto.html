@@ -143,8 +143,8 @@
                 <h2>Hazte SportStyle member</h2>
                 <input id="registerEmail" class="col-8 col-md-6 col-xl-9" type="email" name="email" placeholder="Dirección de correo electrónico" required>
                 <input id="registerPassword" class="col-8 col-md-6 col-xl-9" type="password" name="password" placeholder="Contraseña" required>
-                <input id="registerName" class="col-8 col-md-6 col-xl-9" type="text" name="name" placeholder="Nombre" required>
-                <input id="registerSurname" class="col-8 col-md-6 col-xl-9" type="text" name="surname" placeholder="Apellidos" required>
+                <input id="registerName" class="col-8 col-md-6 col-xl-9" type="text" name="name" placeholder="Nombre/s" required>
+                <input id="registerSurname" class="col-8 col-md-6 col-xl-9" type="text" name="surname" placeholder="Apellido/s" required>
                 <input id="registerBirthday" class="col-8 col-md-6 col-xl-9" type="text" name="birthday" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Fecha de nacimiento" required>
                 <select id="registerCountry" class="col-8 col-md-6 col-xl-9" name="country" required>
                     <option value="pais" disabled selected>País</option>
@@ -178,46 +178,25 @@
                 <button class="form__btn py-1 px-3" type="submit">Únete a nosotros</button>
                 <span class="registro__link"> ¿Ya eres miembro? <a  data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login">Iniciar sesión.</a></span>
             </form>
-
         </section>
-
-        <section class="modalRegistro"></section>
     
         <section class="col-12 bg-light order-2"> <!-- Formulario de contacto -->
-            <form class="formcontact col-12 col-xl-8 mx-auto py-5 px-2 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET">
+            <form id="contactForm" class="formcontact col-12 col-xl-8 mx-auto py-5 px-2 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET">
                 <h2>Contactanos</h2>
                 <input class="col-7 text-center" type="email" name="email" placeholder="Dirección de correo electrónico" required>
-                <input class="col-7 text-center" type="password" name="password" placeholder="Contraseña" required>
-                <input class="col-7 text-center" type="text" name="name" placeholder="Nombre" required>
-                <input class="col-7 text-center" type="text" name="surname" placeholder="Apellidos" required>
-                <input class="col-7 text-center" type="tel" name="tel" placeholder="Teléfono" required>
+                <input class="col-7 text-center" type="text" name="name" placeholder="Nombre/s" required>
+                <input class="col-7 text-center" type="text" name="surname" placeholder="Apellido/s" required>
+                <input class="col-7 text-center" type="tel" name="tel" placeholder="Teléfono/s" required>
                 <textarea class="col-7 text-center" name="consulta" id="consulta" rows="10" placeholder="Dejanos tu consulta" maxlength="500" required></textarea>
-                <button class="form__btn py-1 px-3" type="button" data-bs-toggle="modal" data-bs-target="#modalcontacto">Enviar</button>
-            </form>   
+                <button class="form__btn py-1 px-3" type="submit">Enviar</button>
+            </form>    
         </section>
+
+        <!-- Modal Formularios-->
+        <div class="modalForm"></div>
         
         <div class="iconowhatsapp d-inline-block position-fixed"> <!-- Chat whatsapp -->
             <a href="https://www.whatsapp.com/?lang=es" target="_blank"><img class="w-100" src="media/img/Whatsapp.png" alt="Whatsapp"></a>
-        </div>
-
-        <!-- Modal contacto -->
-        <div class="modal fade" id="modalcontacto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Gracias por comunicarte con SportStyle</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-body">
-                        <p>Te estaremos respondiendo a la brevedad.</p>
-                    </div> 
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
