@@ -59,7 +59,7 @@ registerForm.addEventListener("submit", (e) => {
                 <h2 class="text-center">Gracias por registrarte en <span>SportStyle</span></h2>
             </div>
             <div class="modalBody col-12 text-center">
-                <h3>${user.name} te hemos enviado a ${user.email} un correo para la verificación de tu cuenta</h3>
+                <h3><span>${user.name}</span> te hemos enviado a <span>${user.email}</span> un correo para la verificación de tu cuenta</h3>
             </div>
             <button class="botonModal">Cerrar</button>
         </div>
@@ -94,7 +94,7 @@ contactForm.addEventListener("submit", (e) => {
                 <h2 class="text-center">Gracias por contactarte con <span>SportStyle</span></h2>
             </div>
             <div class="modalBody col-12 text-center">
-                <h3>${mensajeContacto.name} nos estaremos poniendo en contacto al correo ${mensajeContacto.email} o vía telefónica al ${mensajeContacto.tel} por tu mensaje.</h3>
+                <h3><span>${mensajeContacto.name}</span> nos estaremos poniendo en contacto al correo <span>${mensajeContacto.email}</span> o vía telefónica al <span>${mensajeContacto.tel}</span> por tu mensaje.</h3>
             </div>
             <button class="botonModal">Cerrar</button>
         </div>

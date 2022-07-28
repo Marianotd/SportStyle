@@ -461,6 +461,11 @@ header {
         .modalBody h3 {
             font-size: 1.1rem;
             color: #777;
+
+            span {
+                font-weight: map-get($font-weight, Bold);
+                color: #555;
+            }
         }
 
         .botonModal {
