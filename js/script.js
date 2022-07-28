@@ -34,11 +34,7 @@ let usersData = []
 const contacto = []
 
 // REVISAR LOCAL STORAGE
-if(localStorage.getItem("usersData")){
-    usersData = JSON.parse(localStorage.getItem("usersData"))
-} else {
-    localStorage.setItem("usersData", JSON.stringify(usersData))
-}
+usersData = localStorage.getItem("usersData") ? JSON.parse(localStorage.getItem("usersData")) : localStorage.setItem("usersData", JSON.stringify(usersData))                        
 
 // EVENTO FORMULARIO REGISTRO
 registerForm.addEventListener("submit", (e) => {
