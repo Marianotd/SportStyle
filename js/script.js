@@ -78,37 +78,44 @@ registerForm.addEventListener("submit", (e) => {
     e.preventDefault()
 
     let datForm = new FormData(e.target)
-    const user = new User(datForm.get("email"), datForm.get("password"), datForm.get("name"), datForm.get("surname"), datForm.get("birthday"), datForm.get("country"), datForm.get("gender"), true)
-    users.push(user)
 
-    usersData = users.map(user => user = {email: user.email, nombre: user.name, sesion: user.sesionActive})
-    localStorage.setItem("usersData", JSON.stringify(usersData))
+    if(users.some(user => user.email == datForm.get("email")) || usersData.some(user => user.email == datForm.get("email"))){
+        alert("Usuario ya registrado")
+    } else {
 
-    registerForm.reset()
-
-    modal.innerHTML += `
-        <div class="modalContenedor d-flex flex-column justify-content-around align-items-center mx-auto">
-            <div class="modalHeader">
-                <h2 class="text-center">Gracias por registrarte en <span>SportStyle</span></h2>
-            </div>
-            <div class="modalBody col-12 text-center">
-                <h3><span>${user.name}</span> te hemos enviado a <span>${user.email}</span> un correo para la verificación de tu cuenta</h3>
-            </div>
-            <button class="botonModal">Cerrar</button>
-        </div>
-    `
+        const user = new User(datForm.get("email"), datForm.get("password"), datForm.get("name"), datForm.get("surname"), datForm.get("birthday"), datForm.get("country"), datForm.get("gender"), true)
+        users.push(user)
     
-    const closeModal = document.querySelector(".botonModal")
+        usersData = users.map(user => user = {email: user.email, nombre: user.name, sesion: user.sesionActive})
+        localStorage.setItem("usersData", JSON.stringify(usersData))
+    
+        registerForm.reset()
+    
+        modal.innerHTML += `
+            <div class="modalContenedor d-flex flex-column justify-content-around align-items-center mx-auto">
+                <div class="modalHeader">
+                    <h2 class="text-center">Gracias por registrarte en <span>SportStyle</span></h2>
+                </div>
+                <div class="modalBody col-12 text-center">
+                    <h3><span>${user.name}</span> te hemos enviado a <span>${user.email}</span> un correo para la verificación de tu cuenta</h3>
+                </div>
+                <button class="botonModal">Cerrar</button>
+            </div>
+        `
+        
+        const closeModal = document.querySelector(".botonModal")
+    
+        modal.classList.add("modalForm--show")
+    
+        closeModal.addEventListener("click", (e) => {
+            e.preventDefault()
+            modal.classList.remove("modalForm--show")
+            document.body.classList.remove("body--modal")
+        })
+    
+        document.body.classList.add("body--modal")
+    }
 
-    modal.classList.add("modalForm--show")
-
-    closeModal.addEventListener("click", (e) => {
-        e.preventDefault()
-        modal.classList.remove("modalForm--show")
-        document.body.classList.remove("body--modal")
-    })
-
-    document.body.classList.add("body--modal")
 })
 
 // EVENTO FORMULARIO CONTACTO
