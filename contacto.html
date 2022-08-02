@@ -141,7 +141,10 @@
         <section class="order-0 order-xl-1 col-xl-6 p-0"> <!-- Formulario de registro -->
             <form id="registerForm" class="formcontact p-4 d-flex flex-column align-items-center justify-content-evenly gap-3" action="contacto.html" method="GET"> 
                 <h2>Hazte SportStyle member</h2>
-                <input id="registerEmail" class="col-8 col-md-6 col-xl-9" type="email" name="email" placeholder="Dirección de correo electrónico" required>
+                <div class="col-8 col-md-6 col-xl-9">
+                    <input id="registerEmail" class="col-12" type="email" name="email" onchange="funcionPrueba()" placeholder="Dirección de correo electrónico" required>
+                    <label id="labelEmail" class="d-none text-start ps-2" for="registerEmail">El correo ingresado ya se encuentra registrado</label>    
+                </div>
                 <input id="registerPassword" class="col-8 col-md-6 col-xl-9" type="password" name="password" placeholder="Contraseña" required>
                 <input id="registerName" class="col-8 col-md-6 col-xl-9" type="text" name="name" placeholder="Nombre/s" required>
                 <input id="registerSurname" class="col-8 col-md-6 col-xl-9" type="text" name="surname" placeholder="Apellido/s" required>

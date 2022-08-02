@@ -379,6 +379,16 @@ header {
         }
     }
 
+    #labelEmail {
+        color: red;
+        font-size: .8rem;
+        margin: 0;
+    }
+
+    .emailDuplicado {
+        border: 1px solid red;
+    }
+
     .registro__notificaciones {
         font-weight: map-get($font-weight, Light);
         color: #000;
