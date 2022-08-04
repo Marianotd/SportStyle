@@ -1,5 +1,5 @@
 
-var swiper = new Swiper(".mySwiper", {
+var carouselIndex = new Swiper(".carouselIndex", {
     slidesPerView: 4,
 navigation: {
     nextEl: ".swiper-button-next",
