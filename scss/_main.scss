@@ -399,7 +399,10 @@ header {
     }
 
     .registro__terminos {
-        a {
+        .btnTerms {
+            border: none;
+            background: none;
+            text-decoration: underline;
             font-weight: map-get($font-weight, Bold);
             color: $main_color;
         }
