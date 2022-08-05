@@ -32,9 +32,9 @@ const producto2 = new Producto(2, "Zapatillas Elastica New Flame 21 Atomik", "At
 const producto3 = new Producto(3, "Pelota Campo Lider XXI Penalty", "Penalty", 4599, "media/niños/Productos/PelotaCampoLiderXXIPenalty.jpg", "Todos" , "Accesorio", null, 13, true, false, 0)
 const producto4 = new Producto(4, "Campera Icon Selección Argentina adidas", "Adidas", 13999, "media/hombre/productos/CamperaConSeleccionArgentinaAdidas.jpg", "Hombre", "Campera", talleIndumentaria, 5, true, false, 0)
 const producto5 = new Producto(5, "Botines Predator Edge.3 Pasto Sintético", "Adidas", 16999, "media/img/productos/BotinesPredator.png", "Hombre", "Calzado", talleCalzado, 8, true, false, 0)
-const producto6 = new Producto(6, "Pantalón Nike Dri-FIT Strike 21", "Nike", 12499, "media/hombre/productos/PantalonNikeDriFitStrike21.png", "Hombre", "Pantalon", talleIndumentaria, 15, true, false, 0)
+const producto6 = new Producto(6, "Pantalón Nike Dri-FIT Strike 21", "Nike", 12499, "media/hombre/productos/PantalonNikeDriFitStrike21.png", "Hombre", "Pantalon", talleIndumentaria, 15, true, true, 0)
 const producto7 = new Producto(7, "Zapatillas Gel-Equation 11", "Asics", 17490, "media/hombre/productos/ZapatillasGelEquation11.png", "Hombre", "Calzado", talleCalzado, 2, true, false, 0)
-const producto8 = new Producto(8, "Remera Sin Mangas Back", "Ascis", 4800, "media/hombre/productos/RemeraSinMangaBack.png", "Hombre", "Remera", talleIndumentaria, 20, true, false, 0)
+const producto8 = new Producto(8, "Remera Sin Mangas Back", "Ascis", 4800, "media/hombre/productos/RemeraSinMangaBack.png", "Hombre", "Remera", talleIndumentaria, 20, true, true, 0)
 const producto9 = new Producto(9, "Zapatillas Superstar", "Adidas", 20999, "media/img/productos/ZapatillasSuperstar.png", "Hombre", "Calzado", talleCalzado, 60, true, true, 0)
 const producto10 = new Producto(10, "Zapatillas Gel Hypersonic 2 W Asics", "Asics", 20489, "media/mujer/productos/ZapatillasGelHypersonic2WAsics.jpg", " Mujer", "Calzado", talleCalzado, 9, true, true, 0)
 const producto11 = new Producto(11, "Remera En V Neck Ss Asics", "Asics", 5869, "media/mujer/productos/RemeraEnVNeckSsAsics.jpg", "Mujer", "Remera", talleIndumentaria, 50, true, false, 0)
@@ -50,12 +50,21 @@ const productos = [producto1, producto2, producto3, producto4, producto5, produc
 productos.forEach(producto => {
 
     if(producto.destacado == true){
-            carouselProductos.innerHTML += `
-            <div id="producto${producto.id}" class="producto col-8 col-md-6 col-xl-2">
-                <p>${producto.nombre} <br> $${producto.precio}</p>
-                <img class="img-fluid" src="${producto.img}" alt="${producto.nombre}">
-                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito-sm">Añadir</a>
-            </div>
+        carouselProductos.innerHTML += `
+            <li>
+                <div id="producto${producto.id}" class="card border-0 producto">
+                    <p>${producto.nombre} <br> $${producto.precio}</p>
+                    <img class="img img-fluid" src="${producto.img}" alt="${producto.nombre}">
+                    <button class="py-1 px-4 rounded">Añadir</button>
+                </div>
+            </li>
         `
     }
 })
+
+
+{/* <div id="producto${producto.id}" class="swiper-slide producto mx-4">
+<p>${producto.nombre} <br> $${producto.precio}</p>
+<img class="img-fluid" src="${producto.img}" alt="${producto.nombre}">
+<button class="py-1 px-4 rounded">Añadir</button>
+</div> */}

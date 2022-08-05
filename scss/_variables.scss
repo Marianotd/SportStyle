@@ -42,10 +42,11 @@ $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,
     text-align: center;
     font-weight: 700;
     margin: 1rem auto;
+    max-width: 90%;
 
     border: 2px solid #eee;
     border-radius: 5%;
-    height: 480px;
+    height: 400px;
     transition-duration: .2s;
 
     &:hover {
@@ -54,11 +55,19 @@ $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,
         transform: scale(1.01, 1.01);
     }
 
+    @media all and (min-width: $medium){
+        max-width: 40%;
+    }
+
+    @media all and (min-width: $large){
+        max-width: 100%;
+    }
+
     p {
         font-size: .9rem;
     }
 
-    a {
+    button {
         text-decoration: none;
         background: $btn-color;
         border: none;
@@ -75,6 +84,10 @@ $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,
             box-shadow: 0px 0px 15px $bordercolor;
             transform: scale(1.02, 1.02);
         }
+    }
+
+    img {
+        max-height: 70%;
     }
 }
 

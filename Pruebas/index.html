@@ -5,30 +5,105 @@
     <title>Swiper demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
     <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css">
   </head>
 
   <body>
-    <!-- Swiper -->
-    <div class="swiper carouselIndex">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">Slide 1</div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
-          <div class="swiper-slide">Slide 4</div>
-          <div class="swiper-slide">Slide 5</div>
-          <div class="swiper-slide">Slide 6</div>
-          <div class="swiper-slide">Slide 7</div>
-          <div class="swiper-slide">Slide 8</div>
-          <div class="swiper-slide">Slide 9</div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
+    <div class="swiffy-slider slider-item-show3 slider-nav-round slider-nav-page">
+      <ul class="slider-container">
+          <li>
+              <div class="card border-0">
+                  <div class="ratio ratio-1x1">
+                      <img src="../assets/img/shoes/shoe1.webp" class="card-img-top" loading="lazy" alt="...">
+                  </div>
+                  <div class="card-body p-0 pt-2">
+                      <div class="d-flex">
+                          <h3 class="flex-grow-1 h5">LeBron 18</h3>
+                          <p class="px-2">$200</p>
+                      </div>
+                      <p class="card-text">Basketball Shoes</p>
+                  </div>
+              </div>
+          </li>
+          <li>
+              <div class="card border-0">
+                  <div class="ratio ratio-1x1">
+                      <img src="../assets/img/shoes/shoe2.webp" class="card-img-top" loading="lazy" alt="...">
+                  </div>
+                  <div class="card-body p-0 pt-2">
+                      <div class="d-flex">
+                          <h3 class="flex-grow-1 h5">Nike Air Vapormax 2021 FK</h3>
+                          <p class="px-2">$200</p>
+                      </div>
+                      <p class="card-text">Women's Shoes</p>
+                  </div>
+              </div>
+          </li>
+          <li>
+              <div class="card border-0">
+                  <div class="ratio ratio-1x1">
+                      <img src="../assets/img/shoes/shoe3.webp" class="card-img-top" loading="lazy" alt="...">
+                  </div>
+                  <div class="card-body p-0 pt-2">
+                      <div class="d-flex">
+                          <h3 class="flex-grow-1 h5">Nike Air Force 1 Fontanka</h3>
+                          <p class="px-2">$110</p>
+                      </div>
+                      <p class="card-text">Women's Shoes</p>
+                  </div>
+              </div>
+          </li>
+          <li>
+              <div class="card border-0">
+                  <div class="ratio ratio-1x1">
+                      <img src="../assets/img/shoes/shoe4.webp" class="card-img-top" loading="lazy" alt="...">
+                  </div>
+                  <div class="card-body p-0 pt-2">
+                      <div class="d-flex">
+                          <h3 class="flex-grow-1 h5">Kyrie 7</h3>
+                          <p class="px-2">$130</p>
+                      </div>
+                      <p class="card-text">Basketball Shoes</p>
+                  </div>
+              </div>
+          </li>
+          <li>
+              <div class="card border-0">
+                  <div class="ratio ratio-1x1">
+                      <img src="../assets/img/shoes/shoe5.webp" class="card-img-top" loading="lazy" alt="...">
+                  </div>
+                  <div class="card-body p-0 pt-2">
+                      <div class="d-flex">
+                          <h3 class="flex-grow-1 h5">Kyrie 7</h3>
+                          <p class="px-2">$110</p>
+                      </div>
+                      <p class="card-text">Big Kids' Basketball Shoes</p>
+                  </div>
+              </div>
+          </li>
+          <li>
+              <div class="card border-0">
+                  <div class="ratio ratio-1x1">
+                      <img src="../assets/img/shoes/shoe6.webp" class="card-img-top" loading="lazy" alt="...">
+                  </div>
+                  <div class="card-body p-0 pt-2">
+                      <div class="d-flex">
+                          <h3 class="flex-grow-1 h5">Nike Air Max 90 Premium</h3>
+                          <p class="px-2">$130</p>
+                      </div>
+                      <p class="card-text">Men's Shoes</p>
+                  </div>
+              </div>
+          </li>
+      </ul>
+  
+      <button type="button" class="slider-nav" aria-label="Go left"></button>
+      <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+  </div>
 
     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
     <script src="js/app.js"></script>
   </body>
 </html>

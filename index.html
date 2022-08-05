@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="media/img/Logo.ico">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="scss/styles.css">
     <title>SportStyle</title>
@@ -143,131 +143,11 @@
 
         <article> <!-- Sección novedades -->
             <h2 class="titulo-seccion text-center p-2 text-xl-start ps-xl-5">Novedades</h2>
-            <div id="carousel" class="carousel slide mx-auto" data-bs-ride="carousel"> <!-- Productos viewport sm / md -->
-                <div class="carousel-inner">
-                    <div id="carouselProductos" class="carousel-item active d-flex flex-row col-11 mx-auto">
-                        <!-- <div class="d-flex flex-row col-11 mx-auto"> -->
-                            <!-- <div class="producto col-8 col-md-6 col-xl-2">
-                                <p>CAMISETA TITULAR SELECCIÓN ARGENTINA MESSI 10 <br> $ 17.499</p>
-                                <img class="img-fluid" src="media/img/productos/CamisetaMessi.png" alt="CamisetaMessi">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito-sm">Añadir</a>
-                            </div>
-    
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>Zapatillas Elastica New Flame 21 Atomik <br> $ 6.639</p>
-                                <img class="img-fluid" src="media/niños/Productos/ZaptillasElasticaNewFlame21Atomik.jpg" alt="ZaptillasElasticaNewFlame21Atomik">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-    
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>Pelota Campo Lider XXI Penalty <br> $ 4.599</p>
-                                <img class="img-fluid" src="media/niños/Productos/PelotaCampoLiderXXIPenalty.jpg" alt="PelotaCampoLiderXXIPenalty">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>Campera Icon Selección Argentina adidas <br> $ 13.999</p>
-                                <img class="img-fluid"  src="media/hombre/productos/CamperaConSeleccionArgentinaAdidas.jpg" alt="CamperaConSelecciónArgentinaAdidas">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div> -->
-                        <!-- </div> -->
-                    </div>
-
-                    <!-- <div class="carousel-item">
-                        <div class="d-flex flex-row col-11 mx-auto">
-                            <div class="producto col-8 col-md-6 col-xl-2">
-                                <p>BOTINES PREDATOR EDGE.3 PASTO SINTÉTICO <br> $ 16.999</p>
-                                <img class="img-fluid" src="media/img/productos/BotinesPredator.png" alt="BotinesPredator">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito-sm">Añadir</a>
-                           </div>
-    
-                           <div class="producto d-none d-xl-flex col-2">
-                                <p>Pantalón Nike Dri-FIT Strike 21 <br> $12.499</p>
-                                <img class="img-fluid"  src="media/hombre/productos/PantalonNikeDriFitStrike21.png" alt="PantalonNikeDriFitStrike21">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-        
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>ZAPATILLAS GEL-EQUATION 11 <br> $17.490</p>
-                                <img class="img-fluid"  src="media/hombre/productos/ZapatillasGelEquation11.png" alt="ZapatillasGel-Equation11">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-        
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>REMERA SIN MANGAS BACK <br> $4.800</p>
-                                <img class="img-fluid"  src="media/hombre/productos/RemeraSinMangaBack.png" alt="RemeraSinMangaBack">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="d-flex flex-row col-11 mx-auto">
-                            <div class="producto col-8 col-md-6 col-xl-2">
-                                <p>ZAPATILLAS SUPERSTAR <br> $ 20.999</p>
-                                <img class="img-fluid" src="media/img/productos/ZapatillasSuperstar.png" alt="ZapatillasSuperstar">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito-sm">Añadir</a>
-                            </div>
-    
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>Zapatillas Gel Hypersonic 2 W Asics <br> $ 20.489</p>
-                                <img class="img-fluid" src="media/mujer/productos/ZapatillasGelHypersonic2WAsics.jpg" alt="ZapatillasGelHypersonic2WAsics">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
+            <div class="col-10 col-md-11 mx-auto swiffy-slider slider-item-show4 slider-nav-square slider-nav-dark slider-nav-visible slider-nav-autoplay slider-indicators-dark slider-indicators-outside slider-indicators-highlight" data-slider-nav-autoplay-interval="5000">
+                <ul id="carouselProductos" class="slider-container"></ul>
             
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>Remera En V Neck Ss Asics <br> $ 5.869</p>
-                                <img class="img-fluid" src="media/mujer/productos/RemeraEnVNeckSsAsics.jpg" alt="RemeraEnVNeckSsAsics">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-            
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>Botella Sportstyle Puma <br> $ 4.199</p>
-                                <img class="img-fluid" src="media/mujer/productos/BotellaSportStylePuma.jpg" alt="BotellaSportStylePuma">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="d-flex flex-row col-11 mx-auto">
-                            <div class="producto col-8 col-md-6 col-xl-2">
-                                <p>ZAPATILLAS FORUM LOW <br> $ 23.999</p>
-                                <img class="img-fluid" src="media/img/productos/ZapatillasForumLow.png" alt="ZapatillasForumLow">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito-sm">Añadir</a>
-                            </div>
-    
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>Remera Mujer Match Ii Fila <br> $ 2.689</p>
-                                <img class="img-fluid" src="media/mujer/productos/RemeraMujerMatchLiFila.jpg" alt="RemeraMujerMatchLiFila">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-            
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>Zapatillas Trend 2.0 W Fila <br> $ 9.489</p>
-                                <img class="img-fluid" src="media/mujer/productos/ZapatillasTrend20WFila.jpg" alt="ZapatillasTrend2.0WFila">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-            
-                            <div class="producto d-none d-xl-flex col-2">
-                                <p>Campera Deportiva Favorites Tt Wv adidas <br> $ 14.429</p>
-                                <img class="img-fluid" src="media/mujer/productos/CamperaDeportivaFavoritesTtWvadidas.jpg" alt="CamperaDeportivaFavoritesTtWvadidas">
-                                <a class="py-1 px-4 rounded" data-bs-toggle="offcanvas" href="#carrito" role="button" aria-controls="carrito">Añadir</a>
-                            </div>
-                        </div>
-                    </div>    -->
-                </div>
-
-                <!-- Controles carousel -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-
-                <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <button type="button" class="slider-nav" aria-label="Go left"></button>
+                <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
             </div>
 
             <!-- Carrito añadir producto -->
@@ -318,8 +198,8 @@
         <p class="m-0">@Copyright - 2017 - 2020 www.sportstyle.com, TODOS LOS DERECHOS RESERVADOS</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="js/script.js"></script>
 
 </body>
