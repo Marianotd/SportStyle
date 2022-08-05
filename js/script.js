@@ -52,11 +52,16 @@ const producto22 = new Producto(22, "Remera Ba Run21 Ss Tee W 1 adidas", "Adidas
 const producto23 = new Producto(23, "Zapatillas Smash Wns V2 L Adp Puma", "Puma", 11549, "media/mujer/productos/ZapatillasSmashWnsV2LAdpPuma.jpg", "Mujer", "Calzado", talleCalzado, 3, true, false, 0)
 const producto24 = new Producto(24, "Campera Deportiva Favorites Tt Wv adidas", "Adidas", 14429, "media/mujer/productos/CamperaDeportivaFavoritesTtWvadidas.jpg", "Mujer", "Abrigo", talleIndumentaria, 10, true, true, 0)
 const producto25 = new Producto(25, "Campera Myt W Reebok", "Reebok", 7859, "media/mujer/productos/RemeraAdidasOwnTheRun.jpg", "Mujer", "Abrigo", talleIndumentaria, 2, true, true, 0)
-const producto26 = new Producto(26, "Zapatillas Lugano 6.0 Vlc Baby Fila", "Fila", 6289, "media/niños/Productos/ZapatillasLugano60VlcBabyFila.jpg", "Niños", "Remera", talleIndumentaria, 8, true, false, 0)
-const producto27 = new Producto(27, "Remera Own The Run adidas", "Adidas", 7859, "media/mujer/productos/RemeraAdidasOwnTheRun.jpg", "Mujer", "Remera", talleIndumentaria, 8, true, false, 0)
-const producto28 = new Producto(28, "Remera Own The Run adidas", "Adidas", 7859, "media/mujer/productos/RemeraAdidasOwnTheRun.jpg", "Mujer", "Remera", talleIndumentaria, 8, true, false, 0)
-const producto29 = new Producto(29, "Remera Own The Run adidas", "Adidas", 7859, "media/mujer/productos/RemeraAdidasOwnTheRun.jpg", "Mujer", "Remera", talleIndumentaria, 8, true, false, 0)
-const producto30 = new Producto(30, "Remera Own The Run adidas", "Adidas", 7859, "media/mujer/productos/RemeraAdidasOwnTheRun.jpg", "Mujer", "Remera", talleIndumentaria, 8, true, false, 0)
+const producto26 = new Producto(26, "Zapatillas Lugano 6.0 Vlc Baby Fila", "Fila", 6289, "media/niños/Productos/ZapatillasLugano60VlcBabyFila.jpg", "Niños", "Calzado", talleCalzado, 10, true, false, 0)
+const producto27 = new Producto(27, "Cuello Necktube Camo Salomon", "Salomon", 1469, "media/niños/Productos/CuelloNecktubeCamoSalomon.jpg", "Niños", "Accesorio", null, 16, true, false, 0)
+const producto28 = new Producto(28, "Zapatillas Elastica Triumph Atomik", "Atomik", 6489, "media/niños/Productos/ZapatillasElasticaTriumphAtomik.jpg", "Niños", "Calzado", talleCalzado, 2, true, false, 0)
+const producto29 = new Producto(29, "Pelota Padel X 3 Ball Wilson", "Wilson", 2599, "media/niños/Productos/PelotaPadelX3BallWilson.jpg", "Niños", "Accesorio", null, 33, true, false, 0)
+const producto30 = new Producto(30, "Buzo BUZO COLEGIAL K 22 Kamp", "Kamp", 2999, "media/niños/Productos/BuzoBUZOCOLEGIALK22Kamp.jpg", "Niños", "Abrigo", talleIndumentaria, 8, true, false, 0)
+const producto31 = new Producto(31, "Sandalias Sublim Mickey Footy", "Footy", 4299, "media/niños/Productos/SandaliasSublimMickeyFooty.jpg", "Niños", "Calzado", talleCalzado, 10, true, false, 0)
+const producto32 = new Producto(32, "Medias Quarter 3p Puma", "Puma", 2199, "media/niños/Productos/MediasQuarter3pPuma.jpg", "Niños", "Accesorio", null, 5, true, false, 0)
+const producto33 = new Producto(33, "Antiparra Jet Speedo", "Speedo", 1799, "media/niños/Productos/AntiparraJetSpeedo.jpg", "Niños", "Accesorio", null, 2, true, false, 0)
+const producto34 = new Producto(34, "Guantes Fit Drb Force DRB", "DRB", 3399, "media/niños/Productos/GuantesFitDrbForceDRB.jpg", "Niños", "Accesorio", null, 6, true, false, 0)
+const producto35 = new Producto(35, "Bolso Tote Promo Benito Topper", "Topper", 1999, "media/niños/Productos/BolsoTotePromoBenitoTopper.jpg", "Niños", "Accesorio", null, 9, true, false, 0)
 
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20, producto21]
 
