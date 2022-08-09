@@ -3,35 +3,6 @@ const registerForm = document.getElementById("registerForm")
 const contactForm = document.getElementById("contactForm")
 const modal = document.querySelector(".modalForm")
 
-// CLASES
-class User {
-    constructor(email, password, name, surname, birthday, country, gender, sesionActive){
-        this.email = email
-        this.password = password
-        this.name = name
-        this.surname = surname
-        this.birthday = birthday
-        this.country = country
-        this.gender = gender
-        this.sesionActive = sesionActive
-    }
-}
-
-class Contacto {
-    constructor(email, name, surname, tel, mesage) {
-        this.email = email
-        this.name = name
-        this.surname = surname
-        this.tel = tel
-        this.mesage = mesage
-    }
-}
-
-// ARRAYS
-const users = []
-let usersData = []
-const contacto = []
-
 // REVISAR LOCAL STORAGE
 usersData = localStorage.getItem("usersData") ? JSON.parse(localStorage.getItem("usersData")) : localStorage.setItem("usersData", JSON.stringify(usersData))                        
 
@@ -79,6 +50,7 @@ const labelEmail = document.getElementById("labelEmail")
 function usuarioYaRegistrado() {
     labelEmail.classList.remove("d-none")
     registerEmail.classList.add("emailDuplicado")
+    registerEmail.focus()
 }
 
 // EVENTO FORMULARIO REGISTRO

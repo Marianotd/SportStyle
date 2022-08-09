@@ -7,10 +7,10 @@ usersData = localStorage.getItem("usersData") ? JSON.parse(localStorage.getItem(
 // AÑADIR PRODUCTOS EN CARROUSEL
 productos.forEach(producto => {
 
-    if(producto.destacado == true && producto.disponible == true){
+    if(producto.usuario == "Niños" && producto.disponible == true){
         carouselProductos.innerHTML += `
             <li>
-                <div id="producto${producto.id}" class="card border-0 producto">
+                <div id="producto${producto.id}" class="card border-0 producto producto--niños">
                     <p>${producto.nombre} <br> $${producto.precio}</p>
                     <img class="img img-fluid" src="${producto.img}" alt="${producto.nombre}">
                     <button class="py-1 px-4 rounded">Añadir</button>

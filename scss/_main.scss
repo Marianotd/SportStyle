@@ -239,6 +239,18 @@ header {
         @include productos (#0ac700, radial-gradient(ellipse at center, rgba(10,199,0,1) 0%, rgba(8,128,26,1) 100%));
     }
 
+    &__catalogo {
+        max-width: 80%;
+
+        @media all and (min-width: $medium){
+            max-width: 45%;
+        }
+
+        @media all and (min-width: $large){
+            max-width: 20%;
+        }
+    }
+
     a {
         font-weight: map-get($font-weight, Regular)
     }
