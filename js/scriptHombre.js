@@ -12,7 +12,7 @@ productos.forEach(producto => {
             <div id="producto${producto.id}" class="card border-0 producto producto__catalogo">
                 <p>${producto.nombre} <br> $${producto.precio}</p>
                 <img class="img img-fluid" src="${producto.img}" alt="${producto.nombre}">
-                <button class="py-1 px-4 rounded">Añadir</button>
+                <button id="botonProducto${producto.id}" class="py-1 px-4 rounded">Añadir</button>
             </div>
         `
     }

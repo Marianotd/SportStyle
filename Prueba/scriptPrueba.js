@@ -1,3 +1,7 @@
+// REGISTRAR EN VARIABLES ELEMENTOS DEL DOM
+const divProductos = document.getElementById("contProductos")
+const divCarrito = document.getElementById("carrito")
+
 // CLASES
 class Producto {
     constructor(id, nombre, marca, precio, img, usuario, categoria, talle, stock, disponible, destacado, cantidad){
@@ -16,38 +20,10 @@ class Producto {
     }
 }
 
-class User {
-    constructor(email, password, name, surname, birthday, country, gender, sesionActive){
-        this.email = email
-        this.password = password
-        this.name = name
-        this.surname = surname
-        this.birthday = birthday
-        this.country = country
-        this.gender = gender
-        this.sesionActive = sesionActive
-    }
-}
-
-class Contacto {
-    constructor(email, name, surname, tel, mesage) {
-        this.email = email
-        this.name = name
-        this.surname = surname
-        this.tel = tel
-        this.mesage = mesage
-    }
-}
-
 // ARRAYS PRODUCTOS
 const talleIndumentaria = ["XS" ,"S", "M", "L", "XL", "XXL"]
 const talleCalzado = [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
 const carrito = []
-
-// ARRAYS USUARIOS
-const users = []
-let usersData = []
-const contacto = []
 
 // PRODUCTOS
 const producto1 = new Producto(1, "Camiseta Titular Selección Argentina Messi 10", "Adidas", 17499, "media/img/productos/CamisetaMessi.png", "Hombre", "Remera", talleIndumentaria, 50, true, true, 0)
@@ -87,3 +63,29 @@ const producto34 = new Producto(34, "Guantes Fit Drb Force DRB", "DRB", 3399, "m
 const producto35 = new Producto(35, "Bolso Tote Promo Benito Topper", "Topper", 1999, "media/niños/Productos/BolsoTotePromoBenitoTopper.jpg", "Niños", "Accesorio", null, 9, true, false, 0)
 
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20, producto21, producto22, producto23, producto24, producto25, producto26, producto27, producto28, producto29, producto30, producto31, producto32, producto33, producto34, producto35]
+
+// AÑADIR PRODUCTOS
+productos.forEach((producto, indice) => {
+    divProductos.innerHTML += `
+      <div class="card border-secondary mb-3" id="producto${indice}" style="max-width: 20rem; margin:3px">
+          <div class="card-header">${producto.nombre}</div>
+          <div class="card-body">
+              <h4 class="card-title">${producto.marca}</h4>
+              <p class="card-text">$${producto.precio}</p>
+              <p class="card-text">${producto.stock}</p>
+              <button class="btn btn-secondary">Añadir</button>
+          </div>
+      </div>
+    `
+  })
+
+productos.forEach(producto => {
+    console.log(document.getElementById(`producto${producto.id}`).lastElementChild.lastElementChild)
+})
+
+botonCarrito.addEventListener('click', () => {
+    carrito.push(producto)
+})
+
+  
+  
