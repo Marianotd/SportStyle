@@ -64,24 +64,26 @@ const producto35 = new Producto(35, "Bolso Tote Promo Benito Topper", "Topper", 
 
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20, producto21, producto22, producto23, producto24, producto25, producto26, producto27, producto28, producto29, producto30, producto31, producto32, producto33, producto34, producto35]
 
-// AÑADIR PRODUCTOS
+// AÑADIR PRODUCTOS AL DOM
 productos.forEach((producto) => {
     divProductos.innerHTML += `
-      <div class="card border-secondary mb-3" id="producto${producto.id}">
-          <div class="card-header">${producto.nombre}</div>
-          <div class="card-body">
-              <p class="card-text">$${producto.precio}</p>              
-              <button class="btn btn-secondary">Añadir</button>
-          </div>
-      </div>
+        <div id="producto${producto.id}" class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header" style="font-size: 1.3rem;">${producto.nombre}</div>
+            <div class="card-body">
+                <p class="card-text">$${producto.precio}</p>
+                <button class="btn btn-secondary">Añadir</button>
+            </div>
+        </div>
     `
   })
 
-productos.forEach((producto) => {
+// FUNCIÓN AÑADIR AL CARRITO
+function funcCarrito(producto) {
     document.getElementById(`producto${producto.id}`).lastElementChild.lastElementChild.addEventListener('click', () => {
 
+        let prodId = producto.id
 
-        if(carrito.some(producto => producto.id == producto.id)){
+        if(carrito.some(producto => producto.id == prodId)){
             carrito[producto.cantidad++]
         } else {
             carrito.push(producto)
@@ -89,9 +91,56 @@ productos.forEach((producto) => {
         }
 
         localStorage.setItem("carrito", JSON.stringify(carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})))                        
+    
+        divCarrito.innerHTML = ""
+        carrito.forEach(producto => {
+            divCarrito.innerHTML += `
+                    <div id="proCarrito${producto.id}" class="card border-warning mb-3" style="max-width: 20rem;">
+                        <div class="card-header" style="font-size: 1.3rem;">${producto.nombre}</div>
+                        <div class="card-body">
+                            <p class="card-text">$${producto.precio}</p>
+                            <p>Cantidad: ${producto.cantidad}</p>
+                            <button class="btn btn-secondary">Eliminar</button>
+                        </div>
+                    </div>
+                `
 
-
-        console.log(carrito)
-
+            document.getElementById(`proCarrito${producto.id}`).lastElementChild.lastElementChild.addEventListener('click', () => {
+                let carritoId = producto.id
+        
+                if(carrito.some(producto => producto.id == carritoId)){
+                    carrito[producto.cantidad--]
+                } else {
+                    carrito.splice(producto.id, 1)
+                    producto.cantidad--
+                }
+        
+                console.log(carrito)
+        
+                localStorage.setItem("carrito", JSON.stringify(carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})))                        
+            
+                divCarrito.innerHTML = ""
+                carrito.forEach(producto => {
+                    divCarrito.innerHTML += `
+                            <div id="proCarrito${producto.id}" class="card border-warning mb-3" style="max-width: 20rem;">
+                                <div class="card-header" style="font-size: 1.3rem;">${producto.nombre}</div>
+                                <div class="card-body">
+                                    <p class="card-text">$${producto.precio}</p>
+                                    <p>Cantidad: ${producto.cantidad}</p>
+                                    <button class="btn btn-secondary">Eliminar</button>
+                                </div>
+                            </div>
+                        `
+                })
+            })
+        })
     })
+}
+
+productos.forEach((producto) => {
+    funcCarrito(producto)
 })
+
+
+
+
