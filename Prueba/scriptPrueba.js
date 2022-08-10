@@ -65,27 +65,33 @@ const producto35 = new Producto(35, "Bolso Tote Promo Benito Topper", "Topper", 
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20, producto21, producto22, producto23, producto24, producto25, producto26, producto27, producto28, producto29, producto30, producto31, producto32, producto33, producto34, producto35]
 
 // AÑADIR PRODUCTOS
-productos.forEach((producto, indice) => {
+productos.forEach((producto) => {
     divProductos.innerHTML += `
-      <div class="card border-secondary mb-3" id="producto${indice}" style="max-width: 20rem; margin:3px">
+      <div class="card border-secondary mb-3" id="producto${producto.id}">
           <div class="card-header">${producto.nombre}</div>
           <div class="card-body">
-              <h4 class="card-title">${producto.marca}</h4>
-              <p class="card-text">$${producto.precio}</p>
-              <p class="card-text">${producto.stock}</p>
+              <p class="card-text">$${producto.precio}</p>              
               <button class="btn btn-secondary">Añadir</button>
           </div>
       </div>
     `
   })
 
-productos.forEach(producto => {
-    console.log(document.getElementById(`producto${producto.id}`).lastElementChild.lastElementChild)
-})
+productos.forEach((producto) => {
+    document.getElementById(`producto${producto.id}`).lastElementChild.lastElementChild.addEventListener('click', () => {
 
-botonCarrito.addEventListener('click', () => {
-    carrito.push(producto)
-})
 
-  
-  
+        if(carrito.some(producto => producto.id == producto.id)){
+            carrito[producto.cantidad++]
+        } else {
+            carrito.push(producto)
+            producto.cantidad++
+        }
+
+        localStorage.setItem("carrito", JSON.stringify(carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})))                        
+
+
+        console.log(carrito)
+
+    })
+})
