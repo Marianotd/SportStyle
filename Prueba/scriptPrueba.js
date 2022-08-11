@@ -1,6 +1,6 @@
 // REGISTRAR EN VARIABLES ELEMENTOS DEL DOM
 const divProductos = document.getElementById("contProductos")
-const divCarrito = document.getElementById("carrito")
+const divCarrito = document.getElementById("contCarrito")
 
 // CLASES
 class Producto {
@@ -55,7 +55,7 @@ const producto26 = new Producto(26, "Zapatillas Lugano 6.0 Vlc Baby Fila", "Fila
 const producto27 = new Producto(27, "Cuello Necktube Camo Salomon", "Salomon", 1469, "media/niños/Productos/CuelloNecktubeCamoSalomon.jpg", "Niños", "Accesorio", null, 16, true, false, 0)
 const producto28 = new Producto(28, "Zapatillas Elastica Triumph Atomik", "Atomik", 6489, "media/niños/Productos/ZapatillasElasticaTriumphAtomik.jpg", "Niños", "Calzado", talleCalzado, 2, true, false, 0)
 const producto29 = new Producto(29, "Pelota Padel X 3 Ball Wilson", "Wilson", 2599, "media/niños/Productos/PelotaPadelX3BallWilson.jpg", "Niños", "Accesorio", null, 33, true, false, 0)
-const producto30 = new Producto(30, "Buzo BUZO COLEGIAL K 22 Kamp", "Kamp", 2999, "media/niños/Productos/BuzoBUZOCOLEGIALK22Kamp.jpg", "Niños", "Abrigo", talleIndumentaria, 8, true, false, 0)
+const producto30 = new Producto(30, "Buzo Colegial K 22 Kamp", "Kamp", 2999, "media/niños/Productos/BuzoBUZOCOLEGIALK22Kamp.jpg", "Niños", "Abrigo", talleIndumentaria, 8, true, false, 0)
 const producto31 = new Producto(31, "Sandalias Sublim Mickey Footy", "Footy", 4299, "media/niños/Productos/SandaliasSublimMickeyFooty.jpg", "Niños", "Calzado", talleCalzado, 10, true, false, 0)
 const producto32 = new Producto(32, "Medias Quarter 3p Puma", "Puma", 2199, "media/niños/Productos/MediasQuarter3pPuma.jpg", "Niños", "Accesorio", null, 5, true, false, 0)
 const producto33 = new Producto(33, "Antiparra Jet Speedo", "Speedo", 1799, "media/niños/Productos/AntiparraJetSpeedo.jpg", "Niños", "Accesorio", null, 2, true, false, 0)
@@ -75,10 +75,10 @@ productos.forEach((producto) => {
             </div>
         </div>
     `
-  })
+})
 
-// FUNCIÓN AÑADIR AL CARRITO
-function funcCarrito(producto) {
+//FUNCIÓN AÑADIR AL CARRITO
+function agregarCarrito(producto){
     document.getElementById(`producto${producto.id}`).lastElementChild.lastElementChild.addEventListener('click', () => {
 
         let prodId = producto.id
@@ -95,52 +95,28 @@ function funcCarrito(producto) {
         divCarrito.innerHTML = ""
         carrito.forEach(producto => {
             divCarrito.innerHTML += `
-                    <div id="proCarrito${producto.id}" class="card border-warning mb-3" style="max-width: 20rem;">
-                        <div class="card-header" style="font-size: 1.3rem;">${producto.nombre}</div>
-                        <div class="card-body">
-                            <p class="card-text">$${producto.precio}</p>
-                            <p>Cantidad: ${producto.cantidad}</p>
-                            <button class="btn btn-secondary">Eliminar</button>
-                        </div>
+                <div id="carrito${producto.id}" class="card border-warning mb-3" style="max-width: 20rem;">
+                    <div class="card-header" style="font-size: 1.3rem;">${producto.nombre}</div>
+                    <div class="card-body">
+                        <p class="card-text">$${producto.precio}</p>
+                        <p>Cantidad: ${producto.cantidad}</p>
+                        <button class="btn btn-secondary" onClick="eliminar(${producto.id})">Eliminar</button>
                     </div>
-                `
-
-            document.getElementById(`proCarrito${producto.id}`).lastElementChild.lastElementChild.addEventListener('click', () => {
-                let carritoId = producto.id
-        
-                if(carrito.some(producto => producto.id == carritoId)){
-                    carrito[producto.cantidad--]
-                } else {
-                    carrito.splice(producto.id, 1)
-                    producto.cantidad--
-                }
-        
-                console.log(carrito)
-        
-                localStorage.setItem("carrito", JSON.stringify(carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})))                        
-            
-                divCarrito.innerHTML = ""
-                carrito.forEach(producto => {
-                    divCarrito.innerHTML += `
-                            <div id="proCarrito${producto.id}" class="card border-warning mb-3" style="max-width: 20rem;">
-                                <div class="card-header" style="font-size: 1.3rem;">${producto.nombre}</div>
-                                <div class="card-body">
-                                    <p class="card-text">$${producto.precio}</p>
-                                    <p>Cantidad: ${producto.cantidad}</p>
-                                    <button class="btn btn-secondary">Eliminar</button>
-                                </div>
-                            </div>
-                        `
-                })
-            })
+                </div>
+            `
         })
     })
 }
 
+// AGREGAR EVENTO AÑADIR AL CARRITO A PRODUCTOS
 productos.forEach((producto) => {
-    funcCarrito(producto)
+    agregarCarrito(producto)
+
 })
 
-
-
-
+function eliminar(n) {
+    const index = carrito.findIndex(producto => producto.id === n);
+    carrito.splice(index, 1)
+    document.getElementById(`carrito${n}`).remove()
+    localStorage.setItem("carrito", JSON.stringify(carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})))                        
+}
