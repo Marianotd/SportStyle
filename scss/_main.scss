@@ -256,51 +256,6 @@ header {
     }
 }
 
-/* CARRITO PRODUCTOS */
-
-#carrito {
-    width: 75%;
-    height: 90%;
-    top: 2.5%;
-    left: 12.5%;
-
-    @media all and (min-width: $medium){
-        width: 50%;
-        left: 25%;
-    }
-
-    @media all and (min-width: $large){
-        width: 40%;
-        left: 30%;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-        font-weight: map-get($font-weight, Bold)
-    }
-
-    p {
-        font-size: .9rem;
-        font-weight: map-get($font-weight, Medium);
-
-        span {
-            font-size: 1.2rem;
-            font-weight: map-get($font-weight, Bold);
-        }
-    }
-
-    a, button {
-        font-weight: map-get($font-weight, Medium);
-        font-size: 1.1rem;
-        border: 1.5px solid black;
-
-        &:active {
-            transform: scale(1.01,1.01)
-        }
-    }
-
-}
-
 /* HOMBRE Y MUJER - NEWSLETTER */
 
 .newsletter {
@@ -429,7 +384,9 @@ header {
     }
 }
 
-.modalForm {
+/* MODAL */
+
+.divModal {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -446,7 +403,9 @@ header {
         transition: opacity .6s;
     }
 
-    .modalContenedor {
+    /* MODAL PÁGINA CONTACTO */
+
+    .modalContacto {
         margin-top: 25%;
         width: 80%;
         height: 60%;

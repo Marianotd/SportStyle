@@ -145,28 +145,23 @@
             <h2 class="titulo-seccion text-center p-2 text-xl-start ps-xl-5">Novedades</h2>
             <div class="col-10 col-md-11 mx-auto swiffy-slider slider-item-show4 slider-nav-square slider-nav-dark slider-nav-visible slider-nav-autoplay slider-indicators-dark slider-indicators-outside slider-indicators-highlight" data-slider-nav-autoplay-interval="5000">
                 <!-- Contenedor de productos -->
-                <ul id="carouselProductos" class="slider-container"></ul>
+                <ul id="contProductos" class="slider-container"></ul>
                 <button type="button" class="slider-nav" aria-label="Go left"></button>
                 <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
             </div>
 
-            <!-- <div class="offcanvas m-auto" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
-                <div class="offcanvas-header">
-                    <h3 class="offcanvas-title" id="carritolabel">¡AÑADIDO AL CARRITO CORRECTAMENTE!</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <div class="divModal">
+                <div class="modalContenedor modalContenedor--show d-flex flex-column justify-content-around align-items-center mx-auto">
+                    <div id="carrito${producto.id}" class="card border-warning mb-3" style="max-width: 20rem;">
+                        <div class="card-header" style="font-size: 1.3rem;">${producto.nombre}</div>
+                        <button class="btn btn-secondary">X</button>
+                        <div class="card-body">
+                            <p class="card-text">$${producto.precio}</p>
+                            <p>Cantidad: ${producto.cantidad}</p>  
+                        </div>
+                    </div>
                 </div>
-                <div class="offcanvas-body d-flex flex-column align-items-center justify-content-around bg-light">
-                    <div class="d-flex flex-row flex-nowrap">
-                        <img src="media/img/productos/ZapatillasForumLow.png" class="img-fluid col-5" alt="ZapatillasForumLow">
-                        <p>ZAPATILLAS FORUM LOW <br> <span>$ 23.999</span></p>
-                    </div>
-
-                    <div class="col-12 d-flex flex-column align-items-center justify-content-evenly gap-2">
-                        <a class="col-10 mx-auto py-2 px-3 bg-black text-decoration-none text-white" href="carrito.html" role="button" aria-controls="carrito">Ver carrito</a>
-                        <button class="col-10 mx-auto py-2 px-3 bg-white text-start" type="button" data-bs-dismiss="offcanvas" aria-label="Close">Seguir comprando</button>
-                    </div>
-                </div>                    
-            </div> -->
+            </div>
         </article>
 
         <article> <!-- Sección marcas -->
@@ -201,6 +196,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="js/scriptElementos.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/scriptCarrito.js"></script>
 
 </body>
 </html>

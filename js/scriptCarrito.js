@@ -1,123 +1,59 @@
-const productos = document.querySelector('#productos');
-const carritoDiv = document.querySelector('#carrito');
-const total = document.querySelector('#total');
-const botonVaciar = document.querySelector('#boton-vaciar');
+// REGISTRAR EN VARIABLES ELEMENTOS DEL DOM
+const divProductos = document.getElementById("contProductos")
+const divCarrito = document.querySelector(".divModal")
 
-carrito = localStorage.getItem("carrito") ? JSON.parse(localStorage.getItem("carrito")) : localStorage.setItem("carrito", JSON.stringify(carrito))                        
+//FUNCIÓN AÑADIR AL CARRITO
+function agregarCarrito(producto){   
+    document.getElementById(`producto${producto.id}`).lastElementChild.addEventListener('click', () => {
 
-// Funciones
+        let prodId = producto.id
 
-/**
-* Evento para añadir un producto al carrito de la compra
-*/
-function agregarAlCarrito(e) {
-    // Anyadimos el Nodo a nuestro carrito
-    carrito.push(e.target.getAttribute('marcador'))
-    // Actualizamos el carrito 
-    renderizarCarrito();
-    // Actualizamos el LocalStorage
-    guardarCarritoEnLocalStorage();
+        if(carrito.some(producto => producto.id == prodId)){
+            carrito[producto.cantidad++]
+        } else {
+            carrito.push(producto)
+            producto.cantidad++
+        }
+
+        localStorage.setItem("carrito", JSON.stringify(carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})))                        
+    
+        divCarrito.innerHTML = ""
+        divCarrito.innerHTML += `
+            <div class="modalCarrito d-flex flex-column justify-content-around align-items-center mx-auto">
+                <div id="carrito${producto.id}" class="card border-warning mb-3" style="max-width: 20rem;">
+                    <div class="card-header" style="font-size: 1.3rem;">${producto.nombre}</div>
+                    <button class="btn btn-secondary" onClick="eliminarCarrito(${producto.id})">X</button>
+                    <div class="card-body">
+                        <p class="card-text">$${producto.precio}</p>
+                        <p>Cantidad: ${producto.cantidad}</p>  
+                    </div>
+                </div>
+            </div>
+        `
+
+        divCarrito.classList.add("divModal--show")
+        document.body.classList.add("body--modal")
+
+        const ofertas = document.querySelector(".bg-warning")
+        ofertas.classList.add("d-none")
+    })
 }
 
-/**
-* Dibuja todos los productos guardados en el carrito
-*/
-function renderizarCarrito() {
-    // Vaciamos todo el html
-    carritoDiv.textContent = '';
-    // Quitamos los duplicados
-    const carritoSinDuplicados = [...new Set(carrito)];
-    // Generamos los Nodos a partir de carrito
-    carritoSinDuplicados.forEach((item) => {
-        // Obtenemos el item que necesitamos de la variable base de datos
-        const miItem = productos.filter((producto) => {
-            // ¿Coincide las id? Solo puede existir un caso
-            return producto.id === parseInt(item);
-        });
-        // Cuenta el número de veces que se repite el producto
-        const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-            // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
-            return itemId === item ? total += 1 : total;
-        }, 0);
-        // Creamos el nodo del item del carrito
-        const miNodo = document.createElement('li');
-        miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-        miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
-        // Boton de borrar
-        const miBoton = document.createElement('button');
-        miBoton.classList.add('btn', 'btn-danger', 'mx-5');
-        miBoton.textContent = 'X';
-        miBoton.style.marginLeft = '1rem';
-        miBoton.dataset.item = item;
-        miBoton.addEventListener('click', borrarItemCarrito);
-        // Mezclamos nodos
-        miNodo.appendChild(miBoton);
-        DOMcarrito.appendChild(miNodo);
-    });
-    // Renderizamos el precio total en el HTML
-    DOMtotal.textContent = calcularTotal();
-}
-
-/**
-* Evento para borrar un elemento del carrito
-*/
-function borrarItemCarrito(evento) {
-    // Obtenemos el producto ID que hay en el boton pulsado
-    const id = evento.target.dataset.item;
-    // Borramos todos los productos
-    carrito = carrito.filter((carritoId) => {
-        return carritoId !== id;
-    });
-    // volvemos a renderizar
-    renderizarCarrito();
-    // Actualizamos el LocalStorage
-    guardarCarritoEnLocalStorage();
-
-}
-
-/**
- * Calcula el precio total teniendo en cuenta los productos repetidos
- */
-function calcularTotal() {
-    // Recorremos el array del carrito 
-    return carrito.reduce((total, item) => {
-        // De cada elemento obtenemos su precio
-        const miItem = productos.filter((producto) => {
-            return producto.id === parseInt(item);
-        });
-        // Los sumamos al total
-        return total + miItem[0].precio;
-    }, 0).toFixed(2);
-}
-
-/**
-* Varia el carrito y vuelve a dibujarlo
-*/
-function vaciarCarrito() {
-    // Limpiamos los productos guardados
-    carrito = [];
-    // Renderizamos los cambios
-    renderizarCarrito();
-    // Borra LocalStorage
-    localStorage.clear();
-
-}
-
-function guardarCarritoEnLocalStorage () {
-    miLocalStorage.setItem('carrito', JSON.stringify(carrito));
-}
-
-function cargarCarritoDeLocalStorage () {
-    // ¿Existe un carrito previo guardado en LocalStorage?
-    if (miLocalStorage.getItem('carrito') !== null) {
-        // Carga la información
-        carrito = JSON.parse(miLocalStorage.getItem('carrito'));
+// AGREGAR EVENTO AÑADIR AL CARRITO A PRODUCTOS
+productos.forEach((producto) => {    
+    if(document.getElementById(`producto${producto.id}`)){        
+        agregarCarrito(producto)
     }
+})
+
+function eliminarCarrito(n) {
+    const index = carrito.findIndex(producto => producto.id === n);
+    carrito.splice(index, 1)
+    document.getElementById(`carrito${n}`).remove()
+    ofertas.classList.remove("d-none")
+
+    divCarrito.classList.remove("divModal--show")
+    document.body.classList.remove("body--modal")
+
+    localStorage.setItem("carrito", JSON.stringify(carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})))                        
 }
-
-// Eventos
-DOMbotonVaciar.addEventListener('click', vaciarCarrito);
-
-// Inicio
-cargarCarritoDeLocalStorage();
-renderizarCarrito();

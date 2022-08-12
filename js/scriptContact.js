@@ -1,7 +1,7 @@
 // REGISTRAR EN VARIABLES ELEMENTOS DEL DOM
 const registerForm = document.getElementById("registerForm")
 const contactForm = document.getElementById("contactForm")
-const modal = document.querySelector(".modalForm")
+const modal = document.querySelector(".divModal")
 
 // REVISAR LOCAL STORAGE
 usersData = localStorage.getItem("usersData") ? JSON.parse(localStorage.getItem("usersData")) : localStorage.setItem("usersData", JSON.stringify(usersData))                        
@@ -16,8 +16,8 @@ function registrarUsuario() {
 
     registerForm.reset()
 
-    modal.innerHTML += `
-        <div class="modalContenedor d-flex flex-column justify-content-around align-items-center mx-auto">
+    modal.innerHTML = `
+        <div class="modalContacto d-flex flex-column justify-content-around align-items-center mx-auto">
             <div class="modalHeader">
                 <h2 class="text-center">Gracias por registrarte en <span>SportStyle</span></h2>
             </div>
@@ -30,11 +30,11 @@ function registrarUsuario() {
     
     const closeModal = document.querySelector(".botonModal")
 
-    modal.classList.add("modalForm--show")
+    modal.classList.add("divModal--show")
 
     closeModal.addEventListener("click", (e) => {
         e.preventDefault()
-        modal.classList.remove("modalForm--show")
+        modal.classList.remove("divModal--show")
         document.body.classList.remove("body--modal")
     })
 
@@ -116,8 +116,8 @@ contactForm.addEventListener("submit", (e) => {
 
     contactForm.reset()
 
-    modal.innerHTML += `
-        <div class="modalContenedor d-flex flex-column justify-content-around align-items-center mx-auto">
+    modal.innerHTML = `
+        <div class="modalContacto d-flex flex-column justify-content-around align-items-center mx-auto">
             <div class="modalHeader">
                 <h2 class="text-center">Gracias por contactarte con <span>SportStyle</span></h2>
             </div>
@@ -130,11 +130,11 @@ contactForm.addEventListener("submit", (e) => {
     
     const closeModal = document.querySelector(".botonModal")
 
-    modal.classList.add("modalForm--show")
+    modal.classList.add("divModal--show")
 
     closeModal.addEventListener("click", (e) => {
         e.preventDefault()
-        modal.classList.remove("modalForm--show")
+        modal.classList.remove("divModal--show")
         document.body.classList.remove("body--modal")
     })
 
