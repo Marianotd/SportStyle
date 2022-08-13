@@ -35,7 +35,7 @@ function agregarCarrito(producto){
         document.body.classList.add("body--modal")
 
         const ofertas = document.querySelector(".bg-warning")
-        ofertas.classList.add("d-none")
+        ofertas.classList.remove("sticky-top")
     })
 }
 
@@ -50,7 +50,7 @@ function eliminarCarrito(n) {
     const index = carrito.findIndex(producto => producto.id === n);
     carrito.splice(index, 1)
     document.getElementById(`carrito${n}`).remove()
-    ofertas.classList.remove("d-none")
+    ofertas.classList.add("sticky-top")
 
     divCarrito.classList.remove("divModal--show")
     document.body.classList.remove("body--modal")

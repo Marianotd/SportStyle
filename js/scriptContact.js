@@ -18,17 +18,17 @@ function registrarUsuario() {
 
     modal.innerHTML = `
         <div class="modalContacto d-flex flex-column justify-content-around align-items-center mx-auto">
-            <div class="modalHeader">
+            <div class="modalContactoHeader">
                 <h2 class="text-center">Gracias por registrarte en <span>SportStyle</span></h2>
             </div>
-            <div class="modalBody col-12 text-center">
+            <div class="modalContactoBody col-12 text-center">
                 <h3><span>${user.name}</span> te hemos enviado a <span>${user.email}</span> un correo para la verificación de tu cuenta</h3>
             </div>
-            <button class="botonModal">Cerrar</button>
+            <button class="botonModalContacto">Cerrar</button>
         </div>
     `
     
-    const closeModal = document.querySelector(".botonModal")
+    const closeModal = document.querySelector(".botonModalContacto")
 
     modal.classList.add("divModal--show")
 
@@ -118,17 +118,17 @@ contactForm.addEventListener("submit", (e) => {
 
     modal.innerHTML = `
         <div class="modalContacto d-flex flex-column justify-content-around align-items-center mx-auto">
-            <div class="modalHeader">
+            <div class="modalContactoHeader">
                 <h2 class="text-center">Gracias por contactarte con <span>SportStyle</span></h2>
             </div>
-            <div class="modalBody col-12 text-center">
+            <div class="modalContactoBody col-12 text-center">
                 <h3><span>${mensajeContacto.name}</span> nos estaremos poniendo en contacto al correo <span>${mensajeContacto.email}</span> o vía telefónica al <span>${mensajeContacto.tel}</span> por tu mensaje.</h3>
             </div>
-            <button class="botonModal">Cerrar</button>
+            <button class="botonModalContacto">Cerrar</button>
         </div>
     `
     
-    const closeModal = document.querySelector(".botonModal")
+    const closeModal = document.querySelector(".botonModalContacto")
 
     modal.classList.add("divModal--show")
 

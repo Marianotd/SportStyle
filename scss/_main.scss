@@ -392,15 +392,56 @@ header {
     bottom: 0;
     width: 100%;
     background-color: #00000080;
-    opacity: 0;
-    pointer-events: none;
+    // opacity: 0;
+    // pointer-events: none;
     transition: opacity .6s;
+    opacity: 1;
+    pointer-events: unset;
 
     &--show {
         z-index: 10;
         opacity: 1;
         pointer-events: unset;
         transition: opacity .6s;
+    }
+
+    /* MODAL CARRITO */
+
+    .modalCarrito {
+        margin-top: 25%;
+        margin-left: 7.5%;
+        width: 85%;
+        height: 65%;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1rem;
+
+        .carritoHeader {
+            h3 {
+                font-size: 1.1rem;
+                font-weight: map-get($font-weight, Bold);
+            }
+
+            button {
+                border: none;
+                background-color: #fff;
+                font-size: 1.5rem;
+                font-weight: map-get($font-weight, Bold);
+                text-align: end;
+            }
+        }
+
+        .carritoBody {
+            .carritoProducto div {
+                    p {
+                        font-weight: map-get($font-weight, Medium);
+
+                    span {
+                        font-weight: map-get($font-weight , Bold);
+                    }
+                }  
+            }     
+        }
     }
 
     /* MODAL PÁGINA CONTACTO */
@@ -425,7 +466,7 @@ header {
             height: 45%;
         }
 
-        .modalHeader h2{
+        .modalContactoHeader h2{
             font-size: 1.7rem;
             color: #555;
 
@@ -436,7 +477,7 @@ header {
             }
         }
 
-        .modalBody h3 {
+        .modalContactoBody h3 {
             font-size: 1.1rem;
             color: #777;
 
@@ -446,7 +487,7 @@ header {
             }
         }
 
-        .botonModal {
+        .botonModalContacto {
             font-size: 1.2rem;
             color: #fff;
             background-color: $main_color;
