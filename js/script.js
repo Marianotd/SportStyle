@@ -85,68 +85,40 @@ function completarTalles(producto){
     const selectProductos = document.getElementById(`talleProducto${producto.id}`)
     const labelTalle = document.getElementById(`labelTalle${producto.id}`)
 
+    const talleRopa = ["XS", "S", "M", "L", "XL", "XXL"]
+    const talleCalzadoMujer = [35, 36, 37, 38, 39, 40, 41]
+    const talleCalzadoHombre = [38, 39, 40, 41, 42, 43, 44, 45, 46]
+    const talleCalzadoNinos = [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 ,31, 32, 33, 34, 35, 36, 37, 38]
+
+    selectProductos.innerHTML = `
+        <option value="" disabled selected>Seleccione un talle</option>
+    `
+
     if(producto.categoria !== "Accesorio"){
         if(producto.categoria !== "Calzado" && producto.categoria !== null){
-            selectProductos.innerHTML = `
-                <option value="" disabled selected>Seleccione un talle</option>
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-            `
-        } else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Hombre"){
-            selectProductos.innerHTML = `
-                <option value="" disabled selected>Seleccione un talle</option>
-                <option value="35">35</option>
-                <option value="36">36</option>
-                <option value="37">37</option>
-                <option value="38">38</option>
-                <option value="39">39</option>
-                <option value="40">40</option>
-                <option value="41">41</option>
-            `
+            talleRopa.forEach(talle => {
+                selectProductos.innerHTML += `
+                    <option value="${talle}">${talle}</option>
+                `
+            })
         } else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Mujer"){
-            selectProductos.innerHTML = `
-                <option value="" disabled selected>Seleccione un talle</option>
-                <option value="38">38</option>
-                <option value="39">39</option>
-                <option value="40">40</option>
-                <option value="41">41</option>
-                <option value="42">42</option>
-                <option value="43">43</option>
-                <option value="44">44</option>
-                <option value="45">45</option>
-                <option value="46">46</option>
-            `
+            talleCalzadoMujer.forEach(talle => {
+                selectProductos.innerHTML += `
+                    <option value="${talle}">${talle}</option>
+                `
+            })
+        } else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Hombre"){
+            talleCalzadoHombre.forEach(talle => {
+                selectProductos.innerHTML += `
+                    <option value="${talle}">${talle}</option>
+                `
+            })
         } else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Niños"){
-            selectProductos.innerHTML = `
-                <option value="" disabled selected>Seleccione un talle</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
-                <option value="32">32</option>
-                <option value="33">33</option>
-                <option value="34">34</option>
-                <option value="35">35</option>
-                <option value="36">36</option>
-                <option value="37">37</option>
-                <option value="38">38</option>
-            `
+            talleCalzadoNinos.forEach(talle => {
+                selectProductos.innerHTML += `
+                    <option value="${talle}">${talle}</option>
+                `
+            })
         }
     } else {
         selectProductos.classList.add("d-none")
