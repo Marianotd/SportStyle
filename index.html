@@ -127,7 +127,7 @@
     </header>
 
     <section id="main">
-        <article class="bg-warning p-1 text-center sticky-top"> <!-- Sección oferta del momento -->
+        <article id="secOfertas" class="bg-warning p-1 text-center sticky-top"> <!-- Sección oferta del momento -->
             <a href="contacto.html" class="text-uppercase text-decoration-none text-black align-middle">10% Off en tu próxima compra registrandote con tu correo para recibir novedades</a>
         </article>
 
@@ -149,39 +149,9 @@
                 <button type="button" class="slider-nav" aria-label="Go left"></button>
                 <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
             </div>
-
-            <div class="divModal">
-                <div class="modalCarrito">
-                    <div class="carritoHeader d-flex flex-row flex-nowrap justify-content-around align-items-center">
-                        <h3 class="m-0 p-0">¡PRODUCTO AÑADIDO AL CARRITO!</h3>
-                        <button class="col-2" type="button">X</button>
-                    </div>
-
-                    <div class="carritoBody d-flex flex-column align-items-center justify-content-around bg-light py-4 px-1 mt-3">
-                        <div class="carritoProducto d-flex flex-row flex-nowrap justify-content-around">
-                            <img src="media/img/productos/ZapatillasForumLow.png" class="img-fluid col-5" alt="ZapatillasForumLow">
-                            <div class="ps-1">
-                                <p>ZAPATILLAS FORUM LOW <br> <span>$ 23.999</span></p>
-                                <label class="labelTalle mb-2" for="talleCarrito">Seleccione el talle:</label>
-                                <select id="talleCarrito" name="talleCarrito" class="col-6" required>
-                                    <option value="" disabled selected>Talle</option>
-                                    <option value="ar">S</option>
-                                    <option value="br">M</option>
-                                    <option value="cl">L</option>
-                                    <option value="pr">XL</option>
-                                    <option value="bl">XXL</option>
-                                </select>
-                            </div>
-                            
-                        </div>
-    
-                        <div class="col-12 d-flex flex-column align-items-center justify-content-evenly gap-2">
-                            <a class="col-10 mx-auto py-2 px-3 bg-black text-decoration-none text-white" href="carrito.html" role="button" aria-controls="carrito">Ver carrito</a>
-                            <button class="col-10 mx-auto py-2 px-3 bg-white text-start" type="button" data-bs-dismiss="offcanvas" aria-label="Close">Seguir comprando</button>
-                        </div>
-                    </div> 
-                </div>
-            </div>
+            
+            <!-- Modal Carrito -->
+            <div id="divCarrito" class="divModal"></div>
         </article>
 
         <article> <!-- Sección marcas -->

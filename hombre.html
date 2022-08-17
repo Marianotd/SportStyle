@@ -257,24 +257,8 @@
                 </ul>
             </nav>
   
-            <!-- Carrito añadir producto -->
-            <div class="offcanvas m-auto" tabindex="-1" id="carrito" aria-labelledby="carritolabel">
-                <div class="offcanvas-header">
-                    <h3 class="offcanvas-title" id="carritolabel">¡AÑADIDO AL CARRITO CORRECTAMENTE!</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body d-flex flex-column align-items-center justify-content-around bg-light">
-                    <div class="d-flex flex-row flex-nowrap">
-                        <img src="media/img/productos/ZapatillasForumLow.png" class="img-fluid col-5" alt="ZapatillasForumLow">
-                        <p>ZAPATILLAS FORUM LOW <br> <span>$ 23.999</span></p>
-                    </div>
-
-                    <div class="col-12 d-flex flex-column align-items-center justify-content-evenly gap-2">
-                        <a class="col-10 mx-auto py-2 px-3 bg-black text-decoration-none text-white" href="carrito.html" role="button" aria-controls="carrito">Ver carrito</a>
-                        <button class="col-10 mx-auto py-2 px-3 bg-white text-start" type="button" data-bs-dismiss="offcanvas" aria-label="Close">Seguir comprando</button>
-                    </div>
-                </div>                    
-            </div>
+            <!-- Modal Carrito -->
+            <div id="divCarrito" class="divModal"></div>
         </article>
         
         <!-- Suscripción a Newsletter -->
@@ -339,8 +323,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="js/scriptElementos.js"></script>
-    <script src="js/scriptHombre.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

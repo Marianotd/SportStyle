@@ -390,6 +390,8 @@ header {
     position: fixed;
     top: 0;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     background-color: #00000080;
     opacity: 0;
@@ -406,18 +408,30 @@ header {
     /* MODAL CARRITO */
 
     .modalCarrito {
-        margin-top: 25%;
+        margin-top: 15%;
         margin-left: 7.5%;
         width: 85%;
-        height: 65%;
         background-color: #fff;
         border-radius: 15px;
         padding: 1rem;
 
+        @media all and (min-width: $medium) {
+            margin-top: 7.5%;
+            margin-left: 20%;
+            width: 60%;
+        }
+
+        @media all and (min-width: $large) {
+            margin-top: 5%;
+            margin-left: 30%;
+            width: 40%;
+        }
+
         .carritoHeader {
             h3 {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
                 font-weight: map-get($font-weight, Bold);
+                text-transform: uppercase;
             }
 
             button {
@@ -438,7 +452,9 @@ header {
                         font-weight: map-get($font-weight , Bold);
                     }
                 }  
-            }     
+            }   
+            
+            
         }
     }
 
