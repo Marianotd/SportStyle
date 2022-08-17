@@ -392,11 +392,9 @@ header {
     bottom: 0;
     width: 100%;
     background-color: #00000080;
-    // opacity: 0;
-    // pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
     transition: opacity .6s;
-    opacity: 1;
-    pointer-events: unset;
 
     &--show {
         z-index: 10;
