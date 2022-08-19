@@ -29,7 +29,6 @@ class Contacto {
 const users = []
 let usersData = []
 const contacto = []
-const productos = []
 let carrito = []
 
 // REVISAR LOCAL STORAGE
@@ -102,6 +101,8 @@ async function mostrarProductos() {
             completarTalles(producto)
         }
     })
+
+    return prodParseados
 }
 
 // FUNCIÓN LLENAR TALLES
@@ -168,7 +169,7 @@ function botonAgregarCarrito(producto){
             }
 
             if(carrito !== []){
-                localStorage.setItem("carrito", JSON.stringify(carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})))                        
+                localStorage.setItem("carrito", JSON.stringify(carrito))                        
             }
         
             divCarrito.innerHTML = ""
@@ -324,19 +325,19 @@ if(filename() == "contacto.html"){
         (async () => {
 
             const {value: accept} = await Swal.fire({
-            title: 'Terminos y condiciones',
-            html: '<a href="https://policies.google.com/terms?hl=es" target="_blank"> Ver términos y condiciones </a>',
-            input: 'checkbox',
-            inputValue: 0,
-            inputPlaceholder:
-                'Estoy de acuerdo con los términos y condiciones',
-            confirmButtonText:
-                'Aceptar',
-            inputValidator: (result) => {
-                return !result && 'Para continuar debes aceptar los términos y condiciones'
-            }
+                title: 'Terminos y condiciones',
+                html: '<a href="https://policies.google.com/terms?hl=es" target="_blank"> Ver términos y condiciones </a>',
+                input: 'checkbox',
+                inputValue: 0,
+                inputPlaceholder:
+                    'Estoy de acuerdo con los términos y condiciones',
+                confirmButtonText:
+                    'Aceptar',
+                inputValidator: (result) => {
+                    return !result && 'Para continuar debes aceptar los términos y condiciones'
+                }
             })       
-            })()
+        })
     })
 
     btnPol.addEventListener("click", () => {
@@ -396,10 +397,14 @@ if(filename() == "contacto.html"){
 if(filename() == "carrito.html"){
     const infoTotal = document.getElementById("infoTotal")
 
-    let importes = carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})
+    mostrarProductos().then( producto => {
+        const productos = producto
+
+        console.log(productos)
     
-    console.log(importes)
+    })
+    
     infoTotal.innerText = `
-        TOTAL (${carrito.length} producto/s) 
+        TOTAL (${carrito.length} producto/s) = $${carrito}
     `
 }
