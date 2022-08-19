@@ -391,3 +391,15 @@ if(filename() == "contacto.html"){
         document.body.classList.add("body--modal")
     })
 }
+
+// PAGINA CARRITO
+if(filename() == "carrito.html"){
+    const infoTotal = document.getElementById("infoTotal")
+
+    let importes = carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})
+    
+    console.log(importes)
+    infoTotal.innerText = `
+        TOTAL (${carrito.length} producto/s) 
+    `
+}
