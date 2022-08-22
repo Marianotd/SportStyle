@@ -400,8 +400,7 @@ if(filename() == "carrito.html"){
     mostrarProductos().then( producto => {
         const productos = producto
 
-        console.log(productos)
-    
+            
     })
     
     infoTotal.innerText = `
