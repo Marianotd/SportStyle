@@ -644,3 +644,20 @@ footer {
     }
 }
 
+.button--close {
+    border: none;
+    background-color: #fff;
+    font-size: 1.5rem;
+    font-weight: map-get($font-weight, Medium);
+    text-align: end;
+}
+
+.carritoVacio {
+    height: 15rem;
+    font-size: 2rem;
+
+    p{
+        font-weight: map-get($font-weight, Bold);
+    }
+    
+}

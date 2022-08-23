@@ -59,6 +59,10 @@ $gradient-btn: radial-gradient(ellipse at center, rgba(31,150,255,1) 0%, rgba(0,
         max-width: 40%;
     }
 
+    @media all and (min-width: 993px) {
+        max-width: 70%;
+    }
+
     @media all and (min-width: $large){
         max-width: 100%;
     }

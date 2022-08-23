@@ -25,11 +25,14 @@ class Contacto {
     }
 }
 
-// ARRAYS 
+// ARRAYS y VARIABLES
 const users = []
 let usersData = []
 const contacto = []
 let carrito = []
+let subTotal = 0
+let total = 0
+let IVA = 0
 
 // REVISAR LOCAL STORAGE
 usersData = localStorage.getItem("usersData") ? JSON.parse(localStorage.getItem("usersData")) : localStorage.setItem("usersData", JSON.stringify(usersData))                        
@@ -98,7 +101,9 @@ async function mostrarProductos() {
     prodParseados.forEach((producto) => {
         if(document.getElementById(`producto${producto.id}`)){    
             botonAgregarCarrito(producto)
-            completarTalles(producto)
+            if(filename() !== "carrito.html"){
+                completarTalles(producto)
+            }
         }
     })
 }
@@ -154,63 +159,70 @@ function botonAgregarCarrito(producto){
     document.getElementById(`producto${producto.id}`).lastElementChild.addEventListener('click', () => {
 
         const selectProductos = document.getElementById(`talleProducto${producto.id}`)
-
-        if(selectProductos.value !== "" || selectProductos.classList.contains("d-none")){
-            let prodId = producto.id
-            producto.talle = selectProductos.value
-
-            if(carrito.some(producto => producto.id == prodId)){
-                carrito[producto.cantidad++]
-            } else {
-                carrito.push(producto)
-                producto.cantidad++
-            }
-
-            if(carrito !== []){
-                localStorage.setItem("carrito", JSON.stringify(carrito))                        
-            }
-        
-            divCarrito.innerHTML = ""
-            divCarrito.innerHTML += `
-            <div class="modalCarrito">
-                <div class="carritoHeader d-flex flex-row flex-nowrap justify-content-around align-items-center">
-                    <h3 class="m-0 p-0">¡Producto añadido al carrito!</h3>
-                    <button class="col-2" type="button" onClick="eliminarCarrito(${producto.id})">X</button>
-                </div>
-
-                <div class="carritoBody d-flex flex-column align-items-center justify-content-around bg-light py-4 px-1 mt-3">
-                    <div class="carritoProducto d-flex flex-row flex-nowrap justify-content-around">
-                        <img src="${producto.img}" class="img-fluid col-5" alt="${producto.nombre}">
-                        <div class="ps-1">
-                            <p>${producto.nombre} <br> <span>$ ${producto.precio}</span></p>
-                            <p>Talle: ${producto.talle}</p>
+        if(filename() !== "carrito.html"){
+            if(selectProductos.value !== "" || selectProductos.classList.contains("d-none")){
+                let prodId = producto.id
+                producto.talle = selectProductos.value
+    
+                if(carrito.length == 0){
+                    carrito.push(producto)
+                    producto.cantidad++
+                } else {
+                    if(carrito.some(producto => producto.id == prodId)){
+                        carrito[producto.cantidad++]
+                    } else {
+                        carrito.push(producto)
+                        producto.cantidad++
+                    }
+                }
+    
+                if(carrito !== []){
+                    localStorage.setItem("carrito", JSON.stringify(carrito))                        
+                }
+            
+                divCarrito.innerHTML = ""
+                divCarrito.innerHTML += `
+                <div class="modalCarrito">
+                    <div class="carritoHeader d-flex flex-row flex-nowrap justify-content-around align-items-center">
+                        <h3 class="m-0 p-0">¡Producto añadido al carrito!</h3>
+                        <button class="col-2" type="button" onClick="eliminarCarrito(${producto.id})">X</button>
+                    </div>
+    
+                    <div class="carritoBody d-flex flex-column align-items-center justify-content-around bg-light py-4 px-1 mt-3">
+                        <div class="carritoProducto d-flex flex-row flex-nowrap justify-content-around">
+                            <img src="${producto.img}" class="img-fluid col-5" alt="${producto.nombre}">
+                            <div class="ps-1">
+                                <p>${producto.nombre} <br> <span>$ ${producto.precio}</span></p>
+                                <p>Talle: ${producto.talle}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="carritoFooter col-12 d-flex flex-column align-items-center justify-content-evenly gap-2 mt-4">
-                        <a class="col-10 mx-auto py-2 px-3 bg-black text-decoration-none text-white" href="carrito.html">Ver carrito</a>
-                        <button class="col-10 mx-auto py-2 px-3 bg-white text-start" type="button" onClick="seguirComprando(${producto.id})">Añadir y seguir comprando</button>
-                    </div>
-                </div> 
-            </div>
-            `
-
-
-            divCarrito.classList.add("divModal--show")
-            document.body.classList.add("body--modal")
-            selectProductos.classList.remove("talleIncorrecto")
-            selectProductos.value = ""
-
-            if(filename() == "index.html"){
-                const secOfertas = document.getElementById("secOfertas")
-                secOfertas.classList.remove("sticky-top")
-            }
-        } else {
-            selectProductos.classList.add("talleIncorrecto")
-            setTimeout(() => {
+    
+                        <div class="carritoFooter col-12 d-flex flex-column align-items-center justify-content-evenly gap-2 mt-4">
+                            <a class="col-10 mx-auto py-2 px-3 bg-black text-decoration-none text-white" href="carrito.html">Ver carrito</a>
+                            <button class="col-10 mx-auto py-2 px-3 bg-white text-start" type="button" onClick="seguirComprando(${producto.id})">Añadir y seguir comprando</button>
+                        </div>
+                    </div> 
+                </div>
+                `
+    
+    
+                divCarrito.classList.add("divModal--show")
+                document.body.classList.add("body--modal")
                 selectProductos.classList.remove("talleIncorrecto")
-            }, 3000);
+                selectProductos.value = ""
+    
+                if(filename() == "index.html"){
+                    const secOfertas = document.getElementById("secOfertas")
+                    secOfertas.classList.remove("sticky-top")
+                }
+            } else {
+                selectProductos.classList.add("talleIncorrecto")
+                setTimeout(() => {
+                    selectProductos.classList.remove("talleIncorrecto")
+                }, 3000);
+            }
         }
+
     })
 }
 
@@ -218,15 +230,26 @@ function botonAgregarCarrito(producto){
 function eliminarCarrito(n) {
     const index = carrito.findIndex(producto => producto.id === n);
     carrito.splice(index, 1)
-    divCarrito.innerHTML = ""
-    divCarrito.classList.remove("divModal--show")
+
+    if(filename() !== "carrito.html"){
+        divCarrito.innerHTML = ""
+        divCarrito.classList.remove("divModal--show")
+    } else {
+
+        llenarCarrito()
+
+        subTotal = 0
+        total = 0
+        IVA = 0
+    }
+
     document.body.classList.remove("body--modal")
 
     if(filename() == "index.html"){
         secOfertas.classList.add("sticky-top")
     }
 
-    localStorage.setItem("carrito", JSON.stringify(carrito.map(producto => producto = {id: producto.id, cant: producto.cantidad})))                        
+    localStorage.setItem("carrito", JSON.stringify(carrito))                          
 }
 
 // FUNCIÓN SEGUIR COMPRANDO
@@ -394,14 +417,72 @@ if(filename() == "contacto.html"){
 // PAGINA CARRITO
 if(filename() == "carrito.html"){
     const infoTotal = document.getElementById("infoTotal")
-
-    mostrarProductos().then( producto => {
-        const productos = producto
-
-            
-    })
+    const resCompra = document.getElementById("resCompra")
+    const botonCarrito = document.getElementById("botonCarrito")
     
-    infoTotal.innerText = `
-        TOTAL (${carrito.length} producto/s) = $${carrito}
-    `
+    const acumulador = carrito.map(producto => parseInt(producto.precio))
+    
+
+    acumulador.forEach(importe => {
+        subTotal += importe
+    })
+
+    divProductos.innerHTML = ""
+
+    llenarCarrito()
+}
+
+function llenarCarrito(){
+    if(carrito.length == 0){
+        botonCarrito.classList.add("d-none")
+        divProductos.innerHTML += `
+            <div class="carritoVacio col-12 d-flex align-items-center justify-content-center bg-light">
+                <p class="text-center">TU CARRITO ESTA VACIO</p>
+            </div>     
+        `
+    } else {
+        botonCarrito.classList.remove("d-none")
+        infoTotal.innerText = `
+            TOTAL (${carrito.length} producto/s) = $ ${subTotal}
+        `
+
+        carrito.forEach(producto => {
+            divProductos.innerHTML += `
+                <div id="producto${producto.id}" class="productocarrito order-2 py-3 py-md-4 p-md-0 d-flex flex-row">
+                    <div class="col-5 col-md-4">
+                        <img class="img-fluid" src="${producto.img}" alt="${producto.nombre}">
+                    </div>
+    
+                    <div class="d-flex flex-row flex-wrap p-2 justify-content-start align-content-around">
+                        <div class="col-12 col-md-11 d-flex flex-row flex-nowrap align-items-start">
+                            <h5 class="col-9 col-md-10">${producto.nombre}</h5>
+                            <button class="button--close col-2" type="button" onClick="eliminarCarrito(${producto.id})">X</button>
+                        </div>
+                        <p class="col-12 m-0">Precio: $${producto.precio}</p>
+                        <p class="col-12 m-0">Talle: ${producto.talle}</p>
+                        <span>Cantidad: ${producto.cantidad}</span>
+                    </div>
+                </div>
+            `
+        }) 
+    }
+
+    let total = (subTotal * 1.21).toFixed(2)
+    let IVA = (subTotal * 0.21).toFixed(2)
+
+    if(carrito.length !== 0){
+        resCompra.innerHTML += `
+            <p class="col-10 my-2">${carrito.length} PRODUCTO/S</p>
+            <p class="col-2 my-2 text-end">$ ${subTotal}</p>
+            <p class="col-10 my-2">ENTREGA</p>
+            <p class="col-2 my-2 text-end">GRATIS</p>
+            <p class="total col-6 my-0">TOTAL</p> 
+            <p class="total col-6 text-end my-0">$ ${total}</p>
+            <p class="col-12 m-0">(IVA incluido  $ ${IVA})</p>
+        `
+    } else {
+        resCompra.innerHTML += `
+            <p class="col-8 text-center fs-5">No te quedes fuera de nuestras promos, registrate y comenza a comprar</p>
+        `
+    }
 }
