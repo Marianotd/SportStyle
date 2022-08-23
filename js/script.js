@@ -101,8 +101,6 @@ async function mostrarProductos() {
             completarTalles(producto)
         }
     })
-
-    return prodParseados
 }
 
 // FUNCIÓN LLENAR TALLES
