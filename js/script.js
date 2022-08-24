@@ -518,6 +518,4 @@ function llenarCarrito(){
             <p class="col-12 m-0">(IVA incluido  $ ${IVA})</p>
         `
     }
-
-    console.log(botonCarrito)
 }
