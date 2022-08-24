@@ -1,5 +1,15 @@
 // REGISTRAR EN VARIABLES ELEMENTOS DEL DOM
 const divProductos = document.getElementById("contProductos")
+const registerForm = document.getElementById("registerForm")
+const contactForm = document.getElementById("contactForm")
+const modal = document.querySelector(".divModal")
+const registerEmail = document.getElementById("registerEmail")
+const labelEmail = document.getElementById("labelEmail")
+const btnTerms = document.getElementById("btnTerms")
+const btnPol = document.getElementById("btnPol")
+const infoTotal = document.getElementById("infoTotal")
+const resCompra = document.getElementById("resCompra")
+const botonCarrito = document.getElementById("botonCarrito")
 
 // CLASES
 class User {
@@ -26,17 +36,28 @@ class Contacto {
 }
 
 // ARRAYS y VARIABLES
+let datForm
 const users = []
 let usersData = []
 const contacto = []
 let carrito = []
-let subTotal = 0
-let total = 0
-let IVA = 0
+let subTotal, total, IVA
+const talleRopa = ["XS", "S", "M", "L", "XL", "XXL"]
+const talleCalzadoMujer = [35, 36, 37, 38, 39, 40, 41]
+const talleCalzadoHombre = [38, 39, 40, 41, 42, 43, 44, 45, 46]
+const talleCalzadoNinos = [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 ,31, 32, 33, 34, 35, 36, 37, 38]
 
 // REVISAR LOCAL STORAGE
 usersData = localStorage.getItem("usersData") ? JSON.parse(localStorage.getItem("usersData")) : localStorage.setItem("usersData", JSON.stringify(usersData))                        
 carrito = localStorage.getItem("carrito") ? JSON.parse(localStorage.getItem("carrito")) : localStorage.setItem("carrito", JSON.stringify(carrito))
+
+// OBTENER NOMBRE DE ARCHIVO HTML
+function filename(){
+    let rutaAbsoluta = self.location.href;   
+    let posicionUltimaBarra = rutaAbsoluta.lastIndexOf("/");
+    let rutaRelativa = rutaAbsoluta.substring(posicionUltimaBarra + "/".length , rutaAbsoluta.length);
+    return rutaRelativa;  
+}
 
 // FUNCION MOSTRAR PRODUCTOS EN DOM
 async function mostrarProductos() {
@@ -97,7 +118,7 @@ async function mostrarProductos() {
             `
         }
     }); 
-
+    // AGREGAR FUNCIÓN A  BOTONES DE AÑADIR - COMPLETAR SELECT DE TALLES
     prodParseados.forEach((producto) => {
         if(document.getElementById(`producto${producto.id}`)){    
             botonAgregarCarrito(producto)
@@ -108,20 +129,16 @@ async function mostrarProductos() {
     })
 }
 
-// FUNCIÓN LLENAR TALLES
+// FUNCIÓN LLENAR SELECT DE TALLES
 function completarTalles(producto){
     const selectProductos = document.getElementById(`talleProducto${producto.id}`)
     const labelTalle = document.getElementById(`labelTalle${producto.id}`)
-
-    const talleRopa = ["XS", "S", "M", "L", "XL", "XXL"]
-    const talleCalzadoMujer = [35, 36, 37, 38, 39, 40, 41]
-    const talleCalzadoHombre = [38, 39, 40, 41, 42, 43, 44, 45, 46]
-    const talleCalzadoNinos = [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 ,31, 32, 33, 34, 35, 36, 37, 38]
 
     selectProductos.innerHTML = `
         <option value="" disabled selected>Seleccione un talle</option>
     `
 
+    // COMPLETADO SELECT TALLES - ROPA
     if(producto.categoria !== "Accesorio"){
         if(producto.categoria !== "Calzado" && producto.categoria !== null){
             talleRopa.forEach(talle => {
@@ -129,26 +146,34 @@ function completarTalles(producto){
                     <option value="${talle}">${talle}</option>
                 `
             })
-        } else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Mujer"){
+        } 
+        // COMPLETADO SELECT TALLES - CALZADO MUJER
+        else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Mujer"){
             talleCalzadoMujer.forEach(talle => {
                 selectProductos.innerHTML += `
                     <option value="${talle}">${talle}</option>
                 `
             })
-        } else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Hombre"){
+        } 
+        // COMPLETADO SELECT TALLES - CALZADO HOMBRE
+        else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Hombre"){
             talleCalzadoHombre.forEach(talle => {
                 selectProductos.innerHTML += `
                     <option value="${talle}">${talle}</option>
                 `
             })
-        } else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Niños"){
+        } 
+        // COMPLETADO SELECT TALLES - CALZADO NIÑOS
+        else if(producto.categoria == "Calzado" && producto.categoria !== null && producto.usuario == "Niños"){
             talleCalzadoNinos.forEach(talle => {
                 selectProductos.innerHTML += `
                     <option value="${talle}">${talle}</option>
                 `
             })
         }
-    } else {
+    } 
+    // SELECT TALLES - ACCESORIOS
+    else {
         selectProductos.classList.add("d-none")
         labelTalle.classList.add("d-none")
     }
@@ -157,83 +182,85 @@ function completarTalles(producto){
 //FUNCIÓN AÑADIR AL CARRITO
 function botonAgregarCarrito(producto){ 
     document.getElementById(`producto${producto.id}`).lastElementChild.addEventListener('click', () => {
-
         const selectProductos = document.getElementById(`talleProducto${producto.id}`)
+        
         if(filename() !== "carrito.html"){
             if(selectProductos.value !== "" || selectProductos.classList.contains("d-none")){
-                let prodId = producto.id
                 producto.talle = selectProductos.value
     
+                // PRIMER PUSH EN CARRITO VACIO
                 if(carrito.length == 0){
                     carrito.push(producto)
                     producto.cantidad++
                 } else {
-                    if(carrito.some(producto => producto.id == prodId)){
+                    // PRODUCTO YA EXISTENTE EN CARRITO
+                    if(carrito.some(prod => prod.id == producto.id)){
                         carrito[producto.cantidad++]
-                    } else {
+                        carrito[producto.talle] = selectProductos.value
+                    } 
+                    // AGREGADO DE PRODUCTO NUEVO EN CARRITO
+                    else {
                         carrito.push(producto)
                         producto.cantidad++
                     }
                 }
     
-                if(carrito !== []){
-                    localStorage.setItem("carrito", JSON.stringify(carrito))                        
-                }
+                localStorage.setItem("carrito", JSON.stringify(carrito))                        
             
-                divCarrito.innerHTML = ""
-                divCarrito.innerHTML += `
-                <div class="modalCarrito">
-                    <div class="carritoHeader d-flex flex-row flex-nowrap justify-content-around align-items-center">
-                        <h3 class="m-0 p-0">¡Producto añadido al carrito!</h3>
-                        <button class="col-2" type="button" onClick="eliminarCarrito(${producto.id})">X</button>
-                    </div>
-    
-                    <div class="carritoBody d-flex flex-column align-items-center justify-content-around bg-light py-4 px-1 mt-3">
-                        <div class="carritoProducto d-flex flex-row flex-nowrap justify-content-around">
-                            <img src="${producto.img}" class="img-fluid col-5" alt="${producto.nombre}">
-                            <div class="ps-1">
-                                <p>${producto.nombre} <br> <span>$ ${producto.precio}</span></p>
-                                <p>Talle: ${producto.talle}</p>
+                // LLENAR MODAL CARRITO
+                divCarrito.innerHTML = `
+                    <div class="modalCarrito">
+                        <div class="carritoHeader d-flex flex-row flex-nowrap justify-content-around align-items-center">
+                            <h3 class="m-0 p-0">¡Producto añadido al carrito!</h3>
+                            <button class="col-2" type="button" onClick="eliminarCarrito(${producto.id})">X</button>
+                        </div>
+        
+                        <div class="carritoBody d-flex flex-column align-items-center justify-content-around bg-light py-4 px-1 mt-3">
+                            <div class="carritoProducto d-flex flex-row flex-nowrap justify-content-around">
+                                <img src="${producto.img}" class="img-fluid col-5" alt="${producto.nombre}">
+                                <div class="ps-1">
+                                    <p>${producto.nombre} <br> <span>$ ${producto.precio}</span></p>
+                                    <p>Talle: ${producto.talle}</p>
+                                </div>
                             </div>
-                        </div>
-    
-                        <div class="carritoFooter col-12 d-flex flex-column align-items-center justify-content-evenly gap-2 mt-4">
-                            <a class="col-10 mx-auto py-2 px-3 bg-black text-decoration-none text-white" href="carrito.html">Ver carrito</a>
-                            <button class="col-10 mx-auto py-2 px-3 bg-white text-start" type="button" onClick="seguirComprando(${producto.id})">Añadir y seguir comprando</button>
-                        </div>
-                    </div> 
-                </div>
+        
+                            <div class="carritoFooter col-12 d-flex flex-column align-items-center justify-content-evenly gap-2 mt-4">
+                                <a class="col-10 mx-auto py-2 px-3 bg-black text-decoration-none text-white" href="carrito.html">Ver carrito</a>
+                                <button class="col-10 mx-auto py-2 px-3 bg-white text-start" type="button" onClick="seguirComprando(${producto.id})">Añadir y seguir comprando</button>
+                            </div>
+                        </div> 
+                    </div>
                 `
-    
     
                 divCarrito.classList.add("divModal--show")
                 document.body.classList.add("body--modal")
                 selectProductos.classList.remove("talleIncorrecto")
                 selectProductos.value = ""
     
+                // OCULTAR ELEMENTO OFERTAS EN INDEX
                 if(filename() == "index.html"){
                     const secOfertas = document.getElementById("secOfertas")
                     secOfertas.classList.remove("sticky-top")
                 }
-            } else {
+            } 
+            // TALLE SELECCIONADO NO VÁLIDO
+            else {
                 selectProductos.classList.add("talleIncorrecto")
                 setTimeout(() => {
                     selectProductos.classList.remove("talleIncorrecto")
                 }, 3000);
             }
         }
-
     })
 }
 
-// FUNCIÓN ELIMINAR DEL CARRITO
+// FUNCIÓN ELIMINAR DEL CARRITO - MODAL
 function eliminarCarrito(n) {
     const index = carrito.findIndex(producto => producto.id === n);
     carrito.splice(index, 1)
 
     divCarrito.innerHTML = ""
     divCarrito.classList.remove("divModal--show")
-
     document.body.classList.remove("body--modal")
 
     if(filename() == "index.html"){
@@ -243,6 +270,7 @@ function eliminarCarrito(n) {
     localStorage.setItem("carrito", JSON.stringify(carrito))                          
 }
 
+// FUNCIÓN ELIMINAR DEL CARRITO - PAGINA CARRITO
 function eliminarPageCarrito(n) {
     const index = carrito.findIndex(producto => producto.id === n);
     carrito.splice(index, 1)
@@ -264,16 +292,7 @@ function eliminarPageCarrito(n) {
     total = (subTotal * 1.21).toFixed(2)
     IVA = (subTotal * 0.21).toFixed(2)
 
-    resCompra.innerHTML = `
-        <p class="col-10 my-2">${carrito.length} PRODUCTO/S</p>
-        <p class="col-2 my-2 text-end">$ ${subTotal}</p>
-        <p class="col-10 my-2">ENTREGA</p>
-        <p class="col-2 my-2 text-end">GRATIS</p>
-        <p class="total col-6 my-0">TOTAL</p> 
-        <p class="total col-6 text-end my-0">$ ${total}</p>
-        <p class="col-12 m-0">(IVA incluido  $ ${IVA})</p>
-    `
-
+    // ACTUALIZAR DOM
     if(carrito.length == 0){
         botonCarrito.classList.add("d-none")
         divProductos.innerHTML = `
@@ -284,6 +303,16 @@ function eliminarPageCarrito(n) {
 
         resCompra.innerHTML = `
             <p class="col-8 text-center fs-5">No te quedes fuera de nuestras promos, registrate y comenza a comprar</p>
+        `
+    } else {
+        resCompra.innerHTML = `
+            <p class="col-10 my-2">${carrito.length} PRODUCTO/S</p>
+            <p class="col-2 my-2 text-end">$ ${subTotal}</p>
+            <p class="col-10 my-2">ENTREGA</p>
+            <p class="col-2 my-2 text-end">GRATIS</p>
+            <p class="total col-6 my-0">TOTAL</p> 
+            <p class="total col-6 text-end my-0">$ ${total}</p>
+            <p class="col-12 m-0">(IVA incluido  $ ${IVA})</p>
         `
     }
 
@@ -301,27 +330,73 @@ function seguirComprando(n) {
     }
 }
 
-// OBTENER NOMBRE DE ARCHIVO HTML
-function filename(){
-    let rutaAbsoluta = self.location.href;   
-    let posicionUltimaBarra = rutaAbsoluta.lastIndexOf("/");
-    let rutaRelativa = rutaAbsoluta.substring(posicionUltimaBarra + "/".length , rutaAbsoluta.length);
-    return rutaRelativa;  
+// FUNCIÓN LLENAR CARRITO
+function llenarCarrito(){
+    if(carrito.length == 0){
+        botonCarrito.classList.add("d-none")
+        divProductos.innerHTML += `
+            <div class="carritoVacio col-12 d-flex align-items-center justify-content-center bg-light">
+                <p class="text-center">TU CARRITO ESTA VACIO</p>
+            </div>     
+        `
+        
+        resCompra.innerHTML += `
+            <p class="col-8 text-center fs-5">No te quedes fuera de nuestras promos, registrate y comenza a comprar</p>
+        `
+    } else {
+        botonCarrito.classList.remove("d-none")
+        infoTotal.innerText = `
+            TOTAL (${carrito.length} producto/s) = $ ${total}
+        `
+
+        carrito.forEach(producto => {
+            divProductos.innerHTML += `
+                <div id="producto${producto.id}" class="productocarrito order-2 py-3 py-md-4 p-md-0 d-flex flex-row">
+                    <div class="col-5 col-md-4">
+                        <img class="img-fluid" src="${producto.img}" alt="${producto.nombre}">
+                    </div>
+    
+                    <div class="d-flex flex-row flex-wrap p-2 justify-content-start align-content-around">
+                        <div class="col-12 col-md-11 d-flex flex-row flex-nowrap align-items-start">
+                            <h5 class="col-9 col-md-10">${producto.nombre}</h5>
+                            <button class="button--close col-2" type="button" onClick="eliminarPageCarrito(${producto.id})">X</button>
+                        </div>
+                        <p class="col-12 m-0">Precio: $${producto.precio}</p>
+                        <p class="col-12 m-0">Talle: ${producto.talle}</p>
+                        <span>Cantidad: ${producto.cantidad}</span>
+                    </div>
+                </div>
+            `
+        }) 
+
+        resCompra.innerHTML += `
+            <p class="col-10 my-2">${carrito.length} PRODUCTO/S</p>
+            <p class="col-2 my-2 text-end">$ ${subTotal}</p>
+            <p class="col-10 my-2">ENTREGA</p>
+            <p class="col-2 my-2 text-end">GRATIS</p>
+            <p class="total col-6 my-0">TOTAL</p> 
+            <p class="total col-6 text-end my-0">$ ${total}</p>
+            <p class="col-12 m-0">(IVA incluido  $ ${IVA})</p>
+        `
+    }
 }
 
 // CARGAR PRODUCTOS EN EL DOM
 mostrarProductos()
 
-// SCRIPT PÁGINA CONTACTO
-const registerForm = document.getElementById("registerForm")
-const contactForm = document.getElementById("contactForm")
-const modal = document.querySelector(".divModal")
-const registerEmail = document.getElementById("registerEmail")
-const labelEmail = document.getElementById("labelEmail")
-const btnTerms = document.getElementById("btnTerms")
-const btnPol = document.getElementById("btnPol")
-
+// PÁGINA CONTACTO
 if(filename() == "contacto.html"){
+    // EVENTO REGISTRO
+    registerForm.addEventListener("submit", (e) => {
+        e.preventDefault()
+
+        datForm = new FormData(e.target)
+
+        users.some(user => user.email == datForm.get("email")) || usersData.some(user => user.email == datForm.get("email"))
+            ? usuarioYaRegistrado()
+            : registrarUsuario()    
+    })
+
     // FUNCIÓN REGISTRAR USUARIO
     function registrarUsuario() {
         const user = new User(datForm.get("email"), datForm.get("password"), datForm.get("name"), datForm.get("surname"), datForm.get("birthday"), datForm.get("country"), datForm.get("gender"), true)
@@ -364,22 +439,9 @@ if(filename() == "contacto.html"){
         labelEmail.classList.remove("d-none")
         registerEmail.classList.add("emailDuplicado")
         registerEmail.focus()
-    }
+    }   
 
-    // EVENTO FORMULARIO REGISTRO
-    let datForm
-
-    registerForm.addEventListener("submit", (e) => {
-        e.preventDefault()
-
-        datForm = new FormData(e.target)
-
-        users.some(user => user.email == datForm.get("email")) || usersData.some(user => user.email == datForm.get("email"))
-            ? usuarioYaRegistrado()
-            : registrarUsuario()    
-    })
-
-    // FORMULARIO REGISTRO - TERMINOS Y CONDICIONES
+    // EVENTO TERMINOS Y CONDICIONES
     btnTerms.addEventListener("click", () => {
         (async () => {
             const {value: accept} = await Swal.fire({
@@ -387,32 +449,30 @@ if(filename() == "contacto.html"){
                 html: '<a href="https://policies.google.com/terms?hl=es" target="_blank"> Ver términos y condiciones </a>',
                 input: 'checkbox',
                 inputValue: 0,
-                inputPlaceholder:
-                    'Estoy de acuerdo con los términos y condiciones',
-                confirmButtonText:
-                    'Aceptar',
+                inputPlaceholder: 'Estoy de acuerdo con los términos y condiciones',
+                confirmButtonText: 'Aceptar',
                 inputValidator: (result) => {
                     return !result && 'Para continuar debes aceptar los términos y condiciones'
                 }
             })       
         })
     })
-
+    // EVENTO POLITICAS DE PRIVACIDAD
     btnPol.addEventListener("click", () => {
         (async () => {
 
             const { value: accept } = await Swal.fire({
-            title: 'Politicas de privacidad',
-            html: '<a href="https://policies.google.com/privacy?hl=es" target="_blank"> Ver politicas de privacidad </a>',
-            input: 'checkbox',
-            inputValue: 0,
-            inputPlaceholder: 'Estoy de acuerdo con los términos y condiciones',
-            confirmButtonText: 'Aceptar',
-            inputValidator: (result) => {
-                return !result && 'Para continuar debes aceptar los términos y condiciones'
-            }
+                title: 'Politicas de privacidad',
+                html: '<a href="https://policies.google.com/privacy?hl=es" target="_blank"> Ver politicas de privacidad </a>',
+                input: 'checkbox',
+                inputValue: 0,
+                inputPlaceholder: 'Estoy de acuerdo con las politicas de privacidad',
+                confirmButtonText: 'Aceptar',
+                inputValidator: (result) => {
+                    return !result && 'Para continuar debes aceptar las politicas de privacidad'
+                }
             })       
-            })()
+        })
     })
 
     // EVENTO FORMULARIO CONTACTO
@@ -436,7 +496,7 @@ if(filename() == "contacto.html"){
                 <button class="botonModalContacto">Cerrar</button>
             </div>
         `
-        
+
         const closeModal = document.querySelector(".botonModalContacto")
 
         modal.classList.add("divModal--show")
@@ -453,69 +513,18 @@ if(filename() == "contacto.html"){
 
 // PAGINA CARRITO
 if(filename() == "carrito.html"){
-    const infoTotal = document.getElementById("infoTotal")
-    const resCompra = document.getElementById("resCompra")
-    const botonCarrito = document.getElementById("botonCarrito")
-    
     const acumulador = carrito.map(producto => producto = {imp: producto.precio, cant: producto.cantidad})
-    
+    subTotal = 0
+    total = 0
+    IVA = 0
+
     acumulador.forEach(producto => {
         subTotal += producto.imp * producto.cant
     })
 
+    total = (subTotal * 1.21).toFixed(2)
+    IVA = (subTotal * 0.21).toFixed(2)
+
     divProductos.innerHTML = ""
     llenarCarrito()
-}
-
-function llenarCarrito(){
-    if(carrito.length == 0){
-        botonCarrito.classList.add("d-none")
-        divProductos.innerHTML += `
-            <div class="carritoVacio col-12 d-flex align-items-center justify-content-center bg-light">
-                <p class="text-center">TU CARRITO ESTA VACIO</p>
-            </div>     
-        `
-
-        resCompra.innerHTML += `
-            <p class="col-8 text-center fs-5">No te quedes fuera de nuestras promos, registrate y comenza a comprar</p>
-        `
-    } else {
-        let total = (subTotal * 1.21).toFixed(2)
-        let IVA = (subTotal * 0.21).toFixed(2)
-
-        botonCarrito.classList.remove("d-none")
-        infoTotal.innerText = `
-            TOTAL (${carrito.length} producto/s) = $ ${total}
-        `
-
-        carrito.forEach(producto => {
-            divProductos.innerHTML += `
-                <div id="producto${producto.id}" class="productocarrito order-2 py-3 py-md-4 p-md-0 d-flex flex-row">
-                    <div class="col-5 col-md-4">
-                        <img class="img-fluid" src="${producto.img}" alt="${producto.nombre}">
-                    </div>
-    
-                    <div class="d-flex flex-row flex-wrap p-2 justify-content-start align-content-around">
-                        <div class="col-12 col-md-11 d-flex flex-row flex-nowrap align-items-start">
-                            <h5 class="col-9 col-md-10">${producto.nombre}</h5>
-                            <button class="button--close col-2" type="button" onClick="eliminarPageCarrito(${producto.id})">X</button>
-                        </div>
-                        <p class="col-12 m-0">Precio: $${producto.precio}</p>
-                        <p class="col-12 m-0">Talle: ${producto.talle}</p>
-                        <span>Cantidad: ${producto.cantidad}</span>
-                    </div>
-                </div>
-            `
-        }) 
-
-        resCompra.innerHTML += `
-            <p class="col-10 my-2">${carrito.length} PRODUCTO/S</p>
-            <p class="col-2 my-2 text-end">$ ${subTotal}</p>
-            <p class="col-10 my-2">ENTREGA</p>
-            <p class="col-2 my-2 text-end">GRATIS</p>
-            <p class="total col-6 my-0">TOTAL</p> 
-            <p class="total col-6 text-end my-0">$ ${total}</p>
-            <p class="col-12 m-0">(IVA incluido  $ ${IVA})</p>
-        `
-    }
 }
