@@ -231,17 +231,8 @@ function eliminarCarrito(n) {
     const index = carrito.findIndex(producto => producto.id === n);
     carrito.splice(index, 1)
 
-    if(filename() !== "carrito.html"){
-        divCarrito.innerHTML = ""
-        divCarrito.classList.remove("divModal--show")
-    } else {
-
-        llenarCarrito()
-
-        subTotal = 0
-        total = 0
-        IVA = 0
-    }
+    divCarrito.innerHTML = ""
+    divCarrito.classList.remove("divModal--show")
 
     document.body.classList.remove("body--modal")
 
@@ -250,6 +241,53 @@ function eliminarCarrito(n) {
     }
 
     localStorage.setItem("carrito", JSON.stringify(carrito))                          
+}
+
+function eliminarPageCarrito(n) {
+    const index = carrito.findIndex(producto => producto.id === n);
+    carrito.splice(index, 1)
+
+    let divProducto = document.getElementById(`producto${n}`)
+    divProducto.remove()
+
+    acumulador = 0
+    subTotal = 0
+    total = 0
+    IVA = 0
+
+    acumulador = carrito.map(producto => producto = {imp: producto.precio, cant: producto.cantidad})
+    
+    acumulador.forEach(producto => {
+        subTotal += producto.imp * producto.cant
+    })
+
+    total = (subTotal * 1.21).toFixed(2)
+    IVA = (subTotal * 0.21).toFixed(2)
+
+    resCompra.innerHTML = `
+        <p class="col-10 my-2">${carrito.length} PRODUCTO/S</p>
+        <p class="col-2 my-2 text-end">$ ${subTotal}</p>
+        <p class="col-10 my-2">ENTREGA</p>
+        <p class="col-2 my-2 text-end">GRATIS</p>
+        <p class="total col-6 my-0">TOTAL</p> 
+        <p class="total col-6 text-end my-0">$ ${total}</p>
+        <p class="col-12 m-0">(IVA incluido  $ ${IVA})</p>
+    `
+
+    if(carrito.length == 0){
+        botonCarrito.classList.add("d-none")
+        divProductos.innerHTML = `
+            <div class="carritoVacio col-12 d-flex align-items-center justify-content-center bg-light">
+                <p class="text-center">TU CARRITO ESTA VACIO</p>
+            </div>     
+        `
+
+        resCompra.innerHTML = `
+            <p class="col-8 text-center fs-5">No te quedes fuera de nuestras promos, registrate y comenza a comprar</p>
+        `
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito))       
 }
 
 // FUNCIÓN SEGUIR COMPRANDO
@@ -344,7 +382,6 @@ if(filename() == "contacto.html"){
     // FORMULARIO REGISTRO - TERMINOS Y CONDICIONES
     btnTerms.addEventListener("click", () => {
         (async () => {
-
             const {value: accept} = await Swal.fire({
                 title: 'Terminos y condiciones',
                 html: '<a href="https://policies.google.com/terms?hl=es" target="_blank"> Ver términos y condiciones </a>',
@@ -420,15 +457,13 @@ if(filename() == "carrito.html"){
     const resCompra = document.getElementById("resCompra")
     const botonCarrito = document.getElementById("botonCarrito")
     
-    const acumulador = carrito.map(producto => parseInt(producto.precio))
+    const acumulador = carrito.map(producto => producto = {imp: producto.precio, cant: producto.cantidad})
     
-
-    acumulador.forEach(importe => {
-        subTotal += importe
+    acumulador.forEach(producto => {
+        subTotal += producto.imp * producto.cant
     })
 
     divProductos.innerHTML = ""
-
     llenarCarrito()
 }
 
@@ -440,10 +475,17 @@ function llenarCarrito(){
                 <p class="text-center">TU CARRITO ESTA VACIO</p>
             </div>     
         `
+
+        resCompra.innerHTML += `
+            <p class="col-8 text-center fs-5">No te quedes fuera de nuestras promos, registrate y comenza a comprar</p>
+        `
     } else {
+        let total = (subTotal * 1.21).toFixed(2)
+        let IVA = (subTotal * 0.21).toFixed(2)
+
         botonCarrito.classList.remove("d-none")
         infoTotal.innerText = `
-            TOTAL (${carrito.length} producto/s) = $ ${subTotal}
+            TOTAL (${carrito.length} producto/s) = $ ${total}
         `
 
         carrito.forEach(producto => {
@@ -456,7 +498,7 @@ function llenarCarrito(){
                     <div class="d-flex flex-row flex-wrap p-2 justify-content-start align-content-around">
                         <div class="col-12 col-md-11 d-flex flex-row flex-nowrap align-items-start">
                             <h5 class="col-9 col-md-10">${producto.nombre}</h5>
-                            <button class="button--close col-2" type="button" onClick="eliminarCarrito(${producto.id})">X</button>
+                            <button class="button--close col-2" type="button" onClick="eliminarPageCarrito(${producto.id})">X</button>
                         </div>
                         <p class="col-12 m-0">Precio: $${producto.precio}</p>
                         <p class="col-12 m-0">Talle: ${producto.talle}</p>
@@ -465,12 +507,7 @@ function llenarCarrito(){
                 </div>
             `
         }) 
-    }
 
-    let total = (subTotal * 1.21).toFixed(2)
-    let IVA = (subTotal * 0.21).toFixed(2)
-
-    if(carrito.length !== 0){
         resCompra.innerHTML += `
             <p class="col-10 my-2">${carrito.length} PRODUCTO/S</p>
             <p class="col-2 my-2 text-end">$ ${subTotal}</p>
@@ -480,9 +517,7 @@ function llenarCarrito(){
             <p class="total col-6 text-end my-0">$ ${total}</p>
             <p class="col-12 m-0">(IVA incluido  $ ${IVA})</p>
         `
-    } else {
-        resCompra.innerHTML += `
-            <p class="col-8 text-center fs-5">No te quedes fuera de nuestras promos, registrate y comenza a comprar</p>
-        `
     }
+
+    console.log(botonCarrito)
 }
