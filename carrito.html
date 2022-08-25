@@ -127,19 +127,21 @@
 
     <section>
         <article class="d-xl-flex flex-row flex-nowrap p-xl-5">
-            <div class="tucarrito d-flex flex-column p-3 col-xl-8">
-                <h2 class="titulo-seccion text-xl-start ps-xl-5">TU CARRITO</h2>
-                <!-- Cantidad de productos y total -->
-                <p id="infoTotal"></p>
-                <p class="order-1 mb-5">Los artículos en tu carrito no están reservados. Terminá el proceso de compra ahora para hacerte con ellos.</p>
-                
-                <div class="offcuotas order-0 p-4 mb-3">
-                    <h3 class="mb-3">¡COMPRÁ AHORA Y PAGÁ EN 6 CUOTAS!</h3>
-                    <p>Podés pagar con tus tarjetas Visa, MasterCard o American Express, al hacerlo, podrás pagar hasta en 6 cuotas sin interés.</p>
+            <div id="bodyCarrito">
+                <div class="tucarrito d-flex flex-column p-3 col-xl-8">
+                    <h2 class="titulo-seccion text-xl-start ps-xl-5">TU CARRITO</h2>
+                    <!-- Cantidad de productos y total -->
+                    <p id="infoTotal"></p>
+                    <p class="order-1 mb-5">Los artículos en tu carrito no están reservados. Terminá el proceso de compra ahora para hacerte con ellos.</p>
+                    
+                    <div class="offcuotas order-0 p-4 mb-3">
+                        <h3 class="mb-3">¡COMPRÁ AHORA Y PAGÁ EN 6 CUOTAS!</h3>
+                        <p>Podés pagar con tus tarjetas Visa, MasterCard o American Express, al hacerlo, podrás pagar hasta en 6 cuotas sin interés.</p>
+                    </div>
+    
+                    <!-- Contenedor productos carrito -->
+                    <div id="contProductos" class="d-flex flex-row flex-wrap justify-content-evenly p-3 gap-2"></div>
                 </div>
-
-                <!-- Contenedor productos carrito -->
-                <div id="contProductos" class="d-flex flex-row flex-wrap justify-content-evenly p-3 gap-2"></div>
             </div>
 
             <div class="resumenpedido d-flex flex-column justify-content-evenly p-4 col-xl-4">

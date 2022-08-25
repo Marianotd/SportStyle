@@ -10,6 +10,7 @@ const btnPol = document.getElementById("btnPol")
 const infoTotal = document.getElementById("infoTotal")
 const resCompra = document.getElementById("resCompra")
 const botonCarrito = document.getElementById("botonCarrito")
+const bodyCarrito = document.getElementById("bodyCarrito")
 
 // CLASES
 class User {
@@ -527,4 +528,60 @@ if(filename() == "carrito.html"){
 
     divProductos.innerHTML = ""
     llenarCarrito()
+
+    //CARRITO - IR A PAGAR
+    botonCarrito.addEventListener("click", () => {
+        botonCarrito.classList.add("d-none")
+        bodyCarrito.innerHTML = ""
+        bodyCarrito.innerHTML += `
+            <div class="tucarrito d-flex flex-column p-3 col-xl-8">
+                <h2 class="titulo-seccion text-xl-start ps-xl-5">DATOS DE ENTREGA</h2>
+            </div>
+    
+            <form id="datosEnvioCarrito" class="d-flex flex-row flex-wrap align-content-center justify-content-evenly p-3 col-xl-8">
+                <input id="formFocus" type="text" class="col-5 mb-4" name="name" placeholder="Nombre/s *" required></input>
+                <input type="text" class="col-5 mb-4" name="surname" placeholder="Apellido/s *" required></input>
+                <div class="col-12 mb-2 d-flex flex-column align-items-center">
+                    <input type="text" class="col-11" name="street" placeholder="Calle *" required></input>
+                    <label for="street" class="col-11 ps-3">P ej: Calle Balcarce</label>
+                </div>
+                <input type="number" class="col-5 mb-4" name="number" placeholder="Número *" required></input>
+                <input type="number" class="col-5 mb-4" name="floor" placeholder="Piso"></input>
+                <input type="text" class="col-5 mb-4" name="departament" placeholder="Departamento" required></input>
+                <input type="number" class="col-5 mb-4" name="CP" placeholder="Código postal *" required></input>
+                <select class="col-5 mb-4" name="province" required>
+                    <option value="" disabled selected>Provincia</option>
+                    <option value="Buenos Aires">Buenos Aires</option>
+                    <option value="Catamarca">Catamarca</option>
+                    <option value="Chaco">Chaco</option>
+                    <option value="Chubut">Chubut</option>
+                    <option value="Córdoba">Córdoba</option>
+                    <option value="Corrientes">Corrientes</option>
+                    <option value="Entre Ríos">Entre Ríos</option>
+                    <option value="Formosa">Formosa</option>
+                    <option value="Jujuy">Jujuy</option>
+                    <option value="La Pampa">La Pampa</option>
+                    <option value="La Rioja">La Rioja</option>
+                    <option value="Mendoza">Mendoza</option>
+                    <option value="Misiones">Misiones</option>
+                    <option value="Neuquén">Neuquén</option>
+                    <option value="Río Negro">Río Negro</option>
+                    <option value="Salta">Salta</option>
+                    <option value="San Juan">San Juan</option>
+                    <option value="San Luis">San Luis</option>
+                    <option value="Santa Cruz">Santa Cruz</option>
+                    <option value="Santa Fe">Santa Fe</option>
+                    <option value="Santiago del Estero">Santiago del Estero</option>
+                    <option value="Tierra del Fuego">Tierra del Fuego</option>
+                    <option value="Tucumán">Tucumán</option>
+                </select>
+                <input type="text" class="col-5 mb-4" name="location" placeholder="Localidad *" required></input>
+                <input type="text" class="col-11 mb-4" name="tel" placeholder="Teléfono (8 a 15 dígitos) *" required></input>
+    
+                <button type="button" class="text-decoration-none py-2 px-4 col-8 align-self-center">Continuar con el pago</button>
+            </form>
+        `
+    
+        document.getElementById("formFocus").focus()
+    })
 }

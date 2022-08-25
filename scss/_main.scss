@@ -627,6 +627,54 @@ header {
     }
 }
 
+#datosEnvioCarrito {
+    input, select {
+        outline: none;
+        border: 2px solid #ccc;
+        padding: .3rem 1.1rem;
+        border-radius: 35px;
+
+        &:hover {
+            border: 2px solid $main_color;
+        }
+
+        &:focus {
+            border: 2px solid $main_color;
+            box-shadow: 0px 0px 5px #ddd;
+        }
+
+        &:active {
+            border: 2px solid $main_color;
+            box-shadow: 0px 0px 2px #444;
+        }
+        
+        &[type=number] {
+            appearance: textfield;
+        }
+    }
+
+    label {
+        font-size: .85rem;
+        color: #777;
+    }
+
+    button {
+        border: .5px solid #000;
+        background: #000;
+        color: #fff;
+
+        &:hover {
+            transition: all ease .4s;
+            transform: scale(1.02);
+        }
+
+        &:active {
+            background: #fff;
+            color: #000;
+        }
+    }
+}
+
 /* ICONO WHATSAPP */
 
 .iconowhatsapp {
