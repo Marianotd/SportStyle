@@ -36,6 +36,21 @@ class Contacto {
     }
 }
 
+class Direccion {
+    constructor(name, surname, street, number, floor, departament, cp, province, location, tel) {
+        this.name = name
+        this.surname = surname
+        this.street = street
+        this.number = number
+        this.floor = floor
+        this.departament = departament
+        this.cp = cp
+        this.province = province
+        this.location = location
+        this.tel = tel
+    }
+}
+
 // ARRAYS y VARIABLES
 let datForm
 const users = []
@@ -532,24 +547,26 @@ if(filename() == "carrito.html"){
     //CARRITO - IR A PAGAR
     botonCarrito.addEventListener("click", () => {
         botonCarrito.classList.add("d-none")
+
+        // FORMULARIO DIRECCIÓN DE ENVÍO
         bodyCarrito.innerHTML = ""
         bodyCarrito.innerHTML += `
             <div class="tucarrito d-flex flex-column p-3 col-xl-8">
                 <h2 class="titulo-seccion text-xl-start ps-xl-5">DATOS DE ENTREGA</h2>
             </div>
     
-            <form id="datosEnvioCarrito" class="d-flex flex-row flex-wrap align-content-center justify-content-evenly p-3 col-xl-8">
-                <input id="formFocus" type="text" class="col-5 mb-4" name="name" placeholder="Nombre/s *" required></input>
-                <input type="text" class="col-5 mb-4" name="surname" placeholder="Apellido/s *" required></input>
+            <form id="formEnvio" class="formCarrito d-flex flex-row flex-wrap align-content-center justify-content-evenly p-3 col-xl-10">
+                <input id="formFocus" type="text" class="col-11 col-xl-5 mb-4" name="name" placeholder="Nombre/s *" required></input>
+                <input type="text" class="col-11 col-xl-5 mb-4" name="surname" placeholder="Apellido/s *" required></input>
                 <div class="col-12 mb-2 d-flex flex-column align-items-center">
-                    <input type="text" class="col-11" name="street" placeholder="Calle *" required></input>
-                    <label for="street" class="col-11 ps-3">P ej: Calle Balcarce</label>
+                    <input type="text" class="col-11 col-xl-10" name="street" placeholder="Calle *" required></input>
+                    <label for="street" class="col-11 col-xl-10 ps-3">P ej: Calle Balcarce</label>
                 </div>
-                <input type="number" class="col-5 mb-4" name="number" placeholder="Número *" required></input>
-                <input type="number" class="col-5 mb-4" name="floor" placeholder="Piso"></input>
-                <input type="text" class="col-5 mb-4" name="departament" placeholder="Departamento" required></input>
-                <input type="number" class="col-5 mb-4" name="CP" placeholder="Código postal *" required></input>
-                <select class="col-5 mb-4" name="province" required>
+                <input type="number" class="col-11 col-xl-5 mb-4" name="number" placeholder="Número *" required></input>
+                <input type="number" class="col-11 col-xl-5 mb-4" name="floor" placeholder="Piso"></input>
+                <input type="text" class="col-11 col-xl-5 mb-4" name="departament" placeholder="Departamento"></input>
+                <input type="number" class="col-11 col-xl-5 mb-4" name="cp" placeholder="Código postal *" required></input>
+                <select class="col-11 col-xl-5 mb-4" name="province" required>
                     <option value="" disabled selected>Provincia</option>
                     <option value="Buenos Aires">Buenos Aires</option>
                     <option value="Catamarca">Catamarca</option>
@@ -575,13 +592,104 @@ if(filename() == "carrito.html"){
                     <option value="Tierra del Fuego">Tierra del Fuego</option>
                     <option value="Tucumán">Tucumán</option>
                 </select>
-                <input type="text" class="col-5 mb-4" name="location" placeholder="Localidad *" required></input>
-                <input type="text" class="col-11 mb-4" name="tel" placeholder="Teléfono (8 a 15 dígitos) *" required></input>
+                <input type="text" class="col-11 col-xl-5 mb-4" name="location" placeholder="Localidad *" required></input>
+                <input type="text" class="col-11 col-xl-10 mb-4" name="tel" placeholder="Teléfono (8 a 15 dígitos) *" required></input>
     
-                <button type="button" class="text-decoration-none py-2 px-4 col-8 align-self-center">Continuar con el pago</button>
+                <button type="submit" class="text-decoration-none py-2 px-4 col-8 align-self-center">Continuar con el pago</button>
             </form>
         `
     
         document.getElementById("formFocus").focus()
+        const formEnvio = document.getElementById("formEnvio")
+
+        formEnvio.addEventListener("submit", (e) => {
+            e.preventDefault()
+            let datForm = new FormData(e.target)
+            const dirEnvio = new Direccion(datForm.get("name"), datForm.get("surname"), datForm.get("street"), datForm.get("number"), datForm.get("floor"), datForm.get("departament"), datForm.get("cp"), datForm.get("province"), datForm.get("location"), datForm.get("tel"))
+            formEnvio.reset()
+
+            let enUna = total
+            let enTres = (total/3).toFixed(2)
+            let enSeis = (total/6).toFixed(2)
+            let enDoce = (total/12).toFixed(2)
+
+            bodyCarrito.innerHTML = ""
+            bodyCarrito.innerHTML = `
+            <div class="tucarrito d-flex flex-column p-3 col-xl-8">
+                <h2 class="titulo-seccion text-xl-start ps-xl-5">METODO DE PAGO</h2>
+            </div>
+        
+            <form id="formPago" class="formCarrito d-flex flex-row flex-wrap align-content-center justify-content-evenly p-3 col-xl-10">
+                <select id="formFocus" class="col-11 mb-4" name="cuotas">
+                    <option value="1">1 x $${enUna}</option>
+                    <option value="3">3 x $${enTres}</option>
+                    <option value="6">6 x $${enSeis}</option>
+                    <option value="12">12 x $${enDoce}</option>
+                </select>
+                <div class="col-12 mb-2 d-flex flex-column align-items-center">
+                    <input type="number" class="col-11" name="numero" placeholder="XXXX XXXX XXXX XXXX *" required></input>
+                    <label for="numero" class="col-11 col-xl-10 ps-3">Número de tarjeta</label>
+                </div>
+                <input type="text" class="col-11 mb-4" name="nombre" placeholder="Nombre del titular (Como figura en la tarjeta) *" required></input>
+                <div class="col-5 col-xl-3 mb-2 d-flex flex-column align-items-center">
+                    <input type="number" class="col-11" name="mesVencimiento" placeholder="XX *" max="12" required>
+                    <label for="mesVencimiento" class="col-11 col-xl-10 ps-3 text-center">Mes de vencimiento *</label>
+                </div>
+                <div class="col-5 col-xl-3 mb-2 d-flex flex-column align-items-center">
+                    <input type="number" class="col-11" name="añoVencimiento" placeholder="XX *" max="99" required>
+                    <label for="añoVencimiento" class="col-11 col-xl-10 ps-3 text-center">Año de vencimiento *</label>
+                </div>
+                <div class="col-5 col-xl-3 mb-2 d-flex flex-column align-items-center">
+                    <input type="number" class="col-11" name="cvc" placeholder="XXX *" max="999" required></input>
+                    <label for="cvc" class="col-11 col-xl-10 ps-3 text-center">CVC *</label>
+                </div>
+                
+                <button type="submit" class="text-decoration-none py-2 px-4 col-8 align-self-center">Finalizar compra</button>
+            </form>
+            `
+            const datosEnvioCarrito = document.getElementById("formPago")
+
+            datosEnvioCarrito.addEventListener("submit", (e) => {
+                e.preventDefault()
+                const swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                      confirmButton: 'btn btn-success',
+                      cancelButton: 'btn btn-danger'
+                    },
+                    buttonsStyling: false
+                })
+                  
+                swalWithBootstrapButtons.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, cancel!',
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        swalWithBootstrapButtons.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        swalWithBootstrapButtons.fire(
+                            'Cancelled',
+                            'Your imaginary file is safe :)',
+                            'error'
+                        )
+                    }
+                })
+
+                Swal.fire(
+                    'The Internet?',
+                    'That thing is still around?',
+                    'question'
+                )
+            })
+        })
     })
 }
+
