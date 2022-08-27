@@ -11,6 +11,8 @@ const infoTotal = document.getElementById("infoTotal")
 const resCompra = document.getElementById("resCompra")
 const botonCarrito = document.getElementById("botonCarrito")
 const bodyCarrito = document.getElementById("bodyCarrito")
+const login = document.getElementById("login")
+const formLogin = document.getElementById("formLogin")
 
 // CLASES
 class User {
@@ -53,8 +55,7 @@ class Direccion {
 
 // ARRAYS y VARIABLES
 let datForm
-const users = []
-let usersData = []
+let users = []
 const contacto = []
 let carrito = []
 let subTotal, total, IVA
@@ -64,7 +65,7 @@ const talleCalzadoHombre = [38, 39, 40, 41, 42, 43, 44, 45, 46]
 const talleCalzadoNinos = [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 ,31, 32, 33, 34, 35, 36, 37, 38]
 
 // REVISAR LOCAL STORAGE
-usersData = localStorage.getItem("usersData") ? JSON.parse(localStorage.getItem("usersData")) : localStorage.setItem("usersData", JSON.stringify(usersData))                        
+users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : localStorage.setItem("users", JSON.stringify(users))                        
 carrito = localStorage.getItem("carrito") ? JSON.parse(localStorage.getItem("carrito")) : localStorage.setItem("carrito", JSON.stringify(carrito))
 
 // OBTENER NOMBRE DE ARCHIVO HTML
@@ -348,19 +349,21 @@ function seguirComprando(n) {
 
 // FUNCIÓN LLENAR CARRITO
 function llenarCarrito(){
-    if(carrito.length == 0){
+    if(carrito.length === 0){
         botonCarrito.classList.add("d-none")
-        divProductos.innerHTML += `
+        infoTotal.classList.add("d-none")
+        divProductos.innerHTML = `
             <div class="carritoVacio col-12 d-flex align-items-center justify-content-center bg-light">
                 <p class="text-center">TU CARRITO ESTA VACIO</p>
             </div>     
         `
         
-        resCompra.innerHTML += `
+        resCompra.innerHTML = `
             <p class="col-8 text-center fs-5">No te quedes fuera de nuestras promos, registrate y comenza a comprar</p>
         `
     } else {
         botonCarrito.classList.remove("d-none")
+        infoTotal.classList.remove("d-none")
         infoTotal.innerText = `
             TOTAL (${carrito.length} producto/s) = $ ${total}
         `
@@ -385,7 +388,7 @@ function llenarCarrito(){
             `
         }) 
 
-        resCompra.innerHTML += `
+        resCompra.innerHTML = `
             <p class="col-10 my-2">${carrito.length} PRODUCTO/S</p>
             <p class="col-2 my-2 text-end">$ ${subTotal}</p>
             <p class="col-10 my-2">ENTREGA</p>
@@ -408,18 +411,17 @@ if(filename() == "contacto.html"){
 
         datForm = new FormData(e.target)
 
-        users.some(user => user.email == datForm.get("email")) || usersData.some(user => user.email == datForm.get("email"))
+        users.some(user => user.email == datForm.get("email"))
             ? usuarioYaRegistrado()
             : registrarUsuario()    
     })
 
     // FUNCIÓN REGISTRAR USUARIO
     function registrarUsuario() {
-        const user = new User(datForm.get("email"), datForm.get("password"), datForm.get("name"), datForm.get("surname"), datForm.get("birthday"), datForm.get("country"), datForm.get("gender"), true)
+        const user = new User(datForm.get("email"), datForm.get("password"), datForm.get("name"), datForm.get("surname"), datForm.get("birthday"), datForm.get("country"), datForm.get("gender"))
         users.push(user)
 
-        usersData = users.map(user => user = {email: user.email, nombre: user.name, sesion: user.sesionActive})
-        localStorage.setItem("usersData", JSON.stringify(usersData))
+        localStorage.setItem("users", JSON.stringify(users))
 
         registerForm.reset()
 
@@ -562,10 +564,10 @@ if(filename() == "carrito.html"){
                     <input type="text" class="col-11 col-xl-10" name="street" placeholder="Calle *" required></input>
                     <label for="street" class="col-11 col-xl-10 ps-3">P ej: Calle Balcarce</label>
                 </div>
-                <input type="number" class="col-11 col-xl-5 mb-4" name="number" placeholder="Número *" required></input>
-                <input type="number" class="col-11 col-xl-5 mb-4" name="floor" placeholder="Piso"></input>
+                <input type="tel" class="col-11 col-xl-5 mb-4" name="number" placeholder="Número *" required></input>
+                <input type="tel" class="col-11 col-xl-5 mb-4" name="floor" placeholder="Piso"></input>
                 <input type="text" class="col-11 col-xl-5 mb-4" name="departament" placeholder="Departamento"></input>
-                <input type="number" class="col-11 col-xl-5 mb-4" name="cp" placeholder="Código postal *" required></input>
+                <input type="tel" class="col-11 col-xl-5 mb-4" name="cp" placeholder="Código postal *" min="5000" required></input>
                 <select class="col-11 col-xl-5 mb-4" name="province" required>
                     <option value="" disabled selected>Provincia</option>
                     <option value="Buenos Aires">Buenos Aires</option>
@@ -593,7 +595,7 @@ if(filename() == "carrito.html"){
                     <option value="Tucumán">Tucumán</option>
                 </select>
                 <input type="text" class="col-11 col-xl-5 mb-4" name="location" placeholder="Localidad *" required></input>
-                <input type="text" class="col-11 col-xl-10 mb-4" name="tel" placeholder="Teléfono (8 a 15 dígitos) *" required></input>
+                <input type="tel" class="col-11 col-xl-10 mb-4" name="tel" placeholder="Teléfono (8 a 15 dígitos) *" min="2610000000" required></input>
     
                 <button type="submit" class="text-decoration-none py-2 px-4 col-8 align-self-center">Continuar con el pago</button>
             </form>
@@ -627,7 +629,7 @@ if(filename() == "carrito.html"){
                     <option value="12">12 x $${enDoce}</option>
                 </select>
                 <div class="col-12 mb-2 d-flex flex-column align-items-center">
-                    <input type="number" class="col-11" name="numero" placeholder="XXXX XXXX XXXX XXXX *" required></input>
+                    <input type="number" class="col-11" name="numero" placeholder="XXXX XXXX XXXX XXXX *" min="1000000000000000" required></input>
                     <label for="numero" class="col-11 col-xl-10 ps-3">Número de tarjeta</label>
                 </div>
                 <input type="text" class="col-11 mb-4" name="nombre" placeholder="Nombre del titular (Como figura en la tarjeta) *" required></input>
@@ -647,49 +649,92 @@ if(filename() == "carrito.html"){
                 <button type="submit" class="text-decoration-none py-2 px-4 col-8 align-self-center">Finalizar compra</button>
             </form>
             `
+
+            document.getElementById("formFocus").focus()
             const datosEnvioCarrito = document.getElementById("formPago")
 
             datosEnvioCarrito.addEventListener("submit", (e) => {
                 e.preventDefault()
+                let datForm = new FormData(e.target)
+                const datPago = new Direccion(datForm.get("cuotas"), datForm.get("numero"), datForm.get("nombre"), datForm.get("mesVencimiento"), datForm.get("añoVencimiento"), datForm.get("cvc"))
+
                 const swalWithBootstrapButtons = Swal.mixin({
                     customClass: {
-                      confirmButton: 'btn btn-success',
-                      cancelButton: 'btn btn-danger'
+                        confirmButton: 'btn btn-success mx-2 py-2',
+                        cancelButton: 'btn btn-danger mx-2 py-2'
                     },
                     buttonsStyling: false
                 })
-                  
+                
                 swalWithBootstrapButtons.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
+                    title: 'Desea finalizar su compra?',
                     showCancelButton: true,
-                    confirmButtonText: 'Yes, delete it!',
-                    cancelButtonText: 'No, cancel!',
+                    confirmButtonText: 'Si, finalizar compra',
                     reverseButtons: true
                 }).then((result) => {
                     if (result.isConfirmed) {
                         swalWithBootstrapButtons.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
+                            'Gracias por elegirnos',
+                            'Te hemos enviado un correo a la dirección indicada, allí podrás hacer el seguimiento de tu pedido.',
                             'success'
                         )
-                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                        swalWithBootstrapButtons.fire(
-                            'Cancelled',
-                            'Your imaginary file is safe :)',
-                            'error'
-                        )
-                    }
-                })
+                        carrito.splice(0, carrito.length)
+                        localStorage.setItem("carrito", JSON.stringify(carrito))
+                        divProductos.innerHTML = ''
+                        bodyCarrito.innerHTML = `
+                            <div class="tucarrito d-flex flex-column p-3 col-xl-12">
+                                <h2 class="titulo-seccion text-xl-start ps-xl-5">TU CARRITO</h2>
+                                <!-- Cantidad de productos y total -->
+                                <p id="infoTotal"></p>
+                                <p class="order-1 mb-5">Los artículos en tu carrito no están reservados. Terminá el proceso de compra ahora para hacerte con ellos.</p>
+                                
+                                <div class="offcuotas order-0 p-4 mb-3">
+                                    <h3 class="mb-3">¡COMPRÁ AHORA Y PAGÁ EN 6 CUOTAS!</h3>
+                                    <p>Podés pagar con tus tarjetas Visa, MasterCard o American Express, al hacerlo, podrás pagar hasta en 6 cuotas sin interés.</p>
+                                </div>
+                
+                                <!-- Contenedor productos carrito -->
+                                <div id="contProductos" class="d-flex flex-row flex-wrap justify-content-evenly p-3 gap-2"></div>
+                            </div>
+                        `
 
-                Swal.fire(
-                    'The Internet?',
-                    'That thing is still around?',
-                    'question'
-                )
+                        document.getElementById("contProductos").innerHTML = `
+                            <div class="carritoVacio col-12 d-flex align-items-center justify-content-center bg-light">
+                                <p class="text-center">TU CARRITO ESTA VACIO</p>
+                            </div>     
+                        `
+                        
+                        llenarCarrito()
+                    }
+                })  
             })
         })
     })
 }
+
+// LOGIN
+formLogin.addEventListener("submit", (e) => {
+    e.preventDefault()
+    datForm = new FormData(e.target)
+
+    if(users.some(user => user.email == datForm.get("email")) && users.some(user => user.password == datForm.get("password"))) {
+        const index = users.findIndex(user => user.email == datForm.get("email"));
+        users[index].sesionActive = true
+        login.innerHTML = `
+            <div class="offcanvas-header mb-4">
+                <h2 class="fs-1">Hola ${users[index].name}</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div id="userLogin" class="offcanvas-body d-flex flex-column">
+                <button id="datosPersonales">Datos personales</button>
+                <button id="direcciones">Direcciones</button>
+                <button id="actualizarDatos">Actualizar datos</button>
+                <button id="cupones">Cupones</button>
+                <button>Cerrar sesión</button>
+            </div>
+        `
+        formLogin.reset()
+    } 
+})
+  
 
