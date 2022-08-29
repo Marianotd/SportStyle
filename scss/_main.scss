@@ -137,16 +137,45 @@ header {
 
         .offcanvas-header {
             border-bottom: 1px solid #ccc;
+
+            button {
+                border-radius: 35px;
+                border: none;
+            }
         }
 
         #userLogin {
-
             button {
-                border: none;
+                border: 1px solid #fff;
                 border-bottom: 1px solid #ccc;
                 background: #fff;
                 padding: 5px 0;
                 font-size: 1.2rem;
+                color: #333;
+                transform: all ease .6s;
+
+                &:hover {
+                    color: $main_color;
+                }
+
+                &:active {
+                    transform: scale(1.02);
+                    border: 1px solid $main_color;
+                }
+            }
+            
+            p {
+                color: #000;
+
+                span {
+                    color: #555;
+                }
+            }
+        }
+
+        .loginError {    
+            .loginInput {
+                border: .8px solid red !important;
             }
         }
     }
