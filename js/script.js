@@ -399,6 +399,138 @@ function llenarCarrito(){
     }
 }
 
+// FUNCIÓN ESCRIBIR MODAL LOGIN
+function loginUsuarios() {
+    let index = []
+    let genero
+
+    if(users.some(user => user.sesionActive == true)){
+        index = users.findIndex(user => user.sesionActive == true);
+
+        if(users[index].gender == "male"){
+            genero = "Hombre"
+        } else {
+            genero = "Mujer"
+        }
+        usuarioLogueado(index, genero)
+    } else {
+        login.innerHTML = `
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title mx-auto" id="loginlabel">Iniciar Sesión</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form id="formLogin" class="p-2">
+                    <div id="loginEmail" class="mb-3">
+                    <label for="email" class="form-label ps-2">Email</label>
+                    <input class="loginInput col-11 col-md-12 py-1 px-3" type="email" name="email" required>
+                    </div>
+    
+                    <div id="loginPassword" class="mb-3">
+                    <label for="password" class="form-label ps-2">Contraseña</label>
+                    <input class="loginInput col-11 col-md-12 py-1 px-3" type="password" name="password" required>
+                    </div>
+    
+                    <div class="mb-4 d-flex flex-row align-items-center justify-content-start">
+                        <input class="m-auto col-1" type="checkbox" id="Recordarcontraseña">
+                        <label class="col-10" for="Recordarcontraseña">Recordar contraseña</label>
+                    </div>
+    
+                    <button type="submit" class="btnIniciarSesion mx-auto d-block py-1 px-2 mb-3">Iniciar sesión</button>
+                    <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="contacto.html">Registrate</a></span>
+                </form>
+            </div>
+        `
+        const formLogin = document.getElementById("formLogin")
+    
+        formLogin.addEventListener("submit", (e) => {
+            e.preventDefault()
+            datForm = new FormData(e.target)
+        
+            if(users.some(user => user.email == datForm.get("email"))){
+                document.getElementById("loginEmail").classList.remove("loginError")
+    
+                if(users.some(user => user.password == datForm.get("password"))){
+                    document.getElementById("loginPassword").classList.remove("loginError")
+                    
+                    index = users.findIndex(user => user.email == datForm.get("email"));
+                    users[index].sesionActive = true
+            
+                    if(users[index].gender == "male"){
+                        genero = "Hombre"
+                    } else {
+                        genero = "Mujer"
+                    }
+    
+                    localStorage.setItem("users", JSON.stringify(users)) 
+                    usuarioLogueado(index, genero)
+                    formLogin.reset()
+                } else {
+                    document.getElementById("loginPassword").classList.add("loginError")
+                    console.log("else")
+                }
+    
+    
+            } else {
+                document.getElementById("loginEmail").classList.add("loginError")
+            }
+        })
+    } 
+}
+
+// USUARIO CON SESION ACTIVA
+function usuarioLogueado(index, genero){
+    login.innerHTML = `
+        <div id="menuLogin">
+            <div class="offcanvas-header mb-4">
+                <h2 class="fs-1 col-9 p-0 m-0 text-center">Hola ${users[index].name}</h2>
+                <a type="button" class="btn btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></a>
+            </div>
+            <div id="userLogin" class="offcanvas-body d-flex flex-column">
+                <button id="datPersonales">Datos personales</button>
+                <button id="direcciones">Direcciones</button>
+                <button id="actualizarDatos">Actualizar datos</button>
+                <button id="cupones">Cupones</button>
+                <button>Cerrar sesión</button>
+            </div>
+        </div>
+
+
+        <div id="datPersonalesDiv" class="d-none">
+            <div class="offcanvas-header mb-4 d-flex flex-row justify-content-around align-items-center">
+                <button id="volverAtras" type="button" class="col-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
+                </button>
+                <h2 class="fs-1 m-0 p-0 col-9">Datos personales</h2>
+            </div>
+            <div id="userLogin" class="offcanvas-body d-flex flex-column">
+                <p>Correo electrónico: <br> <span>${users[index].email}</span></p>
+                <p>Nombre: <br> <span>${users[index].name} ${users[index].surname}</span></p>
+                <p>Fecha de cumpleaños: <br> <span>${users[index].birthday}</span></p>
+                <p>Genero: <br> <span>${genero}</span></p>
+            </div>
+        </div>
+    `
+    const menuLogin = document.getElementById("menuLogin")
+    const datPersonalesDiv = document.getElementById("datPersonalesDiv")
+    
+    document.getElementById("datPersonales").addEventListener("click", () => {
+        menuLogin.classList.add("d-none")
+        datPersonalesDiv.classList.remove("d-none")
+    })
+    
+    document.getElementById("volverAtras").addEventListener("click", () => {
+        menuLogin.classList.remove("d-none")
+        datPersonalesDiv.classList.add("d-none")
+    })
+
+    document.getElementById("menuLogin").lastElementChild.lastElementChild.addEventListener("click", () => {
+        users[index].sesionActive = false
+        localStorage.setItem("users", JSON.stringify(users))
+        loginUsuarios()
+    })
+}
+
 // CARGAR DATOS EN EL DOM
 mostrarProductos()
 loginUsuarios()
@@ -709,137 +841,5 @@ if(filename() == "carrito.html"){
                 })  
             })
         })
-    })
-}
-
-// FUNCIÓN ESCRIBIR MODAL LOGIN
-function loginUsuarios() {
-    let index = []
-    let genero
-
-    if(users.some(user => user.sesionActive == true)){
-        index = users.findIndex(user => user.sesionActive == true);
-
-        if(users[index].gender == "male"){
-            genero = "Hombre"
-        } else {
-            genero = "Mujer"
-        }
-        usuarioLogueado(index, genero)
-    } else {
-        login.innerHTML = `
-            <div class="offcanvas-header">
-                <h3 class="offcanvas-title mx-auto" id="loginlabel">Iniciar Sesión</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <form id="formLogin" class="p-2">
-                    <div id="loginEmail" class="mb-3">
-                    <label for="email" class="form-label ps-2">Email</label>
-                    <input class="loginInput col-11 col-md-12 py-1 px-3" type="email" name="email" required>
-                    </div>
-    
-                    <div id="loginPassword" class="mb-3">
-                    <label for="password" class="form-label ps-2">Contraseña</label>
-                    <input class="loginInput col-11 col-md-12 py-1 px-3" type="password" name="password" required>
-                    </div>
-    
-                    <div class="mb-4 d-flex flex-row align-items-center justify-content-start">
-                        <input class="m-auto col-1" type="checkbox" id="Recordarcontraseña">
-                        <label class="col-10" for="Recordarcontraseña">Recordar contraseña</label>
-                    </div>
-    
-                    <button type="submit" class="btnIniciarSesion mx-auto d-block py-1 px-2 mb-3">Iniciar sesión</button>
-                    <span class="registro__link d-block text-center"> ¿No tienes cuenta? <a href="contacto.html">Registrate</a></span>
-                </form>
-            </div>
-        `
-        const formLogin = document.getElementById("formLogin")
-    
-        formLogin.addEventListener("submit", (e) => {
-            e.preventDefault()
-            datForm = new FormData(e.target)
-        
-            if(users.some(user => user.email == datForm.get("email"))){
-                document.getElementById("loginEmail").classList.remove("loginError")
-    
-                if(users.some(user => user.password == datForm.get("password"))){
-                    document.getElementById("loginPassword").classList.remove("loginError")
-                    
-                    index = users.findIndex(user => user.email == datForm.get("email"));
-                    users[index].sesionActive = true
-            
-                    if(users[index].gender == "male"){
-                        genero = "Hombre"
-                    } else {
-                        genero = "Mujer"
-                    }
-    
-                    localStorage.setItem("users", JSON.stringify(users)) 
-                    usuarioLogueado(index, genero)
-                    formLogin.reset()
-                } else {
-                    document.getElementById("loginPassword").classList.add("loginError")
-                    console.log("else")
-                }
-    
-    
-            } else {
-                document.getElementById("loginEmail").classList.add("loginError")
-            }
-        })
-    } 
-}
-
-// USUARIO CON SESION ACTIVA
-function usuarioLogueado(index, genero){
-    login.innerHTML = `
-        <div id="menuLogin">
-            <div class="offcanvas-header mb-4">
-                <h2 class="fs-1 col-9 p-0 m-0 text-center">Hola ${users[index].name}</h2>
-                <a type="button" class="btn btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></a>
-            </div>
-            <div id="userLogin" class="offcanvas-body d-flex flex-column">
-                <button id="datPersonales">Datos personales</button>
-                <button id="direcciones">Direcciones</button>
-                <button id="actualizarDatos">Actualizar datos</button>
-                <button id="cupones">Cupones</button>
-                <button>Cerrar sesión</button>
-            </div>
-        </div>
-
-
-        <div id="datPersonalesDiv" class="d-none">
-            <div class="offcanvas-header mb-4 d-flex flex-row justify-content-around align-items-center">
-                <button id="volverAtras" type="button" class="col-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
-                </button>
-                <h2 class="fs-1 m-0 p-0 col-9">Datos personales</h2>
-            </div>
-            <div id="userLogin" class="offcanvas-body d-flex flex-column">
-                <p>Correo electrónico: <br> <span>${users[index].email}</span></p>
-                <p>Nombre: <br> <span>${users[index].name} ${users[index].surname}</span></p>
-                <p>Fecha de cumpleaños: <br> <span>${users[index].birthday}</span></p>
-                <p>Genero: <br> <span>${genero}</span></p>
-            </div>
-        </div>
-    `
-    const menuLogin = document.getElementById("menuLogin")
-    const datPersonalesDiv = document.getElementById("datPersonalesDiv")
-    
-    document.getElementById("datPersonales").addEventListener("click", () => {
-        menuLogin.classList.add("d-none")
-        datPersonalesDiv.classList.remove("d-none")
-    })
-    
-    document.getElementById("volverAtras").addEventListener("click", () => {
-        menuLogin.classList.remove("d-none")
-        datPersonalesDiv.classList.add("d-none")
-    })
-
-    document.getElementById("menuLogin").lastElementChild.lastElementChild.addEventListener("click", () => {
-        users[index].sesionActive = false
-        localStorage.setItem("users", JSON.stringify(users))
-        loginUsuarios()
     })
 }
