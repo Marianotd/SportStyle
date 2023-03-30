@@ -1,113 +1,124 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import SectionTitle from './SectionTitle'
 
 const URI = 'http://localhost:8000/Productos'
 
 export default function ProductCreate() {
-    const [product, setProduct] = useState({ 
+    const navigate = useNavigate()
+    const [formData, setFormData] = useState({ 
         name: '', 
         description: '',
         price: 0,
         brand: '',
-        stock: 0,
+        stock: 1,
         category: '',
         sub_category: '',
         gender: '',
-        novelty: '',
+        novelty: true,
         color: '',
         type: '',
         img_url: '',
-        active: ''
+        active: true
     })
-
-    const navigate = useNavigate()
 
     function inputChangeHandler(e){
         let inputName = e.target.name
         let value = e.target.value
 
-        const newDataForm = {...product}
-        newDataForm[inputName] = value
-        setProduct(newDataForm)
+        if(e.target.type === 'checkbox'){
+            value = e.target.checked ? true : false 
+        }
+
+        if(e.target.type === 'file'){
+            value = e.target.files[0]
+        }
+
+        const dataForm = {...formData}
+        dataForm[inputName] = value
+        setFormData(dataForm)
     }
 
-    const store = async (e) => {
+    async function store (e) {
         e.preventDefault()
-        axios.post(URI, product)
+        axios.post(URI, formData)
         navigate('/Productos')
     }
 
   return (
-    <form onSubmit={store}>
-        <div>
+    <form className='form' onSubmit={store} method='post' encType="multipart/form-data">
+        <SectionTitle text={'Nuevo producto'}/>
+
+        <div className='formSection'>
             <label htmlFor="name">Nombre</label>
-            <input onChange={inputChangeHandler} type="text" name='name'/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='name' value={formData.name} required/>
         </div>
 
-        <div>
+        <div className='formSection'>
             <label htmlFor="description">Descripción</label>
-            <input onChange={inputChangeHandler} type="text" name='description'/>
+            <textarea className='formInput' onChange={inputChangeHandler} name="description" rows={5} value={formData.description}/>
         </div>
 
-        <div>
+        <div className='formSection'>
             <label htmlFor="price">Precio</label>
-            <input onChange={inputChangeHandler} type="number" name='price'/>
+            <input className='formInput' onChange={inputChangeHandler} type="number" name='price' value={formData.price}/>
         </div>
 
-        <div>
+        <div className='formSection'>
             <label htmlFor="brand">Marca</label>
-            <input onChange={inputChangeHandler} type="text" name='brand'/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='brand' value={formData.brand}/>
         </div>
 
-        <div>
+        <div className='formSection'>
             <label htmlFor="stock">Stock</label>
-            <input onChange={inputChangeHandler} type="number" name='stock'/>
+            <input className='formInput' onChange={inputChangeHandler} type="number" name='stock' value={formData.stock}/>
         </div>
 
-        <div>
+        <div className='formSection'>
             <label htmlFor="category">Categoria</label>
-            <input onChange={inputChangeHandler} type="text" name='category'/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='category' value={formData.category}/>
         </div>
 
-        <div>
+        <div className='formSection'>
             <label htmlFor="sub_category">Subcategoria</label>
-            <input onChange={inputChangeHandler} type="text" name='sub_category'/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='sub_category' value={formData.sub_category}/>
         </div>
 
-        <div>
+        <div className='formSection'>
             <label htmlFor="gender">Genero</label>
-            <select name="gender">
+
+            <select className='formInput' name='gender' onChange={inputChangeHandler} value={formData.gender}>
                 <option value='' disabled>Seleccione un genero</option>
                 <option value="male">Hombre</option>
                 <option value="women">Mujer</option>
-                <option value="unisex">Unisex</option>
+                <option value="otro">Otro</option>
             </select>
         </div>
 
-        <div>
-            <label htmlFor="novelty">Es novedad?</label>
-            <input onChange={inputChangeHandler} type="checkbox" name='novelty'/>
-        </div>
-
-        <div>
+        <div className='formSection'>
             <label htmlFor="color">Color</label>
-            <input onChange={inputChangeHandler} type="text" name='color'/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='color' value={formData.color}/>
         </div>
 
-        <div>
+        <div className='formSection'>
             <label htmlFor="type">Tipo</label>
-            <input onChange={inputChangeHandler} type="text" name='type'/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='type' value={formData.type}/>
         </div>
 
-        <div>
+        <div className='formSection'>
             <label htmlFor="img_url">Imagen</label>
-            <input onChange={inputChangeHandler} type="file" name='img_url'/>
+            <input className='formInput' onChange={inputChangeHandler} type="file" name='img_url' defaultValue={formData.img_url}/>
         </div>
 
-        <div>
+        <div className='formSection formSection--small'>
+            <label htmlFor="novelty">Es novedad?</label>
+            <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='novelty' value={formData.novelty}/>
+        </div>
+
+        <div className='formSection formSection--small'>
             <label htmlFor="active">Esta activo?</label>
-            <input onChange={inputChangeHandler} type="checkbox" name='active'/>
+            <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='active' value={formData.active}/>
         </div>
 
         <button type='submit'>Crear</button>

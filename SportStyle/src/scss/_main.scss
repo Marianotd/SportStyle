@@ -116,6 +116,8 @@ header {
     }
 }
 
+// LOGO
+
 .logo {
     max-height: 4.5rem;
     
@@ -129,8 +131,6 @@ header {
         max-height: 6rem;
     }
 }
-
-// BODY
 
 // NEWS SECTION
 .newsContainer {
@@ -303,7 +303,46 @@ header {
     }
 }
 
-// Footer
+// FORMS
+
+.form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgba($color: #000000, $alpha: .05);
+
+    .formSection {
+        width: 100%;
+        margin-bottom: 1.5rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        &--small {
+            width: 50%;
+        }
+
+        &:focus {
+            border: 1px solid #037394;
+        }
+
+        .formInput {
+            resize: none;
+
+            width: 75%;
+            margin-top: .5rem;
+            padding: .5rem 1rem;
+
+            border-radius: 25px;
+            border: 1px solid #ccc;
+        }
+    }
+}
+
+// FOOTER
 .footer {
     width: 100%;
     padding: 1rem .5rem;
