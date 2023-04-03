@@ -39,7 +39,7 @@ function App() {
           />
 
           <Route path={`/Productos/Nuevo`} element={<ProductCreate/>}/>
-          
+
         </Routes>
 
         <Footer />
