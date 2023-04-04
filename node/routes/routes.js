@@ -9,19 +9,19 @@ const router = express.Router()
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const diskstorage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: path.join(__dirname, '../public/storage/products'),
     filename: (req, file, cb) => {
-        cb(null, `${file.originalname}-${Date.now()}`)
+        cb(null, `${file.originalname}`)
     }
 })
 
-const fileUpload = multer({ storage: diskstorage })
+export const upload = multer({ storage: storage }).single('img_url')
 
 router.get('/', getAllProducts)
 router.get('/:id', getProduct)
-router.post('/', fileUpload.single('img_url'), (req, res) => {
-    console.log(req.file)
+router.post('/', upload, (req, res) => {
+    createProduct(req.body)
 })
 router.put('/:id', updateProduct)
 router.delete('/:id', deleteProduct)

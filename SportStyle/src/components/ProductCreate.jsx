@@ -44,12 +44,24 @@ export default function ProductCreate() {
         e.preventDefault()
         const formData = new FormData()
         formData.append('name', dataForm.name)
+        formData.append('description', dataForm.description)
+        formData.append('price', dataForm.price)
+        formData.append('brand', dataForm.brand)
+        formData.append('stock', dataForm.stock)
+        formData.append('category', dataForm.category)
+        formData.append('sub_category', dataForm.sub_category)
+        formData.append('gender', dataForm.gender)
+        formData.append('is_novelty', dataForm.is_novelty)
+        formData.append('color', dataForm.color)
+        formData.append('type', dataForm.type)
         formData.append('img_url', dataForm.img_url)
+        formData.append('active', dataForm.active)  
 
         try {
-            await axios.post(URI, formData)
+            const res = await axios.post(URI, formData)
+            console.log(res.response.data);
         } catch (error) {
-            console.log(error)   
+            console.error(error.response.data);   
         }
         navigate('/Productos')
     }
