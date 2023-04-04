@@ -12,17 +12,15 @@ const __dirname = path.dirname(__filename);
 const diskstorage = multer.diskStorage({
     destination: path.join(__dirname, '../public/storage/products'),
     filename: (req, file, cb) => {
-        cb(null, `${file}-${Date.now()}`)
+        cb(null, `${file.originalname}-${Date.now()}`)
     }
 })
 
-const file_upload = multer({
-    storage: diskstorage
-}).single('img_url')
+const fileUpload = multer({ storage: diskstorage })
 
 router.get('/', getAllProducts)
 router.get('/:id', getProduct)
-router.post('/', file_upload, (req, res) => {
+router.post('/', fileUpload.single('img_url'), (req, res) => {
     console.log(req.file)
 })
 router.put('/:id', updateProduct)

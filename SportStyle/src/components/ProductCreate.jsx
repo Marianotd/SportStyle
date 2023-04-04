@@ -7,7 +7,6 @@ const URI = 'http://localhost:8000/Productos'
 
 export default function ProductCreate() {
     const navigate = useNavigate()
-    const [productFile, setProductFile] = useState('')
     const [dataForm, setDataForm] = useState({ 
         name: '', 
         description: '',
@@ -32,24 +31,26 @@ export default function ProductCreate() {
             value = e.target.checked ? true : false 
         }
 
-        const formData = new FormData()
-        if(inputName != 'file'){
-            formData.append(inputName, value)
-        } else {
-            formData.append('img_url', e.target.files[0])
+        if(e.target.type === 'file'){
+            value = e.target.files[0]
         }
 
-        setDataForm(formData)
+        const newDataForm = {...dataForm}
+        newDataForm[inputName] = value
+        setDataForm(newDataForm)
     }
 
     async function store (e) {
         e.preventDefault()
+        const formData = new FormData()
+        formData.append('name', dataForm.name)
+        formData.append('img_url', dataForm.img_url)
 
-        const config = {     
-            headers: { 'Content-Type': 'application/json' }
+        try {
+            await axios.post(URI, formData)
+        } catch (error) {
+            console.log(error)   
         }
-
-        const res = await axios.post(URI, dataForm, config)
         navigate('/Productos')
     }
 
@@ -59,7 +60,7 @@ export default function ProductCreate() {
 
         <div className='formSection'>
             <label htmlFor="name">Nombre</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='name' value={dataForm.name} required/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='name' value={dataForm.name}/>
         </div>
 
         <div className='formSection'>
