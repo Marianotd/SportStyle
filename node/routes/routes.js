@@ -1,6 +1,6 @@
 import express from "express";
 import { createProduct, deleteProduct, getAllProducts, getProduct, updateProduct } from "../controllers/ProductController.js";
-import multer, { diskStorage } from "multer";
+import multer from "multer";
 import path from 'path'
 import { fileURLToPath } from 'url';
 
@@ -16,12 +16,14 @@ const storage = multer.diskStorage({
     }
 })
 
-export const upload = multer({ storage: storage }).single('img_url')
+const upload = multer({ storage: storage }).single('img_url')
 
 router.get('/', getAllProducts)
 router.get('/:id', getProduct)
 router.post('/', upload, (req, res) => {
-    createProduct(req.body)
+    req.body.img_url = req.file ? req.file.originalname : ''
+
+    createProduct(req, res)
 })
 router.put('/:id', updateProduct)
 router.delete('/:id', deleteProduct)

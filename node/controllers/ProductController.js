@@ -23,11 +23,28 @@ export async function getProduct (req, res) {
 }
 
 // Crear un registro
-export async function createProduct (req, res) {
+export async function createProduct (req, res) {  
     try {
-        await Product.create(req.body)
+        let product = {
+            name: req.body.name ?? "",
+            description: req.body.description ?? "",
+            price: req.body.price ?? "",
+            brand: req.body.brand ?? "",
+            stock: req.body.stock ?? "",
+            category: req.body.category ?? "",
+            sub_category: req.body.sub_category ?? "",
+            gender: req.body.gender ?? "",
+            is_novelty: req.body.is_novelty ?? false,
+            color: req.body.color ?? "",
+            type: req.body.type ?? "",
+            img_url: req.body.img_url ?? "",
+            active: req.body.active ?? false
+        } 
+
+        await Product.create(product)
         res.json({
-            'message': '¡Producto creado correctamente!'
+            'message': '¡Producto creado correctamente!',
+            'data': 'Hola'
         })
     } catch (error) {
         res.json({ message: error.message })

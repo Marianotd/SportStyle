@@ -72,7 +72,7 @@ export default function ProductCreate() {
 
         <div className='formSection'>
             <label htmlFor="name">Nombre</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='name' value={dataForm.name}/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='name' value={dataForm.name} required/>
         </div>
 
         <div className='formSection'>
