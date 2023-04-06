@@ -1,4 +1,5 @@
 import Product from "../models/Product.js";
+import fs from 'fs';
 
 // Traer todos los registros
 export async function getAllProducts(req, res) {
@@ -24,31 +25,16 @@ export async function getProduct (req, res) {
 
 // Crear un registro
 export async function createProduct (req, res) {  
-    try {
-        let product = {
-            name: req.body.name ?? "",
-            description: req.body.description ?? "",
-            price: req.body.price ?? "",
-            brand: req.body.brand ?? "",
-            stock: req.body.stock ?? "",
-            category: req.body.category ?? "",
-            sub_category: req.body.sub_category ?? "",
-            gender: req.body.gender ?? "",
-            is_novelty: req.body.is_novelty ?? false,
-            color: req.body.color ?? "",
-            type: req.body.type ?? "",
-            img_url: req.body.img_url ?? "",
-            active: req.body.active ?? false
-        } 
-
-        await Product.create(product)
-        res.json({
-            'message': '¡Producto creado correctamente!',
-            'data': 'Hola'
-        })
-    } catch (error) {
-        res.json({ message: error.message })
-    }
+    Product.create(req.body)
+    .then(data => {
+        res.json(data)
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Ha ocurrido un error al crear producto."
+      });
+    });
 }
 
 // Actualizar un registro

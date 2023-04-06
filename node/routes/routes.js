@@ -3,6 +3,7 @@ import { createProduct, deleteProduct, getAllProducts, getProduct, updateProduct
 import multer from "multer";
 import path from 'path'
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const router = express.Router()
 
@@ -16,13 +17,13 @@ const storage = multer.diskStorage({
     }
 })
 
-const upload = multer({ storage: storage }).single('img_url')
+const upload = multer({ storage: storage }).single('img')
 
 router.get('/', getAllProducts)
 router.get('/:id', getProduct)
 router.post('/', upload, (req, res) => {
-    req.body.img_url = req.file ? req.file.originalname : ''
-
+    const data = fs.readFileSync(path.join(__dirname, `../public/storage/products/${req.file.filename}`))
+    req.body.img = req.file ? data : ''
     createProduct(req, res)
 })
 router.put('/:id', updateProduct)

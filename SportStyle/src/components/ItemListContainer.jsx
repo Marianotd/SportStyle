@@ -27,12 +27,12 @@ export default function ItemListContainer() {
 
     return (
         <div className='itemListContainer'>
+            <Link to={'/Productos/Nuevo'}>Crear nuevo producto</Link>
+
             { location.pathname == '/'
                 ? <ItemSwiper data={products}/>
                 : <ItemList data={products} />
             }
-
-            <Link to={'/Productos/Nuevo'}>Crear nuevo producto</Link>
         </div>
     )
 }

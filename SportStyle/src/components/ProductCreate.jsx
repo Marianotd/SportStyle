@@ -16,11 +16,11 @@ export default function ProductCreate() {
         category: '',
         sub_category: '',
         gender: '',
-        is_novelty: true,
+        is_novelty: 0,
         color: '',
         type: '',
-        img_url: '',
-        active: true
+        img: '',
+        active: 0
     })
 
     function inputChangeHandler(e){
@@ -28,7 +28,7 @@ export default function ProductCreate() {
         let value = e.target.value
 
         if(e.target.type === 'checkbox'){
-            value = e.target.checked ? true : false 
+            value = e.target.checked ? 1 : 0 
         }
 
         if(e.target.type === 'file'){
@@ -42,6 +42,7 @@ export default function ProductCreate() {
 
     async function store (e) {
         e.preventDefault()
+        
         const formData = new FormData()
         formData.append('name', dataForm.name)
         formData.append('description', dataForm.description)
@@ -54,14 +55,13 @@ export default function ProductCreate() {
         formData.append('is_novelty', dataForm.is_novelty)
         formData.append('color', dataForm.color)
         formData.append('type', dataForm.type)
-        formData.append('img_url', dataForm.img_url)
+        formData.append('img', dataForm.img)
         formData.append('active', dataForm.active)  
 
         try {
-            const res = await axios.post(URI, formData)
-            console.log(res.response.data);
+            await axios.post(URI, formData)
         } catch (error) {
-            console.error(error.response.data);   
+            console.error(error);   
         }
         navigate('/Productos')
     }
@@ -128,7 +128,7 @@ export default function ProductCreate() {
 
         <div className='formSection'>
             <label htmlFor="name">Imagen</label>
-            <input className='formInput' onChange={inputChangeHandler} type="file" name='img_url'/>
+            <input className='formInput' onChange={inputChangeHandler} type="file" name='img'/>
         </div>
 
         <div className='formSection formSection--small'>

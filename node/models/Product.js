@@ -13,7 +13,7 @@ const Product = db.define('products', {
     is_novelty:{ type: DataTypes.STRING },
     color:{ type: DataTypes.STRING },
     type:{ type: DataTypes.STRING },
-    img_url:{ type: DataTypes.STRING },
+    img:{ type: DataTypes.BLOB },
     active:{ type: DataTypes.STRING }
 })
 
