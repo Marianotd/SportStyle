@@ -27,7 +27,7 @@ export default function ItemListContainer() {
 
     return (
         <div className='itemListContainer'>
-            <Link to={'/Productos/Nuevo'}>Crear nuevo producto</Link>
+            <Link className='button' to={'/Productos/Nuevo'}>Crear nuevo producto</Link>
 
             { location.pathname == '/'
                 ? <ItemSwiper data={products}/>
@@ -36,26 +36,3 @@ export default function ItemListContainer() {
         </div>
     )
 }
-
-    // let data = [
-    //     {
-    //         "id": 1,
-    //         "name": "Camiseta Titular Selección Argentina Messi 10", 
-    //         "price": 17499, 
-    //         "img": '/assets/productos/AntiparraJetSpeedo.jpg'
-    //     },
-    
-    //     { 
-    //         "id": 2, 
-    //         "name": "Zapatillas Elastica New Flame 21 Atomik", 
-    //         "price": 6639, 
-    //         "img": '/assets/productos/BolsoTotePromoBenitoTopper.jpg'
-    //     },
-    
-    //     {
-    //         "id": 3, 
-    //         "name": "Pelota Campo Lider XXI Penalty", 
-    //         "price": 4599, 
-    //         "img": '/assets/productos/CamperaConSeleccionArgentinaAdidas.jpg'
-    //     }
-    // ]

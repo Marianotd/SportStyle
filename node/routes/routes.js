@@ -23,7 +23,10 @@ router.get('/', getAllProducts)
 router.get('/:id', getProduct)
 router.post('/', upload, (req, res) => {
     const data = fs.readFileSync(path.join(__dirname, `../public/storage/products/${req.file.filename}`))
-    req.body.img = req.file ? data : ''
+    console.log(req.file.mimetype)
+    req.body.img_name = req.file ? req.file.originalname : ''
+    req.body.img_data = req.file ? data : ''
+    req.body.img_type = req.file ? req.file.mimetype : ''
     createProduct(req, res)
 })
 router.put('/:id', updateProduct)

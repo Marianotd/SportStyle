@@ -9,17 +9,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductsMenu from "./components/ProductsMenu";
 import ItemListContainer from "./components/ItemListContainer";
 import ProductCreate from "./components/ProductCreate";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 function App() {
 
   return (
     <>
       <Router>
-        
         <NavBar />
-
-        <Routes>
-          
+        <Routes>          
           <Route path="/" element={
               <>
                 <News />
@@ -29,7 +27,6 @@ function App() {
               </>
             }
           />
-
           <Route path={`/Productos/`} element={
               <>
                 <ProductsMenu/>
@@ -37,11 +34,9 @@ function App() {
               </>
             }
           />
-
           <Route path={`/Productos/Nuevo`} element={<ProductCreate/>}/>
-
+          <Route path={`/Productos/:id`} element={<ItemDetailContainer/>}/>
         </Routes>
-
         <Footer />
       </Router>
     </>

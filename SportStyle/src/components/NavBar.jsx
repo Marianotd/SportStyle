@@ -17,7 +17,7 @@ export default function NavBar() {
     if(open == 'collapsed'){
       setOpen('')
     } else {
-      setOpen('')
+      setOpen('collapsed')
     }
   }
 
