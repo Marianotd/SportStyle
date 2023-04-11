@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const URI = 'http://localhost:8000/Productos'
@@ -10,7 +10,7 @@ export default function ItemDetailContainer() {
     const { id } = useParams()
 
     useEffect(() => {
-        getProduct()
+      getProduct()
     }, [id])
 
     async function getProduct() {
@@ -18,11 +18,15 @@ export default function ItemDetailContainer() {
         setProduct(res.data)
     }
 
-    console.log(product)
+    let gender = product.gender == 'male' ? 'Hombre' : 'Mujer'
 
   return (
     <div className='ItemDetailContainer'>
-        <ItemDetail data={product}/>
+      <div className='linkContainer'>
+        <Link to={'/'}>Inicio</Link> / <Link to={`/Productos/${gender}`}>{gender}</Link> / <Link to={`/Productos/${gender}/${product.category}`}>{product.category}</Link>
+      </div>
+        
+      <ItemDetail item={product}/>
     </div>
   )
 }

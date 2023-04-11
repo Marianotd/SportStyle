@@ -14,7 +14,7 @@ export default function NavBar() {
   }, [location.pathname])
 
   function handleMenu(){
-    if(open == 'collapsed'){
+    if(open === 'collapsed'){
       setOpen('')
     } else {
       setOpen('collapsed')

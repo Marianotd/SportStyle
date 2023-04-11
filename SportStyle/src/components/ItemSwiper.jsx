@@ -11,17 +11,17 @@ export default function ItemSwiper({ data }) {
     <Swiper
       spaceBetween={0}
       slidesPerView={1}
-      autoplay={{
-        delay: 2000,
-        disableOnInteraction: false
-      }}
-      loop={true}
       breakpoints={{
         1200: {
           width: 1200,
           slidesPerView: 3,
         },
       }}
+      autoplay={{
+        delay: 2000,
+        disableOnInteraction: false
+      }}
+      loop={true}
     >
       {data.map( item => {
         return(

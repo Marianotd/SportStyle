@@ -6,25 +6,36 @@
     text-decoration: none;
 }
 
+// EXTENDS
+%flexRow {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+%flexColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 // HEADER
 header {
     width: 100%;
     padding: .85rem 0 .5rem 0;
     overflow: hidden;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
-
     background: #037394;
+
+    @extend %flexRow;
+    flex-flow: row wrap;
 
     @media all and (min-width: 1200px){
         background: #fff;
+        padding: 0 1.5rem;
 
         flex-flow: row nowrap;
-
-        padding: 0 1.5rem;
     }
 
     .navButton {
@@ -50,14 +61,11 @@ header {
     .navIconContainer {
         width: 25%;
 
-        display: flex;
-        flex-flow: row nowrap;
+        @extend %flexRow;
         justify-content: space-around;
-        align-items: center;
 
         @media all and (min-width: 768px){
             width: 15%;
-
             order: 2;
         }
     }
@@ -65,9 +73,7 @@ header {
     .navMenu {
         width: 100%;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+        @extend %flexColumn;
 
         &--collapsed {
             display: none;
@@ -117,7 +123,6 @@ header {
 }
 
 // LOGO
-
 .logo {
     max-height: 4.5rem;
     
@@ -151,25 +156,12 @@ header {
         font-weight: 600;
         font-size: .85rem;
         color: #000;
-
-        animation: slide 10s infinite linear;
-    }
-}
-
-@keyframes slide {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    100% {
-        transform: translate(0%, 0);
     }
 }
 
 // PAGE COVER
 .pageCover {
     position: relative;
-
     cursor: pointer;
 
     img {
@@ -197,21 +189,18 @@ header {
 // SECCION TITLE
 .sectionTitle {
     width: 100%;
+    margin: 1.5rem 0;
 
     text-align: center;
     font-size: 2.8rem;
     font-weight: 600;
     color: #212529;
-
-    margin: 1.5rem 0;
 }
 
 // ITEM LIST CONTAINER
 .itemListContainer {
-    display: flex;
+    @extend %flexRow;
     flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-items: center;
     gap: 1rem;
 
     padding: .5rem;
@@ -221,10 +210,8 @@ header {
         width: 325px;
         padding: .5rem;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
+        @extend %flexColumn;
+
         text-align: center;
 
         border: 1px solid rgba(0, 0, 0, 0.075);
@@ -257,6 +244,88 @@ header {
     }
 }
 
+// ITEM DETAIL CONTAINER
+
+.ItemDetailContainer {
+    width: 100%;
+    min-height: 100vh;
+
+    @extend %flexColumn;
+    align-items: normal;
+
+    .linkContainer {
+        margin: .75rem 4% 1rem 4%;
+        font-weight: 300;
+
+        a {
+            color: #000;
+            text-decoration: underline;
+        }
+        
+    }
+
+    .itemDetail {
+        min-height: 100vh;
+
+        @extend %flexColumn;
+        align-items: normal;
+        gap: 2rem;
+
+        &__header {
+            margin-left: 4%;
+            letter-spacing: 2px;
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: .75rem;
+            }
+
+            h3 {
+                font-size: 1rem;
+                letter-spacing: 0;
+            }
+        }
+
+        &__imgContainer {
+            position: relative;
+            width: 100%;
+            padding: .25rem 0;
+            background-color: rgba($color: #ccc, $alpha: .5);
+
+            .freeShipping {
+                font-size: .85rem;
+                padding: .5rem;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                color: #000;
+
+                position: absolute;
+                transform: rotate(270deg);
+                top: 10%;
+                left: -2.5%;
+            }
+            
+            img {
+                width: 100%;
+            }
+        }
+
+        &__stock {
+            margin-left: 4%;
+            letter-spacing: 1px;
+            color: red;
+        }
+
+        &__description {
+            min-height: 20vh;
+            padding: 1rem .5rem;
+            background-color: rgba($color: #000, $alpha: .05);
+            text-align: center;
+            letter-spacing: 1px;
+        }
+    }
+}
+
 .button {
     cursor: pointer;
     text-align: center;
@@ -281,14 +350,18 @@ header {
     &:active {
         transform: scale(.95);
     }
+
+    &--itemDetail {
+        margin: auto;
+        width: 50%;
+        padding: .75rem 0;
+        letter-spacing: 1px;
+    }
 }
 
 // BRANDS
 .brandsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    @extend %flexColumn;
     gap: 1rem;
 
     margin-bottom: 2rem;
@@ -307,10 +380,9 @@ header {
 // FORMS
 
 .form {
-    display: flex;
+    @extend %flexRow;
     flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-evenly;
+
     background: rgba($color: #000000, $alpha: .05);
     padding-bottom: 2rem;
 
@@ -318,10 +390,7 @@ header {
         width: 100%;
         margin-bottom: 1.5rem;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
+        @extend %flexColumn;
 
         &--small {
             width: 50%;
@@ -350,10 +419,7 @@ header {
     padding: 1rem .5rem;
     min-height: 250px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    @extend %flexColumn;
     gap: 2rem;
 
     background-color: #037394;
@@ -367,18 +433,13 @@ header {
     .footerMenu {     
         width: 100%;
 
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
+        @extend %flexRow;
         justify-content: space-around;
 
         .footerSubMenu {
             width: 50%;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
+            @extend %flexColumn;
             gap: 1rem;
 
             h3 {

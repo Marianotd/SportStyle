@@ -77,27 +77,27 @@ export default function ProductCreate() {
 
         <div className='formSection'>
             <label htmlFor="description">Descripción</label>
-            <textarea className='formInput' onChange={inputChangeHandler} name="description" rows={5} value={dataForm.description}/>
+            <textarea className='formInput' onChange={inputChangeHandler} name="description" rows={5} value={dataForm.description} required/>
         </div>
 
         <div className='formSection'>
             <label htmlFor="price">Precio</label>
-            <input className='formInput' onChange={inputChangeHandler} type="number" name='price' value={dataForm.price}/>
+            <input className='formInput' onChange={inputChangeHandler} type="number" name='price' value={dataForm.price} required/>
         </div>
 
         <div className='formSection'>
             <label htmlFor="brand">Marca</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='brand' value={dataForm.brand}/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='brand' value={dataForm.brand} required/>
         </div>
 
         <div className='formSection'>
             <label htmlFor="stock">Stock</label>
-            <input className='formInput' onChange={inputChangeHandler} type="number" name='stock' value={dataForm.stock}/>
+            <input className='formInput' onChange={inputChangeHandler} type="number" name='stock' value={dataForm.stock} required/>
         </div>
 
         <div className='formSection'>
             <label htmlFor="category">Categoria</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='category' value={dataForm.category}/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='category' value={dataForm.category} required/>
         </div>
 
         <div className='formSection'>
@@ -108,7 +108,7 @@ export default function ProductCreate() {
         <div className='formSection'>
             <label htmlFor="gender">Genero</label>
 
-            <select className='formInput' name='gender' onChange={inputChangeHandler} value={dataForm.gender}>
+            <select className='formInput' name='gender' onChange={inputChangeHandler} value={dataForm.gender} required>
                 <option value='' disabled>Seleccione un genero</option>
                 <option value="male">Hombre</option>
                 <option value="women">Mujer</option>
@@ -118,27 +118,27 @@ export default function ProductCreate() {
 
         <div className='formSection'>
             <label htmlFor="color">Color</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='color' value={dataForm.color}/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='color' value={dataForm.color} required/>
         </div>
 
         <div className='formSection'>
             <label htmlFor="type">Tipo</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='type' value={dataForm.type}/>
+            <input className='formInput' onChange={inputChangeHandler} type="text" name='type' value={dataForm.type} required/>
         </div>
 
         <div className='formSection'>
             <label htmlFor="name">Imagen</label>
-            <input className='formInput' onChange={inputChangeHandler} type="file" name='img'/>
+            <input className='formInput' onChange={inputChangeHandler} type="file" name='img' required/>
         </div>
 
         <div className='formSection formSection--small'>
             <label htmlFor="novelty">Es novedad?</label>
-            <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='is_novelty' value={dataForm.novelty}/>
+            <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='is_novelty' value={dataForm.novelty} required/>
         </div>
 
         <div className='formSection formSection--small'>
             <label htmlFor="active">Esta activo?</label>
-            <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='active' value={dataForm.active}/>
+            <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='active' value={dataForm.active} required/>
         </div>
 
         <button type='submit' className='button'>Crear</button>
