@@ -32,7 +32,6 @@ export default function ItemDetail({ item }) {
         : <></>
       }
 
-
       <button className='button button--itemDetail'>Añadir al carrito</button>
 
       <p className='itemDetail__description'>{item.description}</p>

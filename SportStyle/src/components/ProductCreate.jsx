@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import SectionTitle from './SectionTitle'
+import Logo from './Logo'
 
 const URI = 'http://localhost:8000/Productos'
 
@@ -67,81 +68,86 @@ export default function ProductCreate() {
     }
 
   return (
-    <form className='form' onSubmit={store} method='post' encType="multipart/form-data">
-        <SectionTitle text={'Nuevo producto'}/>
+    <section className='ProductCreate'>
+        <form className='form' onSubmit={store} method='post' encType="multipart/form-data">
+            <SectionTitle text={'Nuevo producto'}/>
 
-        <div className='formSection'>
-            <label htmlFor="name">Nombre</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='name' value={dataForm.name} required/>
-        </div>
+            <div className='formSection'>
+                <label htmlFor="name">Nombre</label>
+                <input className='formInput' onChange={inputChangeHandler} type="text" name='name' value={dataForm.name} required/>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="description">Descripción</label>
-            <textarea className='formInput' onChange={inputChangeHandler} name="description" rows={5} value={dataForm.description} required/>
-        </div>
+            <div className='formSection'>
+                <label htmlFor="description">Descripción</label>
+                <textarea className='formInput' onChange={inputChangeHandler} name="description" rows={5} value={dataForm.description} required/>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="price">Precio</label>
-            <input className='formInput' onChange={inputChangeHandler} type="number" name='price' value={dataForm.price} required/>
-        </div>
+            <div className='formSection formSection--small'>
+                <label htmlFor="price">Precio</label>
+                <input className='formInput' onChange={inputChangeHandler} type="number" name='price' value={dataForm.price} required/>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="brand">Marca</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='brand' value={dataForm.brand} required/>
-        </div>
+            <div className='formSection formSection--small'>
+                <label htmlFor="stock">Stock</label>
+                <input className='formInput' onChange={inputChangeHandler} type="number" name='stock' value={dataForm.stock} required/>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="stock">Stock</label>
-            <input className='formInput' onChange={inputChangeHandler} type="number" name='stock' value={dataForm.stock} required/>
-        </div>
+            <div className='formSection'>
+                <label htmlFor="brand">Marca</label>
+                <input className='formInput' onChange={inputChangeHandler} type="text" name='brand' value={dataForm.brand} required/>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="category">Categoria</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='category' value={dataForm.category} required/>
-        </div>
+            <div className='formSection'>
+                <label htmlFor="category">Categoria</label>
+                <input className='formInput' onChange={inputChangeHandler} type="text" name='category' value={dataForm.category} required/>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="sub_category">Subcategoria</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='sub_category' value={dataForm.sub_category}/>
-        </div>
+            <div className='formSection'>
+                <label htmlFor="sub_category">Subcategoria</label>
+                <input className='formInput' onChange={inputChangeHandler} type="text" name='sub_category' value={dataForm.sub_category}/>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="gender">Genero</label>
+            <div className='formSection'>
+                <label htmlFor="gender">Genero</label>
 
-            <select className='formInput' name='gender' onChange={inputChangeHandler} value={dataForm.gender} required>
-                <option value='' disabled>Seleccione un genero</option>
-                <option value="male">Hombre</option>
-                <option value="women">Mujer</option>
-                <option value="otro">Otro</option>
-            </select>
-        </div>
+                <select className='formInput' name='gender' onChange={inputChangeHandler} value={dataForm.gender} required>
+                    <option value='' disabled>Seleccione un genero</option>
+                    <option value="male">Hombre</option>
+                    <option value="women">Mujer</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="color">Color</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='color' value={dataForm.color} required/>
-        </div>
+            <div className='formSection'>
+                <label htmlFor="color">Color</label>
+                <input className='formInput' onChange={inputChangeHandler} type="text" name='color' value={dataForm.color} required/>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="type">Tipo</label>
-            <input className='formInput' onChange={inputChangeHandler} type="text" name='type' value={dataForm.type} required/>
-        </div>
+            <div className='formSection'>
+                <label htmlFor="type">Tipo</label>
+                <input className='formInput' onChange={inputChangeHandler} type="text" name='type' value={dataForm.type} required/>
+            </div>
 
-        <div className='formSection'>
-            <label htmlFor="name">Imagen</label>
-            <input className='formInput' onChange={inputChangeHandler} type="file" name='img' required/>
-        </div>
+            <div className='formSection'>
+                <label htmlFor="name">Imagen</label>
+                <input className='formInput' onChange={inputChangeHandler} type="file" name='img' required/>
+            </div>
 
-        <div className='formSection formSection--small'>
-            <label htmlFor="novelty">Es novedad?</label>
-            <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='is_novelty' value={dataForm.novelty} required/>
-        </div>
+            <div className='formSection formSection--small'>
+                <label htmlFor="novelty">Es novedad?</label>
+                <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='is_novelty' value={dataForm.novelty}/>
+            </div>
 
-        <div className='formSection formSection--small'>
-            <label htmlFor="active">Esta activo?</label>
-            <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='active' value={dataForm.active} required/>
-        </div>
+            <div className='formSection formSection--small'>
+                <label htmlFor="active">Esta activo?</label>
+                <input className='formInput' onChange={inputChangeHandler} type="checkbox" name='active' value={dataForm.active}/>
+            </div>
 
-        <button type='submit' className='button'>Crear</button>
-    </form>
+            <button type='submit' className='button'>Crear</button>
+        </form>
+        <aside className='asideForm'>
+            <img src='/assets/Aside.png' alt="SportStyle" />
+        </aside>
+    </section>
   )
 }

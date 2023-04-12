@@ -6,9 +6,13 @@ export default function Item({ id, name, img, price }) {
 
   return (
     <div className='item'>
+        <div>
+          <img src={img} alt={name} />
+        </div>
+
         <h5>{name}</h5>
-        <img src={img} alt={name} />
         <p>${itemPrice}</p>
+        
         <Link className='button' to={`/Productos/${id}`}>Ver más</Link>
     </div>
   )
