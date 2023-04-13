@@ -18,11 +18,6 @@ export default function ItemListContainer() {
         setProducts(res.data)
     }
 
-    async function deleteProduct(id) {
-        axios.delete(`${URI}/${id}`)
-        getProducts()
-    }
-
     let location = useLocation();
 
     return (

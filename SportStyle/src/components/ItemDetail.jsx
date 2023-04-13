@@ -5,6 +5,7 @@ export default function ItemDetail({ item }) {
   
   return (
     <div id={item.id} className='itemDetail'>
+
       <div className='itemDetail__header'>
         <h2>{item.name}</h2>
         <h3>$ {price}</h3>

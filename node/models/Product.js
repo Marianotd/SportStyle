@@ -12,7 +12,6 @@ const Product = db.define('products', {
     gender:{ type: DataTypes.STRING },
     is_novelty:{ type: DataTypes.STRING },
     color:{ type: DataTypes.STRING },
-    type:{ type: DataTypes.STRING },
     img_name:{ type: DataTypes.STRING },
     img_data:{ type: DataTypes.BLOB },
     img_type:{ type: DataTypes.STRING },

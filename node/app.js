@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import db from "./database/db.js";
-import ProductRoutes from './routes/routes.js'
+import Routes from './routes/routes.js'
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -12,7 +12,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use('/Productos', ProductRoutes)
+app.use('/', Routes)
 app.use(express.static(path.join(__dirname, '/public/')))
 
 try {
