@@ -1,50 +1,50 @@
-import { Brand } from "../models/Models.js";
+import { Category } from "../models/Models.js";
 
 // Traer todos los registros
-export async function getAllBrands(req, res) {
+export async function getAllCategories(req, res) {
     try {
-        const brands = await Brand.findAll()
+        const categories = await Category.findAll()
 
-        res.json(brands)
+        res.json(categories)
     } catch (error) {
         res.json({ message: error.message })
     }
 }
 
 // Traer un registro
-export async function getBrand (req, res) {
+export async function getCategory (req, res) {
     try {
-        const brand = await Brand.findAll({
+        const category = await Category.findAll({
             where: { id: req.params.id }
         })
-        res.json(brand[0])
+        res.json(Category[0])
     } catch (error) {
         res.json({ message: error.message })
     }
 }
 
 // Crear un registro
-export async function createBrand (req, res) {  
-    Brand.create(req.body)
+export async function createCategory (req, res) {  
+    Category.create(req.body)
     .then(data => {
         res.json(data)
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Ha ocurrido un error al crear la marca."
+          err.message || "Ha ocurrido un error al crear la categoria."
       });
     });
 }
 
 // Actualizar un registro
-export async function updateBrand (req, res) {
+export async function updateCategory (req, res) {
     try {
-        await Brand.update(req.body, {
+        await Category.update(req.body, {
             where: { id: req.params.id }
         })
         res.json({
-            'message': '¡Marca actualizada correctamente!'
+            'message': '¡Categoria actualizada correctamente!'
         })
     } catch (error) {
         res.json({ message: error.message })
@@ -52,13 +52,13 @@ export async function updateBrand (req, res) {
 }
 
 // Eliminar un registro
-export async function deleteBrand (req, res) {
+export async function deleteCategory (req, res) {
     try {
-        await Brand.destroy({
+        await Category.destroy({
             where: { id: req.params.id }
         })
         res.json({
-            'message': '¡Marca eliminada correctamente!'
+            'message': '¡Categoria eliminada correctamente!'
         })
     } catch (error) {
         res.json({ message: error.message })

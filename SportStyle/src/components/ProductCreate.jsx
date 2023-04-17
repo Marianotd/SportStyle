@@ -18,8 +18,6 @@ export default function ProductCreate() {
         sub_category: '',
         gender: '',
         is_novelty: 0,
-        color: '',
-        type: '',
         img: '',
         active: 0
     })
@@ -54,8 +52,6 @@ export default function ProductCreate() {
         formData.append('sub_category', dataForm.sub_category)
         formData.append('gender', dataForm.gender)
         formData.append('is_novelty', dataForm.is_novelty)
-        formData.append('color', dataForm.color)
-        formData.append('type', dataForm.type)
         formData.append('img', dataForm.img)
         formData.append('active', dataForm.active)  
 
@@ -116,16 +112,6 @@ export default function ProductCreate() {
                     <option value="women">Mujer</option>
                     <option value="otro">Otro</option>
                 </select>
-            </div>
-
-            <div className='formSection'>
-                <label htmlFor="color">Color</label>
-                <input className='formInput' onChange={inputChangeHandler} type="text" name='color' value={dataForm.color} required/>
-            </div>
-
-            <div className='formSection'>
-                <label htmlFor="type">Tipo</label>
-                <input className='formInput' onChange={inputChangeHandler} type="text" name='type' value={dataForm.type} required/>
             </div>
 
             <div className='formSection'>

@@ -323,12 +323,10 @@ header {
 
         &__description {
             min-height: 20vh;
-            padding: 2rem 4rem;
+            padding: 1rem .5rem;
             background-color: rgba($color: #000, $alpha: .05);
             text-align: center;
             letter-spacing: 1px;
-            word-spacing: 3px;
-            line-height: 2rem;
         }
     }
 }

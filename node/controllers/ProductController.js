@@ -1,18 +1,9 @@
-import path from "path";
-import Product from "../models/Product.js";
-import { fileURLToPath } from 'url';
-import fs from 'fs';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { Product } from "../models/Models.js";
 
 // Traer todos los registros
 export async function getAllProducts(req, res) {
     try {
         const productos = await Product.findAll()
-        productos.forEach(producto => {
-            fs.writeFileSync(path.join(__dirname, `../public/storage/dbimages/${producto.img_name}`), producto.img_data)
-        })
         res.json(productos)
     } catch (error) {
         res.json({ message: error.message })

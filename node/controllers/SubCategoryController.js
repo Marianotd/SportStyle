@@ -1,50 +1,50 @@
-import { Brand } from "../models/Models.js";
+import { SubCategory } from "../models/Models.js";
 
 // Traer todos los registros
-export async function getAllBrands(req, res) {
+export async function getAllSubCategories(req, res) {
     try {
-        const brands = await Brand.findAll()
+        const subCategories = await SubCategory.findAll()
 
-        res.json(brands)
+        res.json(subCategories)
     } catch (error) {
         res.json({ message: error.message })
     }
 }
 
 // Traer un registro
-export async function getBrand (req, res) {
+export async function getSubCategory (req, res) {
     try {
-        const brand = await Brand.findAll({
+        const subcategory = await SubCategory.findAll({
             where: { id: req.params.id }
         })
-        res.json(brand[0])
+        res.json(subcategory[0])
     } catch (error) {
         res.json({ message: error.message })
     }
 }
 
 // Crear un registro
-export async function createBrand (req, res) {  
-    Brand.create(req.body)
+export async function createSubCategory (req, res) {  
+    SubCategory.create(req.body)
     .then(data => {
         res.json(data)
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Ha ocurrido un error al crear la marca."
+          err.message || "Ha ocurrido un error al crear la sub categoria."
       });
     });
 }
 
 // Actualizar un registro
-export async function updateBrand (req, res) {
+export async function updateSubCategory (req, res) {
     try {
-        await Brand.update(req.body, {
+        await SubCategory.update(req.body, {
             where: { id: req.params.id }
         })
         res.json({
-            'message': '¡Marca actualizada correctamente!'
+            'message': '¡Sub categoria actualizada correctamente!'
         })
     } catch (error) {
         res.json({ message: error.message })
@@ -52,13 +52,13 @@ export async function updateBrand (req, res) {
 }
 
 // Eliminar un registro
-export async function deleteBrand (req, res) {
+export async function deleteSubCategory (req, res) {
     try {
-        await Brand.destroy({
+        await SubCategory.destroy({
             where: { id: req.params.id }
         })
         res.json({
-            'message': '¡Marca eliminada correctamente!'
+            'message': '¡Sub categoria eliminada correctamente!'
         })
     } catch (error) {
         res.json({ message: error.message })
