@@ -501,3 +501,26 @@ header {
     display: flex;
     justify-content: center;
 }
+
+// Menu usuario
+.UserMenu {
+    @extend %flexColumn;
+    gap: 1rem;
+
+    padding: 1rem 0;
+
+    a {
+        color: #000;
+    }
+    
+}
+
+// Tablas
+.table {
+    width: 100%;
+    min-height: 150vh;
+
+    thead {
+        background-color: rgba($color: #000, $alpha: .05);
+    }
+}

@@ -2,7 +2,7 @@ import './scss/styles.css'
 // Router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Context
-import GeneralContextProvider from "./context/GeneralContext";
+import GeneralContextProvider from './context/GeneralContext';
 // Components
 import Brands from "./components/Brands";
 import Footer from "./components/Footer";
@@ -12,8 +12,11 @@ import Novelty from "./components/Novelty";
 import PageCover from "./components/PageCover";
 import ProductsMenu from "./components/ProductsMenu";
 import ItemListContainer from "./components/ItemListContainer";
-import ProductCreate from "./components/ProductCreate";
+import ProductCreate from "./components/ProductosCrud/ProductCreate";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import UserMenu from './components/UserMenu';
+import Products from './components/ProductosCrud/Products';
+import ProductEdit from './components/ProductosCrud/ProductEdit';
 
 function App() {
 
@@ -21,6 +24,7 @@ function App() {
     <GeneralContextProvider>
       <Router>
         <NavBar />
+
         <Routes>          
           <Route path="/" element={
               <>
@@ -40,6 +44,12 @@ function App() {
           />
           <Route path={`/Productos/Nuevo`} element={<ProductCreate/>}/>
           <Route path={`/Productos/:id`} element={<ItemDetailContainer/>}/>
+
+          <Route path={`/Usuario`} element={<UserMenu/>}/>
+          <Route path={`/Usuario/Productos`} element={<Products/>}/>
+          <Route path={`/Usuario/Productos/Nuevo`} element={<ProductCreate/>}/>
+          <Route path={`/Usuario/Productos/:id`} element={<ProductEdit/>}/>
+
         </Routes>
         <Footer />
       </Router>

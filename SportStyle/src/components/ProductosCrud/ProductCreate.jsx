@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import SectionTitle from './SectionTitle'
-import Logo from './Logo'
+import SectionTitle from '../SectionTitle'
+import Logo from '../Logo'
 
 const URI = 'http://localhost:8000/Productos'
 

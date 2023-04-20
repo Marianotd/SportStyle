@@ -1,4 +1,5 @@
 import React from 'react'
+import Novelty from './Novelty'
 
 export default function PageCover() {
     let title = 'Al rihla'
@@ -6,12 +7,12 @@ export default function PageCover() {
 
   return (
     <article className='pageCover'>
-        <img src='/assets/Novedades.jpg' alt="En estos momentos no pudimos cargar el contenido" />
-        
-        <div className='textContainer'>
-            <h2>{title.toUpperCase()}</h2>
-            <h3>{subtitle}</h3>
-        </div>
+      <img src='/assets/Novedades.jpg' alt="En estos momentos no pudimos cargar el contenido" />
+      
+      <div className='textContainer'>
+          <h2>{title.toUpperCase()}</h2>
+          <h3>{subtitle}</h3>
+      </div>
     </article>
   )
 }
