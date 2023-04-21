@@ -186,7 +186,7 @@ header {
     }
 }
 
-// SECCION TITLE
+// SECTION TITLE
 .sectionTitle {
     width: 100%;
     margin: 1.5rem 0;
@@ -382,79 +382,6 @@ header {
     }
 }
 
-// FORMS
-.ProductCreate {
-    display: flex;
-    flex-direction: row;
-
-    @media all and (min-width: 1200px){
-        background: linear-gradient(90deg, rgba(204,204,204,0.15) 0%, rgba(204,204,204,0.15) 45%, rgba(148,66,3,0.2) 100%);
-    }
-
-    .form {
-        @extend %flexRow;
-        flex-flow: row wrap;
-    
-        background: rgba($color: #ccc, $alpha: .15);
-        padding-bottom: 2rem;
-    
-        @media all and (min-width: 1200px){
-            width: 50%;
-            background: none;
-        }
-    
-        .formSection {
-            width: 100%;
-            margin-bottom: 1.5rem;
-    
-            @extend %flexColumn;
-            gap: .5rem;
-    
-            &--small {
-                width: 40%;
-            }
-    
-            .formInput {
-                resize: none;
-    
-                width: 75%;
-                max-width: 350px;
-                padding: .6rem 1rem;
-    
-                border-radius: 25px;
-                border: 2px solid #ccc;
-    
-                &:focus {
-                    outline: none;
-                    border: 2px solid #037394;
-                }
-    
-                @media all and (min-width: 768px){
-                    max-width: 550px;
-                }
-            }
-        }
-    } 
-    
-    .asideForm {
-        display: none;
-    
-        @media all and (min-width: 1200px){
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            height: 1200px;
-            width: 50%;
-
-            img {
-                width: 100%;
-            }
-        }
-    }
-}
-
-
 // FOOTER
 .footer {
     width: 100%;
@@ -502,7 +429,7 @@ header {
     justify-content: center;
 }
 
-// Menu usuario
+// USER MENU
 .UserMenu {
     @extend %flexColumn;
     gap: 1rem;
@@ -515,12 +442,125 @@ header {
     
 }
 
-// Tablas
-.table {
-    width: 100%;
+// TABLES
+.tableContainer {
     min-height: 150vh;
+    padding: 1rem 0;
 
-    thead {
-        background-color: rgba($color: #000, $alpha: .05);
+    .backButton {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 1rem;
+
+        margin: 0 0 1rem 25px;
+        color: #000;
+        font-size: 1.75rem;
+
+        &:hover {
+            font-weight: bold;
+        }
+
+        span {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+    }
+    
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        
+        &__head {
+            height: 3rem;
+    
+            color: #fff;
+            background-color: rgba($color: #000, $alpha: .75);
+    
+            &--id {
+                width: 15%;
+            }
+    
+            &--name {
+                width: 60%;
+            }
+        }
+    
+        &__body {
+            font-size: .85rem;
+
+            tr {
+                color: #ccc;
+                border-bottom: 1px solid #ccc;
+                background-color: rgba($color: #000, $alpha: .05);
+
+                height: 2.5rem;
+                text-align: center;
+
+                &:hover {
+                    color: #000;
+                    background-color: rgba($color: #000, $alpha: .1);
+                }
+
+                .textTd {
+                    max-width: 100px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                .actionButtons {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+
+                    height: 2.5rem;
+
+                    a, button {
+                        font-size: 1.4rem;
+                        border: none;
+                        background: none;
+    
+                        color: #ccc;
+    
+                        &:hover {
+                            color: #000;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+// REGISTERS FORM
+.form {
+    width: 100%;
+    
+    @extend %flexColumn;
+
+    label, input, select {
+        width: 100%;
+        padding: .5rem;
+        text-align: center;
+    }
+
+    label {
+        color: #fff;
+        background-color: rgba($color: #000, $alpha: .75);
+    }
+
+    input, select {
+        outline: none;
+        border: 1px solid #fff;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 1rem;
+
+        &:active, &:focus {
+            border-bottom: 1px solid #037394;
+        }
     }
 }

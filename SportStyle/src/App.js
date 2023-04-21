@@ -12,11 +12,11 @@ import Novelty from "./components/Novelty";
 import PageCover from "./components/PageCover";
 import ProductsMenu from "./components/ProductsMenu";
 import ItemListContainer from "./components/ItemListContainer";
-import ProductCreate from "./components/ProductosCrud/ProductCreate";
+import ProductCreate from "./components/CRUD/ProductCreate";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import UserMenu from './components/UserMenu';
-import Products from './components/ProductosCrud/Products';
-import ProductEdit from './components/ProductosCrud/ProductEdit';
+import Select from './components/CRUD/Select';
+import UpdateProduct from './components/CRUD/UpdateProduct';
 
 function App() {
 
@@ -46,9 +46,9 @@ function App() {
           <Route path={`/Productos/:id`} element={<ItemDetailContainer/>}/>
 
           <Route path={`/Usuario`} element={<UserMenu/>}/>
-          <Route path={`/Usuario/Productos`} element={<Products/>}/>
+          <Route path={`/Usuario/Productos`} element={<Select route={'Productos'}/>}/>
           <Route path={`/Usuario/Productos/Nuevo`} element={<ProductCreate/>}/>
-          <Route path={`/Usuario/Productos/:id`} element={<ProductEdit/>}/>
+          <Route path={`/Usuario/Productos/:id`} element={<UpdateProduct/>}/>
 
         </Routes>
         <Footer />
