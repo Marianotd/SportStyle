@@ -556,11 +556,52 @@ header {
     input, select {
         outline: none;
         border: 1px solid #fff;
-        border-bottom: 1px solid #ccc;
+        border-bottom-color: #ccc;
         margin-bottom: 1rem;
 
         &:active, &:focus {
-            border-bottom: 1px solid #037394;
+            border-bottom-color: #037394;
         }
     }
+
+    input[type='file']{
+        &::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        &::before {
+            content: 'Seleccionar archivo';
+            background-color: rgba($color: #000, $alpha: .05);
+            border: 1px solid #ccc;
+            padding: .5rem;
+            outline: none;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        &:active::before {
+            background-color: rgba($color: #000, $alpha: .1);
+        }
+    }
+
+    .inputContainer {
+        width: 100%;
+        @extend %flexRow;
+        flex-flow: row wrap;
+
+        label, input {
+            width: 50%;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.LinkContainer {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 1rem;
 }

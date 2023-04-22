@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { generalContext } from '../../context/GeneralContext'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { MdKeyboardBackspace } from 'react-icons/md';
+import { generalContext } from '../../../context/GeneralContext';
 
 export default function UpdateProduct() {
   const { readAllRegister, readRegister, updateRegister } = useContext(generalContext)
@@ -30,13 +30,13 @@ export default function UpdateProduct() {
   }, [])
 
   async function getRegister(){
-    const res_products = await readRegister(id, 'Productos')
+    const res_product = await readRegister(id, 'Productos')
     const res_brands = await readAllRegister('Marcas')
     const res_categories = await readAllRegister('Categorias')
     const res_subcategories = await readAllRegister('Subcategorias')
-    const res_images = await readAllRegister('Imagenes')
+    const res_images = await readRegister(res_product.id_image, 'Imagenes')
 
-    setProduct(res_products)
+    setProduct(res_product)
     setBrands(res_brands)
     setCategories(res_categories)
     setSubcategories(res_subcategories)
@@ -46,13 +46,21 @@ export default function UpdateProduct() {
   async function store(e){
     e.preventDefault()
 
-    await updateRegister('Productos', product)
+    await updateRegister(id, 'Productos', product)
     navigate('/Productos')
   }
 
   function inputChangeHandler(e){
     let inputName = e.target.name
-    let value = e.target.value
+    let value = e.target.value.toUpperCase()
+
+    if(e.target.type === 'checkbox'){
+      value = e.target.checked ? 1 : 0 
+    }
+
+    if(e.target.type === 'file'){
+        value = e.target.files[0]
+    }
 
     const newDataForm = {...product}
     newDataForm[inputName] = value
@@ -68,20 +76,20 @@ export default function UpdateProduct() {
       <input type="hidden" id={product.id} />
 
       <label htmlFor="name">Nombre</label>
-      <input type="text" name='name' value={product.name} onChange={inputChangeHandler}  required/>
+      <input type="text" name='name' value={product.name ?? ''} onChange={inputChangeHandler} required/>
 
       <label htmlFor="description">Descripción</label>
-      <input type="text" name='description' value={product.description} onChange={inputChangeHandler}  required/>
+      <input type="text" name='description' value={product.description ?? ''} onChange={inputChangeHandler} required/>
 
       <label htmlFor="price">Precio</label>
-      <input type="number" name='price' value={product.price} onChange={inputChangeHandler}/>
+      <input type="number" name='price' value={product.price ?? ''} onChange={inputChangeHandler}/>
 
       <label htmlFor="stock">Stock</label>
-      <input type="number" name='stock' value={product.stock} onChange={inputChangeHandler}/>
+      <input type="number" name='stock' value={product.stock ?? ''} onChange={inputChangeHandler}/>
 
       <label htmlFor="id_brand">Marca</label>
-      <select name="id_brand" onChange={inputChangeHandler} value={product.id_brand} required>
-        <option selected>SIN MARCA</option>
+      <select name="id_brand" onChange={inputChangeHandler} value={product.id_brand ?? ''} required>
+        <option value='' disabled>SIN MARCA</option>
         {
           brands.map(brand => {
             return(
@@ -92,8 +100,8 @@ export default function UpdateProduct() {
       </select>
 
       <label htmlFor="id_category">Categoria</label>
-      <select name="id_category" onChange={inputChangeHandler} value={product.id_category} required>
-        <option selected>SIN CATEGORIA</option>
+      <select name="id_category" onChange={inputChangeHandler} value={product.id_category ?? ''} required>
+        <option value='' disabled>SIN CATEGORIA</option>
         {
           categories.map(category => {
             return(
@@ -104,8 +112,8 @@ export default function UpdateProduct() {
       </select>
 
       <label htmlFor="id_subcategory">SubCategoria</label>
-      <select name="id_subcategory" onChange={inputChangeHandler} value={product.id_subcategory} required>
-        <option selected>SIN SUBCATEGORIA</option>
+      <select name="id_subcategory" onChange={inputChangeHandler} value={product.id_subcategory ?? ''} required>
+        <option value='' disabled>SIN SUBCATEGORIA</option>
         {
           subcategories.map(subcategory => {
             return(
@@ -116,13 +124,25 @@ export default function UpdateProduct() {
       </select>
 
       <label htmlFor="gender">Genero</label>
-      <select name="gender" onChange={inputChangeHandler} value={product.gender}>
-        <option selected>SIN GENERO</option>
+      <select name="gender" onChange={inputChangeHandler} value={product.gender ?? ''}>
+        <option value='' disabled>SIN GENERO</option>
         <option value="Hombre">Hombre</option>
         <option value="Mujer">Mujer</option>
         <option value="Otro">Otro</option>
       </select>
 
+      <label htmlFor="id_image">Imagen</label>
+      <input type="file" name='id_image' onChange={inputChangeHandler} required/>
+
+      <div className='inputContainer'>
+        <label htmlFor="is_novelty">Es novedad?</label>
+        <label htmlFor="active">Esta activo?</label>
+
+        <input name='is_novelty' type="checkbox" onChange={inputChangeHandler} value={product.is_novelty ?? ''}/>
+        <input name='active' type="checkbox" onChange={inputChangeHandler} value={product.active ?? ''}/>
+      </div>
+
+      <button type='submit' className='button'>Guardar</button>
     </form>
     </div>
   )

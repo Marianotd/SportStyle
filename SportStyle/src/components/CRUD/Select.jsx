@@ -20,7 +20,11 @@ export default function Select({ route }) {
   }
 
   async function deleteData(id){
-    await deleteRegister(id, route)
+    try {
+      await deleteRegister(id, route)
+    } catch (error) {
+      console.error(error);
+    }
 
     getData()
   }
@@ -28,6 +32,12 @@ export default function Select({ route }) {
   return (
     <div className='tableContainer'>
       <Link className='backButton' to={'/Usuario'}><MdKeyboardBackspace/> <span>Volver atrás</span></Link>
+
+      <h2 className='sectionTitle'>{route}</h2>
+
+      <div className='LinkContainer'>
+        <Link className='button' to={`/Usuario/${route}/Nuevo`}>Nuevo registro</Link>
+      </div>
       
       <table className='table'>
         <thead className='table__head'>
@@ -46,7 +56,7 @@ export default function Select({ route }) {
                   <td>{item.id}</td>
                   <td className='textTd'>{item.name}</td>
                   <td className='actionButtons'>
-                    <Link to={`/Usuario/Productos/${item.id}`}><BiEdit/></Link>
+                    <Link to={`/Usuario/${route}/${item.id}`}><BiEdit/></Link>
                     <button onClick={() => deleteData(item.id, route)}><HiOutlineTrash/></button>
                   </td>
                 </tr>

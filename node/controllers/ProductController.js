@@ -1,9 +1,32 @@
 import { Product } from "../models/Models.js";
+import { Image } from "../models/Models.js";
+import multer, { diskStorage } from "multer";
+import path from 'path'
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, '../public/storage'),
+    filename: (req, file, cb) => {
+        cb(null, `${file.originalname}`)
+    }
+})
+
+const upload = multer({
+    storage: storage
+}).single('image')
 
 // Traer todos los registros
-export async function getAllProducts(req, res) {
+export async function getAllProducts(req, res) {    
     try {
         const productos = await Product.findAll()
+        const images = await Image.findAll()
+        images.forEach(image => {
+            fs.writeFileSync(path.join(__dirname, `../public/storage/dbimages/${image.name}`), image.data)
+        })
         res.json(productos)
     } catch (error) {
         res.json({ message: error.message })
@@ -23,17 +46,22 @@ export async function getProduct (req, res) {
 }
 
 // Crear un registro
-export async function createProduct (req, res) {  
-    Product.create(req.body)
-    .then(data => {
-        res.json(data)
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Ha ocurrido un error al crear producto."
-      });
-    });
+export async function createProduct (req, res, next) {  
+    upload(req, res, next)
+
+    res.json('Hola')
+
+
+    // Product.create(req.body)
+    // .then(data => {
+    //     res.json(data)
+    // })
+    // .catch(err => {
+    //   res.status(500).send({
+    //     message:
+    //       err.message || "Ha ocurrido un error al crear producto."
+    //   });
+    // });
 }
 
 // Actualizar un registro

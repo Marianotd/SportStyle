@@ -17,7 +17,7 @@ export async function getCategory (req, res) {
         const category = await Category.findAll({
             where: { id: req.params.id }
         })
-        res.json(Category[0])
+        res.json(category[0])
     } catch (error) {
         res.json({ message: error.message })
     }
