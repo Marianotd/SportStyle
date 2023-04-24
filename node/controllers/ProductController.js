@@ -1,6 +1,5 @@
 import { Product } from "../models/Models.js";
 import { Image } from "../models/Models.js";
-import multer, { diskStorage } from "multer";
 import path from 'path'
 import { fileURLToPath } from 'url';
 import fs from 'fs';
@@ -8,24 +7,13 @@ import fs from 'fs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const storage = multer.diskStorage({
-    destination: path.join(__dirname, '../public/storage'),
-    filename: (req, file, cb) => {
-        cb(null, `${file.originalname}`)
-    }
-})
-
-const upload = multer({
-    storage: storage
-}).single('image')
-
 // Traer todos los registros
 export async function getAllProducts(req, res) {    
     try {
         const productos = await Product.findAll()
         const images = await Image.findAll()
         images.forEach(image => {
-            fs.writeFileSync(path.join(__dirname, `../public/storage/dbimages/${image.name}`), image.data)
+            fs.writeFileSync(path.join(__dirname, `../public/storage/${image.dataValues.name}`), image.dataValues.data)
         })
         res.json(productos)
     } catch (error) {
@@ -36,45 +24,94 @@ export async function getAllProducts(req, res) {
 // Traer un registro
 export async function getProduct (req, res) {
     try {
-        const producto = await Product.findAll({
-            where: { id: req.params.id }
-        })
-        res.json(producto[0])
+        const image = await Image.findOne({where: { id: req.params.id }})
+        fs.writeFileSync(path.join(__dirname, `../public/storage/${image.dataValues.name}`), image.dataValues.data)
+
+        const producto = await Product.findOne({where: { id: req.params.id } })
+        console.log(producto)
+        res.json(producto)
     } catch (error) {
         res.json({ message: error.message })
     }
 }
 
 // Crear un registro
-export async function createProduct (req, res, next) {  
-    upload(req, res, next)
+export async function createProduct (req, res, next) { 
+    Image.create(req.body.image)
+    .then( image => {
+        req.body.id_image = image.dataValues.id
+        console.log(image.dataValues.id)
+        delete req.body.image
 
-    res.json('Hola')
-
-
-    // Product.create(req.body)
-    // .then(data => {
-    //     res.json(data)
-    // })
-    // .catch(err => {
-    //   res.status(500).send({
-    //     message:
-    //       err.message || "Ha ocurrido un error al crear producto."
-    //   });
-    // });
+        Product.create(req.body)
+        .then(data => {
+            res.json(data)
+        })
+        .catch(err => {
+        res.status(500).send({
+                message:
+                err.message || "Ha ocurrido un error al crear producto."
+            });
+        });
+    })
+    .catch(err => {
+        res.status(500).send({
+            message:
+            err.message || "Ha ocurrido un error al crear imagen."
+        });
+    });
+    Product.create(req.body)
+    .then(data => {
+        res.json(data)
+    })
+    .catch(err => {
+    res.status(500).send({
+            message:
+            err.message || "Ha ocurrido un error al crear producto."
+        });
+    });
 }
 
 // Actualizar un registro
 export async function updateProduct (req, res) {
-    try {
-        await Product.update(req.body, {
+    if(req.file){
+        Image.create(req.body.image)
+        .then( image => {
+            req.body.id_image = image.dataValues.id
+            delete req.body.image
+
+            Product.update(req.body, {
+                where: { id: req.params.id }
+            })
+            .then(data => {
+                res.json(data)
+            })
+            .catch(err => {
+                res.status(500).send({
+                  message:
+                    err.message || "Ha ocurrido un error al crear producto."
+                });
+            });
+        })
+        .catch(err => {
+            res.status(500).send({
+              message:
+                err.message || "Ha ocurrido un error al crear imagen."
+            });
+        });  
+    } else {
+        Product.update(req.body, {
             where: { id: req.params.id }
         })
-        res.json({
-            'message': '¡Producto actualizado correctamente!'
+        .then(data => {
+            res.json(data)
         })
-    } catch (error) {
-        res.json({ message: error.message })
+        .catch(err => {
+            res.status(500).send({
+              message:
+                err.message || "Ha ocurrido un error al crear producto."
+            });
+        });
     }
 }
 

@@ -15,11 +15,11 @@ export default function CreateProduct() {
     description: '',
     price: 0,
     stock: 0,
-    id_brand: 0,
-    id_category: 0,
-    id_subcategory: 0,
+    id_brand: 1,
+    id_category: 1,
+    id_subcategory: 1,
     gender: '',
-    id_image: 0,
+    id_image: 1,
     is_novelty: 0,
     active: 0
   })
@@ -58,19 +58,24 @@ export default function CreateProduct() {
   async function store(e){
     e.preventDefault()
 
-    try {
-      const formData = new FormData()
-      formData.append('image', file)
+    const formData = new FormData()
+    formData.append('name', product.name)
+    formData.append('description', product.description)
+    formData.append('price', product.price)
+    formData.append('stock', product.stock)
+    formData.append('id_brand', product.id_brand)
+    formData.append('id_category', product.id_category)
+    formData.append('gender', product.gender)
+    formData.append('id_image', product.id_image)
+    formData.append('is_novelty', product.is_novelty)
+    formData.append('active', product.active)
 
+    formData.append('image', file)
+
+    try {
       await createRegister('Productos', formData)
     } catch (error) {
-      console.error(error);   
-    }
-
-    try {
-      await createRegister('Productos', product)
-    } catch (error) {
-      console.error(error);
+      console.error(error); 
     }
 
     navigate('/Usuario/Productos')
@@ -81,75 +86,75 @@ export default function CreateProduct() {
     <div className='tableContainer'>
     <Link className='backButton' to={'/Usuario/Productos'}><MdKeyboardBackspace/> <span>Volver atrás</span></Link>
     
-    <form onSubmit={store} className='form' method='post' encType='multipart/form-data'>
-      <input type="hidden" id={product.id} />
+      <form onSubmit={store} className='form' method='post' encType='multipart/form-data'>
+        <input type="hidden" id={product.id} />
 
-      <label htmlFor="name">Nombre</label>
-      <input type="text" name='name' value={product.name ?? ''} onChange={inputChangeHandler} required/>
+        <label htmlFor="name">Nombre</label>
+        <input type="text" name='name' value={product.name ?? ''} onChange={inputChangeHandler} required/>
 
-      <label htmlFor="description">Descripción</label>
-      <input type="text" name='description' value={product.description ?? ''} onChange={inputChangeHandler}/>
+        <label htmlFor="description">Descripción</label>
+        <input type="text" name='description' value={product.description ?? ''} onChange={inputChangeHandler}/>
 
-      <label htmlFor="price">Precio</label>
-      <input type="number" name='price' value={product.price ?? ''} onChange={inputChangeHandler}/>
+        <label htmlFor="price">Precio</label>
+        <input type="number" name='price' value={product.price ?? ''} onChange={inputChangeHandler}/>
 
-      <label htmlFor="stock">Stock</label>
-      <input type="number" name='stock' value={product.stock ?? ''} onChange={inputChangeHandler}/>
+        <label htmlFor="stock">Stock</label>
+        <input type="number" name='stock' value={product.stock ?? ''} onChange={inputChangeHandler}/>
 
-      <label htmlFor="id_brand">Marca</label>
-      <select name="id_brand" onChange={inputChangeHandler} value={product.id_brand ?? ''} required>
-        {
-          brands.map(brand => {
-            return(
-              <option key={brand.id} value={brand.id}>{brand.name}</option>
-            )
-          })
-        }
-      </select>
+        <label htmlFor="id_brand">Marca</label>
+        <select name="id_brand" onChange={inputChangeHandler} value={product.id_brand ?? 1} required>
+          {
+            brands.map(brand => {
+              return(
+                <option key={brand.id} value={brand.id} >{brand.name}</option>
+              )
+            })
+          }
+        </select>
 
-      <label htmlFor="id_category">Categoria</label>
-      <select name="id_category" onChange={inputChangeHandler} value={product.id_category ?? ''} required>
-        {
-          categories.map(category => {
-            return(
-              <option key={category.id} value={category.id}>{category.name}</option>
-            )
-          })
-        }
-      </select>
+        <label htmlFor="id_category">Categoria</label>
+        <select name="id_category" onChange={inputChangeHandler} value={product.id_category ?? 1} required>
+          {
+            categories.map(category => {
+              return(
+                <option key={category.id} value={category.id}>{category.name}</option>
+              )
+            })
+          }
+        </select>
 
-      <label htmlFor="id_subcategory">SubCategoria</label>
-      <select name="id_subcategory" onChange={inputChangeHandler} value={product.id_subcategory ?? ''} required>
-        {
-          subcategories.map(subcategory => {
-            return(
-              <option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>
-            )
-          })
-        }
-      </select>
+        <label htmlFor="id_subcategory">SubCategoria</label>
+        <select name="id_subcategory" onChange={inputChangeHandler} value={product.id_subcategory ?? 1} required>
+          {
+            subcategories.map(subcategory => {
+              return(
+                <option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>
+              )
+            })
+          }
+        </select>
 
-      <label htmlFor="gender">Genero</label>
-      <select name="gender" onChange={inputChangeHandler} value={product.gender ?? ''}>
-        <option value='' disabled>SIN GENERO</option>
-        <option value="Hombre">Hombre</option>
-        <option value="Mujer">Mujer</option>
-        <option value="Otro">Otro</option>
-      </select>
+        <label htmlFor="gender">Genero</label>
+        <select name="gender" onChange={inputChangeHandler} value={product.gender ?? ''}>
+          <option value='' disabled>SIN GENERO</option>
+          <option value="Hombre">Hombre</option>
+          <option value="Mujer">Mujer</option>
+          <option value="Otro">Otro</option>
+        </select>
 
-      <label htmlFor="image">Imagen</label>
-      <input type="file" name='image' onChange={inputFileChangeHandler} required/>
+        <label htmlFor="image">Imagen</label>
+        <input type="file" name='image' onChange={inputFileChangeHandler} required/>
 
-      <div className='inputContainer'>
-        <label htmlFor="is_novelty">Es novedad?</label>
-        <label htmlFor="active">Esta activo?</label>
+        <div className='inputContainer'>
+          <label htmlFor="is_novelty">Es novedad?</label>
+          <label htmlFor="active">Esta activo?</label>
 
-        <input name='is_novelty' type="checkbox" onChange={inputChangeHandler} value={product.is_novelty ?? ''}/>
-        <input name='active' type="checkbox" onChange={inputChangeHandler} value={product.active ?? ''}/>
-      </div>
+          <input name='is_novelty' type="checkbox" onChange={inputChangeHandler} value={product.is_novelty ?? ''}/>
+          <input name='active' type="checkbox" onChange={inputChangeHandler} value={product.active ?? ''}/>
+        </div>
 
-      <button type='submit' className='button'>Guardar</button>
-    </form>
+        <button type='submit' className='button'>Guardar</button>
+      </form>
     </div>
   )
 }

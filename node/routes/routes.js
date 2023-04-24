@@ -3,6 +3,24 @@ import { getAllBrands, getBrand, createBrand, updateBrand, deleteBrand } from '.
 import { getAllCategories, getCategory, createCategory, updateCategory, deleteCategory } from '../controllers/CategoryController.js'    
 import { getAllProducts, getProduct, createProduct, updateProduct, deleteProduct } from "../controllers/ProductController.js";
 import { getAllSubCategories, getSubCategory, createSubCategory, updateSubCategory, deleteSubCategory } from '../controllers/SubCategoryController.js'    
+// Image Storage
+import multer from "multer";
+import path from 'path'
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, '../public/storage'),
+    filename: (req, file, cb) => {
+        cb(null, `${file.originalname}`)
+    }
+})
+
+const upload = multer({
+    storage: storage
+}).single('image')
 
 const router = express.Router()
 
@@ -22,9 +40,27 @@ router.delete('/Categorias/:id', deleteCategory)
 
 // Products
 router.get('/Productos', getAllProducts)
-router.get('/Productos/:id', getProduct)
-router.post('/Productos', createProduct)
-router.put('/Productos/:id', updateProduct)
+router.get('/Productos/:id',getProduct)
+router.post('/Productos', upload, (req, res) => {
+    const image = {
+        name: req.file.filename,
+        type: req.file.mimetype,
+        data: req.file
+    }
+    req.body = {...req.body, image}
+
+    createProduct(req, res)
+})
+router.put('/Productos/:id', upload, (req, res) => {
+    const image = {
+        name: req.file.filename,
+        type: req.file.mimetype,
+        data: req.file
+    }
+    req.body = {...req.body, image}
+
+    updateProduct(req, res)
+})
 router.delete('/Productos/:id', deleteProduct)
 
 // SubCategory
