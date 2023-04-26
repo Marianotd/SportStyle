@@ -99,7 +99,7 @@ export async function updateProduct (req, res) {
                 err.message || "Ha ocurrido un error al crear imagen."
             });
         });  
-    } else {
+    } else {       
         Product.update(req.body, {
             where: { id: req.params.id }
         })

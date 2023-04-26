@@ -87,9 +87,9 @@ export default function UpdateProduct() {
     formData.append('image', file)
 
     try {
-      await updateRegister('Productos', formData)
+      await updateRegister(id, 'Productos', formData)
     } catch (error) {
-      console.error(error); 
+      console.error(error);  
     }
 
     navigate('/Usuario/Productos')
@@ -163,8 +163,18 @@ export default function UpdateProduct() {
           <label htmlFor="is_novelty">Es novedad?</label>
           <label htmlFor="active">Esta activo?</label>
 
-          <input name='is_novelty' type="checkbox" onChange={inputChangeHandler} value={product.is_novelty ?? ''}/>
-          <input name='active' type="checkbox" onChange={inputChangeHandler} value={product.active ?? ''}/>
+          {
+            product.is_novelty
+            ? <input name='is_novelty' type="checkbox" onChange={inputChangeHandler} value={product.is_novelty ?? 0} checked/>
+            : <input name='is_novelty' type="checkbox" onChange={inputChangeHandler} value={product.is_novelty ?? 0}/>
+          }
+
+          {
+            product.active
+            ? <input name='active' type="checkbox" onChange={inputChangeHandler} value={product.active ?? 0} checked/>
+            : <input name='active' type="checkbox" onChange={inputChangeHandler} value={product.active ?? 0}/>
+          }
+          
         </div>
 
         <button type='submit' className='button'>Guardar</button>

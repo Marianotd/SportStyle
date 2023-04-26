@@ -52,13 +52,14 @@ router.post('/Productos', upload, (req, res) => {
     createProduct(req, res)
 })
 router.put('/Productos/:id', upload, (req, res) => {
-    const image = {
-        name: req.file.filename,
-        type: req.file.mimetype,
-        data: req.file
+    if(req.file){
+        const image = {
+            name: req.file.filename,
+            type: req.file.mimetype,
+            data: req.file
+        }
+        req.body = {...req.body, image}
     }
-    req.body = {...req.body, image}
-
     updateProduct(req, res)
 })
 router.delete('/Productos/:id', deleteProduct)
