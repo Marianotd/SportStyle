@@ -65,6 +65,7 @@ export default function CreateProduct() {
     formData.append('stock', product.stock)
     formData.append('id_brand', product.id_brand)
     formData.append('id_category', product.id_category)
+    formData.append('id_subcategory', product.id_subcategory)
     formData.append('gender', product.gender)
     formData.append('id_image', product.id_image)
     formData.append('is_novelty', product.is_novelty)
@@ -124,14 +125,15 @@ export default function CreateProduct() {
         </select>
 
         <label htmlFor="id_subcategory">SubCategoria</label>
-        <select name="id_subcategory" onChange={inputChangeHandler} value={product.id_subcategory ?? 1} required>
-          {
-            subcategories.map(subcategory => {
-              return(
-                <option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>
-              )
-            })
-          }
+        <select name="id_subcategory" value={product.id_subcategory ?? ""} onChange={inputChangeHandler} required>
+          <option value="" disabled={!product.id_subcategory}>Selecciona una subcategoría</option>
+          {subcategories.map(subcategory => {
+            return (
+              <option key={subcategory.id} value={subcategory.id}>
+                {subcategory.name}
+              </option>
+            )
+          })}
         </select>
 
         <label htmlFor="gender">Genero</label>

@@ -4,12 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Context
 import GeneralContextProvider from './context/GeneralContext';
 // Components
-import Brands from "./components/Brands";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
-import News from "./components/News";
-import Novelty from "./components/Novelty";
-import PageCover from "./components/PageCover";
 import ProductsMenu from "./components/ProductsMenu";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
@@ -23,6 +19,7 @@ import UpdateSubCategory from './components/CRUD/CRUDSubCategorias/UpdateSubCate
 import CreateSubCategory from './components/CRUD/CRUDSubCategorias/CreateSubCategory';
 import UpdateBrand from './components/CRUD/CRUDMarcas/UpdateBrand';
 import CreateBrand from './components/CRUD/CRUDMarcas/CreateBrand';
+import Index from './components/Index';
 
 function App() {
 
@@ -32,15 +29,8 @@ function App() {
         <NavBar />
 
         <Routes>          
-          <Route path="/" element={
-              <>
-                <News />
-                <PageCover />
-                <Novelty />
-                <Brands />
-              </>
-            }
-          />
+          <Route exact path="/" element={<Index/>}/>
+          
           <Route path={`/Productos/`} element={
               <>
                 <ProductsMenu/>

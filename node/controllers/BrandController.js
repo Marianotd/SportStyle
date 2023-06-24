@@ -3,11 +3,17 @@ import { Brand } from "../models/Models.js";
 // Traer todos los registros
 export async function getAllBrands(req, res) {
     try {
-        const brands = await Brand.findAll()
+        const brands = await Brand.findAll();
 
-        res.json(brands)
+        // Verificar si la tabla está vacía y crear un registro por defecto
+        if (brands.length === 0) {
+            await Brand.create({ id: 1, name: "SIN MARCA" });
+        }
+
+        const updatedBrands = await Brand.findAll();
+        res.json(updatedBrands);
     } catch (error) {
-        res.json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
 }
 
@@ -24,30 +30,33 @@ export async function getBrand (req, res) {
 }
 
 // Crear un registro
-export async function createBrand (req, res) {  
-    Brand.create(req.body)
-    .then(data => {
-        res.json(data)
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Ha ocurrido un error al crear la marca."
+export async function createBrand(req, res) {
+    try {
+      const brand = await Brand.create(req.body);
+      res.json(brand);
+    } catch (error) {
+      res.status(500).json({
+        message: error.message || "Ha ocurrido un error al crear la marca.",
       });
-    });
+    }
 }
 
 // Actualizar un registro
-export async function updateBrand (req, res) {
+export async function updateBrand(req, res) {
     try {
-        await Brand.update(req.body, {
-            where: { id: req.params.id }
-        })
-        res.json({
-            'message': '¡Marca actualizada correctamente!'
-        })
+      const [rowsAffected] = await Brand.update(req.body, {
+        where: { id: req.params.id },
+      });
+  
+      if (rowsAffected === 0) {
+        res.status(404).json({ message: "No se encontró la marca para actualizar." });
+      } else {
+        res.json({ message: "¡Marca actualizada correctamente!" });
+      }
     } catch (error) {
-        res.json({ message: error.message })
+      res.status(500).json({
+        message: error.message || "Ha ocurrido un error al actualizar la marca.",
+      });
     }
 }
 

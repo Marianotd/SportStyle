@@ -13,20 +13,22 @@ export default function Select({ route }) {
     getData()
   }, [])
 
-  async function getData(){
-    const res = await readAllRegister(route)
-
-    setData(res)
-  }
-
-  async function deleteData(id){
+  async function getData() {
     try {
-      await deleteRegister(id, route)
+      const res = await readAllRegister(route);
+      setData(res);
     } catch (error) {
       console.error(error);
     }
+  }
 
-    getData()
+  async function handleDelete(id) {
+    try {
+      await deleteRegister(id, route);
+      setData(prevData => prevData.filter(item => item.id !== id));
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -42,8 +44,8 @@ export default function Select({ route }) {
       <table className='table'>
         <thead className='table__head'>
           <tr>
-            <th className='table__head--id'>Id</th>
-            <th className='table__head--name'>Nombre</th>
+            <th className='table__head--id' scope="col">Id</th>
+            <th className='table__head--name' scope="col">Nombre</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -57,7 +59,13 @@ export default function Select({ route }) {
                   <td className='textTd'>{item.name}</td>
                   <td className='actionButtons'>
                     <Link to={`/Usuario/${route}/${item.id}`}><BiEdit/></Link>
-                    <button onClick={() => deleteData(item.id, route)}><HiOutlineTrash/></button>
+                    <button onClick={() => {
+                      if (window.confirm('¿Estás seguro de que deseas eliminar este registro?')) {
+                        handleDelete(item.id);
+                        }
+                      }}>
+                      <HiOutlineTrash/>
+                    </button>
                   </td>
                 </tr>
               )
