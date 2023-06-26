@@ -22,15 +22,6 @@ export default function ItemListContainer() {
         }
     }
 
-    async function deleteProduct(id) {
-        try {
-          await axios.delete(`${URI}/${id}`);
-          getProducts();
-        } catch (error) {
-          console.error('Error al eliminar el producto:', error);
-        }
-    }
-
     let location = useLocation();
 
     return (

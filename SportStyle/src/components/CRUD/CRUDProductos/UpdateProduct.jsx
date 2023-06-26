@@ -19,7 +19,7 @@ export default function UpdateProduct() {
     id_brand: 1,
     id_category: 1,
     id_subcategory: 1,
-    gender: '',
+    gender: 'SIN GENERO',
     id_image: 1,
     is_novelty: 0,
     active: 0
@@ -149,8 +149,8 @@ export default function UpdateProduct() {
         </select>
 
         <label htmlFor="gender">Genero</label>
-        <select name="gender" onChange={inputChangeHandler} value={product.gender ?? ''}>
-          <option value='' disabled>SIN GENERO</option>
+        <select name="gender" onChange={inputChangeHandler} value={product.gender ?? 'Sin genero'}>
+          <option disabled>SIN GENERO</option>
           <option value="Hombre">Hombre</option>
           <option value="Mujer">Mujer</option>
           <option value="Otro">Otro</option>

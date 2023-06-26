@@ -61,7 +61,7 @@ export async function getProduct(req, res) {
 // Crear un registro
 export async function createProduct(req, res, next) {
   try {
-    const image = await Image.create(req.body.image);
+    const image = await Image.create({name: req.file.originalname, type: req.file.mimetype, data: req.file});
     req.body.id_image = image.dataValues.id;
     delete req.body.image;
 
@@ -78,8 +78,23 @@ export async function createProduct(req, res, next) {
 export async function updateProduct(req, res) {
   try {
     if (req.file) {
-      const image = await Image.create(req.body.image);
-      req.body.id_image = image.dataValues.id;
+      // Verificar si ya existe una imagen con el mismo nombre
+      const existingImage = await Image.findOne({
+        where: { name: req.file.originalname },
+      });
+
+      if (existingImage) {
+        req.body.id_image = existingImage.id;
+      } else {
+        // Crear una nueva imagen si no existe
+        const image = await Image.create({
+          name: req.file.originalname,
+          type: req.file.mimetype,
+          data: req.file,
+        });
+        req.body.id_image = image.dataValues.id;
+      }
+
       delete req.body.image;
     }
 
@@ -89,8 +104,7 @@ export async function updateProduct(req, res) {
     res.json(product);
   } catch (error) {
     res.status(500).json({
-      message:
-        error.message || "Ha ocurrido un error al actualizar el producto.",
+      message: error.message || "Ha ocurrido un error al actualizar el producto.",
     });
   }
 }
@@ -99,21 +113,28 @@ export async function updateProduct(req, res) {
 export async function deleteProduct(req, res) {
   try {
     const product = await Product.findOne({ where: { id: req.params.id } });
+
     if (product) {
       const image = await Image.findOne({ where: { id: product.id_image } });
+
+      await product.destroy(); // Eliminar el producto
+
       if (image) {
         const imagePath = path.join(__dirname, `../public/storage/${image.dataValues.name}`);
-        fs.unlinkSync(imagePath); // Eliminar la imagen de la carpeta local
+
+        // Verificar si el archivo de imagen existe antes de intentar eliminarlo
+        if (fs.existsSync(imagePath)) {
+          fs.unlinkSync(imagePath); // Eliminar la imagen de la carpeta local
+        }
 
         await image.destroy(); // Eliminar la imagen de la tabla Image
       }
-      await product.destroy(); // Eliminar el producto
     }
+
     res.json({ message: "El producto ha sido eliminado correctamente." });
   } catch (error) {
     res.status(500).json({
-      message:
-        error.message || "Ha ocurrido un error al eliminar el producto.",
+      message: error.message || "Ha ocurrido un error al eliminar el producto.",
     });
   }
 }
