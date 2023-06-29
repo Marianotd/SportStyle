@@ -30,7 +30,7 @@ export default function ItemSwiper({ data }) {
               <Item
                 key={item.id}
                 id={item.id}
-                img={`http://127.0.0.1:8000/storage/${item.image}`}
+                img={`http://localhost:8000/storage/${item.image}`}
                 name={item.name}
                 price={item.price}
                 category={item.category}>

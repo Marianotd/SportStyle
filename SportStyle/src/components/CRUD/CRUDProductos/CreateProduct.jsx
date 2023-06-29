@@ -9,7 +9,7 @@ export default function CreateProduct() {
   const [brands, setBrands] = useState([])
   const [categories, setCategories] = useState([])
   const [subcategories, setSubcategories] = useState([])
-  const [file, setFile] = useState({})
+  const [file, setFile] = useState()
   const [product, setProduct] = useState({
     name: '',
     description: '',

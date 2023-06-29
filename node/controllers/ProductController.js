@@ -12,29 +12,16 @@ export async function getAllProducts(req, res) {
     const productos = await Product.findAll();
     const images = await Image.findAll();
 
-    const writePromises = images.map((image) => {
-      const filePath = path.join(__dirname, `../public/storage/${image.dataValues.name}`);
-      return fs.promises.writeFile(filePath, image.dataValues.data);
-    });
-
-    await Promise.all(writePromises);
-
     const productosWithImages = productos.map((producto) => {
       const image = images.find((img) => img.id === producto.id_image);
-      const imageName = image ? image.dataValues.name : null;
+      const imageName = image ? image.name : null;
       return {
         ...producto.dataValues,
         image: imageName,
       };
     });
 
-    // Eliminar el campo id_image de cada producto
-    const productosWithoutIdImage = productosWithImages.map((producto) => {
-      delete producto.id_image;
-      return producto;
-    });
-
-    res.json(productosWithoutIdImage);
+    res.json(productosWithImages);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -61,10 +48,14 @@ export async function getProduct(req, res) {
 // Crear un registro
 export async function createProduct(req, res, next) {
   try {
-    const image = await Image.create({name: req.file.originalname, type: req.file.mimetype, data: req.file});
-    req.body.id_image = image.dataValues.id;
+    // Crear la instancia de Image en la base de datos
+    const image = await Image.create({ name: req.file.originalname, type: req.file.mimetype, data: req.file });
+    
+    // Asignar el ID de la imagen al producto
+    req.body.id_image = image.id;
     delete req.body.image;
-
+    
+    // Crear el producto en la base de datos
     const product = await Product.create(req.body);
     res.json(product);
   } catch (error) {
