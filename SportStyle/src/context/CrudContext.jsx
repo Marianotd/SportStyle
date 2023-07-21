@@ -2,9 +2,9 @@ import React, { createContext } from 'react'
 import axios from 'axios'
 
 const URL = 'http://localhost:8000/'
-const generalContext = createContext()
+const crudContext = createContext()
 
-export default function GeneralContextProvider({ children }) {
+export default function CrudContext({ children }) {
 
     async function readAllRegister(route) {
         const res = await axios.get(URL + route + '/')
@@ -29,10 +29,10 @@ export default function GeneralContextProvider({ children }) {
     }
 
   return (
-    <generalContext.Provider value={{ readAllRegister, readRegister, createRegister, updateRegister, deleteRegister }}>
+    <crudContext.Provider value={{ readAllRegister, readRegister, createRegister, updateRegister, deleteRegister }}>
         { children }
-    </generalContext.Provider>
+    </crudContext.Provider>
   )
 }
 
-export { generalContext }
+export { crudContext }

@@ -4,16 +4,23 @@ import { CgMenu } from 'react-icons/cg';
 import { BiUser } from 'react-icons/bi';
 import { RiShoppingCart2Line } from 'react-icons/ri';
 import { Link, useLocation } from 'react-router-dom';
+import LinkList from './LinkList.jsx'
 
 export default function NavBar() {
   const [open, setOpen] = useState('collapsed');
   let location = useLocation();
+  let links = [{id: 1, name: "Inicio", url: '/', class: 'navLink'},
+              {id: 2, name: "Hombre", url: '/Productos/Hombre', class: 'navLink'},
+              {id: 3, name: "Mujer", url: '/Productos/Mujer', class: 'navLink'},
+              {id: 4, name: "Niños", url: '/Productos/Niños', class: 'navLink'},
+              {id: 5, name: "Contacto", url: '/Contacto', class: 'navLink'}
+  ]
 
   useEffect(() => {
     setOpen('collapsed')
   }, [location.pathname])
 
-  function handleMenu(){
+  function handleClick(){
     if(open === 'collapsed'){
       setOpen('')
     } else {
@@ -23,7 +30,7 @@ export default function NavBar() {
 
   return (
     <header>
-      <button onClick={handleMenu} className='navButton'>
+      <button onClick={handleClick} className='navButton'>
         <CgMenu className='navIcon'/>
       </button>
 
@@ -39,11 +46,7 @@ export default function NavBar() {
       </div>
 
       <div className={`navMenu navMenu--${open} `}>
-        <Link to={'/'} className="navLink">Inicio</Link>
-        <Link to={'/Productos/Hombre'} className="navLink">Hombre</Link>
-        <Link to={'/Productos/Mujer'} className="navLink">Mujer</Link>
-        <Link to={'/Productos/Niños'} className="navLink">Niños</Link>
-        <Link to={'/Contacto'} className="navLink">Contacto</Link>
+        <LinkList links={links}/>
       </div>
     </header>
   )

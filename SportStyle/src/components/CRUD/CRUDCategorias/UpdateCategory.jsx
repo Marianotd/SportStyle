@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { MdKeyboardBackspace } from 'react-icons/md';
-import { generalContext } from '../../../context/GeneralContext';
+import { crudContext } from '../../../context/CrudContext';
 
 export default function UpdateCategory() {
-  const { readRegister, updateRegister } = useContext(generalContext)
+  const { readRegister, updateRegister } = useContext(crudContext)
   const navigate = useNavigate()
   const { id } = useParams()
   const [category, setCategory] = useState({

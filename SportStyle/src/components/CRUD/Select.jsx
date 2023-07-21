@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { generalContext } from '../../context/GeneralContext'
+import { crudContext } from '../../context/CrudContext'
 import { Link } from 'react-router-dom'
 import { HiOutlineTrash } from 'react-icons/hi';
 import { BiEdit } from 'react-icons/bi';
@@ -7,7 +7,7 @@ import { MdKeyboardBackspace } from 'react-icons/md';
 
 export default function Select({ route }) {
   const [data, setData] = useState([])
-  const { readAllRegister, deleteRegister } = useContext(generalContext)
+  const { readAllRegister, deleteRegister } = useContext(crudContext)
 
   useEffect(() => {
     getData()

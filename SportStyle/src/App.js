@@ -2,12 +2,12 @@ import './scss/styles.css'
 // Router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Context
-import GeneralContextProvider from './context/GeneralContext';
+import CrudContextProvider from './context/CrudContext';
 // Components
-import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
-import ProductsMenu from "./components/ProductsMenu";
-import ItemListContainer from "./components/ItemListContainer";
+import Index from './components/Index';
+import Products from './components/Products';
+
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import UserMenu from './components/UserMenu';
 import Select from './components/CRUD/Select';
@@ -19,25 +19,21 @@ import UpdateSubCategory from './components/CRUD/CRUDSubCategorias/UpdateSubCate
 import CreateSubCategory from './components/CRUD/CRUDSubCategorias/CreateSubCategory';
 import UpdateBrand from './components/CRUD/CRUDMarcas/UpdateBrand';
 import CreateBrand from './components/CRUD/CRUDMarcas/CreateBrand';
-import Index from './components/Index';
+
+import Footer from "./components/Footer";
+
 
 function App() {
 
   return (
-    <GeneralContextProvider>
+    <CrudContextProvider>
       <Router>
         <NavBar />
 
         <Routes>          
           <Route exact path="/" element={<Index/>}/>
           
-          <Route path={`/Productos/`} element={
-              <>
-                <ProductsMenu/>
-                <ItemListContainer/>
-              </>
-            }
-          />
+          <Route path={`/Productos/`} element={<Products/>}/>
           <Route path={`/Productos/:id`} element={<ItemDetailContainer/>}/>
 
           <Route path={`/Usuario`} element={<UserMenu/>}/>
@@ -60,7 +56,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-    </GeneralContextProvider>
+    </CrudContextProvider>
   );
 }
 

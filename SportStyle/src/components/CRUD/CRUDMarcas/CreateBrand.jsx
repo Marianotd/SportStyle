@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { MdKeyboardBackspace } from 'react-icons/md';
-import { generalContext } from '../../../context/GeneralContext';
+import { crudContext } from '../../../context/CrudContext';
 
 export default function CreateBrand() {
-  const { createRegister, readAllRegister } = useContext(generalContext)
+  const { createRegister, readAllRegister } = useContext(crudContext)
   const navigate = useNavigate()
   const [brand, setBrand] = useState({
     name: ''

@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { MdKeyboardBackspace } from 'react-icons/md';
-import { generalContext } from '../../../context/GeneralContext';
+import { crudContext } from '../../../context/CrudContext';
 
 export default function UpdateProduct() {
-  const { readAllRegister, readRegister, updateRegister } = useContext(generalContext)
+  const { readAllRegister, readRegister, updateRegister } = useContext(crudContext)
   const { id } = useParams()
   const navigate = useNavigate()
   const [brands, setBrands] = useState([])
