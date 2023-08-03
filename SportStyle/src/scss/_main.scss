@@ -434,9 +434,28 @@ header {
 
 // USER MENU
 .userMenu {
-    @extend %flexColumn;
+    @extend %flexRow;
+    flex-wrap: wrap;
 
-    a {
+    padding: 1rem;
+
+    h2 {
+        width: 90%;
+    }
+
+    .userNavIcon {
+        color: #000;
+        font-size: 1.8rem;
+        margin: auto;
+        transition: all ease .5s;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .userMenuLink {
         width: 100%;
         text-align: center;
         color: #000;
@@ -444,6 +463,8 @@ header {
         border-bottom: 1px solid #ccc;
     } 
 }
+
+
 
 // TABLES
 .tableContainer {

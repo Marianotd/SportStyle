@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Context
 import CrudContextProvider from './context/CrudContext';
 // Components
-import NavBar from "./components/NavBar";
-import Index from './components/Index';
+import NavBar from "./components/Sections/NavBar";
+import Index from './components/Sections/Index';
 import Products from './components/Products';
 
 import ItemDetailContainer from "./components/ItemDetailContainer";
-import UserMenu from './components/UserMenu';
+import UserMenu from './components/Sections/UserMenu';
 import Select from './components/CRUD/Select';
 import UpdateProduct from './components/CRUD/CRUDProductos/UpdateProduct';
 import CreateProduct from './components/CRUD/CRUDProductos/CreateProduct';
@@ -32,11 +32,13 @@ function App() {
 
         <Routes>          
           <Route exact path="/" element={<Index/>}/>
+
+          <Route path={`/Usuario`} element={<UserMenu/>}/>
           
           <Route path={`/Productos/`} element={<Products/>}/>
           <Route path={`/Productos/:id`} element={<ItemDetailContainer/>}/>
 
-          <Route path={`/Usuario`} element={<UserMenu/>}/>
+          
           <Route path={`/Usuario/Productos`} element={<Select route={'Productos'}/>}/>
           <Route path={`/Usuario/Productos/Nuevo`} element={<CreateProduct/>}/>
           <Route path={`/Usuario/Productos/:id`} element={<UpdateProduct/>}/>

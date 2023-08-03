@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Logo from './Logo.jsx'
+import Logo from '../Logo.jsx'
 import { CgMenu } from 'react-icons/cg';
 import { BiUser } from 'react-icons/bi';
 import { RiShoppingCart2Line } from 'react-icons/ri';
 import { Link, useLocation } from 'react-router-dom';
-import LinkList from './LinkList.jsx'
+import LinkList from '../LinkList.jsx'
 
 export default function NavBar() {
   const [open, setOpen] = useState('collapsed');
