@@ -7,16 +7,28 @@ import { MdKeyboardBackspace } from 'react-icons/md';
 
 export default function Select({ route }) {
   const [data, setData] = useState([])
+  const [search, setSearch] = useState()
   const { readAllRegister, deleteRegister } = useContext(crudContext)
 
   useEffect(() => {
     getData()
-  }, [])
+  }, [ search ])
 
   async function getData() {
     try {
       const res = await readAllRegister(route);
-      setData(res);
+
+      if(search){
+        const searchLower = search.toLowerCase();
+  
+        const itemFilter = res.filter((item) => {
+          const nameLower = item.name.toLowerCase();
+          return nameLower.includes(searchLower);
+        });
+        setData(itemFilter);
+      } else {
+        setData(res);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -31,11 +43,17 @@ export default function Select({ route }) {
     }
   }
 
+  function handleChange(e){
+    setSearch(e.target.value)
+  }
+
   return (
     <div className='tableContainer'>
       <Link className='backButton' to={'/Usuario'}><MdKeyboardBackspace/> <span>Volver atrás</span></Link>
 
       <h2 className='sectionTitle'>{route}</h2>
+
+      <input type="search" className='filter' onChange={handleChange} placeholder={`Buscar ${route}...`}></input>
 
       <div className='LinkContainer'>
         <Link className='button' to={`/Usuario/${route}/Nuevo`}>Nuevo registro</Link>

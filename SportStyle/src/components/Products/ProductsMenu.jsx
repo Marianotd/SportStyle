@@ -1,5 +1,5 @@
 import React from 'react'
-import PageCover from './PageCover'
+import PageCover from '../Sections/PageCover'
 import ProductsFilterForm from './ProductsFilterForm'
 import ProductsSortForm from './ProductsSortForm'
 

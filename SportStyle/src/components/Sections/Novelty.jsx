@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemListContainer from './ItemListContainer'
+import ItemListContainer from '../Items/ItemListContainer'
 import SectionTitle from './SectionTitle'
 
 export default function Novelty() {

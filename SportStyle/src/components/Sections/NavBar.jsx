@@ -9,11 +9,12 @@ import LinkList from '../LinkList.jsx'
 export default function NavBar() {
   const [open, setOpen] = useState('collapsed');
   let location = useLocation();
-  let links = [{id: 1, name: "Inicio", url: '/', class: 'navLink'},
-              {id: 2, name: "Hombre", url: '/Productos/Hombre', class: 'navLink'},
-              {id: 3, name: "Mujer", url: '/Productos/Mujer', class: 'navLink'},
-              {id: 4, name: "Niños", url: '/Productos/Niños', class: 'navLink'},
-              {id: 5, name: "Contacto", url: '/Contacto', class: 'navLink'}
+  let links = [
+    {id: 1, name: "Inicio", url: '/', class: 'navLink'},
+    {id: 2, name: "Hombre", url: '/Productos/Hombre', class: 'navLink'},
+    {id: 3, name: "Mujer", url: '/Productos/Mujer', class: 'navLink'},
+    {id: 4, name: "Niños", url: '/Productos/Niños', class: 'navLink'},
+    {id: 5, name: "Contacto", url: '/Contacto', class: 'navLink'}
   ]
 
   useEffect(() => {

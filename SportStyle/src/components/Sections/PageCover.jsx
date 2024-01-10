@@ -1,5 +1,4 @@
 import React from 'react'
-import Novelty from './Novelty'
 
 export default function PageCover() {
     let title = 'Al rihla'

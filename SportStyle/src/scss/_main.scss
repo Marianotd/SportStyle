@@ -490,6 +490,40 @@ header {
             letter-spacing: 1px;
         }
     }
+
+    .filter {
+        display: flex;
+
+		width: 80%;
+        max-width: 375px;
+		padding: .6rem .3rem .6rem 1rem;
+		margin: 2rem auto;
+
+		border: 2px solid #037394;
+		border-radius: 25px;
+
+		color: rgb(73, 73, 73);
+
+		outline: none;
+        transition: all ease .2s;
+
+		&:focus, &:hover {
+			border-color: rgba($color: #037394, $alpha: .5);
+		}
+
+		&::-webkit-search-cancel-button {
+			appearance: none;
+			background-image: url('/public/assets/4115230-cancel-close-cross-delete_114048.svg');
+			width: 20px;
+			height: 20px;
+			cursor: pointer;
+			opacity: .5;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+    }
     
     .table {
         width: 100%;

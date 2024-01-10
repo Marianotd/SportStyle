@@ -1,6 +1,6 @@
 import React from 'react'
 import Brand from './Brand'
-import SectionTitle from './SectionTitle'
+import SectionTitle from '../Sections/SectionTitle'
 
 export default function Brands() {
     const marcas = [
