@@ -109,52 +109,54 @@ export default function UpdateProduct() {
         <label htmlFor="description">Descripción</label>
         <input type="text" name='description' value={product.description ?? ''} onChange={inputChangeHandler}/>
 
-        <label htmlFor="price">Precio</label>
-        <input type="number" name='price' value={product.price ?? ''} onChange={inputChangeHandler}/>
+        <div className='inputContainer'>
+          <label htmlFor="price">Precio</label>
+          <label htmlFor="stock">Stock</label>
+          
+          <input type="number" name='price' value={product.price ?? ''} onChange={inputChangeHandler}/>
+          <input type="number" name='stock' value={product.stock ?? ''} onChange={inputChangeHandler}/>
 
-        <label htmlFor="stock">Stock</label>
-        <input type="number" name='stock' value={product.stock ?? ''} onChange={inputChangeHandler}/>
+          <label htmlFor="id_brand">Marca</label>
+          <select name="id_brand" onChange={inputChangeHandler} value={product.id_brand ?? 1} required>
+            {
+              brands.map(brand => {
+                return(
+                  <option key={brand.id} value={brand.id} >{brand.name}</option>
+                )
+              })
+            }
+          </select>
 
-        <label htmlFor="id_brand">Marca</label>
-        <select name="id_brand" onChange={inputChangeHandler} value={product.id_brand ?? 1} required>
-          {
-            brands.map(brand => {
-              return(
-                <option key={brand.id} value={brand.id} >{brand.name}</option>
-              )
-            })
-          }
-        </select>
+          <label htmlFor="id_category">Categoria</label>
+          <select name="id_category" onChange={inputChangeHandler} value={product.id_category ?? 1} required>
+            {
+              categories.map(category => {
+                return(
+                  <option key={category.id} value={category.id}>{category.name}</option>
+                )
+              })
+            }
+          </select>
 
-        <label htmlFor="id_category">Categoria</label>
-        <select name="id_category" onChange={inputChangeHandler} value={product.id_category ?? 1} required>
-          {
-            categories.map(category => {
-              return(
-                <option key={category.id} value={category.id}>{category.name}</option>
-              )
-            })
-          }
-        </select>
+          <label htmlFor="id_subcategory">SubCategoria</label>
+          <select name="id_subcategory" onChange={inputChangeHandler} value={product.id_subcategory ?? 1} required>
+            {
+              subcategories.map(subcategory => {
+                return(
+                  <option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>
+                )
+              })
+            }
+          </select>
 
-        <label htmlFor="id_subcategory">SubCategoria</label>
-        <select name="id_subcategory" onChange={inputChangeHandler} value={product.id_subcategory ?? 1} required>
-          {
-            subcategories.map(subcategory => {
-              return(
-                <option key={subcategory.id} value={subcategory.id}>{subcategory.name}</option>
-              )
-            })
-          }
-        </select>
-
-        <label htmlFor="gender">Genero</label>
-        <select name="gender" onChange={inputChangeHandler} value={product.gender ?? 'Sin genero'}>
-          <option disabled>SIN GENERO</option>
-          <option value="Hombre">Hombre</option>
-          <option value="Mujer">Mujer</option>
-          <option value="Otro">Otro</option>
-        </select>
+          <label htmlFor="gender">Genero</label>
+          <select name="gender" onChange={inputChangeHandler} value={product.gender ?? 'Sin genero'}>
+            <option disabled>SIN GENERO</option>
+            <option value="Hombre">Hombre</option>
+            <option value="Mujer">Mujer</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
 
         <label htmlFor="image">Imagen</label>
         <input type="file" name='image' onChange={inputFileChangeHandler}/>

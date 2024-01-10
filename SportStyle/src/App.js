@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Context
 import CrudContextProvider from './context/CrudContext';
 // Components
-import NavBar from "./components/Sections/NavBar";
+import NavBar from "./components/Common/NavBar";
 import Index from './components/Sections/Index';
 import Products from './components/Products/Products';
 import ItemDetailContainer from "./components/Items/ItemDetailContainer";
-import UserMenu from './components/Sections/UserMenu';
+import UserMenu from './components/User/UserMenu';
 import Select from './components/CRUD/Select';
 import UpdateProduct from './components/CRUD/CRUDProductos/UpdateProduct';
 import CreateProduct from './components/CRUD/CRUDProductos/CreateProduct';
@@ -18,7 +18,7 @@ import UpdateSubCategory from './components/CRUD/CRUDSubCategorias/UpdateSubCate
 import CreateSubCategory from './components/CRUD/CRUDSubCategorias/CreateSubCategory';
 import UpdateBrand from './components/CRUD/CRUDMarcas/UpdateBrand';
 import CreateBrand from './components/CRUD/CRUDMarcas/CreateBrand';
-import Footer from "./components/Sections/Footer";
+import Footer from "./components/Common/Footer";
 
 
 function App() {

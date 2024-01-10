@@ -339,6 +339,7 @@ header {
     text-align: center;
 
     width: 35%;
+    max-width: 250px;
     padding: .5rem 0;
 
     border: 1px solid #037394;
@@ -647,7 +648,7 @@ header {
         @extend %flexRow;
         flex-flow: row wrap;
 
-        label, input {
+        label, input, select {
             width: 50%;
             margin-bottom: 1rem;
         }

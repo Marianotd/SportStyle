@@ -12,12 +12,12 @@ export default function UserMenu() {
     {id: 5, name: "Volver al inicio", url: '/', class: 'userMenuLink'}
   ]
 
-  let usuario = 'Mariano'
+  let usuario = 'Administrador'
   
   return (
     <section className='userMenu'>
 
-      <h2>Hola, {usuario}!</h2>
+      <h2>{usuario}</h2>
       <Link to={'/'} className='userNavIcon'><AiOutlineClose/></Link>
       
       <div className='userAdminLinks'>
