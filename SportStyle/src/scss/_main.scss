@@ -23,10 +23,12 @@
 
 // HEADER
 header {
+    position: relative;
     width: 100%;
     padding: .85rem 0 .5rem 0;
     overflow: hidden;
     background: #037394;
+    // color: #222222;
 
     @extend %flexRow;
     flex-flow: row wrap;
@@ -122,6 +124,53 @@ header {
                 color: #000;
             }
         }
+    }
+    
+    /* DRAWER */
+    .drawer {
+        z-index: 100;
+        top: 96px;
+        background-color: #037394;
+        transition: left 0.5s;
+    }  
+    
+    .drawer .listItem {
+        padding: .5rem 1rem;
+    }
+    
+    .drawer .listItem span {
+        font-size: 18px;
+        font-weight: 700;
+        color: #FAFAFA;
+        font-family: 'Nunito', sans-serif;
+    }
+    
+    .drawer .listItem--light span {
+        font-size: 18px;
+        font-weight: 400;
+        font-style: italic;
+        color: #FAFAFA;
+        font-family: 'Nunito', sans-serif;
+    }
+    
+    .drawer .listItem--admin span {
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 20px;
+        color: #FAFAFA;
+        font-family: 'Nunito', sans-serif;
+    }
+    
+    .drawer .listItem--sm span {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 20px;
+        color: #FAFAFA;
+        font-family: 'Nunito', sans-serif;
+    }
+    
+    .hidden {
+        display: none;
     }
 }
 

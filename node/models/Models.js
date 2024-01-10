@@ -34,19 +34,19 @@ const Image = db.define('images', {
     data: { type: DataTypes.BLOB('long') }
 });
 
-Category.hasMany(SubCategory, {foreignKey: "id_category"})
-SubCategory.belongsTo(Category, {foreignKey: 'id'})
+// Category.hasMany(SubCategory, {foreignKey: "id_category"})
+// SubCategory.belongsTo(Category, {foreignKey: 'id'})
 
-Category.hasMany(Product, {foreignKey: 'id'})
-Product.belongsTo(Category, {foreignKey: 'id_category'})
+// Category.hasMany(Product, {foreignKey: 'id'})
+// Product.belongsTo(Category, {foreignKey: 'id_category'})
 
-SubCategory.hasMany(Product, {foreignKey: 'id'})
-Product.belongsTo(SubCategory, {foreignKey: 'id_subcategory'})
+// SubCategory.hasMany(Product, {foreignKey: 'id'})
+// Product.belongsTo(SubCategory, {foreignKey: 'id_subcategory'})
 
-Brand.hasMany(Product, { foreignKey: 'id_brand' });
-Product.belongsTo(Brand, { foreignKey: 'id_brand' });
+// Brand.hasMany(Product, { foreignKey: 'id_brand' });
+// Product.belongsTo(Brand, { foreignKey: 'id_brand' });
 
-Image.hasMany(Product, { foreignKey: 'id_image' });
-Product.belongsTo(Image, { foreignKey: 'id_image' });
+// Image.hasMany(Product, { foreignKey: 'id_image' });
+// Product.belongsTo(Image, { foreignKey: 'id_image' });
 
 export {Product, Brand, Category, SubCategory, Image}

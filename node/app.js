@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, '/public/')))
 try {
     await db.authenticate()
     console.log('Conexión exitosa a la base de datos')
-    db.sync({alter: true})
+    // db.sync({alter: true})
 } catch (error) {
     console.log(`Error de conexión a la base de datos: ${error}`)
 }

@@ -3,36 +3,28 @@ import Logo from '../Logo.jsx'
 import { CgMenu } from 'react-icons/cg';
 import { BiUser } from 'react-icons/bi';
 import { RiShoppingCart2Line } from 'react-icons/ri';
+import { VscClose } from "react-icons/vsc";
 import { Link, useLocation } from 'react-router-dom';
-import LinkList from '../LinkList.jsx'
+import Drawer from './Drawer.jsx';
 
 export default function NavBar() {
-  const [open, setOpen] = useState('collapsed');
-  let location = useLocation();
-  let links = [
-    {id: 1, name: "Inicio", url: '/', class: 'navLink'},
-    {id: 2, name: "Hombre", url: '/Productos/Hombre', class: 'navLink'},
-    {id: 3, name: "Mujer", url: '/Productos/Mujer', class: 'navLink'},
-    {id: 4, name: "Niños", url: '/Productos/Niños', class: 'navLink'},
-    {id: 5, name: "Contacto", url: '/Contacto', class: 'navLink'}
-  ]
+  const [menu, setMenu] = useState(false)
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    setOpen('collapsed')
-  }, [location.pathname])
+    setMenu(false)
+  }, [ pathname ])
 
-  function handleClick(){
-    if(open === 'collapsed'){
-      setOpen('')
-    } else {
-      setOpen('collapsed')
-    }
+  function handleMenu(){
+    const newMenu = !menu
+    setMenu(newMenu)
   }
 
   return (
     <header>
-      <button onClick={handleClick} className='navButton'>
+      <button onClick={handleMenu} className='navButton'>
         <CgMenu className='navIcon'/>
+        <VscClose className='navIcon' />
       </button>
 
       <Logo />
@@ -46,9 +38,7 @@ export default function NavBar() {
           </Link>
       </div>
 
-      <div className={`navMenu navMenu--${open} `}>
-        <LinkList links={links}/>
-      </div>
+      <Drawer active={menu}/>
     </header>
   )
 }

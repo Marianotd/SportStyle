@@ -1,5 +1,5 @@
 import React from 'react'
-import LinkList from '../LinkList'
+import LinkList from '../Common/LinkList'
 import { Link } from 'react-router-dom'
 import { AiOutlineClose } from 'react-icons/ai'
 
