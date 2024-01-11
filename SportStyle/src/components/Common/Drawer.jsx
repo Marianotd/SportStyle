@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom'
 export default function Drawer({ active }) {
     const [heightDrawer, setHeightDrawer] = useState(window.innerHeight)
     const [widthDrawer, setWidthDrawer] = useState(window.innerWidth)
-    const drawerClasses = active ? 'drawer drawer--visible' : 'drawer';
 
     const listItems = [
         { text: 'Productos', link: 'productos' },
-        { text: 'Productos2', link: 'productos' },
-        { text: 'Productos3', link: 'productos' },
-        { text: 'Productos4', link: 'productos' },
-        { text: 'Productos5', link: 'productos' },
-        { text: 'Productos6', link: 'productos' }
+        { text: 'Hombre', link: 'hombre' },
+        { text: 'Mujer', link: 'mujer' },
+        { text: 'Niños', link: 'niños' },
+        { text: 'Nosotros', link: 'nosotros' },
+        { text: 'Contacto', link: 'contacto' },
+        { text: 'Iniciar Sesión', link: 'login', size: 'small' },
+        { text: 'Registrarse', link: 'register', size: 'small' }
     ]
 
     const drawerStyleVisible = {
@@ -29,33 +30,19 @@ export default function Drawer({ active }) {
 
     useEffect(() => {
         setHeightDrawer(window.innerHeight)
-        const width = window.innerWidth * 0.717
+        const width = window.innerWidth * 0.6
         setWidthDrawer(width)
     }, [ window.innerHeight, window.innerWidth, active ])    
 
-
   return (
-    <div className={drawerClasses} style={active ? drawerStyleVisible : drawerStyleInvisible}>
-        <div>
-            { listItems.map(item => {
-                return(
-                    <div className={
-                            item.text.length > 20 
-                                ? 'listItem listItem--light' 
-                                : 'listItem'
-                        } 
-                        
-                        key={item.text} 
-                        disablePadding
-                    >
-                        
-                        <Link to={`/${item.link}`}>
-                            <div primary={item.text}/>
-                        </Link>
-                    </div>
-                )
-            })}
-        </div>
+    <div className={'drawer'} style={active ? drawerStyleVisible : drawerStyleInvisible}>
+        { listItems.map(item => {
+            return(
+                <Link to={`/${item.link}`} className={item.size != 'small' ? 'listItem' : 'listItem listItem--small'} key={item.text}>
+                    {item.text}
+                </Link>
+            )
+        })}
     </div>
   )
 }

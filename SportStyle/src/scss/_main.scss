@@ -21,14 +21,20 @@
     align-items: center;
 }
 
+body {
+    position: relative;
+}
+
 // HEADER
 header {
-    position: relative;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+
     width: 100%;
+    height: 96px;
     padding: .85rem 0 .5rem 0;
-    overflow: hidden;
     background: #037394;
-    // color: #222222;
 
     @extend %flexRow;
     flex-flow: row wrap;
@@ -40,13 +46,43 @@ header {
         flex-flow: row nowrap;
     }
 
-    .navButton {
-        background: none;
-        border: none;
+    /* MENU BUTTON */
+    .menu-activador {
+        position: relative;
+        width: 24px;
+        height: 24px;
+    }
 
-        @media all and (min-width: 768px){
-            display: none;
+    #lanzador {
+        position: absolute;
+        opacity: 0;
+    }
+
+    #lanzador:checked ~ label .menu-activador-linea {
+        &:nth-child(1){
+            transform: translateY(11px) rotate(45deg);
         }
+        &:nth-child(2){
+            opacity: 0;
+        }
+        &:nth-child(3){
+            transform: translateY(-11px)rotate(-45deg);
+        }    
+    }
+
+    .menu-activador label {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;  
+        cursor: pointer;
+    } 
+
+    .menu-activador .menu-activador-linea {
+        height: 2px;
+        background-color: #fff;
+        transform: translateY(0) rotate(0);
+        transition: all ease 0.4s;
     }
 
     .navIcon {
@@ -128,50 +164,28 @@ header {
     
     /* DRAWER */
     .drawer {
+        position: fixed;
         z-index: 100;
         top: 96px;
-        background-color: #037394;
+        background-color: rgba($color: #037394, $alpha: .95);
         transition: left 0.5s;
-    }  
-    
-    .drawer .listItem {
-        padding: .5rem 1rem;
-    }
-    
-    .drawer .listItem span {
-        font-size: 18px;
-        font-weight: 700;
-        color: #FAFAFA;
-        font-family: 'Nunito', sans-serif;
-    }
-    
-    .drawer .listItem--light span {
-        font-size: 18px;
-        font-weight: 400;
-        font-style: italic;
-        color: #FAFAFA;
-        font-family: 'Nunito', sans-serif;
-    }
-    
-    .drawer .listItem--admin span {
-        font-size: 22px;
-        font-weight: 700;
-        line-height: 20px;
-        color: #FAFAFA;
-        font-family: 'Nunito', sans-serif;
-    }
-    
-    .drawer .listItem--sm span {
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 20px;
-        color: #FAFAFA;
-        font-family: 'Nunito', sans-serif;
-    }
-    
-    .hidden {
-        display: none;
-    }
+
+        display: flex;
+        flex-direction: column;
+        padding: .5rem 0;
+
+        .listItem {
+            padding: .7rem 0 .5rem 2rem;
+            color: #FAFAFA;
+            font-size: 18px;
+            letter-spacing: 3px;
+            line-height: 20px;
+
+            &--small {
+                font-size: 14px;
+            }
+        }
+    } 
 }
 
 // LOGO
@@ -193,7 +207,7 @@ header {
 .newsContainer {
     position: sticky;
     z-index: 5;
-    top: 0;
+    top: 96px;
 
     width: 100%;
     padding: .75rem;
