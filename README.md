@@ -1,2 +1,0 @@
-# SportStyle
-Proyecto CoderHouse
